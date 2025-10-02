@@ -1,3 +1,4 @@
+import { cn } from '../../utils/cn';
 import classes from './Item.module.css'
 
 export type ItemProps = {
@@ -15,10 +16,10 @@ const { title, img, desc, price} = props;
     return (
         <div className={classes.item}>
             <img src={img} alt={title} className={classes.img} />
-            <h2>{title}</h2>
-            <p>{desc}</p>
-            <p>{price}pln</p>
-            <div  className="add-to-cart">+</div>
+            <h2 className={classes.text} >{title}</h2>
+            <p className={classes.text}>{desc}</p>
+            <p className={classes.price}>{price}pln</p>
+            <div  className={cn(classes.addToCard)}>+</div>
         </div>
     )
 }

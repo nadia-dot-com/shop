@@ -2,8 +2,47 @@
     width: 30%;
     margin-bottom: 50px;
     background-color: #f5f5f5;
+    overflow: hidden;
+    position: relative;
 }
 
 .img {
     width: 100%;
+    border-radius: 10px 10px 0 0;
+    transition: transform 500ms ease;
+}
+
+.img:hover {
+    transform: scale(1.05);
+}
+
+.text {
+    margin: 10px 20px;
+    color: #333;
+}
+
+.price {
+    margin: 20px 20px;
+    color: #5fa36a;
+    font-weight: 600;
+}
+
+.addToCard {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    background: #ca5252;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 500ms ease;
+}
+
+.addToCard:hover {
+    transform: scale(1.5) translateY(-5px)
 }
