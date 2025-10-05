@@ -1,13 +1,16 @@
 import { Menu } from "./Menu";
+import { StyledLink } from "./StyledLink/StyledLink";
+
+import classes from './Header.module.css';
 
 export default function Header() {
     return (
         <header>
             <div>
-                <span className="logo">House Staff</span>
-                <Menu />
+                <StyledLink to={'/house-staff'} className={classes.logo}>House Staff</StyledLink>
+                <Menu />             
             </div>
-            <div className="presentation"></div>
+            <div className={classes.presentation}></div>
         </header>
     )
 }

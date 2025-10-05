@@ -1,0 +1,16 @@
+.shopingCard {
+    display: inline;
+    margin-left: 25px;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    float: right;
+    cursor: pointer;
+    transition: color 500ms ease;
+}
+
+.active,
+.shopingCard:hover {
+    color: #dc3d3d;
+}
+
