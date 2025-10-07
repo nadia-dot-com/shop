@@ -13,6 +13,10 @@ body {
   font-weight: 300;
 }
 
+header {
+    position: relative;
+}
+
 footer {
   text-align: center;
   left: 100px;

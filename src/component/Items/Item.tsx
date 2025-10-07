@@ -1,14 +1,6 @@
 import { cn } from '../../utils/cn';
 import classes from './Item.module.css'
-
-export type ItemProps = {
-    id: number;
-    title: string;
-    img: string;
-    desc: string;
-    category: string;
-    price: string;
-}
+import type { ItemProps } from '../../types/types';
 
 export function Item(props: ItemProps) {
 const { title, img, desc, price} = props;

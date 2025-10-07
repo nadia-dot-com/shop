@@ -1,5 +1,5 @@
 import { Item } from "./Item";
-import type { ItemProps } from "./Item";
+import type { ItemProps } from "../../types/types";
 
 import classes from './Items.module.css';
 

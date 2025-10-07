@@ -1,6 +1,6 @@
-import type { ItemProps } from "../../component/Items/Item";
+import type { ItemProps } from "../../types/types" 
 
-export const items: ItemProps[] = [
+export const INITIAL_ITEMS: ItemProps[] = [
     {
         id: 1,
         title: 'Krzesło bambus',

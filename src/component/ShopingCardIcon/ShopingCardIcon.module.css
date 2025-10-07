@@ -1,4 +1,4 @@
-.shopingCard {
+.shopingCardIcon {
     display: inline;
     margin-left: 25px;
     color: black;
@@ -6,11 +6,12 @@
     cursor: pointer;
     float: right;
     cursor: pointer;
-    transition: color 500ms ease;
+    transition: color, transform 500ms ease;
 }
 
 .active,
-.shopingCard:hover {
+.shopingCardIcon:hover {
     color: #dc3d3d;
+    transform: scale(1.5);
 }
 
