@@ -1,9 +1,11 @@
 import { StyledLink } from "../StyledLink/StyledLink";
 import classes from './Menu.module.css'
 import { ShopingCardIcon } from "../ShopingCardIcon/ShopingCartIcon";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
+import { useShopContext } from "../../context/ShopContext";
 
 export function Menu() {
+    const {isOrderOpen} = useShopContext();
     return (
         <nav>
             <ul className={classes.nav} >
@@ -12,11 +14,9 @@ export function Menu() {
                 <li><StyledLink to={'moje-konto'}>Moje Konto</StyledLink></li>
                 <li><StyledLink to={'products'}>Producty</StyledLink></li>
                 <li>
-                    <NavLink to={'shoping-card'}>
-                        {({ isActive }) => (
-                            <ShopingCardIcon active={isActive} />
-                        )}
-                    </NavLink>
+                    
+                            <ShopingCardIcon active={isOrderOpen} />
+                     
                 </li>
             </ul>
         </nav>

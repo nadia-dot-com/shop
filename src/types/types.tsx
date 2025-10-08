@@ -12,4 +12,6 @@ export type ShopContextValue = {
     order: ItemProps[];
     addToOrder: (item: ItemProps)=> void;
     removeFromOrder: (item: ItemProps)=> void;
+    isOrderOpen: boolean;
+    toggleOrder: ()=> void;
 };
