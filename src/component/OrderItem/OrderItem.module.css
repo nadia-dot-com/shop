@@ -28,21 +28,15 @@
 }
 
 .removeFromCard {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-    background: #a9a4a4ff;
-    width: 35px;
-    height: 35px;
-    text-align: center;
-    line-height: 35px;
-    color: #f4efefff;
-    border-radius: 50%;
+    float: right;
+    position: relative;
+    top: -25px;
+    color: #ca5252;
     cursor: pointer;
-    font-weight: 600;
-    transition: transform 500ms ease;
+    transition: color, transform 500ms ease;
 }
 
 .removeFromCard:hover {
-    transform: scale(1.05) translateY(-2px)
+    color: #d83030;
+    transform: scale(1.25) translateY(-2px)
 }

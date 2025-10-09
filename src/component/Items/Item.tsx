@@ -12,7 +12,7 @@ export function Item(props: ItemProps) {
             <img src={img} alt={title} className={classes.img} />
             <h2 className={classes.text} >{title}</h2>
             <p className={classes.text}>{desc}</p>
-            <p className={classes.price}>{price}pln</p>
+            <p className={classes.price}>{Number(price).toFixed(2)} PLN</p>
             <div className={cn(classes.addToCard)} onClick={() => addToOrder(props)}>+</div>
         </div>
     )

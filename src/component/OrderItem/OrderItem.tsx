@@ -2,6 +2,7 @@
 import classes from './OrderItem.module.css'
 import type { ItemProps } from '../../types/types';
 import { useShopContext } from '../../context/ShopContext';
+import { FaTrash } from "react-icons/fa6";
 
 export function OrderItem(props: ItemProps) {
     const { title, img, price } = props;
@@ -11,8 +12,8 @@ export function OrderItem(props: ItemProps) {
         <div className={classes.orderItem}>
             <img src={img} alt={title} className={classes.img} />
             <h2 className={classes.text} >{title}</h2>
-            <p className={classes.price}>{price}pln</p>
-            <div className={classes.removeFromCard} onClick={() => removeFromOrder(props)}>-</div>
+            <p className={classes.price}>{Number(price).toFixed(2)} PLN</p>
+            <FaTrash className={classes.removeFromCard} onClick={() => removeFromOrder(props)}>-</FaTrash>
         </div>
     )
 }

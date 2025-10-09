@@ -7,19 +7,24 @@ import { INITIAL_ITEMS } from "../data/items/items";
 export const ShopContext = createContext<ShopContextValue | undefined>(undefined);
 
 export function ShopProvider({ children }: { children: ReactNode }) {
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [items, setItems] = useState<ItemProps[]>(INITIAL_ITEMS);
     const [order, setOrder] = useState<ItemProps[]>([]);
     const [isOrderOpen, setIsOpen] = useState<boolean>(false);
 
     const addToOrder = (item: ItemProps) => {
-        setOrder((prev) => [...prev, { ...item }]);
-        setItems((prev) =>
-            prev.filter((i) => i.id != item.id)
-        );
+        const isInArray = order.some(i => i.id === item.id);
+
+        if(!isInArray)
+        setOrder((prev) => [...prev,  item ]);
+        // setItems((prev) =>
+        //     prev.filter((i) => i.id != item.id)
+        // );
     }
 
     const removeFromOrder = (item: ItemProps) => {
-        setItems((prev) => [...prev, { ...item }]);
+        // setItems((prev) => [...prev, { ...item }]);
         setOrder((prev) =>
             prev.filter((i) => i.id != item.id)
         )

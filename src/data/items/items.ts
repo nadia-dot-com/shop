@@ -43,18 +43,18 @@ export const INITIAL_ITEMS: ItemProps[] = [
     },
     {
         id: 5,
-        title: 'Krzesło czarne',
+        title: 'Stół czarny',
         img: '/img/5.png',
         desc: `Stylowe i ekologiczne krzesło wykonane 
         z naturalnego bambusa. Lekkie, trwałe i idealne do 
         każdego salonu lub biura. Łączy nowoczesny design z naturalnymi 
         materiałami, zapewniając wygodne siedzenie.`,
-        category: 'Krzesła',
-        price: '100',
+        category: 'Stoliki i stoły',
+        price: '100.50',
     },
     {
         id: 6,
-        title: 'Krzesło czarne',
+        title: 'Krzesło białe',
         img: '/img/6.png',
         desc: `Stylowe i ekologiczne krzesło wykonane 
         z naturalnego. Lekkie, trwałe i idealne do 
