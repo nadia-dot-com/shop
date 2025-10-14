@@ -1,0 +1,94 @@
+.fullItem {
+    /* max-width: 1000px; */
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.img {
+    width: 100%;
+    border-radius: 10px 10px;
+    transition: transform 500ms ease;
+    cursor: pointer;
+}
+
+.img:hover {
+    transform: scale(1.05);
+}
+
+.closeBth {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+    color: #7c7b7bff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 0px;
+    transition: all 0.2s ease;
+    /* border: 1px solid  #ccc; */
+    z-index: 10;
+
+    
+}
+
+.closeBth:hover {
+    border: 1px solid  #ccc; /* 👈 тепер просто міняється колір */
+    background-color: #f8f8f8;
+}
+
+.container {
+    position: relative;
+}
+
+.title {
+    font-size: 25px;
+    margin: 10px 20px;
+    color: #333;
+    cursor: pointer;
+    transition: text-decoration 500ms ease;
+}
+
+.desc {
+    margin: 10px 20px;
+    color: #333;
+    font-size: 20px;
+}
+
+.title:hover {
+    text-decoration: underline;
+}
+
+.price {
+    margin: 20px 20px;
+    color: #5fa36a;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.addToCard {
+    position: absolute;
+    /* bottom: 20px;  */
+    left: 23px;
+    background: #ca5252;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 500ms ease;
+}
+
+.addToCard:hover {
+    transform: scale(1.1) translateY(-5px)
+}

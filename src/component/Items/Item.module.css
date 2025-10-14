@@ -10,15 +10,27 @@
     width: 100%;
     border-radius: 10px 10px 0 0;
     transition: transform 500ms ease;
+    cursor: pointer;
 }
 
 .img:hover {
     transform: scale(1.05);
 }
 
-.text {
+.title {
+    cursor: pointer;
+    transition: transform, text-decoration 500ms ease;
+}
+
+.title,
+.desc {
     margin: 10px 20px;
     color: #333;
+}
+
+.title:hover {
+        transform: scale(1.02);
+        text-decoration: underline;
 }
 
 .price {

@@ -1,5 +1,7 @@
 import type { ItemProps } from "../../types/types" 
 
+export const all: string = 'Wszystko';
+
 export const INITIAL_ITEMS: ItemProps[] = [
     {
         id: 1,

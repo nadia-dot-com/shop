@@ -14,4 +14,7 @@ export type ShopContextValue = {
     removeFromOrder: (item: ItemProps)=> void;
     isOrderOpen: boolean;
     toggleOrder: ()=> void;
+    // showFullItem: boolean;
+    selectedCategories: string;
+    chooseCategory: (category: string) => void;
 };

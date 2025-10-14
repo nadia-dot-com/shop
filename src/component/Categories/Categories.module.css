@@ -1,6 +1,7 @@
 .categories {
     display: flex;
     list-style: none;
+    padding: 20px;
 }
 
 .categoryTitle {
