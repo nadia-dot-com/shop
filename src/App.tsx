@@ -3,6 +3,7 @@ import { MainLayout } from "./component/MainLayout/MainLayout";
 import { ProductsPage } from "./ProductsPage/ProductsPage";
 import { NotFounded } from "./NotFound/NotFound";
 import { ItemPage } from "./ItemPage/ItemPage";
+import { MainPage } from "./MainPage/MainPage";
 // import { ShopingCard } from "./OrderModal/OrderModal";
 
 function App() {
@@ -11,11 +12,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<MainLayout />}>
+          <Route path='house-staff' element={<MainPage />} />
           <Route path='products' element={<ProductsPage />} >
             <Route path=":itemId" element={<ItemPage />} />
           </Route>
-
-          {/* <Route path="shoping-card" element={<ShopingCard />} /> */}
           <Route path="*" element={<NotFounded />} />
         </Route>
       </Routes>

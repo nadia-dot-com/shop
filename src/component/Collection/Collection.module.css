@@ -1,0 +1,20 @@
+.collectionWrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+    background-color: #fff;
+    overflow: hidden;
+    width: 100%;
+}
+
+
+.collection {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    gap: 25px;
+    list-style: none;
+    scroll-snap-type: x mandatory;
+}

@@ -14,7 +14,7 @@ export function Item(props: ItemProps) {
     return (
         <div className={classes.item}>
             <img src={img} alt={title} className={classes.img} onClick={() => navigate(`${path}`)}/>
-            <h2 className={classes.title} onClick={() => navigate(`${path}`)} >{title}</h2>
+            <h2 className={classes.title} onClick={() => navigate(`${path}`)} >{title} <span style={{ fontWeight: '300'}}>{props.collection && `| ${props.collection}`}</span> </h2>
             <p className={classes.desc}>{desc}</p>
             <p className={classes.price}>{Number(price).toFixed(2)} PLN</p>
             <div className={cn(classes.addToCard)} onClick={() => addToOrder(props)}>+</div>

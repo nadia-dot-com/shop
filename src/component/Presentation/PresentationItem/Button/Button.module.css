@@ -1,0 +1,16 @@
+.button {
+    align-items: center;
+    justify-content: center;
+
+    background-color: white;
+    border: none;
+    margin: 20px;
+    padding: 14px 32px;
+    cursor: pointer;
+
+    color: #000;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}

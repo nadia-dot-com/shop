@@ -1,7 +1,8 @@
 import { createContext, ReactNode, useState } from "react";
 import type { ItemProps, ShopContextValue } from "../types/types";
 import { createContextHook } from "../hooks/createContextHook";
-import { all, INITIAL_ITEMS } from "../data/items/items";
+import {  INITIAL_ITEMS } from "../data/items";
+import { All } from "../data/categories";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const ShopContext = createContext<ShopContextValue | undefined>(undefined);
@@ -10,7 +11,7 @@ export function ShopProvider({ children }: { children: ReactNode }) {
 
     const [items, setItems] = useState<ItemProps[]>(INITIAL_ITEMS);
     // const [currentItems, setCurrentItems] = useState<ItemProps[]>()
-    const [selectedCategories, setSelectedCategories] = useState<string>(all);
+    const [selectedCategories, setSelectedCategories] = useState<string>(All);
     const [order, setOrder] = useState<ItemProps[]>([]);
     const [isOrderOpen, setIsOpen] = useState<boolean>(false);
 
@@ -35,10 +36,10 @@ export function ShopProvider({ children }: { children: ReactNode }) {
 
     const chooseCategory = (category: string) => {
         setSelectedCategories(category);
-        if (category === all) {
+        if (category === All) {
             setItems(INITIAL_ITEMS)
         } else {
-            setItems(INITIAL_ITEMS.filter(i => i.category === category))
+            setItems(INITIAL_ITEMS.filter(i => i.category === category || i.collection === category))
         }
     }
 

@@ -1,18 +1,17 @@
 import { useParams } from 'react-router-dom'
 import classes from './ItemPage.module.css'
-import { useShopContext } from '../context/ShopContext';
 import { FullItem } from './FullItem';
+import { INITIAL_ITEMS } from '../data/items';
 
 export function ItemPage() {
-    const {itemId} = useParams();
-    const {items} = useShopContext();
+    const { itemId } = useParams();
 
     const name = itemId?.replace(/-/g, ' ').replace(/^./, c => c.toUpperCase());
-    const item = items.find((i) => i.title === name);
+    const item = INITIAL_ITEMS.find((i) => i.title === name);
 
     return (
         <div className={classes.itemPage}>
-           {item && <FullItem {...item}/>}
+            {item && <FullItem {...item} />}
         </div>
     )
 }

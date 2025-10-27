@@ -7,17 +7,10 @@
 }
 
 body {
-  background:#fff;
+  background: #fff;
   color: #222;
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
+  padding: 10px;
 }
 
-header {
-    position: relative;
-}
-
-footer {
-  text-align: center;
-  left: 100px;
-}
