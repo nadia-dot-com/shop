@@ -4,9 +4,10 @@ export type ItemProps = {
     id: number;
     title: string;
     img: string;
+    shortDesc: string;
     desc: string;
     category: string;
-    collection?: string;
+    collection?: string
     price: string;
 }
 

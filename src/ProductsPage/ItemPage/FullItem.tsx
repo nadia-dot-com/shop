@@ -1,8 +1,8 @@
-import { useShopContext } from "../context/ShopContext";
-import { ItemProps } from "../types/types";
+import { useShopContext } from "../../context/ShopContext";
+import { ItemProps } from "../../types/types";
 
 import classes from './FullItem.module.css'
-import { StyledLink } from "../component/StyledLink/StyledLink";
+import { StyledLink } from "../../component/StyledLink/StyledLink";
 
 export function FullItem(props: ItemProps) {
     const { title, img, desc, price } = props;
@@ -10,7 +10,7 @@ export function FullItem(props: ItemProps) {
 
     return (
         <div className={classes.fullItem}>
-            <img src={img} alt={title} className={classes.img}  />
+            <img src={img} alt={title} className={classes.img} />
             <div className={classes.container}>
                 <h2 className={classes.title}  >{title}</h2>
                 <p className={classes.desc} >{desc}</p>

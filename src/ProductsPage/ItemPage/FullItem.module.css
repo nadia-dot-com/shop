@@ -1,7 +1,7 @@
 .fullItem {
     /* max-width: 1000px; */
     position: relative;
-    margin: 0 auto;
+    margin: 60px;
     display: flex;
     align-items: center;
     gap: 30px;
@@ -9,7 +9,6 @@
 
 .img {
     width: 100%;
-    border-radius: 10px 10px;
     transition: transform 500ms ease;
     cursor: pointer;
 }

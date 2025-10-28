@@ -1,6 +1,6 @@
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet,  useParams } from "react-router-dom";
 import { Categories } from "../component/Categories/Categories";
-import { Items } from "../component/Items/Items";
+import { Items } from "./Items/Items";
 import { useShopContext } from "../context/ShopContext";
 
 import classes from './ProductsPage.module.css';

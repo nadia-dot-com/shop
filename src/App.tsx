@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { MainLayout } from "./component/MainLayout/MainLayout";
 import { ProductsPage } from "./ProductsPage/ProductsPage";
 import { NotFounded } from "./NotFound/NotFound";
-import { ItemPage } from "./ItemPage/ItemPage";
+import { ItemPage } from "./ProductsPage/ItemPage/ItemPage";
 import { MainPage } from "./MainPage/MainPage";
 // import { ShopingCard } from "./OrderModal/OrderModal";
 

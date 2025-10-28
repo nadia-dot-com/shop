@@ -24,7 +24,7 @@ export const COLLECTION: CollectionProps[] = [
         hotspots: [
             { top: '32%', left: '45%' },
             { top: "60%", left: "15%" },
-            { top: "65%", left: "82%" },
+            { top: "40%", left: "65%" },
         ]
     },
     {
