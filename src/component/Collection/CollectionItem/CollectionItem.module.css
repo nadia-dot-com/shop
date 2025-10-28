@@ -2,8 +2,6 @@
     position: relative;
     flex: 0 0 20em;
     scroll-snap-align: start;
-    /* transition: transform 0.5s ease-in-out; */
-    /* max-width: 1750px; */
     scroll-behavior: smooth;
 }
 

@@ -1,0 +1,39 @@
+.hotspotItem,
+.productNotFound {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    top: 50%;
+    left: 35px;
+    transform: translateY( -50%);
+    background: #fff;
+    z-index: 10;
+    width: 400px;
+    height: 200px;
+    cursor: pointer;
+}
+
+.img {
+    width: 40%;
+    object-fit: cover;
+}
+
+.text {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.price{
+    margin-top: 7px ;
+    font-weight: 300;
+}
+
+.button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}

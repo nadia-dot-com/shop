@@ -1,13 +1,14 @@
-.hotstopButton {
+.hotspotButton {
     position: absolute;
-    cursor: pointer;
+    /* display: block; */
     height: 25px;
     width: 25px;
     border-radius: 50% ;
     color: white;
     border-color: white;
     opacity: 0.9;
-
+    cursor: pointer;
+    
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
     animation: pulse 2s infinite;
     transition: transform 0.2s;

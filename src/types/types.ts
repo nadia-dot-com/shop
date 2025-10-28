@@ -38,6 +38,7 @@ export type PresentationProps = {
 export type HotStopProps = {
     top: string;
     left: string;
+    productId: number;
 };
 
 export type CollectionProps = {
