@@ -13,6 +13,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
         category: 'Chairs',
         collection: 'Home Collection',
         price: '200',
+        isOnSale: true,
     },
     {
         id: 2,
@@ -24,6 +25,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
         Trwała konstrukcja pasuje do salonu, sypialni lub biura.`,
         category: 'Storage',
         price: '200',
+        isOnSale: false,
     },
     {
         id: 3,
@@ -34,6 +36,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
         Łączy nowoczesny design z praktycznością do codziennego użytku`,
         category: 'Tables',
         price: '300',
+        isOnSale: false,
     },
     {
         id: 4,
@@ -45,6 +48,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
         Trwała konstrukcja pasuje do salonu, sypialni lub biura.`,
         category: 'Storage',
         price: '100',
+        isOnSale: true,
     },
     {
         id: 5,
@@ -57,6 +61,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
         materiałami, zapewniając wygodne siedzenie.`,
         category: 'Tables',
         price: '100.50',
+        isOnSale: false,
     },
     {
         id: 6,
@@ -69,6 +74,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
         materiałami, zapewniając wygodne siedzenie.`,
         category: 'Chairs',
         price: '400',
+        isOnSale:true,
     },
     {
         id: 7,
@@ -81,6 +87,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
         materiałami, zapewniając wygodne siedzenie.`,
         category: 'Beds',
         price: '900',
+        isOnSale: true,
     },
     {
         id: 8,
@@ -91,6 +98,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
         Łączy nowoczesny design z praktycznością do codziennego użytku`,
         category: 'Tables',
         price: '800',
+        isOnSale: false,
     },
     {
         id: 9,
@@ -103,6 +111,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
         materiałami, zapewniając wygodne siedzenie.`,
         category: 'Chairs',
         price: '400',
+        isOnSale: false,
     },
     {
         id: 10,
@@ -114,6 +123,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
         Trwała konstrukcja pasuje do salonu, sypialni lub biura.`,
         category: 'Storage',
         price: '400',
+        isOnSale: false,
     },
     {
         id: 11,
@@ -128,6 +138,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
         category: 'Sofas',
         collection: 'Living Room Collection',
         price: '2800',
+        isOnSale: false,
     },
     {
         id: 12,
@@ -141,6 +152,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
         category: 'Tables',
         collection: 'Living Room Collection',
         price: '1800',
+        isOnSale: false,
     },
      {
         id: 13,
@@ -154,6 +166,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
         category: 'Chairs',
         collection: 'Living Room Collection',
         price: '800',
+        isOnSale: false,
     },
       {
         id: 14,
@@ -167,6 +180,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
         category: 'Lamps',
         collection: 'Bedroom Collection',
         price: '500',
+        isOnSale: false,
     },
     {
         id: 15,
@@ -180,6 +194,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
         category: 'Sofas',
         collection: 'Home Collection',
         price: '2800',
+        isOnSale: false,
     },
      {
         id: 16,
@@ -193,6 +208,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
         category: 'Tables',
         collection: 'Home Collection',
         price: '1800',
+        isOnSale: false,
     },
 ]
 

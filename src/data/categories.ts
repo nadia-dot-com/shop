@@ -2,6 +2,8 @@ import { CategoryProps } from "../types/types";
 
 export const All: string = 'All';
 
+export const SALE: string = 'Sale';
+
 export const CATEGORIES: CategoryProps[] = [
     {
         img: '/img/categories/chairs.png',

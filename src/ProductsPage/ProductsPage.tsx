@@ -1,5 +1,4 @@
 import { Outlet,  useParams } from "react-router-dom";
-import { Categories } from "../component/Categories/Categories";
 import { Items } from "./Items/Items";
 import { useShopContext } from "../context/ShopContext";
 
@@ -12,7 +11,6 @@ export function ProductsPage() {
 
     return (
         <div >
-            <Categories />
             <div style={{position: 'relative'}}>
                 <Outlet />
             </div>

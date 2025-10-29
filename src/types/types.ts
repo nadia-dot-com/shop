@@ -9,6 +9,7 @@ export type ItemProps = {
     category: string;
     collection?: string
     price: string;
+    isOnSale: boolean;
 }
 
 export type ShopContextValue = {
@@ -18,9 +19,9 @@ export type ShopContextValue = {
     removeFromOrder: (item: ItemProps) => void;
     isOrderOpen: boolean;
     toggleOrder: () => void;
-    // showFullItem: boolean;
     selectedCategories: string;
     chooseCategory: (category: string) => void;
+    isOnSale: ItemProps[];
 };
 
 export type CategoryProps = {

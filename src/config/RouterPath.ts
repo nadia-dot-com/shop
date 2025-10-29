@@ -1,3 +1,6 @@
-// export const BASE_PATH = '/shop';
-
-export type RouterPath = '/house-staff' | 'products' | '*' | 'contacts' | 'my-account' | 'shoping-card';
+export const ROUTES = {
+    home: '/',
+    products: '/products',
+    productCategory: (category: string) => `/products${category}`,
+    sale: '/products/sale',
+}

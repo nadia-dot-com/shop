@@ -23,7 +23,14 @@ export function Collection() {
 
         el.addEventListener("scroll", handleScroll);
         handleScroll(); 
-        return () => el.removeEventListener("scroll", handleScroll);
+
+        const resizeObserver = new ResizeObserver(handleScroll);
+        resizeObserver.observe(el);
+
+        return () => {
+            el.removeEventListener("scroll", handleScroll);
+            resizeObserver.disconnect();
+        };
     }, []);
 
 
