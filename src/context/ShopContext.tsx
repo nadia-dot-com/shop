@@ -12,7 +12,7 @@ export function ShopProvider({ children }: { children: ReactNode }) {
     const [items, setItems] = useState<ItemProps[]>(INITIAL_ITEMS);
     const [selectedCategories, setSelectedCategories] = useState<string>(All);
     const [order, setOrder] = useState<ItemProps[]>([]);
-    const [isOrderOpen, setIsOpen] = useState<boolean>(false);
+    const [isOrderOpen, setIsOrderOpen] = useState<boolean>(false);
     const [isOnSale] = useState<ItemProps[]>(items.filter(i => i.isOnSale));
 
     const addToOrder = (item: ItemProps) => {
@@ -32,7 +32,7 @@ export function ShopProvider({ children }: { children: ReactNode }) {
         )
     }
 
-    const toggleOrder = () => setIsOpen((prev) => !prev);
+    const toggleOrder = () => setIsOrderOpen((prev) => !prev);
 
     const chooseCategory = (category: string) => {
         setSelectedCategories(category);

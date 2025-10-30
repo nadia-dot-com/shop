@@ -3,6 +3,7 @@ import { PopularCategories } from './PopularCategories/PopularCategories';
 import { Presentation } from './Presentation/Presentation';
 import classes from './MainPage.module.css';
 import { Sale } from './Sale/Sale';
+import { OurShowroom } from './OurShowroom/OurShowroom';
 
 export function MainPage() {
 
