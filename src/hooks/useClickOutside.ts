@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef } from "react";
 
 export function useClickOutside(callback: () => void) {
     const elementRef = useRef<HTMLElement | null>(null);
-    const isReady = useRef(false); // для пропуску першого рендеру
+    const isReady = useRef(false); 
 
     const handleClick = useCallback((event: PointerEvent) => {
         const el = elementRef.current;
@@ -15,7 +15,6 @@ export function useClickOutside(callback: () => void) {
     }, [callback]);
 
     useEffect(() => {
-        // включаємо хук лише після mount
         const timeout = setTimeout(() => {
             isReady.current = true;
         }, 0);

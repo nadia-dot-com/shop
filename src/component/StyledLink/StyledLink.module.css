@@ -8,5 +8,5 @@
 
 .activeLink,
 .link:hover {
-    opacity: 0.5;
+      color:rgba(181, 93, 25, 1);
 }

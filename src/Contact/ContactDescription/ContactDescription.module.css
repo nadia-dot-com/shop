@@ -1,0 +1,22 @@
+
+.background {
+    background-image: url("/img/contact/contact.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-color: #f3c294ff;
+    position: relative;
+    width: 100%;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text {
+    color: white;
+    font-size: 45px;
+    /* margin: 0 100px; */
+}

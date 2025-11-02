@@ -2,14 +2,18 @@ import { useNavigate } from "react-router-dom";
 import { useShopContext } from "../../../context/ShopContext";
 import { PresentationProps } from "../../../types/types";
 import { cn } from "../../../utils/cn";
-import { ShopNowButton } from "../../../component/ShopNowButton/ShopNowButton";
+import { Button } from "../../../component/Button/Button";
 
 import classes from './PresentationItem.module.css'
+import { ROUTES } from "../../../config/Routes";
 
 export function PresentationItem({ array, index, currentItem }: { array: PresentationProps[], index: number, currentItem: PresentationProps }) {
     const { chooseCategory } = useShopContext();
     const navigate = useNavigate();
-    const path = '/products';
+
+    const handleClick = (category: string) => {
+        navigate(`/${ROUTES.productCategory(category).toLowerCase()}`); chooseCategory(category)
+    }
 
     return array.map((current, i) => (
         <>
@@ -22,7 +26,12 @@ export function PresentationItem({ array, index, currentItem }: { array: Present
             <div className={cn(classes.content, i === index && classes.active, i === 0 && classes.contentColor1)}>
                 <h1 className={classes.title}>{current.title}</h1>
                 <p className={classes.desc}>{current.desc}</p>
-                <ShopNowButton bgColor="white" textColor="black" onClick={() => { navigate(path); chooseCategory(currentItem.category) }} />
+                <Button
+                    bgColor="white"
+                    textColor="black"
+                    onClick={() => handleClick(currentItem.category)}
+                    text={"• SHOP NOW"}
+                />
             </div>
         </>
     ))

@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import { ShopNowButton } from "../../component/ShopNowButton/ShopNowButton";
+import { Button } from "../../component/Button/Button";
 
 import classes from './Sale.module.css';
 import { useShopContext } from "../../context/ShopContext";
 import { SALE } from "../../data/categories";
-import { ROUTES } from "../../config/RouterPath";
+import { ROUTES } from "../../config/Routes";
 
 export function Sale() {
     const { chooseCategory } = useShopContext();
@@ -19,7 +19,12 @@ export function Sale() {
             <h1 className={classes.title}>Spring Sale</h1>
             <h2 className={classes.desc}>Enjoy up to <span style={{ color: 'red' }}>40%</span> off a selection of furniture,
                 decor, and more.</h2>
-            <ShopNowButton bgColor="#D74F0E" textColor="white" onClick={handleNavigateButton} />
+            <Button
+                bgColor="#D74F0E"
+                textColor="white"
+                onClick={handleNavigateButton}
+                text={"• SHOP NOW"}
+            />
         </div>
     )
 }

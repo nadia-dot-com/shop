@@ -5,6 +5,8 @@ import { NotFounded } from "./NotFound/NotFound";
 import { ItemPage } from "./ProductsPage/ItemPage/ItemPage";
 import { MainPage } from "./MainPage/MainPage";
 import { Categories } from "./component/Categories/Categories";
+import { ROUTES } from "./config/Routes";
+import { Contact } from "./Contact/Contact";
 // import { ShopingCard } from "./OrderModal/OrderModal";
 
 function App() {
@@ -13,9 +15,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<MainLayout />}>
-          <Route path='house-staff' element={<MainPage />} />
-          <Route path='products' element={<ProductsPage />} >
-          <Route path=":category" element={<Categories/>}/>
+          <Route path={ROUTES.home} element={<MainPage />} />
+          <Route path={ROUTES.contact} element={<Contact />} />
+          <Route path={ROUTES.products} element={<ProductsPage />} >
+            <Route path=":category" element={<Categories />} />
             <Route path=":category/:itemId" element={<ItemPage />} />
           </Route>
           <Route path="*" element={<NotFounded />} />
