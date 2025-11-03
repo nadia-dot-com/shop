@@ -12,7 +12,7 @@ export type ItemProps = {
     isOnSale: boolean;
 }
 
-export type ShopContextValue = {
+export type ShopContextProps = {
     items: ItemProps[];
     order: ItemProps[];
     addToOrder: (item: ItemProps) => void;
@@ -23,6 +23,11 @@ export type ShopContextValue = {
     chooseCategory: (category: string) => void;
     isOnSale: ItemProps[];
 };
+
+export type UserContextProps = {
+    isLoginModalOpen: boolean;
+    toggleModalOpen: () => void;
+}
 
 export type CategoryProps = {
     img: string;

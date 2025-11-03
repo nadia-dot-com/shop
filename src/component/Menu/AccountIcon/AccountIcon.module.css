@@ -1,6 +1,6 @@
 .accountIcon {
     position: relative;
-     top: -2px;
+    top: -2px;
     display: inline;
     align-items: center;
     font-size: 25px;
@@ -12,6 +12,7 @@
     transition: color, transform 500ms ease;
 }
 
+.active,
 .accountIcon:hover {
     color: rgba(181, 93, 25, 1);
     transform: scale(1.2);

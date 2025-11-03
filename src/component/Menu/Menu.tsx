@@ -5,9 +5,12 @@ import { ShopingCardIcon } from "./ShopingCardIcon/ShopingCartIcon";
 import { useShopContext } from "../../context/ShopContext";
 import { ROUTES } from "../../config/Routes";
 import { AccountIcon } from "./AccountIcon/AccountIcon";
+import { useUserContext } from "../../context/UserContext";
 
 export function Menu() {
     const { isOrderOpen } = useShopContext();
+    const {isLoginModalOpen} = useUserContext();
+
     return (
         <nav>
             <ul className={classes.nav} >
@@ -15,7 +18,7 @@ export function Menu() {
                 <li><StyledLink to={ROUTES.contact}>Kontakt</StyledLink></li>
                 <li><StyledLink to={ROUTES.products}>Producty</StyledLink></li>
                 <li>
-                    <AccountIcon />
+                    <AccountIcon active={isLoginModalOpen}/>
                 </li>
                 <li>
                     <ShopingCardIcon active={isOrderOpen} />

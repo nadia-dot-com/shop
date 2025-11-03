@@ -4,6 +4,7 @@ import { useShopContext } from "../context/ShopContext";
 
 import classes from './ProductsPage.module.css';
 import { cn } from "../utils/cn";
+import { Categories } from "../component/Categories/Categories";
 
 export function ProductsPage() {
     const { items } = useShopContext();
@@ -11,6 +12,7 @@ export function ProductsPage() {
 
     return (
         <div >
+            <Categories/>
             <div style={{position: 'relative'}}>
                 <Outlet />
             </div>

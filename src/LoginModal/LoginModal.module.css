@@ -1,4 +1,4 @@
-.orderModal {
+.loginModal {
     position: fixed;
     top: 70px;
     right: 0;
@@ -10,9 +10,12 @@
     backdrop-filter: blur(5px);
     text-align: center;
     font-size: 11px;
-    z-index: 2000;
+    z-index: 200;
 
     padding: 30px;
-    padding-bottom: 0;
 }
 
+.googleIcon {
+    position: relative;
+    top: 2px
+}

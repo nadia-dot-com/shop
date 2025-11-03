@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 
 import classes from './Button.module.css';
 
@@ -6,13 +6,15 @@ export function Button({ bgColor,
     textColor,
     text,
     type,
-    onClick
+    onClick,
+    children,
 }: {
     bgColor: string,
     textColor: string,
     text: string,
     type?: "button" | "submit" | "reset" | undefined,
-    onClick?: () => void
+    onClick?: () => void,
+    children: ReactNode,
 }) {
     const style: CSSProperties = {
         backgroundColor: bgColor,
@@ -26,6 +28,7 @@ export function Button({ bgColor,
             onClick={onClick}
             type={type}
         >
+            {children}
             {text}
         </button>
     )

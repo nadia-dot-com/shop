@@ -6,5 +6,14 @@ import { useShopContext } from "../../../context/ShopContext";
 
 export function ShopingCardIcon({ active }: { active: boolean }) {
     const { toggleOrder } = useShopContext();
-    return <FaCartShopping className={cn(classes.shopingCardIcon, active && classes.active)} onClick={() => toggleOrder()} />
+
+    return (
+        <FaCartShopping
+            className={cn(
+                classes.shopingCardIcon,
+                active && classes.active
+            )}
+            onClick={() => toggleOrder()}
+        />
+    )
 }

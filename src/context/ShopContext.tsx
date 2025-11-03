@@ -1,11 +1,11 @@
 import { createContext, ReactNode, useState } from "react";
-import type { ItemProps, ShopContextValue } from "../types/types";
+import type { ItemProps, ShopContextProps } from "../types/types";
 import { createContextHook } from "../hooks/createContextHook";
 import {  INITIAL_ITEMS } from "../data/items";
 import { All, SALE } from "../data/categories";
 
 // eslint-disable-next-line react-refresh/only-export-components
-export const ShopContext = createContext<ShopContextValue | undefined>(undefined);
+export const ShopContext = createContext<ShopContextProps | undefined>(undefined);
 
 export function ShopProvider({ children }: { children: ReactNode }) {
 
