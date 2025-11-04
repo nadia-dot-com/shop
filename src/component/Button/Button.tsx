@@ -14,7 +14,7 @@ export function Button({ bgColor,
     text: string,
     type?: "button" | "submit" | "reset" | undefined,
     onClick?: () => void,
-    children: ReactNode,
+    children?: ReactNode,
 }) {
     const style: CSSProperties = {
         backgroundColor: bgColor,

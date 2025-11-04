@@ -3,132 +3,129 @@ import type { ItemProps } from "../types/types"
 export const INITIAL_ITEMS: ItemProps[] = [
     {
         id: 1,
-        title: 'Krzesło Bambus',
-        img: '/img/items/1.png',
+        title: 'Barnen Dining Chair',
+        img: ['/img/items/dining-chair.png', '/img/items/dining-chair-2.png', '/img/items/dining-chair-3.png'],
         shortDesc: 'Solid in construction, simple in form',
-        desc: `Stylowe i ekologiczne krzesło wykonane 
-        z naturalnego bambusa. Lekkie, trwałe i idealne do 
-        każdego salonu lub biura. Łączy nowoczesny design z naturalnymi 
-        materiałami, zapewniając wygodne siedzenie.`,
+        desc: `Arhause harmonizes organic textures and forms with modern aesthetics, creating a unique fusion of the old and new. Our signature design philosophy emphasizes the beauty of imperfection and natural variation, resulting in pieces that offer a fresh take on traditional styles.`,
         category: 'Chairs',
         collection: 'Home Collection',
         price: '200',
+        stock: 10,
+        quantity: 0,
         isOnSale: true,
     },
     {
         id: 2,
-        title: 'Regał',
-        img: '/img/items/2.png',
+        title: 'Evans Dresser',
+        img: ['/img/items/evans-dresser.png', '/img/items/evans-dresser-2.png', '/img/items/evans-dresser-3.png'],
         shortDesc: 'Solid in construction, simple in form',
-        desc: `Praktyczny i stylowy regał wykonany z wysokiej jakości 
-        materiałów. Idealny do przechowywania książek, dekoracji lub codziennych przedmiotów. 
-        Trwała konstrukcja pasuje do salonu, sypialni lub biura.`,
+        desc: `Arhause harmonizes organic textures and forms with modern aesthetics, creating a unique fusion of the old and new. Our signature design philosophy emphasizes the beauty of imperfection and natural variation, resulting in pieces that offer a fresh take on traditional styles.`,
         category: 'Storage',
         price: '200',
+        stock: 9,
+        quantity: 0,
         isOnSale: false,
     },
     {
         id: 3,
-        title: 'Stolik',
-        img: '/img/items/3.png',
+        title: 'Nightstand',
+        img: ['/img/items/nightstand.png'],
         shortDesc: 'Solid in construction, simple in form',
-        desc: `Elegancki i funkcjonalny stolik wykonany z trwałych materiałów. Idealny do salonu, sypialni lub biura. 
-        Łączy nowoczesny design z praktycznością do codziennego użytku`,
+        desc: `Arhause harmonizes organic textures and forms with modern aesthetics, creating a unique fusion of the old and new. Our signature design philosophy emphasizes the beauty of imperfection and natural variation, resulting in pieces that offer a fresh take on traditional styles.`,
         category: 'Tables',
         price: '300',
+        stock: 10,
+        quantity: 0,
         isOnSale: false,
     },
     {
         id: 4,
-        title: 'Regał Biały',
-        img: '/img/items/4.png',
+        title: 'Sari Nightstand',
+        img: ['/img/items/nightstand-1.png'],
         shortDesc: 'Solid in construction, simple in form',
-        desc: `Praktyczny i stylowy regał wykonany z wysokiej jakości 
-        materiałów. Idealny do przechowywania książek, dekoracji lub codziennych przedmiotów. 
-        Trwała konstrukcja pasuje do salonu, sypialni lub biura.`,
+        desc: `Arhause harmonizes organic textures and forms with modern aesthetics, creating a unique fusion of the old and new. Our signature design philosophy emphasizes the beauty of imperfection and natural variation, resulting in pieces that offer a fresh take on traditional styles.`,
         category: 'Storage',
         price: '100',
+        stock: 8,
+        quantity: 0,
         isOnSale: true,
     },
     {
         id: 5,
-        title: 'Stół Czarny',
-        img: '/img/items/5.png',
+        title: 'Dining Table',
+        img: ['/img/items/dining-table.png', '/img/items/dining-table-2.png', '/img/items/dining-table-3.png'],
         shortDesc: 'Solid in construction, simple in form',
-        desc: `Stylowe i ekologiczne krzesło wykonane 
-        z naturalnego bambusa. Lekkie, trwałe i idealne do 
-        każdego salonu lub biura. Łączy nowoczesny design z naturalnymi 
-        materiałami, zapewniając wygodne siedzenie.`,
+        desc: `Arhause harmonizes organic textures and forms with modern aesthetics, creating a unique fusion of the old and new. Our signature design philosophy emphasizes the beauty of imperfection and natural variation, resulting in pieces that offer a fresh take on traditional styles.`,
         category: 'Tables',
         price: '100.50',
+        stock: 20,
+        quantity: 0,
         isOnSale: false,
     },
     {
         id: 6,
-        title: 'Krzesło Białe',
-        img: '/img/items/6.png',
+        title: 'White Chair',
+        img: ['/img/items/white-chair.png', '/img/items/white-chair-2.png', '/img/items/white-chair-3.png'],
         shortDesc: 'Solid in construction, simple in form',
-        desc: `Stylowe i ekologiczne krzesło wykonane 
-        z naturalnego. Lekkie, trwałe i idealne do 
-        każdego salonu lub biura. Łączy nowoczesny design z naturalnymi 
-        materiałami, zapewniając wygodne siedzenie.`,
+        desc: `Arhause harmonizes organic textures and forms with modern aesthetics, creating a unique fusion of the old and new. Our signature design philosophy emphasizes the beauty of imperfection and natural variation, resulting in pieces that offer a fresh take on traditional styles.`,
         category: 'Chairs',
         price: '400',
-        isOnSale:true,
+        stock: 10,
+        quantity: 0,
+        isOnSale: true,
     },
     {
         id: 7,
-        title: 'Łóżko',
-        img: '/img/items/7.png',
+        title: 'Bed',
+        img: ['/img/items/bed.png', '/img/items/bed-2.png'],
         shortDesc: 'Solid in construction, simple in form',
-        desc: `Stylowe i ekologiczne łóżko wykonane 
-        z naturalnego. Lekkie, trwałe i idealne do 
-        każdego salonu. Łączy nowoczesny design z naturalnymi 
-        materiałami, zapewniając wygodne siedzenie.`,
+        desc: `Arhause harmonizes organic textures and forms with modern aesthetics, creating a unique fusion of the old and new. Our signature design philosophy emphasizes the beauty of imperfection and natural variation, resulting in pieces that offer a fresh take on traditional styles.`,
         category: 'Beds',
         price: '900',
+        stock: 10,
+        quantity: 0,
         isOnSale: true,
     },
     {
         id: 8,
-        title: 'Stół',
-        img: '/img/items/8.png',
+        title: 'Black Table',
+        img: ['/img/items/black-table.png', '/img/items/black-table-2.png'],
         shortDesc: 'Solid in construction, simple in form',
-        desc: `Elegancki i funkcjonalny stół wykonany z trwałych materiałów. Idealny do salonu, sypialni lub biura. 
-        Łączy nowoczesny design z praktycznością do codziennego użytku`,
+        desc: `Arhause harmonizes organic textures and forms with modern aesthetics, creating a unique fusion of the old and new. Our signature design philosophy emphasizes the beauty of imperfection and natural variation, resulting in pieces that offer a fresh take on traditional styles.`,
         category: 'Tables',
         price: '800',
+        stock: 25,
+        quantity: 0,
         isOnSale: false,
     },
     {
         id: 9,
-        title: 'Krzesło Metalowe',
-        img: '/img/items/9.png',
+        title: 'Salon Chair',
+        img: ['/img/items/salon-chair.png'],
         shortDesc: 'Solid in construction, simple in form',
-        desc: `Stylowe i ekologiczne krzesło wykonane 
-        z naturalnego. Lekkie, trwałe i idealne do 
-        każdego salonu lub biura. Łączy nowoczesny design z naturalnymi 
-        materiałami, zapewniając wygodne siedzenie.`,
+        desc: `Arhause harmonizes organic textures and forms with modern aesthetics, creating a unique fusion of the old and new. Our signature design philosophy emphasizes the beauty of imperfection and natural variation, resulting in pieces that offer a fresh take on traditional styles.`,
         category: 'Chairs',
         price: '400',
+        stock: 10,
+        quantity: 0,
         isOnSale: false,
     },
     {
         id: 10,
         title: 'Shafka',
-        img: '/img/items/10.png',
+        img: ['/img/items/black-dresser.png'],
         shortDesc: 'Solid in construction, simple in form',
-        desc: `Praktyczny i stylowy regał wykonany z wysokiej jakości 
-        materiałów. Idealny do przechowywania książek, dekoracji lub codziennych przedmiotów. 
-        Trwała konstrukcja pasuje do salonu, sypialni lub biura.`,
+        desc: `Arhause harmonizes organic textures and forms with modern aesthetics, creating a unique fusion of the old and new. Our signature design philosophy emphasizes the beauty of imperfection and natural variation, resulting in pieces that offer a fresh take on traditional styles.`,
         category: 'Storage',
         price: '400',
+        stock: 10,
+        quantity: 0,
         isOnSale: false,
     },
     {
         id: 11,
         title: 'Slipcovered Sofa',
-        img: '/img/items/slipcovered-sofa.png',
+        img: ['/img/items/slipcovered-sofa.png'],
         shortDesc: 'Solid in construction, simple in form',
         desc: `Experience comfort and style with our premium sofa, 
         designed to enhance your living space. 
@@ -138,12 +135,14 @@ export const INITIAL_ITEMS: ItemProps[] = [
         category: 'Sofas',
         collection: 'Living Room Collection',
         price: '2800',
+        stock: 10,
+        quantity: 0,
         isOnSale: false,
     },
     {
         id: 12,
         title: 'Coffe Table',
-        img: '/img/items/coffe-table.png',
+        img: ['/img/items/coffe-table.png'],
         shortDesc: 'Solid in construction, simple in form',
         desc: `Experience comfort and style with our premium coffe table, 
         designed to enhance your living space. 
@@ -152,12 +151,14 @@ export const INITIAL_ITEMS: ItemProps[] = [
         category: 'Tables',
         collection: 'Living Room Collection',
         price: '1800',
+        stock: 10,
+        quantity: 0,
         isOnSale: false,
     },
-     {
+    {
         id: 13,
         title: 'Arm Chair',
-        img: '/img/items/arm-chair.png',
+        img: ['/img/items/krzesło-bambus.png', '/img/items/krzesło-bambus-2.png', '/img/items/krzesło-bambus-3.png'],
         shortDesc: 'Solid in construction, simple in form',
         desc: `Experience comfort and style with our premium arm chair, 
         designed to enhance your living space. 
@@ -166,12 +167,14 @@ export const INITIAL_ITEMS: ItemProps[] = [
         category: 'Chairs',
         collection: 'Living Room Collection',
         price: '800',
+        stock: 10,
+        quantity: 0,
         isOnSale: false,
     },
-      {
+    {
         id: 14,
         title: 'Gravity Floor Lamp',
-        img: '/img/items/gravity-floor-lamp.png',
+        img: ['/img/items/gravity-floor-lamp.png'],
         shortDesc: 'Solid in construction, simple in form',
         desc: `Experience comfort and style with our premium floor lamp, 
         designed to enhance your living space. 
@@ -180,12 +183,14 @@ export const INITIAL_ITEMS: ItemProps[] = [
         category: 'Lamps',
         collection: 'Bedroom Collection',
         price: '500',
+        stock: 10,
+        quantity: 0,
         isOnSale: false,
     },
     {
         id: 15,
         title: 'Arun Slipcovered Sofa',
-        img: '/img/items/arun-slipcovered-sofa.png',
+        img: ['/img/items/arun-slipcovered-sofa.png'],
         shortDesc: 'Solid in construction, simple in form',
         desc: `Experience comfort and style with our premium product, 
         designed to enhance your living space. 
@@ -194,12 +199,14 @@ export const INITIAL_ITEMS: ItemProps[] = [
         category: 'Sofas',
         collection: 'Home Collection',
         price: '2800',
+        stock: 10,
+        quantity: 0,
         isOnSale: false,
     },
-     {
+    {
         id: 16,
         title: 'Marble Coffee Table',
-        img: '/img/items/marble-coffee-table.png',
+        img: ['/img/items/marble-coffee-table.png'],
         shortDesc: 'Solid in construction, simple in form',
         desc: `Experience comfort and style with our premium product, 
         designed to enhance your living space. 
@@ -208,6 +215,8 @@ export const INITIAL_ITEMS: ItemProps[] = [
         category: 'Tables',
         collection: 'Home Collection',
         price: '1800',
+        stock: 10,
+        quantity: 0,
         isOnSale: false,
     },
 ]

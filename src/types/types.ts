@@ -3,12 +3,14 @@ import { ButtonHTMLAttributes, ReactNode } from "react";
 export type ItemProps = {
     id: number;
     title: string;
-    img: string;
+    img: string[];
     shortDesc: string;
     desc: string;
     category: string;
-    collection?: string
+    collection?: string;
     price: string;
+    stock: number;
+    quantity: number;
     isOnSale: boolean;
 }
 

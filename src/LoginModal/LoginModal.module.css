@@ -19,3 +19,24 @@
     position: relative;
     top: 2px
 }
+
+.googleButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    text-align: center;
+    border: none;
+    margin: 20px;
+    padding: 20px 38px;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out;
+}
+
+.googleButton:hover {
+    transform: scale(1.1);
+}
