@@ -1,7 +1,43 @@
+/* .orderModal{
+    display: row;
+    left: ;
+} */
+
+.cartTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.clearButton {
+    color: white;
+    background-color: black;
+    border-style: none;
+    font-weight: 600;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+}
+
+.clearButton:hover {
+    transform: scale(1.1);
+}
+
 .sum {
-    float: left;
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     font-weight: 600;
     font-size: 20px;
     margin-bottom: 20px;
+    border-bottom: 2px solid silver;
+    padding: 5px;
+}
+
+.googleIcon {
+    position: relative;
+    top: 2px
 }

@@ -8,6 +8,7 @@ export function Button({ bgColor,
     type,
     onClick,
     children,
+    disabled,
 }: {
     bgColor: string,
     textColor: string,
@@ -15,6 +16,7 @@ export function Button({ bgColor,
     type?: "button" | "submit" | "reset" | undefined,
     onClick?: () => void,
     children?: ReactNode,
+    disabled?: boolean,
 }) {
     const style: CSSProperties = {
         backgroundColor: bgColor,
@@ -27,6 +29,7 @@ export function Button({ bgColor,
             style={style}
             onClick={onClick}
             type={type}
+            disabled={disabled}
         >
             {children}
             {text}

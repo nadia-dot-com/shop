@@ -7,14 +7,41 @@
     gap: 30px;
 }
 
-.img {
+.imgContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    max-width: 900px;
     width: 100%;
-    transition: transform 500ms ease;
+}
+
+.mainImg {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
     cursor: pointer;
 }
 
+.smallContainer {
+    display: flex;
+    justify-content: left;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.img {
+    width: 20%;
+    aspect-ratio: 1/1;
+    max-width: 180px;
+    object-fit: cover;
+    opacity: 0.7;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
 .img:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
+    opacity: 1;
 }
 
 .closeBth {
@@ -35,11 +62,12 @@
     /* border: 1px solid  #ccc; */
     z-index: 10;
 
-    
+
 }
 
 .closeBth:hover {
-    border: 1px solid  #ccc; /* 👈 тепер просто міняється колір */
+    border: 1px solid #ccc;
+    /* 👈 тепер просто міняється колір */
     background-color: #f8f8f8;
 }
 
@@ -48,11 +76,35 @@
 }
 
 .title {
-    font-size: 25px;
+    font-size: 35px;
     margin: 10px 20px;
     color: #333;
     cursor: pointer;
     transition: text-decoration 500ms ease;
+}
+
+.quantityContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 20px;
+}
+
+.quantity {
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    font-size: 20px;
+    padding: 10px 0;
+    transition: border-color 0.2 ease;
+    line-height: 50px;
+}
+
+.quantity:focus {
+    border-bottom-color: black ;
 }
 
 .desc {
@@ -70,24 +122,4 @@
     color: #5fa36a;
     font-weight: 600;
     font-size: 18px;
-}
-
-.addToCard {
-    position: absolute;
-    /* bottom: 20px;  */
-    left: 23px;
-    background: #ca5252;
-    width: 35px;
-    height: 35px;
-    text-align: center;
-    line-height: 35px;
-    color: #fff;
-    border-radius: 50%;
-    cursor: pointer;
-    font-weight: 600;
-    transition: transform 500ms ease;
-}
-
-.addToCard:hover {
-    transform: scale(1.1) translateY(-5px)
 }

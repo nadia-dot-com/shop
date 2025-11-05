@@ -57,6 +57,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
         shortDesc: 'Solid in construction, simple in form',
         desc: `Arhause harmonizes organic textures and forms with modern aesthetics, creating a unique fusion of the old and new. Our signature design philosophy emphasizes the beauty of imperfection and natural variation, resulting in pieces that offer a fresh take on traditional styles.`,
         category: 'Tables',
+        collection: 'Dining Room Collection',
         price: '100.50',
         stock: 20,
         quantity: 0,
@@ -105,6 +106,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
         shortDesc: 'Solid in construction, simple in form',
         desc: `Arhause harmonizes organic textures and forms with modern aesthetics, creating a unique fusion of the old and new. Our signature design philosophy emphasizes the beauty of imperfection and natural variation, resulting in pieces that offer a fresh take on traditional styles.`,
         category: 'Chairs',
+        collection: 'Dining Room Collection',
         price: '400',
         stock: 10,
         quantity: 0,
@@ -174,7 +176,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
     {
         id: 14,
         title: 'Gravity Floor Lamp',
-        img: ['/img/items/gravity-floor-lamp.png'],
+        img: ['/img/items/lamp-1.png'],
         shortDesc: 'Solid in construction, simple in form',
         desc: `Experience comfort and style with our premium floor lamp, 
         designed to enhance your living space. 

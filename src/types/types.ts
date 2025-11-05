@@ -19,11 +19,13 @@ export type ShopContextProps = {
     order: ItemProps[];
     addToOrder: (item: ItemProps) => void;
     removeFromOrder: (item: ItemProps) => void;
+    clearOrder: ()=> void;
     isOrderOpen: boolean;
     toggleOrder: () => void;
     selectedCategories: string;
     chooseCategory: (category: string) => void;
     isOnSale: ItemProps[];
+    updateQuantity: (id: number, quantity: number)=> void;
 };
 
 export type UserContextProps = {
