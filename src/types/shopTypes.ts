@@ -28,11 +28,6 @@ export type ShopContextProps = {
     updateQuantity: (id: number, quantity: number)=> void;
 };
 
-export type UserContextProps = {
-    isLoginModalOpen: boolean;
-    toggleModalOpen: () => void;
-}
-
 export type CategoryProps = {
     img: string;
     category: string;

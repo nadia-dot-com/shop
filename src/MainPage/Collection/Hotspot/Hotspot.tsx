@@ -1,6 +1,6 @@
 import { useShopContext } from '../../../context/ShopContext';
 import { useToggle } from '../../../hooks/useToggle'
-import { ItemProps } from '../../../types/types'
+import { ItemProps } from '../../../types/shopTypes'
 import { HotspotItem } from './HotspotItem/HotspotItem'
 import classes from './Hotspot.module.css'
 import { HotspotButton } from './HotspotButton/HotspotButton';

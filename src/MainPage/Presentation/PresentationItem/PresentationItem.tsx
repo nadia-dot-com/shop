@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useShopContext } from "../../../context/ShopContext";
-import { PresentationProps } from "../../../types/types";
+import { PresentationProps } from "../../../types/shopTypes";
 import { cn } from "../../../utils/cn";
 import { Button } from "../../../component/Button/Button";
 

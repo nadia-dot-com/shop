@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { ItemProps } from '../../../../types/types'
+import { ItemProps } from '../../../../types/shopTypes'
 import classes from './HotspotItem.module.css'
 
 export function HotspotItem({ item }: { item: ItemProps }) {
@@ -12,7 +12,7 @@ export function HotspotItem({ item }: { item: ItemProps }) {
         <div className={classes.hotspotItem} onClick={() => { navigate(`${path}/${name}`) }}>
             <img src={item.img} alt={item.title} className={classes.img} />
             <h2 className={classes.text} >{item.title}
-            <p className={classes.price}>{Number(item.price).toFixed(2)} PLN</p>
+                <p className={classes.price}>{Number(item.price).toFixed(2)} PLN</p>
             </h2>
             <button className={classes.button}>
                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5">

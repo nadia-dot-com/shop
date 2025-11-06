@@ -1,20 +1,24 @@
-import { Button } from "../component/Button/Button";
-import { useUserContext } from "../context/UserContext"
-import { useClickOutside } from "../hooks/useClickOutside";
+import { Button } from "../../component/Button/Button";
+import { useUserContext } from "../../context/UserContext"
+import { useClickOutside } from "../../hooks/useClickOutside";
 import { FcGoogle } from "react-icons/fc";
 
 import classes from './LoginModal.module.css'
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../config/Routes";
 
 export function LoginModal() {
-    const { toggleModalOpen } = useUserContext();
+    const { toggleModalOpen, setUser } = useUserContext();
     const refCallback = useClickOutside(toggleModalOpen);
+
+    const navigate = useNavigate();
 
     const login = useGoogleLogin({
         onSuccess: async (tokenResponse) => {
             try {
-                const  res = await axios.get(
+                const res = await axios.get(
                     "https://www.googleapis.com/oauth2/v3/userinfo",
                     {
                         headers: {
@@ -23,8 +27,11 @@ export function LoginModal() {
                     }
                 );
 
-                console.log("✅ Logged in:", res.data);
-                toggleModalOpen();
+                if(res.data.email_verified) {
+                    setUser(res.data);
+                    toggleModalOpen();
+                    navigate(ROUTES.userAccount)
+                }
             } catch (error) {
                 console.log("Error fetching user info", error);
             }

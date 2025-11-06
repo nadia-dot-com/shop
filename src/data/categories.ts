@@ -1,4 +1,4 @@
-import { CategoryProps } from "../types/types";
+import { CategoryProps } from "../types/shopTypes";
 
 export const All: string = 'All';
 

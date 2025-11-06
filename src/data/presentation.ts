@@ -1,4 +1,4 @@
-import { PresentationProps } from "../types/types";
+import { PresentationProps } from "../types/shopTypes";
 
 export const PRESENTATION: PresentationProps[] = [
     {
@@ -12,7 +12,7 @@ export const PRESENTATION: PresentationProps[] = [
         title: 'Save 25% on tables',
         desc: 'Relax, make yourself comfortable, and sink into your new favourite spot.',
         category: 'Tables',
-    }, 
+    },
     {
         img: '/img/presentation/chairs.png',
         title: 'New in',

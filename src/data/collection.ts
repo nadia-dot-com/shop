@@ -1,4 +1,4 @@
-import { CollectionProps } from "../types/types";
+import { CollectionProps } from "../types/shopTypes";
 
 export const COLLECTION: CollectionProps[] = [
     {

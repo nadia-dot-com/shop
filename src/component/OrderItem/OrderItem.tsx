@@ -1,18 +1,13 @@
 // import { cn } from '../../utils/cn';
 import classes from './OrderItem.module.css'
-import type { ItemProps } from '../../types/types';
+import type { ItemProps } from '../../types/shopTypes';
 import { useShopContext } from '../../context/ShopContext';
 import { FaTrash } from "react-icons/fa6";
 import { useNavigate, useParams } from 'react-router-dom';
 import { ROUTES } from '../../config/Routes';
 import { QuantityInput } from '../QuantityInput/QuantityInput';
-import { useLocalStorage } from '../../hooks/useLocalStorage';
-import { STORAGE_KEY } from '../../data/locatStorageKey';
-
 
 export function OrderItem(props: ItemProps) {
-    const [count, setCont] = useLocalStorage<ItemProps[]>(STORAGE_KEY, [props]);
-
     const { id, title, img, price, stock, quantity } = props;
     const { removeFromOrder, updateQuantity } = useShopContext();
     const { category } = useParams();
@@ -30,12 +25,15 @@ export function OrderItem(props: ItemProps) {
                 className={classes.img}
                 onClick={() => navigate(`${ROUTES.products}/${category}/${path}`)}
             />
-             <QuantityInput
-                        quantity={quantity}
-                        stock={stock}
-                        className={classes.quantity}
-                        onChange={(e)=>updateQuantity(id, Number(e.target.value))}
-                    />
+            <QuantityInput
+                quantity={quantity}
+                stock={stock}
+                className={classes.quantity}
+                onChange={(e) => updateQuantity(
+                    id,
+                    Number(e.target.value)
+                )}
+            />
             <div >
                 <h2
                     className={classes.text}
@@ -45,7 +43,7 @@ export function OrderItem(props: ItemProps) {
                 </h2>
                 <p className={classes.price}>{Number(price).toFixed(2)} PLN</p>
             </div>
-            <FaTrash className={classes.removeFromCard} onClick={() => removeFromOrder({...props})}>-</FaTrash>
+            <FaTrash className={classes.removeFromCard} onClick={() => removeFromOrder({ ...props })}>-</FaTrash>
         </div>
     )
 }

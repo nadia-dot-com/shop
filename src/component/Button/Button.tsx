@@ -1,6 +1,7 @@
 import { CSSProperties, ReactNode } from 'react';
 
 import classes from './Button.module.css';
+import { cn } from '../../utils/cn';
 
 export function Button({ bgColor,
     textColor,
@@ -25,7 +26,7 @@ export function Button({ bgColor,
 
     return (
         <button
-            className={classes.button}
+            className={cn(classes.button, disabled && classes.disabled)}
             style={style}
             onClick={onClick}
             type={type}

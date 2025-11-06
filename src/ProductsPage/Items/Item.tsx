@@ -1,6 +1,6 @@
 import { cn } from '../../utils/cn';
 import classes from './Item.module.css'
-import type { ItemProps } from '../../types/types';
+import type { ItemProps } from '../../types/shopTypes';
 import { useShopContext } from '../../context/ShopContext';
 import { useNavigate, useParams } from 'react-router-dom';
 

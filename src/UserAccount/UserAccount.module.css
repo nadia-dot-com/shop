@@ -1,0 +1,10 @@
+.userAccount {
+    display: flex;
+    flex-direction: column;
+}
+
+.helloUser {
+    font-size: 40px;
+    font-weight: 600;
+    padding: 20px;
+}

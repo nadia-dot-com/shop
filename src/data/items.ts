@@ -1,4 +1,4 @@
-import type { ItemProps } from "../types/types"
+import type { ItemProps } from "../types/shopTypes"
 
 export const INITIAL_ITEMS: ItemProps[] = [
     {

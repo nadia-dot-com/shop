@@ -6,6 +6,10 @@ import { ItemPage } from "./ProductsPage/ItemPage/ItemPage";
 import { MainPage } from "./MainPage/MainPage";
 import { ROUTES } from "./config/Routes";
 import { Contact } from "./Contact/Contact";
+import { UserAccount } from "./UserAccount/UserAccount";
+import { MyProfile } from "./UserAccount/NavAccount/MyProfile/MyProfile";
+import { ShoppingCart } from "./UserAccount/NavAccount/ShoppingCart/ShoppingCart";
+import { MyOrders } from "./UserAccount/NavAccount/MyOrders/MyOrders";
 // import { ShopingCard } from "./OrderModal/OrderModal";
 
 function App() {
@@ -21,6 +25,12 @@ function App() {
             <Route path=":category" element={<Outlet />} >
               <Route path=":itemId" element={<ItemPage />} />
             </Route>
+          </Route>
+
+          <Route path={ROUTES.userAccount} element={<UserAccount />}>
+            <Route path={ROUTES.profile} element={<MyProfile/>} />
+            <Route path={ROUTES.shoppingCart} element={<ShoppingCart/>} />
+            <Route path={ROUTES.myOrders} element={<MyOrders />} />
           </Route>
 
           <Route path="*" element={<NotFounded />} />

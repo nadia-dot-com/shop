@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 import classes from './PopularCategory.module.css';
 import { useShopContext } from "../../../context/ShopContext";
-import { CategoryProps } from "../../../types/types";
+import { CategoryProps } from "../../../types/shopTypes";
 
 export function PopularCategory({ category }: { category: CategoryProps }) {
     const { chooseCategory } = useShopContext();

@@ -1,5 +1,5 @@
 import { useShopContext } from "../../context/ShopContext";
-import { ItemProps } from "../../types/types";
+import { ItemProps } from "../../types/shopTypes";
 
 import classes from './FullItem.module.css'
 import { StyledLink } from "../../component/StyledLink/StyledLink";
@@ -8,14 +8,30 @@ import { Button } from "../../component/Button/Button";
 import { QuantityInput } from "../../component/QuantityInput/QuantityInput";
 
 export function FullItem(props: ItemProps) {
+    const { title, img, desc, price, stock: propStock, id } = props;
+    const [mainImg, setMainImg] = useState<string>(img[0]);
+    const [currentStock, setStock] = useState<number>(propStock);
     const [quantityValue, setQuantity] = useState(1);
-    const { title, img, desc, price, stock } = props;
-    const [mainImg, setMainImg] = useState<string>(img[0])
-    const { addToOrder } = useShopContext();
+    const { addToOrder, items } = useShopContext();
 
     useEffect(() => {
         setMainImg(img[0])
-    }, [img])
+    }, [img]);
+
+    useEffect(() => {
+        const itemInContext = items.find(i => i.id === id);
+        if (itemInContext) {
+            setStock(itemInContext.stock);
+        } else {
+            setStock(propStock);
+        }
+    }, [items, id, propStock]);
+
+    useEffect(() => {
+        if (currentStock === 0) setQuantity(0);
+        else setQuantity(prev => Math.min(prev || 1, currentStock));
+    }, [currentStock]);
+
 
     return (
         <div className={classes.fullItem}>
@@ -44,16 +60,19 @@ export function FullItem(props: ItemProps) {
                 <div className={classes.quantityContainer}>
                     <QuantityInput
                         quantity={quantityValue}
-                        stock={stock}
+                        stock={propStock}
                         className={classes.quantity}
-                        onChange={(e)=>setQuantity(Number(e.target.value))}
+                        onChange={(e) => setQuantity(Number(e.target.value))}
                     />
                     <Button
-                        disabled={stock === 0}
+                        disabled={currentStock === 0 || quantityValue > currentStock}
                         bgColor="black"
                         textColor="white"
                         text="ADD TO ORDER"
-                        onClick={() => addToOrder({...props, quantity: quantityValue})}
+                        onClick={() => {
+                            addToOrder({ ...props, quantity: quantityValue });
+                            // setStock(p => (p - quantityValue))
+                        }}
                     />
                 </div>
                 <p className={classes.desc} >{desc}</p>
