@@ -19,30 +19,39 @@ export function OrderItem(props: ItemProps) {
 
     return (
         <div className={classes.orderItem}>
-            <img
-                src={img[0]}
-                alt={title}
-                className={classes.img}
-                onClick={() => navigate(`${ROUTES.products}/${category}/${path}`)}
-            />
-            <QuantityInput
-                quantity={quantity}
-                stock={stock}
-                className={classes.quantity}
-                onChange={(e) => updateQuantity(
-                    id,
-                    Number(e.target.value)
-                )}
-            />
-            <div >
+            <div>
                 <h2
                     className={classes.text}
                     onClick={() => navigate(`${ROUTES.products}/${category}/${path}`)}
                 >
                     {title}
                 </h2>
-                <p className={classes.price}>{Number(price).toFixed(2)} PLN</p>
+                <img
+                    src={img[0]}
+                    alt={title}
+                    className={classes.img}
+                    onClick={() => navigate(`${ROUTES.products}/${category}/${path}`)}
+                />
             </div>
+            
+                <QuantityInput
+                    quantity={quantity}
+                    stock={stock}
+                    className={classes.quantity}
+                    onChange={(e) => updateQuantity(
+                        id,
+                        Number(e.target.value)
+                    )}
+                />
+                <p className={classes.price}>
+                    Price:
+                    <br />
+                    {Number(price).toFixed(2)} $</p>
+            
+            <p className={classes.price}>
+                Subtotal:
+                <br />
+                {(Number(price) * quantity).toFixed(2)} $</p>
             <FaTrash className={classes.removeFromCard} onClick={() => removeFromOrder({ ...props })}>-</FaTrash>
         </div>
     )
