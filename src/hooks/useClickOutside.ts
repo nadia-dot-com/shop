@@ -4,7 +4,7 @@ export function useClickOutside(callback: () => void) {
     const elementRef = useRef<HTMLElement | null>(null);
     const isReady = useRef(false); 
 
-    const handleClick = useCallback((event: PointerEvent) => {
+    const handleClick = useCallback((event: MouseEvent) => {
         const el = elementRef.current;
         if (!el || !isReady.current) return;
 

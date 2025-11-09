@@ -6,14 +6,22 @@ import { ShopProvider } from './context/ShopContext.tsx'
 import { UserProvider } from './context/UserContext.tsx'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+function Main() {
+  const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID
+
+  if (!clientId) {
+    throw new Error('Missing required environment variable VITE_GOOGLE_CLIENT_ID')
+  }
+
+  return <StrictMode>
+    <GoogleOAuthProvider clientId={clientId}>
       <UserProvider>
         <ShopProvider>
           <App />
         </ShopProvider>
       </UserProvider>
     </GoogleOAuthProvider>
-  </StrictMode>,
-)
+  </StrictMode>
+}
+
+createRoot(document.getElementById('root')!).render(<Main/>)
