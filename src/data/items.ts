@@ -4,7 +4,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
     {
         id: 1,
         title: 'Barnen Dining Chair',
-        img: ['/img/items/dining-chair.png', '/img/items/dining-chair-2.png', '/img/items/dining-chair-3.png'],
+        img: ['img/items/dining-chair.png', 'img/items/dining-chair-2.png', 'img/items/dining-chair-3.png'],
         shortDesc: 'Solid in construction, simple in form',
         desc: `Arhause harmonizes organic textures and forms with modern aesthetics, creating a unique fusion of the old and new. Our signature design philosophy emphasizes the beauty of imperfection and natural variation, resulting in pieces that offer a fresh take on traditional styles.`,
         category: 'Chairs',
@@ -17,7 +17,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
     {
         id: 2,
         title: 'Evans Dresser',
-        img: ['/img/items/evans-dresser.png', '/img/items/evans-dresser-2.png', '/img/items/evans-dresser-3.png'],
+        img: ['img/items/evans-dresser.png', 'img/items/evans-dresser-2.png', 'img/items/evans-dresser-3.png'],
         shortDesc: 'Solid in construction, simple in form',
         desc: `Arhause harmonizes organic textures and forms with modern aesthetics, creating a unique fusion of the old and new. Our signature design philosophy emphasizes the beauty of imperfection and natural variation, resulting in pieces that offer a fresh take on traditional styles.`,
         category: 'Storage',
@@ -29,7 +29,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
     {
         id: 3,
         title: 'Nightstand',
-        img: ['/img/items/nightstand.png'],
+        img: ['img/items/nightstand.png'],
         shortDesc: 'Solid in construction, simple in form',
         desc: `Arhause harmonizes organic textures and forms with modern aesthetics, creating a unique fusion of the old and new. Our signature design philosophy emphasizes the beauty of imperfection and natural variation, resulting in pieces that offer a fresh take on traditional styles.`,
         category: 'Tables',
@@ -41,19 +41,19 @@ export const INITIAL_ITEMS: ItemProps[] = [
     {
         id: 4,
         title: 'Sari Nightstand',
-        img: ['/img/items/nightstand-1.png'],
+        img: ['img/items/nightstand-1.png'],
         shortDesc: 'Solid in construction, simple in form',
         desc: `Arhause harmonizes organic textures and forms with modern aesthetics, creating a unique fusion of the old and new. Our signature design philosophy emphasizes the beauty of imperfection and natural variation, resulting in pieces that offer a fresh take on traditional styles.`,
         category: 'Storage',
         price: '100',
-        stock: 8,
         quantity: 0,
+        stock: 8,
         isOnSale: true,
     },
     {
         id: 5,
         title: 'Dining Table',
-        img: ['/img/items/dining-table.png', '/img/items/dining-table-2.png', '/img/items/dining-table-3.png'],
+        img: ['img/items/dining-table.png', 'img/items/dining-table-2.png', 'img/items/dining-table-3.png'],
         shortDesc: 'Solid in construction, simple in form',
         desc: `Arhause harmonizes organic textures and forms with modern aesthetics, creating a unique fusion of the old and new. Our signature design philosophy emphasizes the beauty of imperfection and natural variation, resulting in pieces that offer a fresh take on traditional styles.`,
         category: 'Tables',
@@ -66,7 +66,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
     {
         id: 6,
         title: 'White Chair',
-        img: ['/img/items/white-chair.png', '/img/items/white-chair-2.png', '/img/items/white-chair-3.png'],
+        img: ['img/items/white-chair.png', 'img/items/white-chair-2.png', 'img/items/white-chair-3.png'],
         shortDesc: 'Solid in construction, simple in form',
         desc: `Arhause harmonizes organic textures and forms with modern aesthetics, creating a unique fusion of the old and new. Our signature design philosophy emphasizes the beauty of imperfection and natural variation, resulting in pieces that offer a fresh take on traditional styles.`,
         category: 'Chairs',
@@ -78,7 +78,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
     {
         id: 7,
         title: 'Bed',
-        img: ['/img/items/bed.png', '/img/items/bed-2.png'],
+        img: ['img/items/bed.png', 'img/items/bed-2.png'],
         shortDesc: 'Solid in construction, simple in form',
         desc: `Arhause harmonizes organic textures and forms with modern aesthetics, creating a unique fusion of the old and new. Our signature design philosophy emphasizes the beauty of imperfection and natural variation, resulting in pieces that offer a fresh take on traditional styles.`,
         category: 'Beds',
@@ -90,7 +90,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
     {
         id: 8,
         title: 'Black Table',
-        img: ['/img/items/black-table.png', '/img/items/black-table-2.png'],
+        img: ['img/items/black-table.png', 'img/items/black-table-2.png'],
         shortDesc: 'Solid in construction, simple in form',
         desc: `Arhause harmonizes organic textures and forms with modern aesthetics, creating a unique fusion of the old and new. Our signature design philosophy emphasizes the beauty of imperfection and natural variation, resulting in pieces that offer a fresh take on traditional styles.`,
         category: 'Tables',
@@ -102,32 +102,32 @@ export const INITIAL_ITEMS: ItemProps[] = [
     {
         id: 9,
         title: 'Salon Chair',
-        img: ['/img/items/salon-chair.png'],
+        img: ['img/items/salon-chair.png'],
         shortDesc: 'Solid in construction, simple in form',
         desc: `Arhause harmonizes organic textures and forms with modern aesthetics, creating a unique fusion of the old and new. Our signature design philosophy emphasizes the beauty of imperfection and natural variation, resulting in pieces that offer a fresh take on traditional styles.`,
         category: 'Chairs',
         collection: 'Dining Room Collection',
-        price: '400',
         stock: 10,
+        price: '400',
         quantity: 0,
         isOnSale: false,
     },
     {
         id: 10,
         title: 'Shafka',
-        img: ['/img/items/black-dresser.png'],
+        img: ['img/items/black-dresser.png'],
         shortDesc: 'Solid in construction, simple in form',
         desc: `Arhause harmonizes organic textures and forms with modern aesthetics, creating a unique fusion of the old and new. Our signature design philosophy emphasizes the beauty of imperfection and natural variation, resulting in pieces that offer a fresh take on traditional styles.`,
         category: 'Storage',
-        price: '400',
         stock: 10,
+        price: '400',
         quantity: 0,
         isOnSale: false,
     },
     {
         id: 11,
         title: 'Slipcovered Sofa',
-        img: ['/img/items/slipcovered-sofa.png'],
+        img: ['img/items/slipcovered-sofa.png'],
         shortDesc: 'Solid in construction, simple in form',
         desc: `Experience comfort and style with our premium sofa, 
         designed to enhance your living space. 
@@ -144,7 +144,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
     {
         id: 12,
         title: 'Coffe Table',
-        img: ['/img/items/coffe-table.png'],
+        img: ['img/items/coffe-table.png'],
         shortDesc: 'Solid in construction, simple in form',
         desc: `Experience comfort and style with our premium coffe table, 
         designed to enhance your living space. 
@@ -152,15 +152,15 @@ export const INITIAL_ITEMS: ItemProps[] = [
         and soft upholstery for lasting support. Perfect for family gatherings or quiet evenings at home.`,
         category: 'Tables',
         collection: 'Living Room Collection',
-        price: '1800',
         stock: 10,
         quantity: 0,
+        price: '1800',
         isOnSale: false,
     },
     {
         id: 13,
         title: 'Arm Chair',
-        img: ['/img/items/krzesło-bambus.png', '/img/items/krzesło-bambus-2.png', '/img/items/krzesło-bambus-3.png'],
+        img: ['img/items/krzesło-bambus.png', 'img/items/krzesło-bambus-2.png', 'img/items/krzesło-bambus-3.png'],
         shortDesc: 'Solid in construction, simple in form',
         desc: `Experience comfort and style with our premium arm chair, 
         designed to enhance your living space. 
@@ -176,7 +176,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
     {
         id: 14,
         title: 'Gravity Floor Lamp',
-        img: ['/img/items/lamp-1.png'],
+        img: ['img/items/lamp-1.png'],
         shortDesc: 'Solid in construction, simple in form',
         desc: `Experience comfort and style with our premium floor lamp, 
         designed to enhance your living space. 
@@ -192,7 +192,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
     {
         id: 15,
         title: 'Arun Slipcovered Sofa',
-        img: ['/img/items/arun-slipcovered-sofa.png'],
+        img: ['img/items/arun-slipcovered-sofa.png'],
         shortDesc: 'Solid in construction, simple in form',
         desc: `Experience comfort and style with our premium product, 
         designed to enhance your living space. 
@@ -208,7 +208,7 @@ export const INITIAL_ITEMS: ItemProps[] = [
     {
         id: 16,
         title: 'Marble Coffee Table',
-        img: ['/img/items/marble-coffee-table.png'],
+        img: ['img/items/marble-coffee-table.png'],
         shortDesc: 'Solid in construction, simple in form',
         desc: `Experience comfort and style with our premium product, 
         designed to enhance your living space. 

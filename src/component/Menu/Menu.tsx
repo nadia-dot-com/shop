@@ -14,7 +14,7 @@ export function Menu() {
     return (
         <nav>
             <ul className={classes.nav} >
-                <li><StyledLink to={ROUTES.home}>Główna Strona</StyledLink></li>
+                <li><StyledLink to={`${ROUTES.home}${ROUTES.mainLayout}`}>Główna Strona</StyledLink></li>
                 <li><StyledLink to={ROUTES.contact}>Kontakt</StyledLink></li>
                 <li><StyledLink to={ROUTES.products}>Producty</StyledLink></li>
                 <li>

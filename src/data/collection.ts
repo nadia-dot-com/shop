@@ -2,7 +2,7 @@ import { CollectionProps } from "../types/shopTypes";
 
 export const COLLECTION: CollectionProps[] = [
     {
-        img: '/img/collection/living-room.png',
+        img: 'img/collection/living-room.png',
         title: 'Living Room Collection',
         hotspots: [
             { top: '60%', left: '50%', productId: 11 },
@@ -11,7 +11,7 @@ export const COLLECTION: CollectionProps[] = [
         ]
     },
     {
-        img: '/img/collection/dining-room.png',
+        img: 'img/collection/dining-room.png',
         title: 'Dining Room Collection',
         hotspots: [
             { top: '70%', left: '35%', productId: 5 },
@@ -19,7 +19,7 @@ export const COLLECTION: CollectionProps[] = [
         ]
     },
     {
-        img: '/img/collection/bedroom-collection.png',
+        img: 'img/collection/bedroom-collection.png',
         title: 'Bedroom Collection',
         hotspots: [
             { top: '38%', left: '42%', productId: 7 },
@@ -28,7 +28,7 @@ export const COLLECTION: CollectionProps[] = [
         ]
     },
     {
-        img: '/img/collection/home-collection.png',
+        img: 'img/collection/home-collection.png',
         title: 'Home Collection',
         hotspots: [
             { top: '64%', left: '42%', productId: 15 },

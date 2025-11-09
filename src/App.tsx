@@ -13,23 +13,25 @@ import { MyOrders } from "./UserAccount/NavAccount/MyOrders/MyOrders";
 // import { ShopingCard } from "./OrderModal/OrderModal";
 
 function App() {
-
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={ROUTES.basePath}>
       <Routes>
-        <Route path='/' element={<MainLayout />}>
-          <Route path={ROUTES.home} element={<MainPage />} />
+
+        <Route path={ROUTES.mainLayout} element={<MainLayout />}>
+
+          <Route index element={<MainPage />} />
+
           <Route path={ROUTES.contact} element={<Contact />} />
 
-          <Route path={ROUTES.products} element={<ProductsPage />} >
-            <Route path=":category" element={<Outlet />} >
+          <Route path={ROUTES.products} element={<ProductsPage />}>
+            <Route path=":category" element={<Outlet />}>
               <Route path=":itemId" element={<ItemPage />} />
             </Route>
           </Route>
 
           <Route path={ROUTES.userAccount} element={<UserAccount />}>
-            <Route path={ROUTES.profile} element={<MyProfile/>} />
-            <Route path={ROUTES.shoppingCart} element={<ShoppingCart/>} />
+            <Route path={ROUTES.profile} element={<MyProfile />} />
+            <Route path={ROUTES.shoppingCart} element={<ShoppingCart />} />
             <Route path={ROUTES.myOrders} element={<MyOrders />} />
           </Route>
 
@@ -37,7 +39,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
 export default App

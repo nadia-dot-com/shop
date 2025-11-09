@@ -6,13 +6,14 @@ import { Menu } from "../Menu/Menu";
 import { StyledLink } from "../StyledLink/StyledLink";
 
 import classes from './Header.module.css';
+import { ROUTES } from "../../config/Routes";
 
 export default function Header() {
     const { isOrderOpen } = useShopContext();
     const { isLoginModalOpen } = useUserContext();
     return (
         <header className={classes.header}>
-            <StyledLink to={'/house-staff'} className={classes.logo}>House Staff</StyledLink>
+            <StyledLink to={`${ROUTES.home}${ROUTES.mainLayout}`} className={classes.logo}>House Staff</StyledLink>
             <Menu />
             {isLoginModalOpen && <LoginModal />}
             {isOrderOpen && <OrderModal />}
