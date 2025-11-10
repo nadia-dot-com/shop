@@ -11,7 +11,7 @@ export const ShopContext = createContext<ShopContextProps | undefined>(undefined
 
 export function ShopProvider({ children }: { children: ReactNode }) {
     const [items, setItems] = useState<ItemProps[]>(INITIAL_ITEMS);
-    const [selectedCategories, setSelectedCategories] = useState<string>(All);
+    const [selectedCategory, setSelectedCategory] = useState<string>(All);
     const [order, setOrder] = useLocalStorage<ItemProps[]>(ORDER_KEY, []);
     const [isOrderOpen, setIsOrderOpen] = useLocalStorage<boolean>(IS_ORDER_OPEN_KEY, false);
     const [isOnSale] = useState<ItemProps[]>(items.filter(i => i.isOnSale));
@@ -75,7 +75,7 @@ export function ShopProvider({ children }: { children: ReactNode }) {
     const toggleOrder = () => setIsOrderOpen(prev => !prev);
 
     const chooseCategory = (category: string) => {
-        setSelectedCategories(category);
+        setSelectedCategory(category);
         if (category === All) {
             setItems(INITIAL_ITEMS)
         } else if (category === SALE) {
@@ -96,7 +96,7 @@ export function ShopProvider({ children }: { children: ReactNode }) {
                 clearOrder,
                 isOrderOpen,
                 toggleOrder,
-                selectedCategories,
+                selectedCategory,
                 chooseCategory,
                 isOnSale,
                 updateQuantity

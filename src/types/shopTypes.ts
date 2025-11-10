@@ -22,7 +22,7 @@ export type ShopContextProps = {
     clearOrder: ()=> void;
     isOrderOpen: boolean;
     toggleOrder: () => void;
-    selectedCategories: string;
+    selectedCategory: string;
     chooseCategory: (category: string) => void;
     isOnSale: ItemProps[];
     updateQuantity: (id: number, quantity: number)=> void;
