@@ -1,15 +1,15 @@
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import { MainLayout } from "./component/MainLayout/MainLayout";
-import { ProductsPage } from "./ProductsPage/ProductsPage";
-import { NotFounded } from "./NotFound/NotFound";
-import { ItemPage } from "./ProductsPage/ItemPage/ItemPage";
-import { MainPage } from "./MainPage/MainPage";
+import { ProductsPage } from "./pages/ProductsPage/ProductsPage";
+import { NotFounded } from "./pages/NotFound/NotFound";
+import { ItemPage } from "./pages/ProductsPage/ItemPage/ItemPage";
+import { MainPage } from "./pages/MainPage/MainPage";
 import { ROUTES } from "./config/Routes";
 import { Contact } from "./Contact/Contact";
-import { UserAccount } from "./UserAccount/UserAccount";
-import { MyProfile } from "./UserAccount/NavAccount/MyProfile/MyProfile";
-import { ShoppingCart } from "./UserAccount/NavAccount/ShoppingCart/ShoppingCart";
-import { MyOrders } from "./UserAccount/NavAccount/MyOrders/MyOrders";
+import { UserAccount } from "./pages/UserAccount/UserAccount";
+import { MyProfile } from "./pages/UserAccount/NavAccount/MyProfile/MyProfile";
+import { ShoppingCart } from "./pages/UserAccount/NavAccount/ShoppingCart/ShoppingCart";
+import { MyOrders } from "./pages/UserAccount/NavAccount/MyOrders/MyOrders";
 // import { ShopingCard } from "./OrderModal/OrderModal";
 
 function App() {

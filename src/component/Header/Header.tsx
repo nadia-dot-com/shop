@@ -1,7 +1,7 @@
 import { useShopContext } from "../../context/ShopContext";
 import { useUserContext } from "../../context/UserContext";
-import { LoginModal } from "../../UserAccount/LoginModal/LoginModal";
-import { OrderModal } from "../../OrderModal/OrderModal";
+import { LoginModal } from "../../pages/UserAccount/LoginModal/LoginModal";
+import { OrderModal } from "../../pages/OrderModal/OrderModal";
 import { Menu } from "../Menu/Menu";
 import { StyledLink } from "../StyledLink/StyledLink";
 
