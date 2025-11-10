@@ -5,18 +5,19 @@ import classes from './Sale.module.css';
 import { useShopContext } from "../../../context/ShopContext";
 import { SALE } from "../../../data/categories";
 import { ROUTES } from "../../../config/Routes"; 
-import saleImg from '../../../../public/img/sale/sale.png'
+import { getImagePath } from "../../../utils/getImagePath";
 
 export function Sale() {
     const { chooseCategory } = useShopContext();
     const navigate = useNavigate();
 
     const handleNavigateButton = () => {
+        navigate(ROUTES.products);
         chooseCategory(SALE);
-        navigate(ROUTES.sale);
     }
+
     return (
-        <div className={classes.sale} style={{backgroundImage: `url(${saleImg})`}}>
+        <div className={classes.sale} style={{backgroundImage: `url('${getImagePath('img/sale/sale.png')}')`}}>
             <h1 className={classes.title}>Spring Sale</h1>
             <h2 className={classes.desc}>Enjoy up to <span style={{ color: 'red' }}>40%</span> off a selection of furniture,
                 decor, and more.</h2>

@@ -1,18 +1,19 @@
-import { useShopContext } from "../../../context/ShopContext";
-import { ItemProps } from "../../../types/shopTypes";
+import {useShopContext} from "../../../context/ShopContext";
+import {ItemProps} from "../../../types/shopTypes";
 
 import classes from './FullItem.module.css'
-import { StyledLink } from "../../../component/StyledLink/StyledLink";
-import { useEffect, useState } from "react";
-import { Button } from "../../../component/Button/Button";
-import { QuantityInput } from "../../../component/QuantityInput/QuantityInput";
+import {StyledLink} from "../../../component/StyledLink/StyledLink";
+import {useEffect, useState} from "react";
+import {Button} from "../../../component/Button/Button";
+import {QuantityInput} from "../../../component/QuantityInput/QuantityInput";
+import {getImagePath} from "../../../utils/getImagePath";
 
 export function FullItem(props: ItemProps) {
-    const { title, img, desc, price, stock: propStock, id } = props;
+    const {title, img, desc, price, stock: propStock, id} = props;
     const [mainImg, setMainImg] = useState<string>(img[0]);
     const [currentStock, setStock] = useState<number>(propStock);
     const [quantityValue, setQuantity] = useState(1);
-    const { addToOrder, items } = useShopContext();
+    const {addToOrder, items} = useShopContext();
 
     useEffect(() => {
         setMainImg(img[0])
@@ -37,7 +38,7 @@ export function FullItem(props: ItemProps) {
         <div className={classes.fullItem}>
             <div className={classes.imgContainer}>
                 <img
-                    src={mainImg}
+                    src={getImagePath(mainImg)}
                     alt={title}
                     className={classes.mainImg}
                 />
@@ -45,7 +46,7 @@ export function FullItem(props: ItemProps) {
                     {Array.isArray(img) && img.map((src, i) => (
                         <img
                             key={i}
-                            src={src}
+                            src={getImagePath(src)}
                             alt={`${title} ${i}`}
                             className={classes.img}
                             onClick={() => setMainImg(src)}
@@ -55,8 +56,8 @@ export function FullItem(props: ItemProps) {
                 </div>
             </div>
             <div className={classes.container}>
-                <h2 className={classes.title}  >{title}</h2>
-                <p className={classes.price} >{Number(price).toFixed(2)} PLN</p>
+                <h2 className={classes.title}>{title}</h2>
+                <p className={classes.price}>{Number(price).toFixed(2)} PLN</p>
                 <div className={classes.quantityContainer}>
                     <QuantityInput
                         quantity={quantityValue}
@@ -70,12 +71,12 @@ export function FullItem(props: ItemProps) {
                         textColor="white"
                         text="ADD TO ORDER"
                         onClick={() => {
-                            addToOrder({ ...props, quantity: quantityValue });
+                            addToOrder({...props, quantity: quantityValue});
                             // setStock(p => (p - quantityValue))
                         }}
                     />
                 </div>
-                <p className={classes.desc} >{desc}</p>
+                <p className={classes.desc}>{desc}</p>
             </div>
             <div className={classes.closeBth}>
                 <StyledLink to="..">✕</StyledLink>

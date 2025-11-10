@@ -1,4 +1,4 @@
-import { CollectionProps } from "../../../types/shopTypes";
+import { CollectionProps } from "../../../../types/shopTypes";
 import { Hotspot } from "../Hotspot/Hotspot";
 
 import classes from './CollectionItem.module.css';

@@ -2,27 +2,28 @@ import { cn } from '../../../utils/cn';
 import classes from './Item.module.css'
 import type { ItemProps } from '../../../types/shopTypes'; 
 import { useShopContext } from '../../../context/ShopContext';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { SaleLabel } from './SaleLabel/SaleLabel';
+import { getImagePath } from '../../../utils/getImagePath';
 
 export function Item(props: ItemProps) {
-    const { title, img, shortDesc, price, stock, isOnSale } = props;
+    const { title, img, shortDesc, price, stock, isOnSale, category } = props;
     const { addToOrder } = useShopContext();
-    const { category } = useParams();
 
     const navigate = useNavigate();
     const path = title.toLowerCase().replace(/ /g, "-");
+    const categoryPath = category.toLowerCase();
 
     return (
         <div className={cn(classes.item, stock === 0 && classes.disableItem)}>
             {isOnSale &&
                 <SaleLabel />
             }
-            <img src={img[0]} alt={title} className={classes.img} onClick={() => navigate(`${category}/${path}`)} />
+            <img src={getImagePath(img[0])} alt={title} className={classes.img} onClick={() => navigate(`${categoryPath}/${path}`)} />
             <h2
                 className={classes.title}
                 onClick={() =>
-                    navigate(`${category}/${path}`)}
+                    navigate(`${categoryPath}/${path}`)}
             >
                 {title}
                 <span style={{ fontWeight: '300' }}>

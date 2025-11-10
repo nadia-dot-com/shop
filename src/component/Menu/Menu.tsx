@@ -16,7 +16,7 @@ export function Menu() {
             <ul className={classes.nav} >
                 <li><StyledLink to={`${ROUTES.home}${ROUTES.mainLayout}`}>Główna Strona</StyledLink></li>
                 <li><StyledLink to={ROUTES.contact}>Kontakt</StyledLink></li>
-                <li><StyledLink to={ROUTES.products}>Producty</StyledLink></li>
+                <li><StyledLink to={ROUTES.products}>Products</StyledLink></li>
                 <li>
                     <AccountIcon active={isLoginModalOpen}/>
                 </li>
