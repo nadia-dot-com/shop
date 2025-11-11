@@ -6,6 +6,7 @@ import { FaTrash } from "react-icons/fa6";
 import { useNavigate, useParams } from 'react-router-dom';
 import { ROUTES } from '../../config/Routes';
 import { QuantityInput } from '../QuantityInput/QuantityInput';
+import { getImagePath } from '../../utils/getImagePath';
 
 export function OrderItem(props: ItemProps) {
     const { id, title, img, price, stock, quantity } = props;
@@ -27,7 +28,7 @@ export function OrderItem(props: ItemProps) {
                     {title}
                 </h2>
                 <img
-                    src={img[0]}
+                    src={getImagePath(img[0])}
                     alt={title}
                     className={classes.img}
                     onClick={() => navigate(`${ROUTES.products}/${category}/${path}`)}

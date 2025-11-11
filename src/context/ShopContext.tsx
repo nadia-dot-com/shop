@@ -5,6 +5,7 @@ import { INITIAL_ITEMS } from "../data/items";
 import { All, SALE } from "../data/categories";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { ORDER_KEY, IS_ORDER_OPEN_KEY } from "../data/locatStorageKey";
+import { toast } from "react-toastify";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const ShopContext = createContext<ShopContextProps | undefined>(undefined);
@@ -16,16 +17,19 @@ export function ShopProvider({ children }: { children: ReactNode }) {
     const [isOrderOpen, setIsOrderOpen] = useLocalStorage<boolean>(IS_ORDER_OPEN_KEY, false);
     const [isOnSale] = useState<ItemProps[]>(items.filter(i => i.isOnSale));
 
+    
     const addToOrder = (item: ItemProps) => {
         const existingItem = order.find(i => i.id === item.id);
         let newOrder: ItemProps[];
 
+        const handleToast = ()=> toast.success(`${item.title} added to Shoping Cart!`)
+        
         if (existingItem) {
             const newQuantity = Math.min(existingItem.quantity + (item.quantity || 1), item.stock);
             newOrder = order.map(i =>
                 i.id === item.id
-                    ? { ...i, quantity: newQuantity }
-                    : i
+                ? { ...i, quantity: newQuantity }
+                : i
             )
         } else {
             const safeQuantity = Math.min(item.quantity || 1, item.stock)
@@ -38,6 +42,7 @@ export function ShopProvider({ children }: { children: ReactNode }) {
                 : i
         ));
         setOrder(newOrder);
+        handleToast();
     }
 
     const removeFromOrder = (item: ItemProps) => {

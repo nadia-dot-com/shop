@@ -72,7 +72,6 @@ export function FullItem(props: ItemProps) {
                         text="ADD TO ORDER"
                         onClick={() => {
                             addToOrder({...props, quantity: quantityValue});
-                            // setStock(p => (p - quantityValue))
                         }}
                     />
                 </div>

@@ -1,0 +1,7 @@
+.addProductMessage {
+    background-color: white;
+    -webkit-box-shadow: 8px 4px 19px -8px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 8px 4px 19px -8px rgba(66, 68, 90, 1);
+    box-shadow: 8px 4px 19px -8px rgba(66, 68, 90, 1);
+    color: green;
+}

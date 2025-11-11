@@ -8,22 +8,26 @@ import { getImagePath } from '../../../utils/getImagePath';
 
 export function Item(props: ItemProps) {
     const { title, img, shortDesc, price, stock, isOnSale, category } = props;
-    const { addToOrder } = useShopContext();
+    const { addToOrder, chooseCategory } = useShopContext();
 
     const navigate = useNavigate();
     const path = title.toLowerCase().replace(/ /g, "-");
     const categoryPath = category.toLowerCase();
+    
+    const handleClick = () => {
+        navigate(`${categoryPath}/${path}`);
+        chooseCategory(category)
+    };
 
     return (
         <div className={cn(classes.item, stock === 0 && classes.disableItem)}>
             {isOnSale &&
                 <SaleLabel />
             }
-            <img src={getImagePath(img[0])} alt={title} className={classes.img} onClick={() => navigate(`${categoryPath}/${path}`)} />
+            <img src={getImagePath(img[0])} alt={title} className={classes.img} onClick={() => handleClick()} />
             <h2
                 className={classes.title}
-                onClick={() =>
-                    navigate(`${categoryPath}/${path}`)}
+                onClick={() => handleClick()}
             >
                 {title}
                 <span style={{ fontWeight: '300' }}>

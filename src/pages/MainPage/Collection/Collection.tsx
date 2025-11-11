@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ScrollButtonX } from "../../../ButtonsForScroll/ScrollButtonX";
+import { ScrollButtonX } from "../../../component/ButtonsForScroll/ScrollButtonX";
 import { COLLECTION } from "../../../data/collection";
 
 import classes from './Collection.module.css';
