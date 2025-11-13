@@ -1,10 +1,10 @@
 // import { FcGoogle } from "react-icons/fc";
-import { Button } from "../../component/Button/Button";
-import { OrderItem } from "../../component/OrderItem/OrderItem";
-import { ItemProps } from "../../types/shopTypes";
+import { Button } from "../../../component/Button/Button";
+import { OrderItem } from "../OrderItem/OrderItem";
+import { ItemProps } from "../../../types/shopTypes";
 
 import classes from "./ShowOrder.module.css";
-import { useShopContext } from "../../context/ShopContext";
+import { useShopContext } from "../../../context/ShopContext";
 
 export function ShowOrder({ arr }: { arr: ItemProps[] }) {
     const { order, clearOrder } = useShopContext();
@@ -23,9 +23,11 @@ export function ShowOrder({ arr }: { arr: ItemProps[] }) {
                     CLEAR
                 </button>
             </div>
-            {arr.map(el => (
-                <OrderItem key={el.id} {...el} />
-            ))}
+            <div className={classes.orderList}>
+                {arr.map(el => (
+                    <OrderItem key={el.id} {...el} />
+                ))}
+            </div>
             <div className={classes.sum}>Subtotal:
                 <p>
                     {sum.toFixed(2)} $

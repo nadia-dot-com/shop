@@ -1,12 +1,12 @@
 // import { cn } from '../../utils/cn';
 import classes from './OrderItem.module.css'
-import type { ItemProps } from '../../types/shopTypes';
-import { useShopContext } from '../../context/ShopContext';
+import type { ItemProps } from '../../../types/shopTypes';
+import { useShopContext } from '../../../context/ShopContext';
 import { FaTrash } from "react-icons/fa6";
 import { useNavigate, useParams } from 'react-router-dom';
-import { ROUTES } from '../../config/Routes';
-import { QuantityInput } from '../QuantityInput/QuantityInput';
-import { getImagePath } from '../../utils/getImagePath';
+import { ROUTES } from '../../../config/Routes';
+import { QuantityInput } from '../../../component/QuantityInput/QuantityInput';
+import { getImagePath } from '../../../utils/getImagePath';
 
 export function OrderItem(props: ItemProps) {
     const { id, title, img, price, stock, quantity } = props;
@@ -20,7 +20,7 @@ export function OrderItem(props: ItemProps) {
 
     return (
         <div className={classes.orderItem}>
-            <div>
+            <div className={classes.itemInfo}>
                 <h2
                     className={classes.text}
                     onClick={() => navigate(`${ROUTES.products}/${category}/${path}`)}

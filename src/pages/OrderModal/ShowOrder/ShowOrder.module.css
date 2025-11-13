@@ -1,7 +1,22 @@
-/* .orderModal{
-    display: row;
-    left: ;
-} */
+.orderList {
+    max-height: 700px;
+    overflow-y: auto;
+    margin: 10px 0;
+    padding-right: 10px;
+}
+
+.orderList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.orderList::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.orderList::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 
 .cartTitle {
     display: flex;

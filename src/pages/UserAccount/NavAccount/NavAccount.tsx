@@ -7,14 +7,14 @@ export function NavAccount() {
 
     return (
         <ul className={classes.nav}>
-          <li>
-            <StyledLink to={`${ROUTES.userAccount}/${ROUTES.profile}`}>My Profile</StyledLink>
+          <li >
+            <StyledLink to={ROUTES.profile}>My Profile </StyledLink>
           </li>
           <li>
-            <StyledLink to={`${ROUTES.userAccount}/${ROUTES.shoppingCart}`} >Shopping Cart</StyledLink>
+            <StyledLink to={ROUTES.shoppingCart} >Shopping Cart</StyledLink>
           </li>
           <li>
-            <StyledLink to={`${ROUTES.userAccount}/${ROUTES.myOrders}`}>My Orders</StyledLink>
+            <StyledLink to={ROUTES.myOrders}>My Orders</StyledLink>
           </li>
         </ul>
     )

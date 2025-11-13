@@ -3,8 +3,18 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     width: 100%;
     margin-bottom: 20px;
+    gap: 20px;
+}
+
+.itemInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    width: 200px;
 }
 
 .img {
@@ -36,7 +46,7 @@
 }
 
 .text:hover {
-     color:rgba(167, 85, 23, 1);
+    color: rgba(167, 85, 23, 1);
 }
 
 .price {

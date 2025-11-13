@@ -3,7 +3,8 @@ import { CSSProperties, ReactNode } from 'react';
 import classes from './Button.module.css';
 import { cn } from '../../utils/cn';
 
-export function Button({ bgColor,
+export function Button({ 
+    bgColor,
     textColor,
     text,
     type,

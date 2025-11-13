@@ -21,7 +21,6 @@ export function ContactForm() {
             const data = await response.json();
 
             if (data.success) {
-                console.log(data.currentTarget.email)
                 setResult(" Your submission was successful.");
                 formRef.current?.reset()
             } else {
@@ -36,7 +35,12 @@ export function ContactForm() {
 
     return (
         <div className={classes.formWrapper}>
-            <form className={classes.form} onSubmit={onSubmit} ref={formRef}>
+            <form 
+            className={classes.form} 
+            onSubmit={onSubmit} 
+            ref={formRef}
+            autoComplete='on'
+            >
                 <h2 className={classes.title}>Enquiry Form</h2>
                 <p className={classes.desc}>
                     Contact our Customer Services team by completing the form. We will endeavour to respond within 24 hours.

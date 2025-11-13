@@ -17,7 +17,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
         <UserContext.Provider
             value={{
                 user,
-                setUser,
+                updateUser: setUser,
                 isLoginModalOpen,
                 toggleModalOpen,
             }}

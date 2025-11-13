@@ -4,11 +4,16 @@ export type UserData = {
   id: number;
   name: string;
   email: string;
+  address?: {
+     street: string;
+     postalCode: string;
+     city: string
+  }
 }
 
 export type UserContextProps = {
     user: UserData | null;
-    setUser: Dispatch<React.SetStateAction<UserData | null>>;
+    updateUser: Dispatch<React.SetStateAction<UserData | null>>;
     isLoginModalOpen: boolean;
     toggleModalOpen: () => void;
 }

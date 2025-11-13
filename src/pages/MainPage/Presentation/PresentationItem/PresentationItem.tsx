@@ -16,9 +16,11 @@ export function PresentationItem({ array, index, currentItem }: { array: Present
     }
 
     return array.map((current, i) => (
-        <>
+        <div 
+        className={classes.slide}
+        key={current.id}
+        >
             <img
-                key={current.title}
                 src={current.img}
                 alt={current.title}
                 className={cn(classes.image, i === index && classes.active)}
@@ -33,6 +35,6 @@ export function PresentationItem({ array, index, currentItem }: { array: Present
                     text={"• SHOP NOW"}
                 />
             </div>
-        </>
+        </div>
     ))
 }

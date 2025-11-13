@@ -3,17 +3,31 @@ import { RiAccountCircleFill } from "react-icons/ri";
 import classes from './AccountIcon.module.css';
 import { useUserContext } from "../../../context/UserContext";
 import { cn } from "../../../utils/cn";
+import { useLocation, useNavigate } from "react-router-dom";
+import { ROUTES } from "../../../config/Routes";
 
-export function AccountIcon({active}: {active: boolean}) {
-    const {toggleModalOpen } = useUserContext();
+export function AccountIcon() {
+    const { user, isLoginModalOpen, toggleModalOpen } = useUserContext();
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const handleClick = () => {
+        if (!user) {
+            toggleModalOpen();
+        } else {
+            navigate(ROUTES.userAccount)
+        }
+    }
+
+    const isAccountPage = location.pathname.includes(ROUTES.userAccount);
 
     return (
         <RiAccountCircleFill
             className={cn(
                 classes.accountIcon,
-                active && classes.active
+                (isLoginModalOpen || isAccountPage) && classes.active,
             )}
-            onClick={() => toggleModalOpen()}
+            onClick={() => handleClick()}
         />
     )
 }

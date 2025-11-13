@@ -10,14 +10,18 @@ export function UserAccount() {
     if (!user) return <p>Please log in to access your account.</p>;
     const { name } = user;
     return (
-        <div className={classes.userAccount}>
+        <div className={classes.mainWrapper}>
             <div className={classes.helloUser}>
                 Hello, {name} ;)
             </div>
-            <NavAccount />
-            <div>
+        <div className={classes.pageWrapper}>
+            <aside className={classes.sidebar}>
+                <NavAccount />
+            </aside>
+            <div className={classes.content}>
                 <Outlet />
             </div>
+        </div>
         </div>
 
     )
