@@ -67,7 +67,6 @@ export default function Footer() {
                     More Contact
                     <HiOutlineExternalLink />
                 </StyledLink>
-
             </div>
             <div className={classes.rights}>All rights reserved &copy;</div>
         </footer >

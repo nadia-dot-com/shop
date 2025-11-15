@@ -1,0 +1,10 @@
+.orderList {
+    list-style: none;
+    min-width: 1500px;
+    text-align: center;
+}
+
+.orderItem {
+    border-bottom: 1px solid silver;
+    margin-bottom: 20px;
+}

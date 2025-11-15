@@ -6,8 +6,9 @@
 .helloUser {
     border-bottom: 1px solid silver;
     border-top: 1px solid silver;
-    font-size: 40px;
-    font-weight: 600;
+    font-size: 35px;
+    font-weight: 500;
+    font-style: italic;
     color: #525151ff;
     padding: 20px 40px 20px 40px;
 }

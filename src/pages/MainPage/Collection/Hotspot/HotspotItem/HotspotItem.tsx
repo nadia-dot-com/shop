@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
-import { ItemProps } from '../../../../types/shopTypes'
+import { ItemProps } from '../../../../../types/shopTypes';
 import classes from './HotspotItem.module.css'
+import { getImagePath } from '../../../../../utils/getImagePath';
 
 export function HotspotItem({ item }: { item: ItemProps }) {
     const navigate = useNavigate();
@@ -10,7 +11,7 @@ export function HotspotItem({ item }: { item: ItemProps }) {
 
     return (
         <div className={classes.hotspotItem} onClick={() => { navigate(`${path}/${name}`) }}>
-            <img src={item.img} alt={item.title} className={classes.img} />
+            <img src={getImagePath(item.img[0])} alt={item.title} className={classes.img} />
             <h2 className={classes.text} >{item.title}
                 <p className={classes.price}>{Number(item.price).toFixed(2)} PLN</p>
             </h2>

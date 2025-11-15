@@ -16,6 +16,7 @@ export function MyProfile() {
         const formData = new FormData(e.currentTarget);
         const updatedUserAdress = {
             ...user,
+            phone: String(formData.get("phone") || ""),
             address: {
                 street: String(formData.get("street") || ""),
                 postalCode: String(formData.get("postalCode") || ""),
@@ -49,6 +50,17 @@ export function MyProfile() {
                         className={classes.input}
                         value={email}
                         readOnly
+                    />
+                </div>
+
+                 <div className={classes.inputGroup}>
+                    <label>Phone</label>
+                    <input
+                        className={classes.input}
+                        type="tel"
+                        name="phone"
+                        defaultValue={user?.phone ?? ""}
+                        placeholder="Phone"
                     />
                 </div>
 
@@ -89,7 +101,7 @@ export function MyProfile() {
                     <Button
                         bgColor="black"
                         textColor="white"
-                        text="• SAVE ADDRESS"
+                        text="• SAVE CHANGES"
                     />
                 </div>
 

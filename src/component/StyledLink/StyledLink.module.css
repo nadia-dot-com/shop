@@ -4,7 +4,7 @@
     text-decoration: none;
     cursor: pointer;
     transition: opacity 500ms ease;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .activeLink,

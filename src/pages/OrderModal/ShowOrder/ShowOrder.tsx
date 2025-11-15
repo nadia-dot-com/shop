@@ -5,10 +5,23 @@ import { ItemProps } from "../../../types/shopTypes";
 
 import classes from "./ShowOrder.module.css";
 import { useShopContext } from "../../../context/ShopContext";
+import { FcGoogle } from "react-icons/fc";
+import { useUserContext } from "../../../context/UserContext";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../../config/Routes";
 
 export function ShowOrder({ arr }: { arr: ItemProps[] }) {
-    const { order, clearOrder } = useShopContext();
+    const { order, clearOrder, toggleOrder } = useShopContext();
+    const { user } = useUserContext();
+    const navigate = useNavigate();
+    
     const sum = arr.reduce((sum, item) => sum + (Number(item.price) * item.quantity), 0);
+
+    const handleOrder = () => {
+        const path = `${ROUTES.userAccount}/${ROUTES.shoppingCart}`
+        navigate(path);
+        toggleOrder();
+    }
 
     return (
         <div >
@@ -33,20 +46,27 @@ export function ShowOrder({ arr }: { arr: ItemProps[] }) {
                     {sum.toFixed(2)} $
                 </p>
             </div>
-            {/* <Button
-                bgColor="black"
-                textColor="white"
-                text=" LOGIN WITH GOOGLE / COMPLETE A ORDER"
-                onClick={() => { }}
-            >
-                <FcGoogle className={classes.googleIcon} />
-            </Button> */}
-            <Button
-                bgColor="black"
-                textColor="white"
-                text="COMPLETE ORDER"
-                onClick={() => { }}
-            />
+            {
+                user ?
+                    (
+                        <Button
+                            bgColor="black"
+                            textColor="white"
+                            text="COMPLETE ORDER"
+                            onClick={handleOrder}
+                        />
+                    ) :
+                    (
+                        <Button
+                            bgColor="black"
+                            textColor="white"
+                            text=" LOGIN WITH GOOGLE & COMPLETE A ORDER"
+                            onClick={() => { }}
+                        >
+                            <FcGoogle className={classes.googleIcon} />
+                        </Button>
+                    )
+            }
         </div>
     )
 }

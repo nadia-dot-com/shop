@@ -8,8 +8,9 @@ import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../../config/Routes"; 
+
 export function LoginModal() {
-    const { toggleModalOpen, setUser } = useUserContext();
+    const { toggleModalOpen, updateUser } = useUserContext();
     const refCallback = useClickOutside(toggleModalOpen);
 
     const navigate = useNavigate();
@@ -27,7 +28,7 @@ export function LoginModal() {
                 );
 
                 if(res.data.email_verified) {
-                    setUser(res.data);
+                    updateUser(res.data);
                     toggleModalOpen();
                     navigate(ROUTES.userAccount)
                 }
