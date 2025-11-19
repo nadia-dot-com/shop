@@ -1,10 +1,9 @@
-import { useShopContext } from "../../../../../context/ShopContext"
-import { OrderItem } from "../../../../OrderModal/OrderItem/OrderItem";
+import { OrderItem } from "../../../../../component/OrderItem/OrderItem";
+import { ItemProps } from "../../../../../types/shopTypes";
 
 import classes from './Cart.module.css';
 
-export function Cart() {
-    const { order } = useShopContext();
+export function Cart({order}: {order: ItemProps[]}) {
 
     return (
             <ul className={classes.orderList}>

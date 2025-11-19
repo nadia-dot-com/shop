@@ -1,0 +1,21 @@
+.steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 50px;
+}
+
+.stepSpan {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.activeStep {
+    color: rgba(181, 93, 25, 1);
+}

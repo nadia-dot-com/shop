@@ -1,0 +1,10 @@
+.subtotal {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid silver;
+    padding: 5px;
+}

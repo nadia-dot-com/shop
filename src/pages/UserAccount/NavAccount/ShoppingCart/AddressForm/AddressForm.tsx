@@ -1,59 +1,69 @@
-import { RefObject } from 'react';
+import { FormEvent, RefObject } from 'react';
 import { useUserContext } from '../../../../../context/UserContext'
 import classes from './AddressForm.module.css'
+import { useCheckoutContext } from '../../../../../context/CheckoutContext';
+import { DataProps } from '../../../../../types/checkoutTypes';
+import { COUNTRIES } from '../../../../../data/countries'; 
 
-export function AddressForm({formRef}: {formRef?: RefObject<HTMLFormElement | null>}) {
+export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFormElement | null>; onSubmit: (data: DataProps) => void }) {
     const { user } = useUserContext();
+    const { data } = useCheckoutContext();
 
-    if (!user) return;
+    if (!user) return null;
 
-    const { email, address, phone } = user;
+    const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const updatedCheckoutData = {
+            ...data,
+            fullName: String(formData.get("fullName") || ""),
+            company: String(formData.get("company") || ""),
+            address: {
+                street: String(formData.get("street") || ""),
+                postalCode: String(formData.get("postalCode") || ""),
+                city: String(formData.get("city") || ""),
+                country: String(formData.get("country") || ""),
+            },
+            phone: String(formData.get("phone") || ""),
+            email: String(formData.get("email") || ""),
+            notes: String(formData.get("notes") || ""),
+        }
+
+        onSubmit(updatedCheckoutData)
+    }
 
     return (
         <div className={classes.formContainer}>
-            <form 
-            className={classes.addressForm}
-            ref={formRef}
+            <form
+                className={classes.addressForm}
+                ref={formRef}
+                onSubmit={handleFormSubmit}
             >
                 <h2 className={classes.title}>Billing Details</h2>
 
                 <div className={classes.inputGroup}>
-                    <label>First Name *</label>
+                    <label>Full Name *</label>
                     <input
                         className={classes.input}
+                        name='fullName'
                         type="text"
-                        placeholder='First Name'
+                        defaultValue={data?.fullName ?? user?.name ?? ""}
+                        placeholder='Full Name'
                         required
                     />
                 </div>
 
-                <div className={classes.inputGroup}>
-                    <label>Last Name *</label>
-                    <input
-                        className={classes.input}
-                        type="text"
-                        placeholder='Last Name'
-                        required
-                    />
-                </div>
                 <div className={classes.inputGroup}>
                     <label>Company Name (optional)</label>
                     <input
                         className={classes.input}
+                        name='company'
                         type="text"
+                        defaultValue={data?.company ?? ""}
                         placeholder='Company Name'
                     />
                 </div>
-                <div className={classes.inputGroup}>
-                    <label>Country / Region *</label>
-                    <input
-                        className={classes.input}
-                        type="text"
-                        placeholder='Poland'
-                        required
-                    />
-                </div>
-
+                
                 <h3 className={classes.subTitle}>Address *</h3>
 
                 <div className={classes.inputGroup}>
@@ -61,7 +71,7 @@ export function AddressForm({formRef}: {formRef?: RefObject<HTMLFormElement | nu
                     <input
                         className={classes.input}
                         name="street"
-                        defaultValue={address?.street ?? ""}
+                        defaultValue={data?.address?.street ?? user?.address?.street ?? ""}
                         placeholder="Street and house number"
                         required
                     />
@@ -72,7 +82,7 @@ export function AddressForm({formRef}: {formRef?: RefObject<HTMLFormElement | nu
                     <input
                         className={classes.input}
                         name="postalCode"
-                        defaultValue={address?.postalCode ?? ""}
+                        defaultValue={data?.address.postalCode ?? user?.address?.postalCode ?? ""}
                         placeholder="e.g. 12345"
                         required
                     />
@@ -83,10 +93,29 @@ export function AddressForm({formRef}: {formRef?: RefObject<HTMLFormElement | nu
                     <input
                         className={classes.input}
                         name="city"
-                        defaultValue={address?.city ?? ""}
+                        defaultValue={data?.address.city ?? user?.address?.city ?? ""}
                         placeholder="City"
                         required
                     />
+                </div>
+
+                <div className={classes.inputGroup}>
+                    <label>Country / Region *</label>
+                    <select
+                        className={classes.input}
+                        name='country'
+                        defaultValue={data?.address.country ?? user?.address?.country ?? ""}
+                        required
+                    >
+                        <option value="">Select Country</option>
+
+                        {
+                            COUNTRIES.map(country => (
+                                <option value={country}>{country}</option>
+                            ))
+                        }
+                        
+                    </select>
                 </div>
 
                 <div className={classes.inputGroup}>
@@ -95,7 +124,7 @@ export function AddressForm({formRef}: {formRef?: RefObject<HTMLFormElement | nu
                         className={classes.input}
                         type="tel"
                         name="phone"
-                        defaultValue={phone ?? ""}
+                        defaultValue={data?.phone ?? user?.phone ?? ""}
                         placeholder="Phone"
                         required
                     />
@@ -105,8 +134,9 @@ export function AddressForm({formRef}: {formRef?: RefObject<HTMLFormElement | nu
                     <label>Email Address *</label>
                     <input
                         className={classes.input}
+                        name='email'
                         type='email'
-                        value={email}
+                        defaultValue={data?.email ?? user?.email ?? ""}
                         required
                     />
                 </div>
@@ -114,8 +144,9 @@ export function AddressForm({formRef}: {formRef?: RefObject<HTMLFormElement | nu
                 <div className={classes.inputGroup}>
                     <label>Order notes (optional)</label>
                     <textarea
-                        name='message'
+                        name='notes'
                         className={classes.textarea}
+                        defaultValue={data?.notes ?? ""}
                         placeholder='Notes about your order, e.g. special notes for delivery.'
                     />
                 </div>

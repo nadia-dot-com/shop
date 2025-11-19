@@ -20,6 +20,7 @@ export type ShopContextProps = {
     addToOrder: (item: ItemProps) => void;
     removeFromOrder: (item: ItemProps) => void;
     clearOrder: ()=> void;
+    finalizeOrder: ()=> void;
     isOrderOpen: boolean;
     toggleOrder: () => void;
     selectedCategory: string;

@@ -4,6 +4,7 @@ import { useUserContext } from "../../../../context/UserContext";
 import classes from './MyProfile.module.css';
 import { Button } from "../../../../component/Button/Button";
 import { toast } from "react-toastify";
+import { COUNTRIES } from "../../../../data/countries"; 
 
 export function MyProfile() {
     const { user, updateUser } = useUserContext();
@@ -20,7 +21,8 @@ export function MyProfile() {
             address: {
                 street: String(formData.get("street") || ""),
                 postalCode: String(formData.get("postalCode") || ""),
-                city: String(formData.get("city") || "")
+                city: String(formData.get("city") || ""),
+                country: String(formData.get("country") || ""),
             }
         };
 
@@ -95,6 +97,24 @@ export function MyProfile() {
                         defaultValue={address?.city ?? ""}
                         placeholder="City"
                     />
+                </div>
+
+                <div className={classes.inputGroup}>
+                    <label>Country / Region *</label>
+                    <select
+                        className={classes.input}
+                        name='country'
+                        defaultValue={address?.country ?? ""}
+                        required
+                    >
+                        <option value="">Select Country</option>
+
+                         {
+                            COUNTRIES.map(country => (
+                                <option value={country}>{country}</option>
+                            ))
+                        }
+                    </select>
                 </div>
 
                 <div className={classes.buttonWrapper}>

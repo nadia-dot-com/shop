@@ -6,7 +6,7 @@ type ProviderComponent = FC<any>;
 export function createContextHook<T>(context: Context<T>, provider: ProviderComponent | string) {
     return function useContextHook() {
         const contextValue = useContext(context);
-        if (contextValue === undefined) {
+        if (contextValue === null || contextValue === undefined) {
             const providerName = getProviderName(provider);
             throw new Error(`this component must be used within a ${providerName}`);
         }

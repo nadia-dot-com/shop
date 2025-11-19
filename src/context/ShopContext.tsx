@@ -8,7 +8,7 @@ import { ORDER_KEY, IS_ORDER_OPEN_KEY } from "../data/locatStorageKey";
 import { toast } from "react-toastify";
 
 // eslint-disable-next-line react-refresh/only-export-components
-export const ShopContext = createContext<ShopContextProps | undefined>(undefined);
+export const ShopContext = createContext<ShopContextProps | null>(null);
 
 export function ShopProvider({ children }: { children: ReactNode }) {
     const [items, setItems] = useState<ItemProps[]>(INITIAL_ITEMS);
@@ -77,6 +77,8 @@ export function ShopProvider({ children }: { children: ReactNode }) {
         setOrder([])
     };
 
+    const finalizeOrder = () => setOrder([]);
+    
     const toggleOrder = () => setIsOrderOpen(prev => !prev);
 
     const chooseCategory = (category: string) => {
@@ -98,13 +100,14 @@ export function ShopProvider({ children }: { children: ReactNode }) {
                 order,
                 addToOrder,
                 removeFromOrder,
-                clearOrder,
                 isOrderOpen,
                 toggleOrder,
+                clearOrder,
+                finalizeOrder,
                 selectedCategory,
                 chooseCategory,
                 isOnSale,
-                updateQuantity
+                updateQuantity,
             }}>
             {children}
         </ShopContext.Provider>

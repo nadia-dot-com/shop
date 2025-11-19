@@ -1,14 +1,16 @@
 import { ChangeEvent } from "react";
 
+import classes from './QuantityInput.module.css';
+
 export function QuantityInput({ 
     stock, 
     quantity,
-    className,
+    // className,
     onChange,
 }: { 
     stock: number, 
     quantity: number,
-    className?: string,
+    // className?: string,
     onChange: (e: ChangeEvent<HTMLInputElement>)=> void,
 }) {
 
@@ -20,7 +22,7 @@ export function QuantityInput({
             value={quantity}
             min="1"
             max={stock}
-            className={className}
+            className={classes.quantityInput}
             onChange={onChange}
         />
     )

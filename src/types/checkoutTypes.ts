@@ -1,14 +1,13 @@
 import { ItemProps } from "./shopTypes";
 
-export type CheckoutDataProps = {
-    firstName: string;
-    lastName: string;
+export type DataProps = {
+    fullName: string;
     company?: string;
-    country: string;
     address: {
         street: string;
         postalCode: string;
         city: string
+        country: string;
     }
     phone: string;
     email: string;
@@ -16,15 +15,30 @@ export type CheckoutDataProps = {
 }
 
 export type PaymentProps = {
-    method: "card" | 'paypal' | 'cash' | null;
+    method: 'cash' ;
+}
+
+export type DeliveryProps = {
+    method: "free" | "flat" | "pickup" 
+    price: number;
 }
 
 export type CheckoutContextProps = {
-    address: CheckoutDataProps | null;
-    payment: PaymentProps;
     items: ItemProps[];
+    data: DataProps | null;
+    delivery: DeliveryProps;
+    payment: PaymentProps;
 
-    updateAddress: (data: CheckoutDataProps) => void;
-    updatePayment: (data: PaymentProps) => void;
     updateItems: (items: ItemProps[]) => void;
+    updateData: (data: DataProps) => void;
+    updateDelivery: (data: DeliveryProps) => void;
+    updatePayment: (data: PaymentProps) => void;
+    resetCheckout: () => void;
+}
+
+export type CheckoutItitial = {
+    items: ItemProps[];
+    data: DataProps | null;
+    delivery: DeliveryProps;
+    payment: PaymentProps;
 }

@@ -1,7 +1,6 @@
 .formContainer {
     display: flex;
     align-items: center;
-    /* margin: 60px 60px; */
 }
 
 .addressForm {
@@ -20,6 +19,7 @@
 .subTitle{
     margin-bottom: 10px;
 }
+
 .inputGroup {
     font-size: 20px;
     display: flex;

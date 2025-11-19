@@ -1,0 +1,24 @@
+.wrapper {
+    min-width: 900px;
+    width: 100%;
+    color: #333;
+}
+
+.title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+.checkoutSection {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid silver;
+    padding: 5px;
+}
