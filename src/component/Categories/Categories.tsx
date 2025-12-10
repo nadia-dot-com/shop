@@ -7,7 +7,7 @@ import { useShoppingNavigation } from "../../hooks/useShoppingNavigation";
 import { useToggle } from "../../hooks/useToggle";
 
 export function Categories() {
-    const [isOpen, setIsOpen] = useToggle(false);
+    const [isOpen, setIsOpen] = useToggle(true);
     const { navigateToCategory } = useShoppingNavigation();
 
     const categories = new Set([All, SALE, ...CATEGORIES.map((i) => i.category), ...COLLECTION.map((i) => i.title)]);
