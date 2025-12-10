@@ -1,87 +1,252 @@
-.sale {
-    /* background-size: cover;
-    background-position: right center;
+.saleSection {
+    display: flex;
+    justify-content: center;
+
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    height: 600px;
+
+    background-repeat: no-repeat;
+    background-position: left top;
     background-repeat: no-repeat;
 
-    background-color: #f3c294ff;
-    position: relative;
-    width: 100%;
-    height: 580px; */
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    gap: 15px;
-    position: relative;
-    width: 100%;
-    height: 580px;
+    background-size: contain;
     overflow: hidden;
+
 }
 
 .bg {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.products {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+
+.chair {
+    position: absolute;
+    top: 90px;
+    left: 70px;
+}
+
+.chair img {
+    width: 410px;
+    height: auto;
+    object-fit: contain;
+
+}
+
+.table {
+    position: absolute;
+    top: 60px;
+    right: 190px;
+}
+
+.table img {
+    width: 330px;
+    height: auto;
+    object-fit: contain;
+}
+
+.vase {
+    position: absolute;
+    top: 270px;
+    right: 130px;
+}
+
+.vase img {
+    width: 140px;
+    height: auto;
+    object-fit: contain;
+}
+
+
+
+.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    position: relative;
+    z-index: 2;
 }
 
 .title {
     color: #D74F0E;
     font-weight: 300;
-    font-size: 120px;
+    font-size: 100px;
     font-family: 'Cormorant';
 }
 
 .desc {
     font-weight: 400;
-    font-size: 30px;
-
+    margin-bottom: 8px;
 }
 
-.title,
-.desc,
-button {
-    position: relative;
-    z-index: 2;
+.priceTag {
+    position: absolute;
+    top: -40px;
+    left: 12px;
+
+    background: white;
+    padding: 10px 15px;
+
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.newPrice {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.oldPrice {
+    display: block;
+    margin-top: 4px;
+    font-size: 16px;
+    color: #555;
+    text-decoration: line-through;
 }
 
 
 @media (max-width: 1200px) {
-    .bg {
-        object-position: 70% 0;
+
+    .chair {
+        top: 180px;
+        left: 40px;
+    }
+
+    .chair img {
+        width: 330px;
+    }
+
+    .table {
+        top: 140px;
+        right: 50px;
+    }
+
+    .table img {
+        width: 280px;
+    }
+
+    .vase {
+        top: 320px;
+        right: 20px;
+    }
+
+    .vase img {
+        width: 120px;
+    }
+
+    .title {
+        font-size: 80px;
+    }
+
+    .desc {
+        font-size: 20px;
+    }
+
+    .priceTag {
+        top: -35px;
+        left: 15px;
+        padding: 8px 12px;
+    }
+
+    .newPrice {
+        font-size: 14px;
+    }
+
+    .oldPrice {
+        margin-top: 2px;
+        font-size: 12px;
     }
 }
 
 @media (max-width: 992px) {
-    .sale {
-        height: 510px;
-        gap: 0px;
+
+    .chair {
+        top: 260px;
     }
 
-    .bg {
-        object-position: 77% 0;
+    .chair img {
+        width: 270px;
+    }
+
+    .table {
+        top: 180px;
+    }
+
+    .table img {
+        width: 250px;
+    }
+
+    .vase {
+        top: 350px;
+        right: 20px;
+    }
+
+    .vase img {
+        width: 100px;
     }
 
     .title {
         font-size: 60px;
     }
 
-    .desc {
-        font-size: 20px;
+    .text {
+        width: 40%;
     }
 }
 
 @media (max-width: 768px) {
-     .sale {
-        height: 400px;
+    .saleSection {
+        height: 450px;
     }
 
-    .bg {
-        object-position: 83% 0;
+    .chair {
+        top: 200px;
+    }
+
+    .chair img {
+        width: 200px;
+    }
+
+    .table {
+        top: 155px;
+        right: 45px;
+    }
+
+    .table img {
+        width: 180px;
+    }
+
+    .vase {
+        top: 270px;
+    }
+
+    .vase img {
+        width: 80px;
+    }
+
+    .priceTag {
+        top: -40px;
+        left: -5px;
+        padding: 8px 12px;
     }
 }
