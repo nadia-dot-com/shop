@@ -1,23 +1,31 @@
-import {useShopContext} from "../../../context/ShopContext";
-import {ItemProps} from "../../../types/shopTypes";
+import { useShopContext } from "../../../context/ShopContext";
+import { ItemProps } from "../../../types/shopTypes";
+import { useEffect, useState } from "react";
+import { Button } from "../../../component/Button/Button";
+import { QuantityInput } from "../../../component/QuantityInput/QuantityInput";
+import { getImagePath } from "../../../utils/getImagePath";
+import { useShoppingNavigation } from "../../../hooks/useShoppingNavigation";
+import { SaleLabel } from "../SaleLabel/SaleLabel";
 
 import classes from './FullItem.module.css'
-import {StyledLink} from "../../../component/StyledLink/StyledLink";
-import {useEffect, useState} from "react";
-import {Button} from "../../../component/Button/Button";
-import {QuantityInput} from "../../../component/QuantityInput/QuantityInput";
-import {getImagePath} from "../../../utils/getImagePath";
+import { cn } from "../../../utils/cn";
+import { checkProductDate } from "../../../utils/checkProductDate";
+import { NewProductLabel } from "../NewProductLabel/NewProductLabel";
+import { useWishlist } from "../../../hooks/useWishlist";
+import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 
 export function FullItem(props: ItemProps) {
-    const {title, img, desc, price, stock: propStock, id} = props;
+    const { title, img, desc, price, stock: propStock, id, category, isOnSale, createdAt } = props;
     const [mainImg, setMainImg] = useState<string>(img[0]);
     const [currentStock, setStock] = useState<number>(propStock);
     const [quantityValue, setQuantity] = useState(1);
-    const {addToOrder, items} = useShopContext();
+    const { addToOrder, items } = useShopContext();
+    const { navigateToCategory } = useShoppingNavigation();
+    const { liked, toggleLike } = useWishlist(id);
 
     useEffect(() => {
         setMainImg(img[0])
-    }, [img]);
+    }, [img]);-
 
     useEffect(() => {
         const itemInContext = items.find(i => i.id === id);
@@ -36,13 +44,22 @@ export function FullItem(props: ItemProps) {
 
     return (
         <div className={classes.fullItem}>
-            <div className={classes.imgContainer}>
+
+            <div className={classes.container}>
+                <div className={classes.labels}>
+                    {isOnSale &&
+                        <SaleLabel />
+                    }
+                    {checkProductDate(createdAt) &&
+                        <NewProductLabel />
+                    }
+                </div>
                 <img
                     src={getImagePath(mainImg)}
                     alt={title}
                     className={classes.mainImg}
                 />
-                <div className={classes.smallContainer}>
+                <div className={classes.imgContainer}>
                     {Array.isArray(img) && img.map((src, i) => (
                         <img
                             key={i}
@@ -56,13 +73,27 @@ export function FullItem(props: ItemProps) {
                 </div>
             </div>
             <div className={classes.container}>
-                <h2 className={classes.title}>{title}</h2>
-                <p className={classes.price}>{Number(price).toFixed(2)} PLN</p>
+                <h2 className={classes.title}>{title}
+                <span>
+                     {
+                liked ?
+                    <IoIosHeart
+                        className={classes.wishlistButton}
+                        onClick={toggleLike}
+                    />
+                    : <IoIosHeartEmpty
+                        className={classes.wishlistButton}
+                        onClick={toggleLike}
+                    />
+            }
+                </span>
+
+                </h2>
+                <p className={cn(classes.price, isOnSale && classes.salePrice)}>${Number(price).toFixed(2)}</p>
                 <div className={classes.quantityContainer}>
                     <QuantityInput
                         quantity={quantityValue}
                         stock={propStock}
-                        className={classes.quantity}
                         onChange={(e) => setQuantity(Number(e.target.value))}
                     />
                     <Button
@@ -71,14 +102,17 @@ export function FullItem(props: ItemProps) {
                         textColor="white"
                         text="ADD TO ORDER"
                         onClick={() => {
-                            addToOrder({...props, quantity: quantityValue});
+                            addToOrder({ ...props, quantity: quantityValue });
                         }}
                     />
                 </div>
                 <p className={classes.desc}>{desc}</p>
             </div>
-            <div className={classes.closeBth}>
-                <StyledLink to="..">✕</StyledLink>
+            <div
+                className={classes.closeBth}
+                onClick={() => navigateToCategory(category)}
+            >
+                ✕
             </div>
         </div>
     )

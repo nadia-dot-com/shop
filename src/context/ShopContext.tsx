@@ -1,13 +1,12 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 import type { ItemProps, ShopContextProps } from "../types/shopTypes";
 import { createContextHook } from "../hooks/createContextHook";
 import { INITIAL_ITEMS } from "../data/items";
 import { All, SALE } from "../data/categories";
 import { useLocalStorage } from "../hooks/useLocalStorage";
-import { ORDER_KEY, IS_ORDER_OPEN_KEY } from "../data/locatStorageKey";
+import { ORDER_KEY, IS_ORDER_OPEN_KEY, GUEST_WISHLIST_KEY } from "../data/locatStorageKey";
 import { toast } from "react-toastify";
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const ShopContext = createContext<ShopContextProps | null>(null);
 
 export function ShopProvider({ children }: { children: ReactNode }) {
@@ -16,7 +15,15 @@ export function ShopProvider({ children }: { children: ReactNode }) {
     const [order, setOrder] = useLocalStorage<ItemProps[]>(ORDER_KEY, []);
     const [isOrderOpen, setIsOrderOpen] = useLocalStorage<boolean>(IS_ORDER_OPEN_KEY, false);
     const [isOnSale] = useState<ItemProps[]>(items.filter(i => i.isOnSale));
+    const [guestWishlist, setGuestWishlist] = useLocalStorage<string[]>(GUEST_WISHLIST_KEY, []);
 
+    useEffect(() => {
+        if(isOrderOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = ''
+        }
+    }, [isOrderOpen])
     
     const addToOrder = (item: ItemProps) => {
         const existingItem = order.find(i => i.id === item.id);
@@ -52,7 +59,7 @@ export function ShopProvider({ children }: { children: ReactNode }) {
         setOrder(prev => prev.filter((i) => i.id != item.id))
     }
 
-    const updateQuantity = (id: number, quantity: number) => {
+    const updateQuantity = (id: string, quantity: number) => {
         setOrder(prev =>
             prev.map(i =>
                 i.id === id
@@ -79,7 +86,7 @@ export function ShopProvider({ children }: { children: ReactNode }) {
 
     const finalizeOrder = () => setOrder([]);
     
-    const toggleOrder = () => setIsOrderOpen(prev => !prev);
+    const toggleOrderModal = () => setIsOrderOpen(prev => !prev);
 
     const chooseCategory = (category: string) => {
         setSelectedCategory(category);
@@ -93,26 +100,40 @@ export function ShopProvider({ children }: { children: ReactNode }) {
         }
     }
 
+    const toggleGuestWishlist = (productId: string) => {
+        setGuestWishlist(prev =>
+            prev.includes(productId)
+            ? prev.filter(id => id !== productId)
+            : [...prev, productId]
+        )
+    }
+
+    const cleanGuestWishlist = ()=> setGuestWishlist([])
+
     return (
         <ShopContext.Provider
             value={{
                 items,
-                order,
-                addToOrder,
-                removeFromOrder,
-                isOrderOpen,
-                toggleOrder,
-                clearOrder,
-                finalizeOrder,
                 selectedCategory,
                 chooseCategory,
                 isOnSale,
                 updateQuantity,
+
+                order,
+                addToOrder,
+                removeFromOrder,
+                isOrderOpen,
+                toggleOrderModal,
+                clearOrder,
+                finalizeOrder,
+
+                guestWishlist,
+                toggleGuestWishlist,
+                cleanGuestWishlist
             }}>
             {children}
         </ShopContext.Provider>
     );
 };
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const useShopContext = createContextHook(ShopContext, ShopProvider);

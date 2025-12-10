@@ -13,14 +13,16 @@ export function ProductsPage() {
     const navigate = useNavigate();
 
     useEffect(()=> {
-        const path = selectedCategory.toLowerCase();
-        navigate(path)
-    }, [])
+        if(!params.category) {
+            const path = selectedCategory.toLowerCase();
+            navigate(path)
+        }
+    }, [params.category])
 
     return (
-        <div >
+        <div className={classes.productPage}>
             <Categories />
-            <div style={{ position: 'relative' }}>
+            <div>
                 <Outlet />
             </div>
             <div className={cn(classes.itemsContainer, params.itemId && classes.itemPageOpen)}>

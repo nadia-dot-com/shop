@@ -10,5 +10,9 @@ export const ROUTES = {
     userAccount: 'user-account',
     profile: 'profile',
     myOrders: 'my-orders',
+    orderPage: (id: string) => `my-orders/${id}`,
     shoppingCart: 'shoping-cart',
+    myWishlist: 'my-wishlist',
+
+    guestWishlist: 'wishlist',
 }

@@ -10,24 +10,52 @@ import { useUserContext } from "../../../context/UserContext";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../../config/Routes";
 import { Subtotal } from "../../../component/Subtotal/Subtotal";
+import { useGoogleLogin } from "@react-oauth/google";
+import axios from "axios";
 
 export function ShowOrder({ arr }: { arr: ItemProps[] }) {
-    const { order, clearOrder, toggleOrder } = useShopContext();
-    const { user } = useUserContext();
+    const { order, clearOrder, toggleOrderModal } = useShopContext();
+    const { user, updateUser } = useUserContext();
     const navigate = useNavigate();
-    
+
     const handleOrder = () => {
         const path = `${ROUTES.userAccount}/${ROUTES.shoppingCart}`
         navigate(path);
-        toggleOrder();
+        toggleOrderModal();
     }
 
+    const login = useGoogleLogin({
+        onSuccess: async (tokenResponse) => {
+            try {
+                const res = await axios.get(
+                    "https://www.googleapis.com/oauth2/v3/userinfo",
+                    {
+                        headers: {
+                            Authorization: `Bearer ${tokenResponse.access_token}`
+                        },
+                    }
+                );
+
+                if (res.data.email_verified) {
+                    updateUser(res.data);
+                    handleOrder();
+                }
+            } catch (error) {
+                console.log("Error fetching user info", error);
+            }
+        },
+        onError: () => {
+            console.log("❌ Login failed");
+        },
+    })
+
     return (
-        <div >
+        <div className={classes.showOrderWrapper}>
             <div className={classes.cartTitle}>
-                <p >
+                <h2 >
                     Cart ({order.length})
-                </p>
+                </h2>
+
                 <button
                     className={classes.clearButton}
                     onClick={clearOrder}
@@ -41,7 +69,9 @@ export function ShowOrder({ arr }: { arr: ItemProps[] }) {
                 ))}
             </div>
 
-            <Subtotal arr={order}/>
+            <div className={classes.subtotal}>
+                <Subtotal arr={order} />
+            </div>
 
             {
                 user ?
@@ -58,7 +88,7 @@ export function ShowOrder({ arr }: { arr: ItemProps[] }) {
                             bgColor="black"
                             textColor="white"
                             text=" LOGIN WITH GOOGLE & COMPLETE A ORDER"
-                            onClick={() => { }}
+                            onClick={login}
                         >
                             <FcGoogle className={classes.googleIcon} />
                         </Button>

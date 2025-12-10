@@ -6,10 +6,21 @@
   background-size: cover;
   background-position: 0 65%;
   background-repeat: no-repeat;
-  background-color: #bcbcbc;
 
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+@media(max-width: 992px) {
+  .presentation {
+    height: 650px;
+  }
+}
+
+@media(max-width: 768px) {
+  .presentation {
+    height: 550px;
+  }
 }

@@ -8,11 +8,9 @@ import { FaSquareFacebook, FaSquareInstagram } from "react-icons/fa6";
 import classes from './Footer.module.css'
 import { StyledLink } from "../StyledLink/StyledLink";
 import { ROUTES } from "../../config/Routes";
+import { ADDRESS, GOOLE_MAPS_URL } from "../../data/shop";
 
 export default function Footer() {
-    const address = "Basztowa 13, 31-134 Kraków, Poland";
-    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=
-    ${encodeURIComponent(address)}`;
 
     return (
         <footer className={classes.footer}>
@@ -36,11 +34,11 @@ export default function Footer() {
                 <li>
                     <MdPlace />
                     <a
-                        href={googleMapsUrl}
+                        href={GOOLE_MAPS_URL}
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        {address}
+                        {ADDRESS}
                     </a>
                 </li>
             </ul>

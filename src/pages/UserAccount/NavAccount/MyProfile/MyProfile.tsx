@@ -9,7 +9,7 @@ import { COUNTRIES } from "../../../../data/countries";
 export function MyProfile() {
     const { user, updateUser } = useUserContext();
 
-    if (!user) return
+    if (!user) return null;
     const { name, email, address } = user;
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -66,7 +66,7 @@ export function MyProfile() {
                     />
                 </div>
 
-                <h3 className={classes.subTitle}>Address</h3>
+                <h4 className={classes.subTitle}>Address</h4>
 
                 <div className={classes.inputGroup}>
                     <label>Street</label>

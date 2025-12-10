@@ -18,8 +18,10 @@ export type PaymentProps = {
     method: 'cash' ;
 }
 
+export type DeliveryMethod = "free" | "flat" | "pickup" ;
+
 export type DeliveryProps = {
-    method: "free" | "flat" | "pickup" 
+    method: DeliveryMethod;
     price: number;
 }
 

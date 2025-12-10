@@ -1,4 +1,4 @@
-import { PaymentProps } from '../../../../../../types/checkoutTypes';
+import { PaymentProps } from '../../../../../../../types/checkoutTypes';
 
 import classes from './Payment.module.css'
 

@@ -1,6 +1,5 @@
 .collectionItem {
     position: relative;
-    flex: 0 0 20em;
     scroll-snap-align: start;
     scroll-behavior: smooth;
     margin: 0;
@@ -10,16 +9,50 @@
 }
 
 .img {
-    height: 970px;
+    max-width: 1350px;
+    height: auto;
     width: auto;
-    object-fit: cover;
+    object-fit: center;
+    object-position: center;
 }
 
 
 .title {
     position: absolute;
-    top: 50px;
-    left: 50px;
-    font-size: 30px;
+    top: 44px;
+    left: 40px;
+    font-size: 20px;
     font-weight: 600;
+}
+
+@media (max-width: 1200px) {
+    .img {
+        max-width: 900px;
+    }
+}
+
+@media (max-width: 992px) {
+    .img {
+        max-width: 700px;
+        height: 550px;
+        object-fit: cover;
+    }
+    .title {
+        font-size: 18px;
+        top: 25px;
+        left: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .img {
+        max-width: 650px;
+        height: 500px;
+        object-fit: cover;
+    }
+    .title {
+        font-size: 18px;
+        top: 25px;
+        left: 25px;
+    }
 }

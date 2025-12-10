@@ -1,11 +1,15 @@
-import { ItemProps } from '../../../../../../types/shopTypes'
+import { ItemProps } from '../../../../../../../types/shopTypes'
 import classes from './OrderList.module.css'
 
 export function OrderList({order}: {order: ItemProps[]}) {
 
     return (
         <div className={classes.wrapper}>
-            <h2 className={classes.title}>Product</h2>
+
+            <div className={classes.title}>
+            <div>Product</div>
+            <div>Total</div>
+            </div>
             
             <ul className={classes.orderList}>
                 {order.map((product) => (

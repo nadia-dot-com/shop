@@ -19,7 +19,7 @@ export function ScrollButtonX({ onClick, direction, className, disabled }: Scrol
                 disabled && classes.disabled,
                 className)}
         >
-            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+            <svg className={classes.icon} viewBox="0 0 24 24">
                 {direction === 'left' ? (
                     <path d="M16 4l-8 8 8 8" />
                 ) : (

@@ -21,7 +21,7 @@ export function ContactForm() {
             const data = await response.json();
 
             if (data.success) {
-                setResult(" Your submission was successful.");
+                setResult(" Your submission was successful!");
                 formRef.current?.reset()
             } else {
                 setResult(" Something went wrong. Please try again.")

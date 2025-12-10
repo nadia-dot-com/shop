@@ -1,19 +1,17 @@
 .accountIcon {
-    position: relative;
-    top: -2px;
-    display: inline;
-    align-items: center;
-    font-size: 25px;
-    color: black;
+    font-size: 26px;
     text-decoration: none;
     cursor: pointer;
-    float: right;
-    cursor: pointer;
-    transition: color, transform 500ms ease;
+    transition: color 500ms ease;
 }
 
 .active,
 .accountIcon:hover {
-    color: rgba(181, 93, 25, 1);
-    transform: scale(1.2);
+        color: rgba(221, 112, 29, 1);
+}
+
+@media(max-width: 992px) {
+    .accountIcon {
+        font-size: 22px;
+    }
 }

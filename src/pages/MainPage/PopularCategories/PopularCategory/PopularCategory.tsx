@@ -1,18 +1,10 @@
-import { useNavigate } from "react-router-dom";
+import { CategoryProps } from "../../../../types/shopTypes";
+import { useShoppingNavigation } from "../../../../hooks/useShoppingNavigation";
 
 import classes from './PopularCategory.module.css';
-import { useShopContext } from "../../../../context/ShopContext";
-import { CategoryProps } from "../../../../types/shopTypes";
 
 export function PopularCategory({ category }: { category: CategoryProps }) {
-    const { chooseCategory } = useShopContext();
-    const navigate = useNavigate();
-    const path = '/products'
-
-    const choose = () => {
-        chooseCategory(category.category);
-        navigate(`${path}`);
-    }
+    const {navigateToCategory} = useShoppingNavigation();
 
     return category && (
         <li className={classes.categoryItem}>
@@ -20,9 +12,9 @@ export function PopularCategory({ category }: { category: CategoryProps }) {
                 src={category.img}
                 alt={category.category}
                 className={classes.img}
-                onClick={() => choose()}
+                onClick={() => navigateToCategory(category.category)}
             />
-            <div className={classes.title} onClick={() => choose()}>{category.category}</div>
+            <div className={classes.title} onClick={() => navigateToCategory(category.category)}>{category.category}</div>
         </li>
     )
 }

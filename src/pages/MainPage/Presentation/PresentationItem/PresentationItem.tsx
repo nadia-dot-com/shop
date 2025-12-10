@@ -1,19 +1,12 @@
-import { useNavigate } from "react-router-dom";
-import { useShopContext } from "../../../../context/ShopContext";
 import { PresentationProps } from "../../../../types/shopTypes";
 import { cn } from "../../../../utils/cn";
 import { Button } from "../../../../component/Button/Button";
 
 import classes from './PresentationItem.module.css'
-import { ROUTES } from "../../../../config/Routes";
+import { useShoppingNavigation } from "../../../../hooks/useShoppingNavigation";
 
 export function PresentationItem({ array, index, currentItem }: { array: PresentationProps[], index: number, currentItem: PresentationProps }) {
-    const { chooseCategory } = useShopContext();
-    const navigate = useNavigate();
-
-    const handleClick = (category: string) => {
-        navigate(`/${ROUTES.productCategory(category).toLowerCase()}`); chooseCategory(category)
-    }
+    const {navigateToCategory} = useShoppingNavigation();
 
     return array.map((current, i) => (
         <div 
@@ -31,7 +24,7 @@ export function PresentationItem({ array, index, currentItem }: { array: Present
                 <Button
                     bgColor="white"
                     textColor="black"
-                    onClick={() => handleClick(currentItem.category)}
+                    onClick={() => navigateToCategory(currentItem.category)}
                     text={"• SHOP NOW"}
                 />
             </div>

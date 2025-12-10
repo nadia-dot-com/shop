@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-// import { useInterval } from '../../hooks/useInterval'
 import { PRESENTATION } from '../../../data/presentation';
 import { PresentationItem } from './PresentationItem/PresentationItem';
 
@@ -27,7 +26,6 @@ export function Presentation() {
     }
   }, []);
 
-  // start automatycznie po mount
   useEffect(() => {
     start();
     return () => stop();

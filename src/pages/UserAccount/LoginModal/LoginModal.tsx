@@ -8,10 +8,13 @@ import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../../config/Routes"; 
+import { LoginButton } from "../../../component/LoginButton/LoginButton";
+import { useShopContext } from "../../../context/ShopContext";
 
 export function LoginModal() {
-    const { toggleModalOpen, updateUser } = useUserContext();
+    const { toggleModalOpen, updateUser, mergeUserWishlist } = useUserContext();
     const refCallback = useClickOutside(toggleModalOpen);
+    const {guestWishlist, cleanGuestWishlist} = useShopContext();
 
     const navigate = useNavigate();
 
@@ -30,7 +33,9 @@ export function LoginModal() {
                 if(res.data.email_verified) {
                     updateUser(res.data);
                     toggleModalOpen();
-                    navigate(ROUTES.userAccount)
+                    navigate(ROUTES.userAccount);
+                    mergeUserWishlist(guestWishlist);
+                    cleanGuestWishlist();
                 }
             } catch (error) {
                 console.log("Error fetching user info", error);
@@ -43,15 +48,8 @@ export function LoginModal() {
 
     return (
         <div ref={refCallback} className={classes.loginModal}>
-            <h1>LogIn/SingIn</h1>
-            <Button
-                bgColor="black"
-                textColor="white"
-                text=" Continue with Google"
-                onClick={() => login()}
-            >
-                <FcGoogle className={classes.googleIcon} />
-            </Button>
+            <h2>LogIn/SingIn</h2>
+            <LoginButton login={login}/>
         </div>
     )
 }

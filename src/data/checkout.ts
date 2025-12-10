@@ -1,10 +1,15 @@
-import { CheckoutItitial, DeliveryProps, PaymentProps } from "../types/checkoutTypes";
+import { CheckoutItitial, DeliveryMethod } from "../types/checkoutTypes";
 
-export const SHIPPING_PRICES = {
+export const SHIPPING_PRICES: Record<DeliveryMethod, number>= {
     free: 0,
     flat: 10,
     pickup: 0,
-    null: 0,
+}
+
+export const SHIPPING_LABELS: Record<DeliveryMethod, string> = {
+    free: "Free Shipping",
+    flat: "Flat Rate",
+    pickup: "Local Pickup",
 }
 
 export const DEFAULT_VAT = 0;

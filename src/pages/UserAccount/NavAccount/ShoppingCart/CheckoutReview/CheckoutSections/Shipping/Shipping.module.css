@@ -1,12 +1,15 @@
 .wrapper {
+    /* max-width: 900px; */
+    width: 100%;
     margin-bottom: 20px;
     border-bottom: 1px solid silver;
+    padding: 5px;
 }
 
 .title {
-    font-size: 20px;
+     font-size: 18px;
     font-weight: 600;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 .option {
@@ -14,11 +17,15 @@
     justify-content: space-between;
     gap: 10px;
     padding: 10px 3px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
 }
+
 .radio {
     margin-right: 6px;
-     width: 16px;
-  height: 16px;
+     width: 14px;
+  height: 14px;
+}
+.price {
+    font-weight: 600;
 }

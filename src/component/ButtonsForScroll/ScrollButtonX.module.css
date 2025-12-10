@@ -5,8 +5,8 @@
     justify-content: center;
     top: 50%;
     transform: translateY(-50%);
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     border: none;
     cursor: pointer;
@@ -15,6 +15,14 @@
     background-color: white;
     color: #222;
     transition: all 500ms ease;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  stroke: currentColor;
+  stroke-width: 1;
+  fill: none;
 }
 
 .disabled {
@@ -32,4 +40,21 @@
 
 .right{
     right: 50px;
+}
+
+@media(max-width: 992px) {
+    .scrollButtonX {
+        width: 40px;
+        height: 40px;
+    }
+    .icon {
+        width: 20px;
+        height: 20px
+    }
+    .left {
+        left: 20px;
+    }
+    .right {
+        right: 20px;
+    }
 }

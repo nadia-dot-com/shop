@@ -6,6 +6,7 @@
     background-color: #fff;
     overflow-y: hidden; 
     width: 100%;
+    z-index:1;
 }
 
 
@@ -19,4 +20,10 @@
     list-style: none;
     scroll-snap-type: x mandatory;
     align-items: flex-start; 
+}
+
+@media(max-width:992px) {
+    .collection {
+        gap: 18px
+    }
 }

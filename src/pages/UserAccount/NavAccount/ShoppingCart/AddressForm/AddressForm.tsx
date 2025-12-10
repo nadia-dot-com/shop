@@ -64,7 +64,7 @@ export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFor
                     />
                 </div>
                 
-                <h3 className={classes.subTitle}>Address *</h3>
+                <h4 className={classes.subTitle}>Address *</h4>
 
                 <div className={classes.inputGroup}>
                     <label>Street *</label>

@@ -1,16 +1,17 @@
 .shopingCardIcon {
-    display: inline;
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-    float: right;
-    cursor: pointer;
-    transition: color, transform 500ms ease;
+  position: relative;
+  font-size: 23px;
+  cursor: pointer;
+  transition: color 500ms ease;
 }
 
 .active,
 .shopingCardIcon:hover {
-    color: #dc3d3d;
-    transform: scale(1.2);
+  color: #dc3d3d;
 }
 
+@media(max-width: 992px) {
+    .shopingCardIcon {
+        font-size: 20px;
+    }
+}

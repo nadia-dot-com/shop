@@ -5,12 +5,10 @@ import classes from './QuantityInput.module.css';
 export function QuantityInput({ 
     stock, 
     quantity,
-    // className,
     onChange,
 }: { 
     stock: number, 
     quantity: number,
-    // className?: string,
     onChange: (e: ChangeEvent<HTMLInputElement>)=> void,
 }) {
 

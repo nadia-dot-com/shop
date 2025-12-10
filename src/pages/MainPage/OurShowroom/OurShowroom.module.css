@@ -3,37 +3,38 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 750px;
-    gap: 20px;
-    background-color: rgba(236, 236, 231, 1);
+    height: 600px;
+    background-color: #f6f6f3;
     margin: 40px 0;
     overflow: hidden;
-    /* padding: 40px; */
 }
 
 .text {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     padding: 40px;
     gap: 20px;
 }
 
 .title {
     color: rgba(114, 114, 36, 1);
-    font-size: 50px;
-}
-
-.desc {
-    font-size: 30px;
+    font-weight: 400;
 }
 
 .img {
-    height: 100%;
-    width: 50%;
+    height: auto;
+    width: 55%;
     transition: transform 500ms ease;
     object-fit: cover;
 }
 
 .img:hover {
     transform: scale(1.05);
+}
+
+@media (max-width: 1200px) {
+    .ourshowroom {
+        height: 500px;
+    }
 }

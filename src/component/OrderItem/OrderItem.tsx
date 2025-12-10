@@ -21,12 +21,12 @@ export function OrderItem(props: ItemProps) {
     return (
         <div className={classes.orderItem}>
             <div className={classes.itemInfo}>
-                <h2
+                <div
                     className={classes.text}
                     onClick={() => navigate(`${ROUTES.products}/${category}/${path}`)}
                 >
                     {title}
-                </h2>
+                </div>
                 <img
                     src={getImagePath(img[0])}
                     alt={title}

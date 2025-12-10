@@ -1,0 +1,10 @@
+.makeLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 400;
+    height: 500px;
+    gap: 20px;
+}

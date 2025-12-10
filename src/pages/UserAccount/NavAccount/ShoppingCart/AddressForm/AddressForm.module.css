@@ -1,16 +1,17 @@
 .formContainer {
     display: flex;
-    align-items: center;
+    justify-content: center;
 }
 
 .addressForm {
-    min-width: 900px;
+    /* max-width: 900px; */
     width: 100%;
+    box-sizing: border-box;
+    padding: 0 20px;
 }
 
 .title {
     text-align: center;
-    font-size: 30px;
     font-weight: 600;
     color: #222;
     margin-bottom: 20px;
@@ -21,7 +22,7 @@
 }
 
 .inputGroup {
-    font-size: 20px;
+    /* font-size: 20px; */
     display: flex;
     flex-direction: column;
     margin-bottom: 28px;
@@ -33,7 +34,6 @@
     padding: 10px 4px;
     border: none;
     border-bottom: 1px solid #ccc;
-    font-size: 1rem;
     outline: none;
     transition: 0.2s;
 }
@@ -58,6 +58,6 @@
 .buttonWrapper {
   display: flex;
   justify-content: center;
-  margin-top:30px;
+  margin-top:20px;
 }
 

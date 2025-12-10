@@ -10,11 +10,15 @@ import { UserAccount } from "./pages/UserAccount/UserAccount";
 import { MyProfile } from "./pages/UserAccount/NavAccount/MyProfile/MyProfile";
 import { ShoppingCart } from "./pages/UserAccount/NavAccount/ShoppingCart/ShoppingCart";
 import { MyOrders } from "./pages/UserAccount/NavAccount/MyOrders/MyOrders";
-// import { ShopingCard } from "./OrderModal/OrderModal";
+import { OrderPage } from "./pages/UserAccount/NavAccount/MyOrders/OrderPage/OrderPage";
+import { MyWishlist } from "./pages/UserAccount/NavAccount/MyWishlist/MyWishlist";
+import { Wishlist } from "./pages/Wishlist/Wishlist";
+import { ScrollToTop } from "./component/ScrollToTop/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter basename={ROUTES.basePath}>
+      <ScrollToTop/>
       <Routes>
 
         <Route path={ROUTES.mainLayout} element={<MainLayout />}>
@@ -29,10 +33,14 @@ function App() {
             </Route>
           </Route>
 
+          <Route path={ROUTES.guestWishlist} element={<Wishlist/>} />
+
           <Route path={ROUTES.userAccount} element={<UserAccount />}>
             <Route path={ROUTES.profile} element={<MyProfile />} />
             <Route path={ROUTES.shoppingCart} element={<ShoppingCart />} />
             <Route path={ROUTES.myOrders} element={<MyOrders />} />
+            <Route path={ROUTES.orderPage(":orderId")} element={<OrderPage />} />
+            <Route path = {ROUTES.myWishlist} element={<MyWishlist/>} />
           </Route>
 
           <Route path="*" element={<NotFounded />} />

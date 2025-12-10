@@ -11,7 +11,7 @@ export function OrderComplete() {
         animationData={completed}
         loop={false}
         />
-        <h2>Order Completed</h2>
+        <h3>Order Completed</h3>
     </div>
     )
 }

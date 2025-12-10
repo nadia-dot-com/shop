@@ -6,7 +6,7 @@ import classes from './Hotspot.module.css'
 import { HotspotButton } from './HotspotButton/HotspotButton';
 import { ProductNotFound } from './ProductNotFound/ProductNotFound';
 
-export function Hotspot({ top, left, productId }: { top: string, left: string, productId: number }) {
+export function Hotspot({ top, left, productId }: { top: string, left: string, productId: string }) {
     const [visible, toggleVisible] = useToggle(false);
     const { items } = useShopContext();
 

@@ -1,24 +1,28 @@
-import { OrderList } from "./OrderList/OrderList";
-import { Payment } from "./Payment/Payment";
+import { OrderList } from "./CheckoutSections/OrderList/OrderList"; 
+import { Payment } from "./CheckoutSections/Payment/Payment";
 import { Subtotal } from "../../../../../component/Subtotal/Subtotal";
 import { ItemProps } from "../../../../../types/shopTypes";
 
 import classes from './CheckoutReview.module.css'
-import { Shipping } from "./Shipping/Shipping";
+import { Shipping } from "./CheckoutSections/Shipping/Shipping"; 
 import { DeliveryProps, PaymentProps } from "../../../../../types/checkoutTypes";
+import { VatSection } from "./CheckoutSections/VatSection"; 
+import { TotalSection } from "./CheckoutSections/TotalSection";
 
 export function CheckoutReview({
     order,
     delivery,
     payment,
     total,
+    vat,
     updateDelivery,
     updatePayment,
 }: {
     order: ItemProps[],
     delivery: DeliveryProps,
     payment: PaymentProps,
-    total: number
+    total: number,
+    vat: number,
     updateDelivery: (data: DeliveryProps) => void,
     updatePayment: (data: PaymentProps) => void,
 }) {
@@ -36,15 +40,9 @@ export function CheckoutReview({
 
             <Payment payment={payment} updatePayment={updatePayment} />
 
-            <div className={classes.checkoutSection}>
-                <h2>VAT</h2>
-                <h2>$0</h2>
-            </div>
+            <VatSection vat={vat} />
 
-            <div className={classes.checkoutSection}>
-                <h2>Total</h2>
-                <h2>{total}</h2>
-            </div>
+            <TotalSection total={total} />
         </div>
     )
 }

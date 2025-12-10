@@ -1,0 +1,9 @@
+.newProductLabel {
+    background-color:rgb(43, 42, 42);
+    color: white;
+    font-weight: 500;
+    font-size: 12px;
+    padding: 3px 5px;
+    z-index: 20;
+}
+ 

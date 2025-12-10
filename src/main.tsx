@@ -6,7 +6,6 @@ import { ShopProvider } from './context/ShopContext.tsx'
 import { UserProvider } from './context/UserContext.tsx'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import { CheckoutProvider } from './context/CheckoutContext.tsx'
-import { OrdersProvider } from './context/OrdersContext.tsx'
 
 function Main() {
   const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID
@@ -20,9 +19,7 @@ function Main() {
       <UserProvider>
         <ShopProvider>
           <CheckoutProvider>
-            <OrdersProvider>
               <App />
-            </OrdersProvider>
           </CheckoutProvider>
         </ShopProvider>
       </UserProvider>

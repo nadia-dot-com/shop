@@ -6,20 +6,20 @@ import { useShopContext } from "../../../context/ShopContext";
 import { OrderQuantity } from "./OrderQuantity/OrderQuantity";
 
 export function ShopingCardIcon({ active }: { active: boolean }) {
-    const { order, toggleOrder } = useShopContext();
+    const { order, toggleOrderModal } = useShopContext();
 
     return (
-        <>
+        <div>
             <FaCartShopping
                 className={cn(
                     classes.shopingCardIcon,
                     active && classes.active
                 )}
-                onClick={() => toggleOrder()}
+                onClick={() => toggleOrderModal()}
             />
             {order.length > 0 &&
-            <OrderQuantity/>
-        }
-        </>
+                <OrderQuantity />
+            }
+        </div>
     )
 }

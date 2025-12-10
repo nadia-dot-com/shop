@@ -1,0 +1,14 @@
+.empyWishlist {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    font-size: 20px;
+    padding: 80px;
+    gap: 20px;
+}
+
+.bagIcon {
+    font-size: 70px;
+    stroke-width: 0.8;
+}

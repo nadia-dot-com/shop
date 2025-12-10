@@ -1,29 +1,87 @@
 .sale {
-    /* background-image: url('/house-staff/img/sale/sale.png'); */
-    background-size: cover;
-    background-position: center;
+    /* background-size: cover;
+    background-position: right center;
     background-repeat: no-repeat;
 
-    background-color: #f3c294ff; 
+    background-color: #f3c294ff;
     position: relative;
-    padding: 40px 0;
     width: 100%;
-    height: 750px;
+    height: 580px; */
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+
+    gap: 15px;
+    position: relative;
+    width: 100%;
+    height: 580px;
+    overflow: hidden;
+}
+
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .title {
     color: #D74F0E;
-    font-weight: 600;
+    font-weight: 300;
     font-size: 120px;
+    font-family: 'Cormorant';
 }
 
 .desc {
-    font-weight: 300;
-    font-size: 40px;
-   
+    font-weight: 400;
+    font-size: 30px;
+
+}
+
+.title,
+.desc,
+button {
+    position: relative;
+    z-index: 2;
+}
+
+
+@media (max-width: 1200px) {
+    .bg {
+        object-position: 70% 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .sale {
+        height: 510px;
+        gap: 0px;
+    }
+
+    .bg {
+        object-position: 77% 0;
+    }
+
+    .title {
+        font-size: 60px;
+    }
+
+    .desc {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+     .sale {
+        height: 400px;
+    }
+
+    .bg {
+        object-position: 83% 0;
+    }
 }

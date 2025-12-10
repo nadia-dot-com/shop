@@ -1,9 +1,9 @@
 .orderModal {
     position: fixed;
-    display: row;
+    display: flex;
     justify-content: center;
     align-items: center;
-    top: 70px;
+    top: 75px;
     right: 0;
     width: 100%;
     max-width: 580px;
@@ -16,7 +16,11 @@
     font-size: 11px;
     z-index: 2000;
 
-    padding: 30px;
-    padding-bottom: 0;
 }
 
+@media(max-width: 992px) {
+    .orderModal {
+        width: 90%;
+        padding: 15px;
+    }
+}

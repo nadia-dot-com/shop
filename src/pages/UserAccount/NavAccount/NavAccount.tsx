@@ -1,9 +1,12 @@
 import { StyledLink } from "../../../component/StyledLink/StyledLink";
 import { ROUTES } from "../../../config/Routes";
+import { useUserContext } from "../../../context/UserContext";
+import { Logout } from "./Logout/Logout";
 
 import classes from './NavAccount.module.css';
 
 export function NavAccount() {
+  const {logout} = useUserContext();
 
     return (
         <ul className={classes.nav}>
@@ -15,6 +18,12 @@ export function NavAccount() {
           </li>
           <li>
             <StyledLink to={ROUTES.myOrders}>My Orders</StyledLink>
+          </li>
+          <li>
+            <StyledLink to={ROUTES.myWishlist}>My Wishlist</StyledLink>
+          </li>
+          <li>
+            <Logout onClick={logout}/>
           </li>
         </ul>
     )
