@@ -5,3 +5,9 @@
     align-items: center;
     width: 280px;
 }
+
+@media(max-width: 768px) {
+    .orderComplete {
+        width: 250px;
+    }
+}

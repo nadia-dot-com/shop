@@ -40,3 +40,9 @@
 .googleButton:hover {
     transform: scale(1.1);
 }
+
+@media(max-width: 768px) {
+    .loginModal {
+        top: 66px;
+    }
+}

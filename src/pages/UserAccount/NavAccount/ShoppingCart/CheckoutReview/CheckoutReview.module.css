@@ -24,3 +24,9 @@
     border-bottom: 1px solid silver;
     padding: 5px;
 }
+
+@media(max-width: 992px) {
+    .title {
+        font-size: 22px;
+    }
+}

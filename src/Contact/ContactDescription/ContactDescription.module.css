@@ -32,3 +32,9 @@
         font-size: 33px;
     }
 }
+
+@media(max-width: 768px) {
+    .text {
+        font-size: 25px;
+    }
+}

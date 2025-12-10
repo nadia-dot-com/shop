@@ -25,16 +25,16 @@ export function FullItem(props: ItemProps) {
 
     useEffect(() => {
         setMainImg(img[0])
-    }, [img]);-
+    }, [img]); -
 
-    useEffect(() => {
-        const itemInContext = items.find(i => i.id === id);
-        if (itemInContext) {
-            setStock(itemInContext.stock);
-        } else {
-            setStock(propStock);
-        }
-    }, [items, id, propStock]);
+        useEffect(() => {
+            const itemInContext = items.find(i => i.id === id);
+            if (itemInContext) {
+                setStock(itemInContext.stock);
+            } else {
+                setStock(propStock);
+            }
+        }, [items, id, propStock]);
 
     useEffect(() => {
         if (currentStock === 0) setQuantity(0);
@@ -74,19 +74,19 @@ export function FullItem(props: ItemProps) {
             </div>
             <div className={classes.container}>
                 <h2 className={classes.title}>{title}
-                <span>
-                     {
-                liked ?
-                    <IoIosHeart
-                        className={classes.wishlistButton}
-                        onClick={toggleLike}
-                    />
-                    : <IoIosHeartEmpty
-                        className={classes.wishlistButton}
-                        onClick={toggleLike}
-                    />
-            }
-                </span>
+                    <span>
+                        {
+                            liked ?
+                                <IoIosHeart
+                                    className={classes.wishlistButton}
+                                    onClick={toggleLike}
+                                />
+                                : <IoIosHeartEmpty
+                                    className={classes.wishlistButton}
+                                    onClick={toggleLike}
+                                />
+                        }
+                    </span>
 
                 </h2>
                 <p className={cn(classes.price, isOnSale && classes.salePrice)}>${Number(price).toFixed(2)}</p>

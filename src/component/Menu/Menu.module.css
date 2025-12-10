@@ -41,7 +41,7 @@
 
 .burgerList {
   position: absolute;
-  top: 52px;
+  top: 44px;
   width: 200px;
   background: rgba(255, 255, 255, 0.9);
   display: flex;

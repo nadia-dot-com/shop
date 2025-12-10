@@ -4,7 +4,7 @@
     align-items: center;
     background-color: #f6f6f3;
     margin: 50px 0 0 0;
-    padding: 80px 0;
+    padding: 80px 20px;
 }
 
 .form {
@@ -12,6 +12,7 @@
     max-width: 900px;
     width: 100%;
     text-align: center;
+    
 }
 
 .title {
@@ -24,7 +25,7 @@
 .desc {
     font-size: 14px;
     font-weight: 400;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 
 }
 

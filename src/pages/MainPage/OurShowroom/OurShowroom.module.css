@@ -33,8 +33,31 @@
     transform: scale(1.05);
 }
 
+
+.button {
+    margin-left: -10px;
+}
 @media (max-width: 1200px) {
     .ourshowroom {
         height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .ourshowroom {
+        height: 350px;
+    }
+
+    .text {
+        padding: 30px;
+        gap: 10px;
+    }
+
+    .title {
+        font-size: 26px;
+    }
+
+    .desc {
+        font-size: 14px;
     }
 }

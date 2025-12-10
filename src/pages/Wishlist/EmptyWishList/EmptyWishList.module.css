@@ -12,3 +12,14 @@
     font-size: 70px;
     stroke-width: 0.8;
 }
+
+@media(max-width: 768px) {
+    .empyWishlist {
+        font-size: 18px;
+        gap: 15px;
+    }
+
+    .bagIcon {
+        font-size: 60px;
+    }
+}
