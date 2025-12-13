@@ -8,7 +8,7 @@
     gap: 30px;
 }
 
-.container {
+.desktopContainer {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -60,10 +60,10 @@
 }
 
 .title svg {
-  display: block;
-  line-height: 1;
-  vertical-align: middle;
-  font-weight: normal;
+    display: block;
+    line-height: 1;
+    vertical-align: middle;
+    font-weight: normal;
 }
 
 .quantityContainer {
@@ -106,15 +106,81 @@
     z-index: 10;
 }
 
+.mobileContainer {
+    display: none;
+}
+
 @media(max-width: 992px) {
-     .fullItem {
+    .fullItem {
         gap: 25px;
     }
+
     .title {
         font-size: 20px;
         gap: 10px;
     }
+
     .desc {
         font-size: 14px;
+    }
+}
+
+@media(max-width: 576px) {
+    .fullItem {
+        display: block;
+    }
+
+    .desktopContainer {
+        display: none;
+    }
+
+    .mobileContainer {
+        display: block;
+    }
+
+    .mobileImgs {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+    }
+
+    .mobileImgs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .mobileImg {
+        width: 100%;
+        height: auto;
+        scroll-snap-align: start;
+        margin-bottom: 20px;
+    }
+
+    .title {
+        margin-top: 10px;
+    }
+
+    .closeBth {
+        display: none;
+    }
+
+    .dots {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin: 0 0 20px 0;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #ddd;
+        transition: all 0.3s ease;
+
+    }
+
+    .active {
+        background: #796F51;
     }
 }

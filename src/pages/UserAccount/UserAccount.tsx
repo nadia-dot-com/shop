@@ -12,7 +12,7 @@ export function UserAccount() {
     const { name } = user;
 
     return (
-        <div className={classes.mainWrapper}>
+        <div className={classes.userWrapper}>
             <div className={classes.helloUser}>
                 Hello, {name} ;)
             </div>

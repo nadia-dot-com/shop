@@ -34,7 +34,7 @@ export function OrderItem(props: ItemProps) {
                     onClick={() => navigate(`${ROUTES.products}/${category}/${path}`)}
                 />
             </div>
-            
+
                 <QuantityInput
                     quantity={quantity}
                     stock={stock}
@@ -43,6 +43,7 @@ export function OrderItem(props: ItemProps) {
                         Number(e.target.value)
                     )}
                 />
+            
                 <p className={classes.price}>
                     Price:
                     <br />

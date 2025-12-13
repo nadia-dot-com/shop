@@ -1,6 +1,7 @@
 .wrap {
    border: 1px solid #69727D;
    padding: 20px;
+   margin: 20px;
 }
 
 .checkoutSection {
@@ -8,8 +9,14 @@
     justify-content: space-between;
     width: 100%;
     font-weight: 600;
-    font-size: 22px;
-    margin-bottom: 20px;
+    font-size: 18px;
+    margin-bottom: 15px;
     border-bottom: 1px solid silver;
     padding: 5px;
+}
+
+@media(max-width: 768px) {
+    .checkoutSection {
+        font-size: 16px;
+    }
 }

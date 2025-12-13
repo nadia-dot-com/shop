@@ -30,3 +30,15 @@
         font-size: 22px;
     }
 }
+
+@media(max-width: 768px) {
+    .checkoutSection {
+        font-size: 16px;
+    }
+}
+
+@media(max-width: 576px) {
+    .title {
+        font-size: 18px;
+    }
+}

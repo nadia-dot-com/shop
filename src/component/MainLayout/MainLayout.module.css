@@ -36,3 +36,33 @@
     margin-right: auto !important;
   }
 }
+
+@media(max-width:992px) {
+  .toastContainer {
+    font-size: 14px;
+  }
+
+  .toastContainer svg {
+    width: 19px;
+    height: 19px;
+
+  }
+
+  :global(.Toastify__progress-bar) {
+    height: 3px !important;
+  }
+
+  :global(.Toastify__progress-bar--wrp) {
+    height: 3px !important;
+  }
+
+  :global(.Toastify__toast-icon) {
+    margin-right: 6px !important;
+  }
+
+  :global(.Toastify__toast) {
+    width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}

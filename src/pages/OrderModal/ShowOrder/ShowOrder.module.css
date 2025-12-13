@@ -1,3 +1,10 @@
+.orderList {
+  max-height: 600px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 10px;
+}
+
 .showOrderWrapper {
   margin-bottom: 20px;
 }

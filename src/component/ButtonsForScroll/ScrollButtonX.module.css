@@ -58,3 +58,20 @@
         right: 20px;
     }
 }
+
+@media(max-width: 576px) {
+    .scrollButtonX {
+        width: 35px;
+        height: 35px;
+    }
+    .icon {
+        width: 18px;
+        height: 18px
+    }
+    .left {
+        left: 10px;
+    }
+    .right {
+        right: 10px;
+    }
+}

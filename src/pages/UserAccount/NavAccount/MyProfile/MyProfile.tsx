@@ -59,6 +59,7 @@ export function MyProfile() {
                     <label>Phone</label>
                     <input
                         className={classes.input}
+                        pattern='[0-9]{9,15}'
                         type="tel"
                         name="phone"
                         defaultValue={user?.phone ?? ""}

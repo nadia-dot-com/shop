@@ -37,6 +37,7 @@
         height: 550px;
         object-fit: cover;
     }
+
     .title {
         font-size: 18px;
         top: 25px;
@@ -50,6 +51,21 @@
         height: 500px;
         object-fit: cover;
     }
+
+    .title {
+        font-size: 18px;
+        top: 25px;
+        left: 25px;
+    }
+}
+
+@media (max-width: 576px) {
+    .img {
+        max-width: 510px;
+        height: 470px;
+        object-fit: cover;
+    }
+
     .title {
         font-size: 18px;
         top: 25px;

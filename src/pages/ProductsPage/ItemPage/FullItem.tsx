@@ -1,6 +1,6 @@
 import { useShopContext } from "../../../context/ShopContext";
 import { ItemProps } from "../../../types/shopTypes";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "../../../component/Button/Button";
 import { QuantityInput } from "../../../component/QuantityInput/QuantityInput";
 import { getImagePath } from "../../../utils/getImagePath";
@@ -17,11 +17,17 @@ import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 export function FullItem(props: ItemProps) {
     const { title, img, desc, price, stock: propStock, id, category, isOnSale, createdAt } = props;
     const [mainImg, setMainImg] = useState<string>(img[0]);
+
     const [currentStock, setStock] = useState<number>(propStock);
     const [quantityValue, setQuantity] = useState(1);
+
     const { addToOrder, items } = useShopContext();
     const { navigateToCategory } = useShoppingNavigation();
+
     const { liked, toggleLike } = useWishlist(id);
+
+    const [activeIndex, setActiveIndex] = useState<number>(0);
+    const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         setMainImg(img[0])
@@ -42,10 +48,21 @@ export function FullItem(props: ItemProps) {
     }, [currentStock]);
 
 
+    const handleScroll = () => {
+        const el = containerRef.current;
+        if (!el) return;
+
+        const width = el.clientWidth;
+        const scrollLeft = el.scrollLeft;
+
+        const index = Math.round(scrollLeft / width);
+        setActiveIndex(index);
+    }
+
     return (
         <div className={classes.fullItem}>
 
-            <div className={classes.container}>
+            <div className={classes.desktopContainer}>
                 <div className={classes.labels}>
                     {isOnSale &&
                         <SaleLabel />
@@ -71,6 +88,42 @@ export function FullItem(props: ItemProps) {
                     ))
                     }
                 </div>
+            </div>
+            <div className={classes.mobileContainer}>
+                <div className={classes.labels}>
+                    {isOnSale &&
+                        <SaleLabel />
+                    }
+                    {checkProductDate(createdAt) &&
+                        <NewProductLabel />
+                    }
+                </div>
+                <div
+                    className={classes.mobileImgs}
+                    ref={containerRef}
+                    onScroll={handleScroll}
+                >
+                    {img.map((src, i) => (
+                        <img
+                            key={i}
+                            src={getImagePath(src)}
+                            alt={`${title} ${i}`}
+                            className={classes.mobileImg}
+                        />
+                    ))
+                    }
+                </div>
+
+                {img.length > 1 &&
+                    <div className={classes.dots}>
+                        {img.map((_, i) => (
+                            <div
+                                key={i}
+                                className={cn(classes.dot, activeIndex === i && classes.active)}
+                            />
+                        ))}
+                    </div>
+                }
             </div>
             <div className={classes.container}>
                 <h2 className={classes.title}>{title}

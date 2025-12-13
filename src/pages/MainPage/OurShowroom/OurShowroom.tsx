@@ -6,7 +6,7 @@ import { GOOLE_MAPS_URL } from '../../../data/shop';
 export function OurShowroom() {
 
     return (
-        <div className={classes.ourshowroom}>
+        <section className={classes.ourshowroomSection}>
             <div className={classes.text}>
                 <div>
                     <h1 className={classes.title}>Our Showroom</h1>
@@ -26,6 +26,6 @@ export function OurShowroom() {
             </div>
 
                 <img className={classes.img} src={getImagePath('/img/ourshowroom/ourshowroom.png')} alt="ourshowroom" />
-        </div>
+        </section>
     )
 }

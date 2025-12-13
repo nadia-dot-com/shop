@@ -4,7 +4,7 @@ import classes from './OrderList.module.css'
 export function OrderList({order}: {order: ItemProps[]}) {
 
     return (
-        <div className={classes.wrapper}>
+        <section className={classes.orderListSection}>
 
             <div className={classes.title}>
             <div>Product</div>
@@ -24,6 +24,6 @@ export function OrderList({order}: {order: ItemProps[]}) {
                 ))
                 }
             </ul>
-        </div>
+        </section>
     )
 }

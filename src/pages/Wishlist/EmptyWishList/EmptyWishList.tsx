@@ -17,8 +17,8 @@ const {navigateToCategory} = useShoppingNavigation();
         <TbShoppingBagHeart className={classes.bagIcon}/>
 
             <Button
-                bgColor="black"
-                textColor="white"
+                bgColor="#F6F6F3"
+                textColor="black"
                 text="START SHOPPING"
                 onClick={()=> navigateToCategory(All)}
             />

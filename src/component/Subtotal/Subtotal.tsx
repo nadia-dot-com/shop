@@ -8,10 +8,11 @@ export function Subtotal({ arr, }: { arr: ItemProps[] }) {
     const sum = getSubtotal(arr);
 
     return (
-        <div className={classes.subtotal}>Subtotal:
-                <p>
-                    {sum.toFixed(2)} $
-                </p>
-            </div>
+        <section className={classes.subtotalSection}>
+            Subtotal:
+            <p>
+                {sum.toFixed(2)} $
+            </p>
+        </section>
     )
 }

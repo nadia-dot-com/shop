@@ -1,9 +1,8 @@
-.ourshowroom {
+.ourshowroomSection {
     position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 600px;
     background-color: #f6f6f3;
     margin: 40px 0;
     overflow: hidden;
@@ -37,16 +36,8 @@
 .button {
     margin-left: -10px;
 }
-@media (max-width: 1200px) {
-    .ourshowroom {
-        height: 500px;
-    }
-}
 
 @media (max-width: 768px) {
-    .ourshowroom {
-        height: 350px;
-    }
 
     .text {
         padding: 30px;
@@ -55,6 +46,29 @@
 
     .title {
         font-size: 26px;
+    }
+
+    .desc {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .ourshowroomSection {
+        flex-direction: column;
+    }
+
+    .img {
+        width: 100%;
+    }
+
+    .text {
+        padding: 30px 15px;
+        gap: 10px;
+    }
+
+    .title {
+        font-size: 21px;
     }
 
     .desc {

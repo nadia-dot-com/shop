@@ -13,7 +13,6 @@
     flex-direction: column;
     gap: 5px;
     align-items: center;
-    width: 200px;
 }
 
 .img {
@@ -21,18 +20,6 @@
     max-height: 150px;
     object-fit: cover;
     cursor: pointer;
-}
-
-.quantity {
-    width: 60px;
-    height: 30px;
-    text-align: center;
-    border: none;
-    border-bottom: 2px solid #ccc;
-    outline: none;
-    padding: 10px 0;
-    transition: border-color 0.2 ease;
-    line-height: 50px;
 }
 
 .text {
@@ -43,6 +30,8 @@
     cursor: pointer;
     transition: all 0.5s ease;
 }
+
+
 
 .text:hover {
     color: rgba(167, 85, 23, 1);
@@ -64,4 +53,66 @@
 .removeFromCard:hover {
     color: #d83030;
     transform: scale(1.25) translateY(-2px)
+}
+
+@media(max-width: 400px) {
+    .orderItem {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 10px 0;
+    }
+
+    .itemInfo {
+        width: 100%;
+        flex-direction: row;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .img {
+        max-width: 100px;
+        max-height: 100px;
+    }
+
+    .text {
+        font-size: 12px;
+        margin: 0;
+    }
+
+    .orderItem> :nth-child(2),
+    .orderItem> :nth-child(3),
+    .orderItem> :nth-child(4) {
+        flex: 1;
+        min-width: 50px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+    }
+
+    .orderItem> :nth-child(2) {
+        margin-right: 10px;
+    }
+
+    .price {
+        font-size: 12px;
+    }
+
+
+    .removeFromCard {
+        order: 1;
+        align-self: center;
+        margin: 10px;
+        font-size: 30px;
+    }
+
+    .itemInfo {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+    }
+
 }

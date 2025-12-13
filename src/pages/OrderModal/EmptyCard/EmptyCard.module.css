@@ -12,3 +12,10 @@
     top: 1.5px;
     margin-left: 6px;
 }
+
+@media(max-width:576px) {
+    .emptyCard {
+        font-size: 16px;
+        margin: 10px 0 10px 0;
+    }
+}

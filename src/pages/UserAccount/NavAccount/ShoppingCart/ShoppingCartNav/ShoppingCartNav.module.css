@@ -18,3 +18,20 @@
 .activeStep {
     color: rgba(181, 93, 25, 1);
 }
+
+@media(max-width: 576px) {
+    .steps {
+   
+    gap: 8px;
+}
+
+    .stepSpan {
+        font-size: 14px;
+    gap: 8px;
+
+    }
+
+    .stepSpan svg {
+        width: 16px;
+    }
+}

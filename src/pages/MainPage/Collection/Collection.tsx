@@ -35,9 +35,12 @@ export function Collection() {
 
 
     const scroll = (direction: 'left' | 'right') => {
-        if (!scrollRef.current) return;
         const target = scrollRef.current;
-        const itemWidth = target.children[0].getBoundingClientRect().width + 25;
+        if (!target) return;
+
+        const style = window.getComputedStyle(target);
+        const gap = parseFloat(style.columnGap || style.gap );
+        const itemWidth = target.children[0].getBoundingClientRect().width + gap;
         target.scrollBy({ left: direction === 'left' ? -itemWidth : +itemWidth });
     }
 

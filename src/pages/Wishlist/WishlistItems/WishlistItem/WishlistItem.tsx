@@ -9,7 +9,7 @@ import { useShopContext } from '../../../../context/ShopContext';
 import { slugity } from '../../../../utils/slugify';
 
 export function WishlistItem({ item }: { item: ItemProps }) {
-    const { id, title, img, price, category } = item;
+    const { id, title, img, price, category, stock } = item;
     const { toggleLike } = useWishlist(id);
     const { addToOrder, chooseCategory } = useShopContext();
 
@@ -31,37 +31,48 @@ export function WishlistItem({ item }: { item: ItemProps }) {
                     ✕
                 </div>
 
-                <div className={classes.itemInfo}>
+                {/* <div className={classes.itemImg}> */}
 
-                    <img
-                        src={getImagePath(img[0])}
-                        alt={title}
-                        className={classes.img}
-                        onClick={()=>handleClick()}
-                    />
+                <img
+                    src={getImagePath(img[0])}
+                    alt={title}
+                    className={classes.img}
+                    onClick={() => handleClick()}
+                />
 
-                    <div>
-                        <h4
-                            className={classes.text}
-                            onClick={()=>handleClick()}
-                        >
-                            {title}
-                        </h4>
+                {/* </div> */}
+            </div>
+            <div className={classes.itemInfo}>
+                <h4
+                    className={classes.text}
+                    onClick={() => handleClick()}
+                >
+                    {title}
+                </h4>
 
-                        <p className={classes.price}>
-                            ${Number(price).toFixed(2)}
-                        </p>
+                <p className={classes.price}>
+                    ${Number(price).toFixed(2)}
+                </p>
 
-                    </div>
-                </div>
             </div>
 
-            <Button
-                bgColor='#ddd'
-                textColor='black'
-                text='ADD TO CART'
+            <div className={classes.button}>
+                <Button
+                    bgColor='#ddd'
+                    textColor='black'
+                    text='ADD TO CART'
+                    onClick={() => addToOrder(item)}
+                    disabled={stock === 0}
+                />
+            </div>
+
+            <button
+                className={classes.addToCard}
                 onClick={() => addToOrder(item)}
-            />
+                disabled={stock === 0}
+            >
+                +
+            </button>
         </div>
     )
 }

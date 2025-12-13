@@ -123,6 +123,7 @@ export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFor
                     <input
                         className={classes.input}
                         type="tel"
+                        pattern='[0-9]{9,15}'
                         name="phone"
                         defaultValue={data?.phone ?? user?.phone ?? ""}
                         placeholder="Phone"

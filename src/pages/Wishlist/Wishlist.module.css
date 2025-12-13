@@ -23,3 +23,10 @@
         font-size:38px;
     }
 }
+
+@media(max-width:992px) {
+    .title {
+        font-size:26px;
+    padding: 20px;
+    }
+}

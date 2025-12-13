@@ -7,3 +7,9 @@
     list-style: none;
 }
 
+@media(max-width: 576px) {
+    .nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

@@ -9,9 +9,18 @@
 
 .itemInfo {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.itemImg {
+    display: flex;
     align-items: center;
     gap: 10px;
 }
+
 
 .wrapOne {
     display: flex;
@@ -28,11 +37,12 @@
 }
 
 .text {
-    margin: 0 10px;
-    margin-bottom: 10px;
+    /* margin: 0 10px; */
+    /* margin-bottom: 10px; */
     color: #333;
     cursor: pointer;
     transition: all 0.5s ease;
+    font-size: 15px;
 }
 
 .text:hover {
@@ -42,13 +52,13 @@
 .price {
     color: black;
     font-weight: 500;
-
+    font-size: 14px;
 }
 
 .closeBth {
     text-align: center;
 
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 300;
     cursor: pointer;
     opacity: 0.8;
@@ -56,4 +66,50 @@
 
 .closeBth:hover {
     opacity: 1;
+}
+
+.addToCard {
+    display: none;
+    right: 20px;
+    bottom: 20px;
+    background: silver;
+    font-size: 15px;
+    border: none;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    color: black;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 500ms ease;
+}
+
+@media (max-width: 576px) {
+    .img {
+        max-width: 100px;
+        max-height: 100px;
+    }
+
+    .price {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    .wishlistItem {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+    }
+
+    .addToCard {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        margin: 30px;
+    }
+
+    .button {
+        display: none;
+    }
 }

@@ -12,7 +12,6 @@
     max-width: 900px;
     width: 100%;
     text-align: center;
-    
 }
 
 .title {
@@ -25,8 +24,8 @@
 .desc {
     font-size: 14px;
     font-weight: 400;
-    margin-bottom: 20px;
-
+    padding: 0 20px;
+    margin-bottom: 10px;
 }
 
 .inputBox {
@@ -114,5 +113,36 @@
         font-weight: 500;
         color: #525151ff;
         margin-bottom: 10px;
+    }
+}
+
+@media(max-width:576px) {
+    .formWrapper {
+        padding: 40px 12px;
+    }
+
+    .form {
+        max-width: 800px;
+    }
+
+    .title {
+        font-size: 19px;
+    }
+
+    .inputBox {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .messageTitle {
+        font-size: 14px;
+    }
+
+    .success::before {
+        font-size: 14px;
+    }
+
+    .error::before {
+        font-size: 14px;
     }
 }
