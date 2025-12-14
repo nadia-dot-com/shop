@@ -4,7 +4,7 @@ import { useShopContext } from "../../context/ShopContext";
 
 import classes from './ProductsPage.module.css';
 import { cn } from "../../utils/cn";
-import { Categories } from "../../component/Categories/Categories";
+import { Categories } from "../../component/ProductNav/ProductNav";
 import { useEffect } from "react";
 
 export function ProductsPage() {

@@ -1,12 +1,12 @@
 import { All, CATEGORIES, SALE } from "../../data/categories";
 import { COLLECTION } from "../../data/collection";
 import { cn } from "../../utils/cn";
-
-import classes from './Categories.module.css';
 import { useShoppingNavigation } from "../../hooks/useShoppingNavigation";
 import { useToggle } from "../../hooks/useToggle";
 
-export function Categories() {
+import classes from './ProductNav.module.css';
+
+export function ProductNav() {
     const [isOpen, setIsOpen] = useToggle(true);
     const { navigateToCategory } = useShoppingNavigation();
 
