@@ -35,3 +35,21 @@
         font-size: 14px;
     }
 }
+
+@media(max-width: 400px) {
+    .ordersTable {
+        font-size: 12px;
+    }
+
+    .ordersTable thead th {
+        text-align: left;
+        padding: 10px 10px;
+        font-weight: 600;
+        border-bottom: 2px solid #ddd;
+    }
+
+    .ordersTable tbody td {
+        padding: 10px 8px;
+        border-bottom: 1px solid #eee;
+    }
+}
