@@ -98,32 +98,21 @@
     margin-bottom: 8px;
 }
 
-.priceTag {
+.percent {
     position: absolute;
-    top: -40px;
+    top: -35px;
     left: 12px;
 
     background: white;
-    padding: 10px 15px;
+    padding: 10px 10px;
 
     text-align: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-}
-
-.newPrice {
     display: block;
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 500;
+    color:#D74F0E;
 }
-
-.oldPrice {
-    display: block;
-    margin-top: 4px;
-    font-size: 16px;
-    color: #555;
-    text-decoration: line-through;
-}
-
 
 @media (max-width: 1200px) {
 
@@ -162,24 +151,13 @@
         font-size: 20px;
     }
 
-    .priceTag {
+    .percent {
         top: -35px;
-        left: 15px;
-        padding: 8px 12px;
-    }
-
-    .newPrice {
-        font-size: 14px;
-    }
-
-    .oldPrice {
-        margin-top: 2px;
-        font-size: 12px;
+        left: -8px;
     }
 }
 
 @media (max-width: 992px) {
-
     .chair {
         top: 260px;
     }
@@ -211,6 +189,11 @@
 
     .text {
         width: 40%;
+    }
+
+     .percent {
+        top: -35px;
+        left: -8px;
     }
 }
 
@@ -244,10 +227,11 @@
         width: 80px;
     }
 
-    .priceTag {
-        top: -40px;
+    .percent {
+        top: -30px;
         left: -5px;
-        padding: 8px 12px;
+        font-size: 14px;
+        padding: 8px 8px;
     }
 }
 
@@ -328,5 +312,9 @@
 
     .vase img {
         width: 72px;
+    }
+
+     .percent {
+        left: -10px;
     }
 }

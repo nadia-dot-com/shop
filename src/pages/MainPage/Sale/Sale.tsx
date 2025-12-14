@@ -18,25 +18,22 @@ export function Sale() {
             <div className={classes.products}>
                 <div className={classes.chair}>
                     <img src={getImagePath('img/sale/sale-chair.png')} alt="sale-chair" />
-                    <div className={classes.priceTag}>
-                        <span className={classes.newPrice}>$220</span>
-                        <span className={classes.oldPrice}>$350</span>
-                    </div>
+                    {/* <div className={classes.percentTag}> */}
+                        <span className={classes.percent}>-10%</span>
+                    {/* </div> */}
                 </div>
 
                 <div className={classes.table}>
                     <img src={getImagePath('img/sale/table-sale.png')} alt="sale-table" />
-                    <div className={classes.priceTag}>
-                        <span className={classes.newPrice}>$180</span>
-                        <span className={classes.oldPrice}>$250</span>
-                    </div>
+                    {/* <div className={classes.percentTag}> */}
+                        <span className={classes.percent}>-20%</span>
+                    {/* </div> */}
                 </div>
                 <div className={classes.vase}>
                     <img src={getImagePath('img/sale/sale-vase.png')} alt="sale-vase" />
-                    <div className={classes.priceTag}>
-                        <span className={classes.newPrice}>$80</span>
-                        <span className={classes.oldPrice}>$150</span>
-                    </div>
+                    {/* <div className={classes.percentTag}> */}
+                        <span className={classes.percent}>-20%</span>
+                    {/* </div> */}
                 </div>
 
             </div>

@@ -13,7 +13,7 @@ export const PRESENTATION: PresentationProps[] = [
         id: uuidv4(),
         img: 'img/presentation/kichen.png',
         title: 'Save 25% on tables',
-        desc: 'Relax, make yourself comfortable, and sink into your favourite spot.',
+        desc: 'Where every table invites you to slow down and feel at ease.',
         category: 'Tables',
     },
     {
