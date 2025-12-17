@@ -4,7 +4,7 @@ import { ItemProps } from '../../../../types/shopTypes';
 import classes from './WishlistItem.module.css'
 import { ROUTES } from '../../../../config/Routes';
 import { getImagePath } from '../../../../utils/getImagePath';
-import { Button } from '../../../../component/Button/Button';
+import { Button } from '../../../../components/Button/Button';
 import { useShopContext } from '../../../../context/ShopContext';
 import { slugity } from '../../../../utils/slugify';
 

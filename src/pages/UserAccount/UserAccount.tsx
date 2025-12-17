@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
 import { NavAccount } from "./NavAccount/NavAccount";
 import { useUserContext } from "../../context/UserContext";
+import { MakeLogin } from "./MakeLogin/MakeLogin";
 
 import classes from './UserAccount.module.css';
-import { MakeLogin } from "./LoginPage/MakeLogin";
 
 export function UserAccount() {
     const { user } = useUserContext();

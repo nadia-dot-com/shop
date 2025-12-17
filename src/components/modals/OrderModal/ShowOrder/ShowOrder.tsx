@@ -1,15 +1,15 @@
 // import { FcGoogle } from "react-icons/fc";
-import { Button } from "../../../component/Button/Button";
-import { OrderItem } from "../../../component/OrderItem/OrderItem";
-import { ItemProps } from "../../../types/shopTypes";
+import { Button } from "../../../Button/Button";
+import { OrderItem } from "../../../OrderItem/OrderItem";
+import { ItemProps } from "../../../../types/shopTypes";
 
 import classes from "./ShowOrder.module.css";
-import { useShopContext } from "../../../context/ShopContext";
+import { useShopContext } from "../../../../context/ShopContext";
 import { FcGoogle } from "react-icons/fc";
-import { useUserContext } from "../../../context/UserContext";
+import { useUserContext } from "../../../../context/UserContext";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../../../config/Routes";
-import { Subtotal } from "../../../component/Subtotal/Subtotal";
+import { ROUTES } from "../../../../config/Routes";
+import { Subtotal } from "../../../Subtotal/Subtotal";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 

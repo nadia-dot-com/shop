@@ -1,10 +1,9 @@
-
-
 import { useShopContext } from '../../context/ShopContext';
 import { useUserContext } from '../../context/UserContext';
 import { getItemList } from '../../utils/getItemList';
+import { WishlistItems } from '../../components/wishlist/WishlistItems/WishlistItems'; 
+
 import classes from './Wishlist.module.css';
-import { WishlistItems } from './WishlistItems/WishlistItems';
 
 export function Wishlist() {
     const { user, userWishlist } = useUserContext();

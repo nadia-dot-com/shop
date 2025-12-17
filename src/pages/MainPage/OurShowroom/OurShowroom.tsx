@@ -1,6 +1,6 @@
 import classes from './OurShowroom.module.css';
 import { getImagePath } from '../../../utils/getImagePath';
-import { Button } from '../../../component/Button/Button';
+import { Button } from '../../../components/Button/Button';
 import { GOOLE_MAPS_URL } from '../../../data/shop';
 
 export function OurShowroom() {
@@ -25,7 +25,7 @@ export function OurShowroom() {
                 </div>
             </div>
 
-                <img className={classes.img} src={getImagePath('/img/ourshowroom/ourshowroom.png')} alt="ourshowroom" />
+            <img className={classes.img} src={getImagePath('/img/ourshowroom/ourshowroom.png')} alt="ourshowroom" />
         </section>
     )
 }

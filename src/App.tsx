@@ -1,11 +1,11 @@
-import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
-import { MainLayout } from "./component/MainLayout/MainLayout";
+import { BrowserRouter, Navigate, Outlet, Route, Routes } from "react-router-dom";
+import { MainLayout } from "./layouts/MainLayout/MainLayout";
 import { ProductsPage } from "./pages/ProductsPage/ProductsPage";
 import { NotFounded } from "./pages/NotFound/NotFound";
 import { ItemPage } from "./pages/ProductsPage/ItemPage/ItemPage";
 import { MainPage } from "./pages/MainPage/MainPage";
 import { ROUTES } from "./config/Routes";
-import { Contact } from "./Contact/Contact";
+import { Contact } from "./pages/Contact/Contact";
 import { UserAccount } from "./pages/UserAccount/UserAccount";
 import { MyProfile } from "./pages/UserAccount/NavAccount/MyProfile/MyProfile";
 import { ShoppingCart } from "./pages/UserAccount/NavAccount/ShoppingCart/ShoppingCart";
@@ -13,12 +13,12 @@ import { MyOrders } from "./pages/UserAccount/NavAccount/MyOrders/MyOrders";
 import { OrderPage } from "./pages/UserAccount/NavAccount/MyOrders/OrderPage/OrderPage";
 import { MyWishlist } from "./pages/UserAccount/NavAccount/MyWishlist/MyWishlist";
 import { Wishlist } from "./pages/Wishlist/Wishlist";
-import { ScrollToTop } from "./component/ScrollToTop/ScrollToTop";
+import { ScrollToTop } from "./components/ScrollToTop/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter basename={ROUTES.basePath}>
-      <ScrollToTop/>
+      <ScrollToTop />
       <Routes>
 
         <Route path={ROUTES.mainLayout} element={<MainLayout />}>
@@ -33,14 +33,20 @@ function App() {
             </Route>
           </Route>
 
-          <Route path={ROUTES.guestWishlist} element={<Wishlist/>} />
+          <Route path={ROUTES.guestWishlist} element={<Wishlist />} />
 
           <Route path={ROUTES.userAccount} element={<UserAccount />}>
-            <Route path={ROUTES.profile} element={<MyProfile />} />
+
+            <Route
+              index
+              element={<Navigate to={ROUTES.profile} replace />}
+            />
+
+            <Route index path={ROUTES.profile} element={<MyProfile />} />
             <Route path={ROUTES.shoppingCart} element={<ShoppingCart />} />
             <Route path={ROUTES.myOrders} element={<MyOrders />} />
             <Route path={ROUTES.orderPage(":orderId")} element={<OrderPage />} />
-            <Route path = {ROUTES.myWishlist} element={<MyWishlist/>} />
+            <Route path={ROUTES.myWishlist} element={<MyWishlist />} />
           </Route>
 
           <Route path="*" element={<NotFounded />} />

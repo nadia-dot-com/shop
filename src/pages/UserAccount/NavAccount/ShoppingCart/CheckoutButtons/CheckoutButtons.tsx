@@ -1,19 +1,19 @@
-import { Button } from '../../../../../component/Button/Button';
+import { Button } from '../../../../../components/Button/Button';
 import classes from './CheckoutButtons.module.css';
 
 type CheckoutButtonsProps = {
-    step: number;
-    orderLength: number;
-    onNext: () => void;
-    onPrev: () => void;
-    onContinue: () => void;
+  step: number;
+  orderLength: number;
+  onNext: () => void;
+  onPrev: () => void;
+  onContinue: () => void;
 }
 
 export function CheckoutButtons({ step, orderLength, onNext, onPrev, onContinue }: CheckoutButtonsProps) {
-    const isFinal = step === 4;
-    const isEmpty = orderLength === 0;
+  const isFinal = step === 4;
+  const isEmpty = orderLength === 0;
 
-    if (isEmpty || isFinal) {
+  if (isEmpty || isFinal) {
     return (
       <div className={classes.buttons}>
         <Button

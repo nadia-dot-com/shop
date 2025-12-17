@@ -1,14 +1,14 @@
 import { useNavigate } from 'react-router-dom';
-import { Button } from '../../../../component/Button/Button';
+import { Button } from '../../../../components/Button/Button';
 import { useUserContext } from '../../../../context/UserContext';
 import classes from './MyOrders.module.css'
 
 export function MyOrders() {
     const { orders } = useUserContext();
 
-     const navigate = useNavigate();
-     
-     const handleClick = (id: string) => {
+    const navigate = useNavigate();
+
+    const handleClick = (id: string) => {
         const path = `${id}`;
         navigate(path);
     }
@@ -42,7 +42,7 @@ export function MyOrders() {
                                 bgColor='#ddd'
                                 textColor='black'
                                 text='VIEW'
-                                onClick={()=> handleClick(order.orderId)}
+                                onClick={() => handleClick(order.orderId)}
                             />
                         </td>
                     </tr>

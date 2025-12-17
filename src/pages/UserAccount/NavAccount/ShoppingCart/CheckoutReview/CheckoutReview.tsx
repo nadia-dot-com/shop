@@ -1,12 +1,12 @@
-import { OrderList } from "./CheckoutSections/OrderList/OrderList"; 
+import { OrderList } from "./CheckoutSections/OrderList/OrderList";
 import { Payment } from "./CheckoutSections/Payment/Payment";
-import { Subtotal } from "../../../../../component/Subtotal/Subtotal";
+import { Subtotal } from "../../../../../components/Subtotal/Subtotal";
 import { ItemProps } from "../../../../../types/shopTypes";
 
 import classes from './CheckoutReview.module.css'
-import { Shipping } from "./CheckoutSections/Shipping/Shipping"; 
+import { Shipping } from "./CheckoutSections/Shipping/Shipping";
 import { DeliveryProps, PaymentProps } from "../../../../../types/checkoutTypes";
-import { VatSection } from "./CheckoutSections/VatSection"; 
+import { VatSection } from "./CheckoutSections/VatSection";
 import { TotalSection } from "./CheckoutSections/TotalSection";
 
 export function CheckoutReview({

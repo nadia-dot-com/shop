@@ -1,17 +1,17 @@
-import { useShopContext } from "../../../context/ShopContext";
-import { ItemProps } from "../../../types/shopTypes";
+import { useShopContext } from "../../context/ShopContext";
+import { ItemProps } from "../../types/shopTypes";
 import { useEffect, useRef, useState } from "react";
-import { Button } from "../../../component/Button/Button";
-import { QuantityInput } from "../../../component/QuantityInput/QuantityInput";
-import { getImagePath } from "../../../utils/getImagePath";
-import { useShoppingNavigation } from "../../../hooks/useShoppingNavigation";
+import { Button } from "../Button/Button";
+import { QuantityInput } from "../QuantityInput/QuantityInput";
+import { getImagePath } from "../../utils/getImagePath";
+import { useShoppingNavigation } from "../../hooks/useShoppingNavigation";
 import { SaleLabel } from "../SaleLabel/SaleLabel";
 
 import classes from './FullItem.module.css'
-import { cn } from "../../../utils/cn";
-import { checkProductDate } from "../../../utils/checkProductDate";
+import { cn } from "../../utils/cn";
+import { checkProductDate } from "../../utils/checkProductDate";
 import { NewProductLabel } from "../NewProductLabel/NewProductLabel";
-import { useWishlist } from "../../../hooks/useWishlist";
+import { useWishlist } from "../../hooks/useWishlist";
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 
 export function FullItem(props: ItemProps) {

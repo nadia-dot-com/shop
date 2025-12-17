@@ -1,14 +1,14 @@
 import { cn } from '../../utils/cn'
-import classes from './ScrollButtonX.module.css';
+import classes from './HorizontalScrollButton.module.css';
 
-export type ScrollButtonXProps = {
+export type HorizontalScrollButtonProps = {
     onClick?: () => void;
     direction: 'left' | 'right';
     className?: string;
     disabled?: boolean;
 }
 
-export function ScrollButtonX({ onClick, direction, className, disabled }: ScrollButtonXProps) {
+export function HorizontalScrollButton({ onClick, direction, className, disabled }: HorizontalScrollButtonProps) {
 
     return (
         <button

@@ -1,6 +1,6 @@
 import { FormEvent, useRef, useState } from 'react';
-import { Button } from '../../component/Button/Button';
-import { cn } from '../../utils/cn';
+import { Button } from '../../../components/Button/Button';
+import { cn } from '../../../utils/cn';
 import classes from './ContactForm.module.css';
 
 export function ContactForm() {

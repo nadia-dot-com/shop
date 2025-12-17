@@ -1,6 +1,6 @@
-import { EmptyCard } from './EmptyCard/EmptyCard';
-import { useShopContext } from '../../context/ShopContext';
-import { useClickOutside } from '../../hooks/useClickOutside';
+import { EmptyCard } from '../../EmptyCard/EmptyCard';
+import { useShopContext } from '../../../context/ShopContext';
+import { useClickOutside } from '../../../hooks/useClickOutside';
 import { ShowOrder } from './ShowOrder/ShowOrder';
 
 import classes from './OrderModal.module.css'

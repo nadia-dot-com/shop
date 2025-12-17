@@ -9,13 +9,24 @@ import { WishlistIcon } from "./WishlistIcon/WishlistIcon";
 import { useToggle } from "../../hooks/useToggle";
 import { useEffect } from "react";
 
+type MenuLinksProps = {
+    to: string;
+    label: string;
+}
+
+const menuLinks: MenuLinksProps[] = [
+    { to: ROUTES.home + ROUTES.mainLayout, label: 'Home' },
+    { to: ROUTES.contact, label: 'Contact' },
+    { to: ROUTES.products, label: 'Products' },
+];
+
 export function Menu() {
     const [isOpen, setIsOpen] = useToggle(false);
     const { isOrderOpen } = useShopContext();
 
-    useEffect(()=> {
+    useEffect(() => {
         const closeMenuOnScroll = () => {
-            if(isOpen) setIsOpen();
+            if (isOpen) setIsOpen();
         }
 
         window.addEventListener("scroll", closeMenuOnScroll)
@@ -26,9 +37,13 @@ export function Menu() {
         <nav className={classes.nav}>
 
             <ul className={classes.desktopMenu} >
-                <li><StyledLink to={`${ROUTES.home}${ROUTES.mainLayout}`}>Home</StyledLink></li>
-                <li><StyledLink to={ROUTES.contact}>Contact</StyledLink></li>
-                <li><StyledLink to={ROUTES.products}>Products</StyledLink></li>
+                {
+                    menuLinks.map((menu, i) => (
+                        <li key={i}>
+                            <StyledLink to={menu.to}>{menu.label}</StyledLink>
+                        </li>
+                    ))
+                }
 
                 <li className={classes.navIcons}>
                     <AccountIcon />
@@ -75,9 +90,13 @@ export function Menu() {
 
                     {isOpen ? (
                         <ul className={classes.burgerList}>
-                            <li><StyledLink to={`${ROUTES.home}${ROUTES.mainLayout}`}>Home</StyledLink></li>
-                            <li><StyledLink to={ROUTES.contact}>Contact</StyledLink></li>
-                            <li><StyledLink to={ROUTES.products}>Products</StyledLink></li>
+                            {
+                                menuLinks.map((menu, i) => (
+                                    <li key={i}>
+                                        <StyledLink to={menu.to}>{menu.label}</StyledLink>
+                                    </li>
+                                ))
+                            }
                         </ul>
                     ) : null
                     }

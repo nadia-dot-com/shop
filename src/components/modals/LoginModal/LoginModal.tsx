@@ -1,14 +1,18 @@
+import { useUserContext } from "../../../context/UserContext";
+import { useClickOutside } from "../../../hooks/useClickOutside";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useUserContext } from "../../../context/UserContext";
 import { ROUTES } from "../../../config/Routes";
-import { LoginButton } from "../../../component/LoginButton/LoginButton";
+import { LoginButton } from "../../LoginButton/LoginButton";
+import { useShopContext } from "../../../context/ShopContext";
 
-import classes from './MakeLogin.module.css';
+import classes from './LoginModal.module.css';
 
-export function MakeLogin() {
-    const { updateUser } = useUserContext();
+export function LoginModal() {
+    const { toggleModalOpen, updateUser, mergeUserWishlist } = useUserContext();
+    const refCallback = useClickOutside(toggleModalOpen);
+    const { guestWishlist, cleanGuestWishlist } = useShopContext();
 
     const navigate = useNavigate();
 
@@ -26,7 +30,10 @@ export function MakeLogin() {
 
                 if (res.data.email_verified) {
                     updateUser(res.data);
-                    navigate(`/${ROUTES.userAccount}`)
+                    toggleModalOpen();
+                    navigate(ROUTES.userAccount);
+                    mergeUserWishlist(guestWishlist);
+                    cleanGuestWishlist();
                 }
             } catch (error) {
                 console.log("Error fetching user info", error);
@@ -38,8 +45,8 @@ export function MakeLogin() {
     })
 
     return (
-        <div className={classes.makeLogin}>
-            <div>Hi there! Sign in / Log in to continue.</div>
+        <div ref={refCallback} className={classes.loginModal}>
+            <h2>LogIn/SingIn</h2>
             <LoginButton login={login} />
         </div>
     )

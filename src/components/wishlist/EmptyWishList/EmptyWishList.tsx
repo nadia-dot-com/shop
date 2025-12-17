@@ -1,4 +1,4 @@
-import { Button } from "../../../component/Button/Button";
+import { Button } from "../../../components/Button/Button";
 import { TbShoppingBagHeart } from "react-icons/tb";
 
 import classes from './EmptyWishList.module.css';
@@ -6,7 +6,7 @@ import { useShoppingNavigation } from "../../../hooks/useShoppingNavigation";
 import { All } from "../../../data/categories";
 
 export function EmptyWishList() {
-const {navigateToCategory} = useShoppingNavigation();
+    const { navigateToCategory } = useShoppingNavigation();
 
     return (
         <div className={classes.empyWishlist}>
@@ -14,13 +14,13 @@ const {navigateToCategory} = useShoppingNavigation();
             <br />
             Look for the heart to save favorites while you shop.
 
-        <TbShoppingBagHeart className={classes.bagIcon}/>
+            <TbShoppingBagHeart className={classes.bagIcon} />
 
             <Button
                 bgColor="#F6F6F3"
                 textColor="black"
                 text="START SHOPPING"
-                onClick={()=> navigateToCategory(All)}
+                onClick={() => navigateToCategory(All)}
             />
         </div>
     )

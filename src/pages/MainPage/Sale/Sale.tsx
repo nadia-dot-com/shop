@@ -1,4 +1,4 @@
-import { Button } from "../../../component/Button/Button";
+import { Button } from "../../../components/Button/Button";
 import { SALE } from "../../../data/categories";
 import { getImagePath } from "../../../utils/getImagePath";
 import { useShoppingNavigation } from "../../../hooks/useShoppingNavigation";
@@ -18,22 +18,16 @@ export function Sale() {
             <div className={classes.products}>
                 <div className={classes.chair}>
                     <img src={getImagePath('img/sale/sale-chair.png')} alt="sale-chair" />
-                    {/* <div className={classes.percentTag}> */}
-                        <span className={classes.percent}>-10%</span>
-                    {/* </div> */}
+                    <span className={classes.percent}>-10%</span>
                 </div>
 
                 <div className={classes.table}>
                     <img src={getImagePath('img/sale/table-sale.png')} alt="sale-table" />
-                    {/* <div className={classes.percentTag}> */}
-                        <span className={classes.percent}>-20%</span>
-                    {/* </div> */}
+                    <span className={classes.percent}>-20%</span>
                 </div>
                 <div className={classes.vase}>
                     <img src={getImagePath('img/sale/sale-vase.png')} alt="sale-vase" />
-                    {/* <div className={classes.percentTag}> */}
-                        <span className={classes.percent}>-20%</span>
-                    {/* </div> */}
+                    <span className={classes.percent}>-20%</span>
                 </div>
 
             </div>

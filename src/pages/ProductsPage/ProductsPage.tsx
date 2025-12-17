@@ -1,10 +1,10 @@
 import { Outlet, useNavigate, useParams } from "react-router-dom";
-import { Items } from "./Items/Items";
+import { Items } from "../../components/products/Items/Items";
 import { useShopContext } from "../../context/ShopContext";
 
 import classes from './ProductsPage.module.css';
 import { cn } from "../../utils/cn";
-import { ProductNav } from "../../component/ProductNav/ProductNav";
+import { ProductNav } from "../../components/ProductNav/ProductNav";
 import { useEffect } from "react";
 
 export function ProductsPage() {
@@ -12,8 +12,8 @@ export function ProductsPage() {
     const params = useParams();
     const navigate = useNavigate();
 
-    useEffect(()=> {
-        if(!params.category) {
+    useEffect(() => {
+        if (!params.category) {
             const path = selectedCategory.toLowerCase();
             navigate(path)
         }

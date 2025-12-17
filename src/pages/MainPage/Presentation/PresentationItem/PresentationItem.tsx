@@ -1,17 +1,17 @@
 import { PresentationProps } from "../../../../types/shopTypes";
 import { cn } from "../../../../utils/cn";
-import { Button } from "../../../../component/Button/Button";
+import { Button } from "../../../../components/Button/Button";
 
 import classes from './PresentationItem.module.css'
 import { useShoppingNavigation } from "../../../../hooks/useShoppingNavigation";
 
 export function PresentationItem({ array, index, currentItem }: { array: PresentationProps[], index: number, currentItem: PresentationProps }) {
-    const {navigateToCategory} = useShoppingNavigation();
+    const { navigateToCategory } = useShoppingNavigation();
 
     return array.map((current, i) => (
-        <div 
-        className={classes.slide}
-        key={current.id}
+        <div
+            className={classes.slide}
+            key={current.id}
         >
             <img
                 src={current.img}

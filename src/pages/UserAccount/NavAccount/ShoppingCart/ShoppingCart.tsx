@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useShopContext } from "../../../../context/ShopContext";
 import { useUserContext } from "../../../../context/UserContext";
-import { EmptyCard } from "../../../OrderModal/EmptyCard/EmptyCard";
+import { EmptyCard } from "../../../../components/EmptyCard/EmptyCard";
 import { Cart } from "./Cart/Cart";
 import { AddressForm } from "./AddressForm/AddressForm";
 import { OrderComplete } from "./OrderComplete/OrderComplete";
@@ -117,32 +117,32 @@ export function ShoppingCart() {
   return (
     <div className={classes.shoppingCart}>
 
-        {step === 4 ? (
-          <div>
-            <ShoppingCartNav step={step} />     
-             <div className={classes.orderContent}>
-              <OrderComplete />
-              </div> 
+      {step === 4 ? (
+        <div>
+          <ShoppingCartNav step={step} />
+          <div className={classes.orderContent}>
+            <OrderComplete />
           </div>
-        ) : order.length === 0 ? (
-          <div className={classes.emptyCard}>
-            <EmptyCard />
-          </div>
-        ) : (
-          <div>
-            <ShoppingCartNav step={step} />
-            <div>{renderStep()}</div>
-          </div>
-        )}
+        </div>
+      ) : order.length === 0 ? (
+        <div className={classes.emptyCard}>
+          <EmptyCard />
+        </div>
+      ) : (
+        <div>
+          <ShoppingCartNav step={step} />
+          <div>{renderStep()}</div>
+        </div>
+      )}
 
 
-        < CheckoutButtons
-          step={step}
-          orderLength={order.length}
-          onNext={nextStep}
-          onPrev={prevStep}
-          onContinue={() => navigateToCategory(All)}
-        />
+      < CheckoutButtons
+        step={step}
+        orderLength={order.length}
+        onNext={nextStep}
+        onPrev={prevStep}
+        onContinue={() => navigateToCategory(All)}
+      />
     </div >
   )
 }

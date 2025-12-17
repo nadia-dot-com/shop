@@ -1,6 +1,6 @@
 import { useUserContext } from "../../../../context/UserContext";
 import { getItemList } from "../../../../utils/getItemList";
-import { WishlistItems } from "../../../Wishlist/WishlistItems/WishlistItems";
+import { WishlistItems } from "../../../../components/wishlist/WishlistItems/WishlistItems";
 
 export function MyWishlist() {
 const {userWishlist} = useUserContext();

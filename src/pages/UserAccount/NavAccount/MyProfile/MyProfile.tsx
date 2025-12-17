@@ -2,9 +2,9 @@ import { FormEvent } from "react";
 import { useUserContext } from "../../../../context/UserContext";
 
 import classes from './MyProfile.module.css';
-import { Button } from "../../../../component/Button/Button";
+import { Button } from "../../../../components/Button/Button";
 import { toast } from "react-toastify";
-import { COUNTRIES } from "../../../../data/countries"; 
+import { COUNTRIES } from "../../../../data/countries";
 
 export function MyProfile() {
     const { user, updateUser } = useUserContext();
@@ -55,7 +55,7 @@ export function MyProfile() {
                     />
                 </div>
 
-                 <div className={classes.inputGroup}>
+                <div className={classes.inputGroup}>
                     <label>Phone</label>
                     <input
                         className={classes.input}
@@ -110,7 +110,7 @@ export function MyProfile() {
                     >
                         <option value="">Select Country</option>
 
-                         {
+                        {
                             COUNTRIES.map(country => (
                                 <option value={country}>{country}</option>
                             ))

@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { Subtotal } from "../../../../../component/Subtotal/Subtotal";
+import { Subtotal } from "../../../../../components/Subtotal/Subtotal";
 import { useUserContext } from "../../../../../context/UserContext"
 import { OrderList } from "../../ShoppingCart/CheckoutReview/CheckoutSections/OrderList/OrderList";
 

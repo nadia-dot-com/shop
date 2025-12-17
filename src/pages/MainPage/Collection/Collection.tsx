@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ScrollButtonX } from "../../../component/ButtonsForScroll/ScrollButtonX";
+import { HorizontalScrollButton } from "../../../components/ButtonsForScroll/HorizontalScrollButton";
 import { COLLECTION } from "../../../data/collection";
 
 import classes from './Collection.module.css';
@@ -22,7 +22,7 @@ export function Collection() {
         };
 
         el.addEventListener("scroll", handleScroll);
-        handleScroll(); 
+        handleScroll();
 
         const resizeObserver = new ResizeObserver(handleScroll);
         resizeObserver.observe(el);
@@ -39,7 +39,7 @@ export function Collection() {
         if (!target) return;
 
         const style = window.getComputedStyle(target);
-        const gap = parseFloat(style.columnGap || style.gap );
+        const gap = parseFloat(style.columnGap || style.gap);
         const itemWidth = target.children[0].getBoundingClientRect().width + gap;
         target.scrollBy({ left: direction === 'left' ? -itemWidth : +itemWidth });
     }
@@ -47,11 +47,11 @@ export function Collection() {
     return (
         <div className={classes.collectionWrapper}>
 
-            <ScrollButtonX onClick={() => scroll('left')} direction='left' disabled={isAtStart} />
+            <HorizontalScrollButton onClick={() => scroll('left')} direction='left' disabled={isAtStart} />
             <ul className={classes.collection} ref={scrollRef}  >
                 <CollectionItem array={COLLECTION} />
             </ul>
-            <ScrollButtonX onClick={() => scroll('right')} direction='right' disabled={isAtEnd} />
+            <HorizontalScrollButton onClick={() => scroll('right')} direction='right' disabled={isAtEnd} />
 
         </div>
     )

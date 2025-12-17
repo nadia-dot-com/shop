@@ -3,12 +3,12 @@ import classes from './Item.module.css'
 import type { ItemProps } from '../../../types/shopTypes';
 import { useShopContext } from '../../../context/ShopContext';
 import { useNavigate } from 'react-router-dom';
-import { SaleLabel } from '../SaleLabel/SaleLabel';
+import { SaleLabel } from '../../SaleLabel/SaleLabel';
 import { getImagePath } from '../../../utils/getImagePath';
 import { IoIosHeart, IoIosHeartEmpty } from 'react-icons/io';
 import { useWishlist } from '../../../hooks/useWishlist';
 import { checkProductDate } from '../../../utils/checkProductDate';
-import { NewProductLabel } from '../NewProductLabel/NewProductLabel';
+import { NewProductLabel } from '../../NewProductLabel/NewProductLabel';
 
 export function Item(props: ItemProps) {
     const { id, title, img, shortDesc, price, stock, isOnSale, category, createdAt } = props;
@@ -51,28 +51,28 @@ export function Item(props: ItemProps) {
             }
 
             <div className={classes.productInformation}>
-            <h3
-                className={classes.title}
-                onClick={() => handleClick()}
-            >
-                {title}
+                <h3
+                    className={classes.title}
+                    onClick={() => handleClick()}
+                >
+                    {title}
 
-                <span className={classes.categoryTitle}>
-                    {props.collection && ` | ${props.collection}`}
-                </span>
+                    <span className={classes.categoryTitle}>
+                        {props.collection && ` | ${props.collection}`}
+                    </span>
 
-            </h3>
+                </h3>
 
-            <p>{shortDesc}</p>
-            <p className={cn(classes.price, isOnSale && classes.salePrice)}>${Number(price).toFixed(2)}</p>
+                <p>{shortDesc}</p>
+                <p className={cn(classes.price, isOnSale && classes.salePrice)}>${Number(price).toFixed(2)}</p>
 
-            <button
-                className={cn(classes.addToCard)}
-                onClick={() => addToOrder(props)}
-                disabled={stock === 0}
-            >
-                +
-            </button>
+                <button
+                    className={cn(classes.addToCard)}
+                    onClick={() => addToOrder(props)}
+                    disabled={stock === 0}
+                >
+                    +
+                </button>
 
             </div>
 
