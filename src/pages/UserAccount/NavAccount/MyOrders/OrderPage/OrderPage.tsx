@@ -4,17 +4,19 @@ import { useUserContext } from "../../../../../context/UserContext"
 import { OrderList } from "../../ShoppingCart/CheckoutReview/CheckoutSections/OrderList/OrderList";
 
 import classes from './OrderPage.module.css'
-import { VatSection } from "../../ShoppingCart/CheckoutReview/CheckoutSections/VatSection";
-import { TotalSection } from "../../ShoppingCart/CheckoutReview/CheckoutSections/TotalSection";
+import { VatSection } from "../../ShoppingCart/CheckoutReview/CheckoutSections/VatSection/VatSection";
+import { TotalSection } from "../../ShoppingCart/CheckoutReview/CheckoutSections/TotalSection/TotalSection";
 import { SHIPPING_LABELS } from "../../../../../data/checkout";
+
 export function OrderPage() {
     const { orders } = useUserContext();
     const { orderId } = useParams();
 
     const order = orders.find(o => o.orderId === orderId);
-
-
+    
     if (!order) return null;
+    
+    const discount = order.items.some(el => el.discount > 0);
 
     return (
         <div className={classes.wrap}>
@@ -37,7 +39,7 @@ export function OrderPage() {
                 <div>{order.payment.method}</div>
             </div>
 
-            <TotalSection total={order.total} />
+            <TotalSection total={order.total} discount={discount} />
         </div>
     )
 }

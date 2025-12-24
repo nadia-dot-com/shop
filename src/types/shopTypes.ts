@@ -1,4 +1,6 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
+import { Product } from "./api/product";
+import { OrderItem } from "./orderItem";
 
 export type ItemProps = {
     id: string;
@@ -15,14 +17,28 @@ export type ItemProps = {
     createdAt: string;
 }
 
-export type ShopContextProps = {
-    items: ItemProps[];
-    order: ItemProps[];
+export type ProductProps = {
+  id?: string;
+  title: string;
+  imagesUrls: string[];
+  shortDescription: string;
+  fullDescription: string;
+  category: string;
+  collection?: string;
+  price: number;
+  stock?: number;
+  quantity?: number;
+  discount: number;
+  releaseDate: string;
+}
 
-    addToOrder: (item: ItemProps) => void;
-    removeFromOrder: (item: ItemProps) => void;
+export type ShopContextProps = {
+    order: OrderItem[];
+
+    addToOrder: (product: Product, quantity?: number) => void;
+    removeFromOrder: (item: OrderItem) => void;
     clearOrder: ()=> void;
-    finalizeOrder: ()=> void;
+    resetOrder: ()=> void;
 
     isOrderOpen: boolean;
     toggleOrderModal: () => void;
@@ -30,38 +46,12 @@ export type ShopContextProps = {
     selectedCategory: string;
     chooseCategory: (category: string) => void;
 
-    isOnSale: ItemProps[];
     updateQuantity: (id: string, quantity: number)=> void;
 
     guestWishlist: string[];
     toggleGuestWishlist: (productId: string) => void; 
     cleanGuestWishlist: () => void;
 };
-
-export type CategoryProps = {
-    img: string;
-    category: string;
-}
-
-export type PresentationProps = {
-    id: string;
-    img: string;
-    title: string;
-    desc: string;
-    category: string;
-}
-
-export type HotStopProps = {
-    top: string;
-    left: string;
-    productId: string;
-};
-
-export type CollectionProps = {
-    img: string;
-    title: string;
-    hotspots: HotStopProps[];
-}
 
 export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> & {
     text: string | ReactNode;

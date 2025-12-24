@@ -112,7 +112,7 @@ export function MyProfile() {
 
                         {
                             COUNTRIES.map(country => (
-                                <option value={country}>{country}</option>
+                                <option key={country} value={country}>{country}</option>
                             ))
                         }
                     </select>

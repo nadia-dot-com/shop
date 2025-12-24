@@ -1,22 +1,20 @@
-import { useShopContext } from '../../../../context/ShopContext';
 import { useToggle } from '../../../../hooks/useToggle';
-import { ItemProps } from '../../../../types/shopTypes';
 import { HotspotItem } from './HotspotItem/HotspotItem'
-import classes from './Hotspot.module.css'
 import { HotspotButton } from './HotspotButton/HotspotButton';
 import { ProductNotFound } from './ProductNotFound/ProductNotFound';
+import { useProductById } from '../../../../hooks/useProductById';
+
+import classes from './Hotspot.module.css'
 
 export function Hotspot({ top, left, productId }: { top: string, left: string, productId: string }) {
     const [visible, toggleVisible] = useToggle(false);
-    const { items } = useShopContext();
-
-    const item: ItemProps | undefined = items.find(i => i.id === productId);
+    const { data: product } = useProductById(productId);
 
     return (
         <>
             <div className={classes.hotspotWrapper} style={{ top, left, position: 'absolute' }}>
                 <HotspotButton onClick={toggleVisible} />
-                {visible && (item ? (<HotspotItem item={item} />) : (<ProductNotFound />))}
+                {visible && (product ? (<HotspotItem item={product} />) : (<ProductNotFound />))}
             </div>
         </>
     )

@@ -1,13 +1,15 @@
 import { useUserContext } from "../../../../context/UserContext";
-import { getItemList } from "../../../../utils/getItemList";
 import { WishlistItems } from "../../../../components/wishlist/WishlistItems/WishlistItems";
+import { useItemsByIds } from "../../../../hooks/useItemByIds";
 
 export function MyWishlist() {
 const {userWishlist} = useUserContext();
 
+const wishlistItems = useItemsByIds(userWishlist)
+
    return (
     <div>
-       <WishlistItems  list={getItemList(userWishlist)}/>     
+       <WishlistItems  list={wishlistItems}/>     
     </div>
    ) 
 } 

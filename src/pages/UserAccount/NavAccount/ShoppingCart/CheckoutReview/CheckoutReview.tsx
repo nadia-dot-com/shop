@@ -1,13 +1,13 @@
 import { OrderList } from "./CheckoutSections/OrderList/OrderList";
 import { Payment } from "./CheckoutSections/Payment/Payment";
 import { Subtotal } from "../../../../../components/Subtotal/Subtotal";
-import { ItemProps } from "../../../../../types/shopTypes";
-
-import classes from './CheckoutReview.module.css'
 import { Shipping } from "./CheckoutSections/Shipping/Shipping";
 import { DeliveryProps, PaymentProps } from "../../../../../types/checkoutTypes";
-import { VatSection } from "./CheckoutSections/VatSection";
-import { TotalSection } from "./CheckoutSections/TotalSection";
+import { VatSection } from "./CheckoutSections/VatSection/VatSection";
+import { TotalSection } from "./CheckoutSections/TotalSection/TotalSection";
+
+import classes from './CheckoutReview.module.css'
+import { OrderItem } from "../../../../../types/orderItem";
 
 export function CheckoutReview({
     order,
@@ -18,7 +18,7 @@ export function CheckoutReview({
     updateDelivery,
     updatePayment,
 }: {
-    order: ItemProps[],
+    order: OrderItem[],
     delivery: DeliveryProps,
     payment: PaymentProps,
     total: number,
@@ -27,6 +27,7 @@ export function CheckoutReview({
     updatePayment: (data: PaymentProps) => void,
 }) {
 
+    const discount = order.some(el => el.discount >= 0) 
 
     return (
         <div className={classes.wrapper}>
@@ -42,7 +43,7 @@ export function CheckoutReview({
 
             <VatSection vat={vat} />
 
-            <TotalSection total={total} />
+            <TotalSection total={total} discount={discount} />
         </div>
     )
 }

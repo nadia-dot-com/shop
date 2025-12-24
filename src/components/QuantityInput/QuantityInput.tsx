@@ -12,7 +12,6 @@ export function QuantityInput({
     onChange: (e: ChangeEvent<HTMLInputElement>)=> void,
 }) {
 
-
     return (
         <input
             type="number"

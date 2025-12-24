@@ -1,134 +1,123 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
-import type { ItemProps, ShopContextProps } from "../types/shopTypes";
+import type { ShopContextProps } from "../types/shopTypes";
 import { createContextHook } from "../hooks/createContextHook";
-import { INITIAL_ITEMS } from "../data/items";
-import { All, SALE } from "../data/categories";
+import { ALL } from "../data/categories";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { ORDER_KEY, IS_ORDER_OPEN_KEY, GUEST_WISHLIST_KEY } from "../data/locatStorageKey";
 import { toast } from "react-toastify";
+import { Product } from "../types/api/product";
+import { OrderItem } from "../types/orderItem";
 
 export const ShopContext = createContext<ShopContextProps | null>(null);
 
+const MAX_ITEMS = 99;
+
 export function ShopProvider({ children }: { children: ReactNode }) {
-    const [items, setItems] = useState<ItemProps[]>(INITIAL_ITEMS);
-    const [selectedCategory, setSelectedCategory] = useState<string>(All);
-    const [order, setOrder] = useLocalStorage<ItemProps[]>(ORDER_KEY, []);
+    const [selectedCategory, setSelectedCategory] = useState<string>(ALL);
+    const [order, setOrder] = useLocalStorage<OrderItem[]>(ORDER_KEY, []);
     const [isOrderOpen, setIsOrderOpen] = useLocalStorage<boolean>(IS_ORDER_OPEN_KEY, false);
-    const [isOnSale] = useState<ItemProps[]>(items.filter(i => i.isOnSale));
     const [guestWishlist, setGuestWishlist] = useLocalStorage<string[]>(GUEST_WISHLIST_KEY, []);
 
     useEffect(() => {
-        if(isOrderOpen) {
+        if (isOrderOpen) {
             document.body.style.overflow = "hidden";
         } else {
             document.body.style.overflow = ''
         }
     }, [isOrderOpen])
-    
-    const addToOrder = (item: ItemProps) => {
-        const existingItem = order.find(i => i.id === item.id);
-        let newOrder: ItemProps[];
 
-        const handleToast = ()=> toast.success(`${item.title} added to Shoping Cart!`)
-        
-        if (existingItem) {
-            const newQuantity = Math.min(existingItem.quantity + (item.quantity || 1), item.stock);
-            newOrder = order.map(i =>
-                i.id === item.id
-                ? { ...i, quantity: newQuantity }
-                : i
-            )
-        } else {
-            const safeQuantity = Math.min(item.quantity || 1, item.stock)
-            newOrder = [...order, { ...item, quantity: safeQuantity }];
-        }
+    const addToOrder = (product: Product, quantity: number = 1) => {
+        setOrder(prev => {
 
-        setItems(prev => prev.map(i =>
-            i.id === item.id
-                ? { ...i, stock: i.stock - item.quantity }
-                : i
-        ));
-        setOrder(newOrder);
-        handleToast();
+            if (prev.length + quantity >= MAX_ITEMS) {
+                toast.error(`Cart limit reached (100 items)`);
+                return prev;
+            }
+
+            toast.success(`${product.name} added to Shopping Cart!`);
+
+            const existing = prev.find(i => i.id === product.id);
+
+            if (existing) {
+                return prev.map(i =>
+                    i.id === product.id
+                        ? {
+                            ...i,
+                            quantity: Math.min(
+                                i.quantity + quantity,
+                                i.stockQuantity
+                            ),
+                        }
+                        : i
+                );
+            }
+
+            const newItem: OrderItem = {
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                discount: product.discount,
+                img: product.imagesUrls[0],
+                stockQuantity: product.stockQuantity,
+                categoryName: product.categoryName,
+                quantity: Math.min(quantity, product.stockQuantity),
+            };
+
+
+            return [...prev, newItem];
+        });
+
     }
 
-    const removeFromOrder = (item: ItemProps) => {
-        setItems(prev => prev.map(i => i.id === item.id ? { ...i, stock: i.stock + (item.quantity || 0) }
-            : i
-        ));
-        setOrder(prev => prev.filter((i) => i.id != item.id))
-    }
+    const removeFromOrder = (item: OrderItem) => setOrder(prev => prev.filter((i) => i.id != item.id));
 
     const updateQuantity = (id: string, quantity: number) => {
         setOrder(prev =>
             prev.map(i =>
                 i.id === id
-                    ? { ...i, quantity: Math.min(quantity, i.stock) }
+                    ? { ...i, quantity: Math.min(quantity, i.stockQuantity) }
                     : i
             ));
     };
 
-    const clearOrder = () => {
-        setItems(prev =>
-            prev.map(item => {
-                const orderedItem = order.find(o => o.id === item.id);
-                if (orderedItem) {
-                    return {
-                        ...item,
-                        stock: item.stock + (orderedItem.quantity || 0),
-                    };
-                }
-                return item;
-            })
-        );
-        setOrder([])
-    };
+    const clearOrder = () => setOrder([]);
 
-    const finalizeOrder = () => setOrder([]);
-    
+    const resetOrder = () => setOrder([]);
+
     const toggleOrderModal = () => setIsOrderOpen(prev => !prev);
 
     const chooseCategory = (category: string) => {
         setSelectedCategory(category);
-        if (category === All) {
-            setItems(INITIAL_ITEMS)
-        } else if (category === SALE) {
-            setItems(isOnSale);
-        }
-        else {
-            setItems(INITIAL_ITEMS.filter(i => i.category === category || i.collection === category))
-        }
-    }
+    };
 
     const toggleGuestWishlist = (productId: string) => {
         setGuestWishlist(prev =>
             prev.includes(productId)
-            ? prev.filter(id => id !== productId)
-            : [...prev, productId]
+                ? prev.filter(id => id !== productId)
+                : [...prev, productId]
         )
     }
 
-    const cleanGuestWishlist = ()=> setGuestWishlist([])
+    const cleanGuestWishlist = () => setGuestWishlist([])
 
     return (
         <ShopContext.Provider
             value={{
-                items,
                 selectedCategory,
                 chooseCategory,
-                isOnSale,
-                updateQuantity,
 
                 order,
+                updateQuantity,
                 addToOrder,
                 removeFromOrder,
+                clearOrder,
+                resetOrder, // actual submit → mutation this
+
                 isOrderOpen,
                 toggleOrderModal,
-                clearOrder,
-                finalizeOrder,
 
-                guestWishlist,
-                toggleGuestWishlist,
+                guestWishlist, 
+                toggleGuestWishlist, 
                 cleanGuestWishlist
             }}>
             {children}

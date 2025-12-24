@@ -6,6 +6,9 @@ import { ShopProvider } from './context/ShopContext.tsx'
 import { UserProvider } from './context/UserContext.tsx'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import { CheckoutProvider } from './context/CheckoutContext.tsx'
+import { QueryClientProvider } from '@tanstack/react-query'
+import {ReactQueryDevtools} from '@tanstack/react-query-devtools'
+import { queryClient } from './query/queryClient.ts'
 
 function Main() {
   const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID
@@ -14,17 +17,22 @@ function Main() {
     throw new Error('Missing required environment variable VITE_GOOGLE_CLIENT_ID')
   }
 
-  return <StrictMode>
-    <GoogleOAuthProvider clientId={clientId}>
-      <UserProvider>
-        <ShopProvider>
-          <CheckoutProvider>
-              <App />
-          </CheckoutProvider>
-        </ShopProvider>
-      </UserProvider>
-    </GoogleOAuthProvider>
-  </StrictMode>
+  return (
+    <StrictMode>
+      <GoogleOAuthProvider clientId={clientId}>
+        <QueryClientProvider client={queryClient}>
+          <UserProvider>
+            <ShopProvider>
+              <CheckoutProvider>
+                <App />
+              </CheckoutProvider>
+            </ShopProvider>
+          </UserProvider>
+          <ReactQueryDevtools initialIsOpen={false}/>
+        </QueryClientProvider>
+      </GoogleOAuthProvider>
+    </StrictMode>
+  )
 }
 
 createRoot(document.getElementById('root')!).render(<Main />)

@@ -1,9 +1,5 @@
-// import { FcGoogle } from "react-icons/fc";
 import { Button } from "../../../Button/Button";
-import { OrderItem } from "../../../OrderItem/OrderItem";
-import { ItemProps } from "../../../../types/shopTypes";
-
-import classes from "./ShowOrder.module.css";
+import { OrderItemRow } from "../../../OrderItemRow/OrderItemRow";
 import { useShopContext } from "../../../../context/ShopContext";
 import { FcGoogle } from "react-icons/fc";
 import { useUserContext } from "../../../../context/UserContext";
@@ -12,9 +8,12 @@ import { ROUTES } from "../../../../config/Routes";
 import { Subtotal } from "../../../Subtotal/Subtotal";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
+import { OrderItem } from "../../../../types/orderItem";
 
-export function ShowOrder({ arr }: { arr: ItemProps[] }) {
-    const { order, clearOrder, toggleOrderModal } = useShopContext();
+import classes from "./ShowOrder.module.css";
+
+export function ShowOrder({ orderItems }: { orderItems: OrderItem[] }) {
+    const { clearOrder, toggleOrderModal } = useShopContext();
     const { user, updateUser } = useUserContext();
     const navigate = useNavigate();
 
@@ -53,7 +52,7 @@ export function ShowOrder({ arr }: { arr: ItemProps[] }) {
         <div className={classes.showOrderWrapper}>
             <div className={classes.cartTitle}>
                 <h2 >
-                    Cart ({order.length})
+                    Cart ({orderItems.length})
                 </h2>
 
                 <button
@@ -64,13 +63,13 @@ export function ShowOrder({ arr }: { arr: ItemProps[] }) {
                 </button>
             </div>
             <div className={classes.orderList}>
-                {arr.map(el => (
-                    <OrderItem key={el.id} {...el} />
+                {orderItems.map(el => (
+                    <OrderItemRow key={el.id} product={el} />
                 ))}
             </div>
 
             <div className={classes.subtotal}>
-                <Subtotal arr={order} />
+                <Subtotal arr={orderItems} />
             </div>
 
             {

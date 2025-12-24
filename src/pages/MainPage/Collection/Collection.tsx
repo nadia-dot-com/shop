@@ -1,14 +1,17 @@
 import { useEffect, useRef, useState } from "react";
-import { HorizontalScrollButton } from "../../../components/ButtonsForScroll/HorizontalScrollButton";
-import { COLLECTION } from "../../../data/collection";
+import { HorizontalScrollButton } from "../../../components/HorizontalScrollButton/HorizontalScrollButton";
+import { COLLECTION_UI } from "../../../data/collectionUi";
+import { CollectionItem } from "./CollectionItem/CollectionItem";
+import { useCollections } from "../../../hooks/useCollections";
 
 import classes from './Collection.module.css';
-import { CollectionItem } from "./CollectionItem/CollectionItem";
 
 export function Collection() {
     const scrollRef = useRef<HTMLUListElement | null>(null);
     const [isAtStart, setIsAtStart] = useState(true);
     const [isAtEnd, setIsAtEnd] = useState(false);
+
+    const {data: collections} = useCollections();
 
     useEffect(() => {
         const el = scrollRef.current;
@@ -44,12 +47,25 @@ export function Collection() {
         target.scrollBy({ left: direction === 'left' ? -itemWidth : +itemWidth });
     }
 
+    const mergedCollections = COLLECTION_UI.map(ui => {
+        const serverCollection = collections?.find(c => c.id === ui.id);
+
+        return {
+            ...ui,
+            id: serverCollection?.id ?? ui.id,
+            name: serverCollection?.name ?? ui.name,
+        }
+    } )
+
     return (
         <div className={classes.collectionWrapper}>
 
             <HorizontalScrollButton onClick={() => scroll('left')} direction='left' disabled={isAtStart} />
-            <ul className={classes.collection} ref={scrollRef}  >
-                <CollectionItem array={COLLECTION} />
+            <ul className={classes.collection} ref={scrollRef} >
+                {mergedCollections.map(el => (
+                    <CollectionItem key={el.id} collectionItem={el} />
+                ))
+                }
             </ul>
             <HorizontalScrollButton onClick={() => scroll('right')} direction='right' disabled={isAtEnd} />
 

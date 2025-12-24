@@ -1,27 +1,47 @@
-import { All, CATEGORIES, SALE } from "../../data/categories";
-import { COLLECTION } from "../../data/collection";
+import { ALL, ALL_UI, SALE, SALE_UI } from "../../data/categories";
 import { cn } from "../../utils/cn";
 import { useShoppingNavigation } from "../../hooks/useShoppingNavigation";
 import { useToggle } from "../../hooks/useToggle";
 
 import classes from './ProductNav.module.css';
+import { useCategories } from "../../hooks/useCategories";
+import { LoadingSpinner } from "../LoadingSpinner/LoadingSpinner";
+import { ErrorState } from "../ErrorState/ErrorState";
+import { useCollections } from "../../hooks/useCollections";
 
 export function ProductNav() {
     const [isOpen, setIsOpen] = useToggle(true);
     const { navigateToCategory } = useShoppingNavigation();
+    const { data: categories, isLoading, error } = useCategories();
+    const { data: collections } = useCollections();
 
-    const categories = new Set([All, SALE, ...CATEGORIES.map((i) => i.category), ...COLLECTION.map((i) => i.title)]);
+    if (isLoading) {
+        return <LoadingSpinner />
+    }
 
+    if (error) {
+        return <ErrorState />
+    }
+
+    if (!categories || !collections) return null;
+
+    const categoriesNav =
+        new Set([
+            ALL_UI,
+            SALE_UI,
+            ...categories.map((i) => i.name),
+            ...collections.map((i) => i.name),
+        ])
 
     return (
         <div>
             <ul className={classes.desktopCategories}>
-                {Array.from(categories).map((category, index) => (
+                {Array.from(categoriesNav).map((category) => (
                     <li
                         className={cn(
                             classes.category,
-                            category === SALE && classes.saleCategory)}
-                        key={index}
+                            category === SALE_UI && classes.saleCategory)}
+                        key={category}
                         onClick={() => navigateToCategory(category)}>{category}</li>
                 ))}
             </ul>
@@ -32,7 +52,7 @@ export function ProductNav() {
                     onClick={setIsOpen}
                 >
                     Categories
-               
+
                     {
                         isOpen ?
                             <svg className={classes.icon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" >
@@ -45,23 +65,21 @@ export function ProductNav() {
                             </svg>
 
                     }
-                    </li>
-                    {
-                        isOpen ?
-                            null
-                            : Array.from(categories).map((category, index) => (
-                                <li
-                                    className={cn(
-                                        classes.mobileCategory,
-                                        category === SALE && classes.saleCategory)}
-                                    key={index}
-                                    onClick={() => navigateToCategory(category)}>{category}</li>
-                            ))
-                    }
-    
+                </li>
+                {
+                    isOpen ?
+                        null
+                        : Array.from(categoriesNav).map((category, index) => (
+                            <li
+                                className={cn(
+                                    classes.mobileCategory,
+                                    category === SALE && classes.saleCategory)}
+                                key={index}
+                                onClick={() => navigateToCategory(category)}>{category}</li>
+                        ))
+                }
+
             </ul>
         </div>
-
-
     )
 }

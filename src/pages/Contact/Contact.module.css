@@ -1,9 +1,9 @@
 .contactWrapper {
-    direction: flex;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    flex-direction: column;
     padding: 40px 0;
+    width: 100%;
 }
-

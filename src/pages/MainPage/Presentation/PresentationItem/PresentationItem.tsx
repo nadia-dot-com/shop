@@ -1,4 +1,4 @@
-import { PresentationProps } from "../../../../types/shopTypes";
+import { PresentationProps } from "../../../../types/presentation";
 import { cn } from "../../../../utils/cn";
 import { Button } from "../../../../components/Button/Button";
 

@@ -15,7 +15,7 @@ export function OrderModal() {
             className={classes.orderModal}
         >
             {order.length > 0
-                ? <ShowOrder arr={order} />
+                ? <ShowOrder orderItems={order} />
                 : <EmptyCard />
             }
         </div>

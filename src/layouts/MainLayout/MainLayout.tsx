@@ -19,7 +19,7 @@ export function MainLayout() {
             < Header />
             <Wrapper>
 
-                <main>
+                <main className={classes.content}>
                     <Outlet />
                 </main>
 

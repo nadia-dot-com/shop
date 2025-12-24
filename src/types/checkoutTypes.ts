@@ -1,4 +1,5 @@
-import { ItemProps } from "./shopTypes";
+import { Product } from "./api/product";
+import { OrderItem } from "./orderItem";
 
 export type DataProps = {
     fullName: string;
@@ -26,12 +27,12 @@ export type DeliveryProps = {
 }
 
 export type CheckoutContextProps = {
-    items: ItemProps[];
+    items: Product[];
     data: DataProps | null;
     delivery: DeliveryProps;
     payment: PaymentProps;
 
-    updateItems: (items: ItemProps[]) => void;
+    updateItems: (items: OrderItem[]) => void;
     updateData: (data: DataProps) => void;
     updateDelivery: (data: DeliveryProps) => void;
     updatePayment: (data: PaymentProps) => void;
@@ -39,7 +40,7 @@ export type CheckoutContextProps = {
 }
 
 export type CheckoutItitial = {
-    items: ItemProps[];
+    items: Product[];
     data: DataProps | null;
     delivery: DeliveryProps;
     payment: PaymentProps;

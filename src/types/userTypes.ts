@@ -1,6 +1,8 @@
 import { Dispatch } from "react";
 import { DataProps, DeliveryProps, PaymentProps } from "./checkoutTypes";
-import { ItemProps } from "./shopTypes";
+import { ProductProps } from "./shopTypes";
+import { Product } from "./api/product";
+import { OrderItem } from "./orderItem";
 
 export type UserData = {
   id: number;
@@ -28,7 +30,7 @@ export type StatusProps =
 
 export type OrderProps = {
   orderId: string;
-  items: ItemProps[];
+  items: OrderItem[];
   shippingAddress: DataProps;
   delivery: DeliveryProps;
   payment: PaymentProps;

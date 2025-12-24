@@ -2,7 +2,7 @@ import { BrowserRouter, Navigate, Outlet, Route, Routes } from "react-router-dom
 import { MainLayout } from "./layouts/MainLayout/MainLayout";
 import { ProductsPage } from "./pages/ProductsPage/ProductsPage";
 import { NotFounded } from "./pages/NotFound/NotFound";
-import { ItemPage } from "./pages/ProductsPage/ItemPage/ItemPage";
+import { ProductPage } from "./pages/ProductsPage/ProductPage/ProductPage";
 import { MainPage } from "./pages/MainPage/MainPage";
 import { ROUTES } from "./config/Routes";
 import { Contact } from "./pages/Contact/Contact";
@@ -29,7 +29,7 @@ function App() {
 
           <Route path={ROUTES.products} element={<ProductsPage />}>
             <Route path=":category" element={<Outlet />}>
-              <Route path=":itemId" element={<ItemPage />} />
+              <Route path=":itemId" element={<ProductPage />} />
             </Route>
           </Route>
 

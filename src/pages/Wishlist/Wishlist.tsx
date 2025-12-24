@@ -1,9 +1,9 @@
 import { useShopContext } from '../../context/ShopContext';
 import { useUserContext } from '../../context/UserContext';
-import { getItemList } from '../../utils/getItemList';
 import { WishlistItems } from '../../components/wishlist/WishlistItems/WishlistItems'; 
 
 import classes from './Wishlist.module.css';
+import { useItemsByIds } from '../../hooks/useItemByIds';
 
 export function Wishlist() {
     const { user, userWishlist } = useUserContext();
@@ -12,7 +12,9 @@ export function Wishlist() {
     const wishlistIds = user
         ? userWishlist
         : guestWishlist;
-
+        
+    const wishlistItems = useItemsByIds(wishlistIds);
+    
     return (
         <div className={classes.guestWishlistContainer}>
 
@@ -21,7 +23,7 @@ export function Wishlist() {
                     Wishlist
                 </h1>
 
-               <WishlistItems list={getItemList(wishlistIds)}/>
+               <WishlistItems list={wishlistItems}/>
             </div>
 
         </div>

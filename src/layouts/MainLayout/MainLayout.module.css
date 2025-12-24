@@ -1,3 +1,9 @@
+  .content {
+    min-height: 700px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
 .toastContainer {
   --toastify-color-progress-success: rgba(221, 112, 29, 1);
   top: 80px;

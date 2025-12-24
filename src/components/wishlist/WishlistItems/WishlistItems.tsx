@@ -1,10 +1,10 @@
-import { ItemProps } from "../../../types/shopTypes";
+import { Product } from "../../../types/api/product";
 import { EmptyWishList } from "../EmptyWishList/EmptyWishList";
 import { WishlistItem } from "./WishlistItem/WishlistItem";
 
 import classes from './WishlistItems.module.css'
 
-export function WishlistItems({ list }: { list: ItemProps[] }) {
+export function WishlistItems({ list }: { list: Product[] }) {
 
     return (
         <div>
@@ -14,15 +14,13 @@ export function WishlistItems({ list }: { list: ItemProps[] }) {
                     : <ul className={classes.wishlist}>
                         {
                             list.map(item => (
-                                <li className={classes.wishlistItem}>
+                                <li key={item.id} className={classes.wishlistItem}>
                                     <WishlistItem item={item} />
                                 </li>
                             ))
                         }
                     </ul>
-
             }
         </div>
-
     )
 }

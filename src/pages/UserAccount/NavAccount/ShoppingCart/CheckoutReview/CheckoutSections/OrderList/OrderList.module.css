@@ -23,6 +23,17 @@
     font-weight: 400;
 }
 
+.price {
+    font-size: 15px;
+    color: black;
+    font-weight: 600;
+}
+
+.discountPrice {
+    font-size: 15px;
+    color:#d83030;
+}
+
 @media(max-width: 768px) {
     .title {
         font-size: 16px;

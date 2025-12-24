@@ -1,15 +1,16 @@
-.productPage {
+.productsPagePage {
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 40px;
 }
 
-.itemsContainer {
+.productsContainer {
   display: flex;
   justify-content: center;
   width: 100%;
 }
 
-.itemPageOpen {
+.productPageOpen {
   margin-top: 30px;
+  width: 100%;
 }

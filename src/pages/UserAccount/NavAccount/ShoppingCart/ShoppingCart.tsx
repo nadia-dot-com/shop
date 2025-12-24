@@ -8,7 +8,7 @@ import { OrderComplete } from "./OrderComplete/OrderComplete";
 import { useCheckoutContext } from "../../../../context/CheckoutContext";
 import { DataProps } from "../../../../types/checkoutTypes";
 import { CheckoutReview } from "./CheckoutReview/CheckoutReview";
-import { getSubtotal } from "../../../../utils/getSubtotal";
+import { getDiscountSubtotal, getSubtotal } from "../../../../utils/getSubtotal";
 import { getVAT } from "../../../../utils/getVAT";
 import { ShoppingCartNav } from "./ShoppingCartNav/ShoppingCartNav";
 import { CheckoutButtons } from "./CheckoutButtons/CheckoutButtons";
@@ -16,10 +16,10 @@ import { NewOrderProps } from "../../../../types/userTypes";
 
 import classes from './ShoppingCart.module.css';
 import { useShoppingNavigation } from "../../../../hooks/useShoppingNavigation";
-import { All } from "../../../../data/categories";
+import { ALL } from "../../../../data/categories";
 
 export function ShoppingCart() {
-  const { order, finalizeOrder } = useShopContext();
+  const { order, resetOrder } = useShopContext();
   const { user, addOrder } = useUserContext();
   const { data, delivery, payment, updateItems, updateData, updateDelivery, updatePayment, resetCheckout } = useCheckoutContext();
   const [step, setStep] = useState(1);
@@ -28,7 +28,7 @@ export function ShoppingCart() {
 
   useEffect(() => {
     if (step === 4) {
-      finalizeOrder();
+      resetOrder();
       resetCheckout();
     }
   }, [step]);
@@ -41,10 +41,10 @@ export function ShoppingCart() {
   if (!user) return null;
 
   const subtotal = getSubtotal(order);
+  const subtotalWithDiscount = getDiscountSubtotal(order);
   const country = data?.address.country ?? null;
-  const total = subtotal + delivery.price + getVAT(subtotal, country);
-
-  const productVat = getVAT(subtotal, country);
+  const total = subtotalWithDiscount + delivery.price + getVAT(subtotalWithDiscount, country);
+  const productVat = getVAT(subtotalWithDiscount, country);
 
   const handlePlaceOrder = () => {
     if (!data) return;
@@ -102,10 +102,10 @@ export function ShoppingCart() {
       case 3:
         return (
           <CheckoutReview
+            total={total}
             order={order}
             delivery={delivery}
             payment={payment}
-            total={total}
             vat={productVat}
             updatePayment={updatePayment}
             updateDelivery={updateDelivery}
@@ -141,7 +141,7 @@ export function ShoppingCart() {
         orderLength={order.length}
         onNext={nextStep}
         onPrev={prevStep}
-        onContinue={() => navigateToCategory(All)}
+        onContinue={() => navigateToCategory(ALL)}
       />
     </div >
   )
