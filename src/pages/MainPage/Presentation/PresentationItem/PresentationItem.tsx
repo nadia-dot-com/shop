@@ -4,6 +4,7 @@ import { Button } from "../../../../components/Button/Button";
 
 import classes from './PresentationItem.module.css'
 import { useShoppingNavigation } from "../../../../hooks/useShoppingNavigation";
+import { getImagePath } from "../../../../utils/getImagePath";
 
 export function PresentationItem({ array, index, currentItem }: { array: PresentationProps[], index: number, currentItem: PresentationProps }) {
     const { navigateToCategory } = useShoppingNavigation();
@@ -14,7 +15,7 @@ export function PresentationItem({ array, index, currentItem }: { array: Present
             key={current.id}
         >
             <img
-                src={current.img}
+                src={getImagePath(current.img)}
                 alt={current.title}
                 className={cn(classes.image, i === index && classes.active)}
             />

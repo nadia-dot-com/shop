@@ -10,7 +10,7 @@ import { OrderItem } from "../types/orderItem";
 
 export const ShopContext = createContext<ShopContextProps | null>(null);
 
-const MAX_ITEMS = 99;
+const MAX_ITEMS = 100;
 
 export function ShopProvider({ children }: { children: ReactNode }) {
     const [selectedCategory, setSelectedCategory] = useState<string>(ALL);
@@ -27,18 +27,26 @@ export function ShopProvider({ children }: { children: ReactNode }) {
     }, [isOrderOpen])
 
     const addToOrder = (product: Product, quantity: number = 1) => {
+        let didAdd = false;
+
         setOrder(prev => {
 
-            if (prev.length + quantity >= MAX_ITEMS) {
+            const totalItems = prev.reduce((sum, i) => sum + i.quantity, 0);
+
+            if (totalItems + quantity > MAX_ITEMS) {
                 toast.error(`Cart limit reached (100 items)`);
                 return prev;
             }
 
-            toast.success(`${product.name} added to Shopping Cart!`);
-
             const existing = prev.find(i => i.id === product.id);
 
             if (existing) {
+                if (existing.quantity >= existing.stockQuantity) {
+                    return prev;
+                }
+
+                didAdd = true;
+
                 return prev.map(i =>
                     i.id === product.id
                         ? {
@@ -52,6 +60,8 @@ export function ShopProvider({ children }: { children: ReactNode }) {
                 );
             }
 
+            didAdd = true;
+
             const newItem: OrderItem = {
                 id: product.id,
                 name: product.name,
@@ -63,11 +73,14 @@ export function ShopProvider({ children }: { children: ReactNode }) {
                 quantity: Math.min(quantity, product.stockQuantity),
             };
 
-
             return [...prev, newItem];
         });
 
-    }
+        if (didAdd) {
+            toast.success(`${product.name} added to Shopping Cart!`);
+        }
+    };
+
 
     const removeFromOrder = (item: OrderItem) => setOrder(prev => prev.filter((i) => i.id != item.id));
 
@@ -116,8 +129,8 @@ export function ShopProvider({ children }: { children: ReactNode }) {
                 isOrderOpen,
                 toggleOrderModal,
 
-                guestWishlist, 
-                toggleGuestWishlist, 
+                guestWishlist,
+                toggleGuestWishlist,
                 cleanGuestWishlist
             }}>
             {children}

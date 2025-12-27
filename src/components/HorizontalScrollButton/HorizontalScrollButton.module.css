@@ -29,7 +29,7 @@
    display: none;
 }
 
-.scrollButtonX:hover {
+.horizontalScrollButton:hover {
     background-color: rgba(165, 84, 22, 0.9);
     color: white;
 }

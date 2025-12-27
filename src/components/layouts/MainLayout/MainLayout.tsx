@@ -1,12 +1,12 @@
 import { Outlet } from "react-router-dom";
-import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
-import { Wrapper } from "../../components/Wrapper/Wrapper";
+import Footer from "../../Footer/Footer";
+import Header from "../../Header/Header";
+import { Wrapper } from "../../Wrapper/Wrapper";
 import { ToastContainer } from "react-toastify";
-import { useShopContext } from "../../context/ShopContext";
-import { useUserContext } from "../../context/UserContext";
-import { LoginModal } from "../../components/modals/LoginModal/LoginModal";
-import { OrderModal } from "../../components/modals/OrderModal/OrderModal";
+import { useShopContext } from "../../../context/ShopContext";
+import { useUserContext } from "../../../context/UserContext";
+import { LoginModal } from "../../modals/LoginModal/LoginModal";
+import { OrderModal } from "../../modals/OrderModal/OrderModal";
 
 import classes from './MainLayout.module.css';
 

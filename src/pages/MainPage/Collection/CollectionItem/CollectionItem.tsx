@@ -1,4 +1,5 @@
 import { CollectionItemProps } from "../../../../types/collectionUi";
+import { getImagePath } from "../../../../utils/getImagePath";
 import { Hotspot } from "../Hotspot/Hotspot";
 
 import classes from './CollectionItem.module.css';
@@ -7,7 +8,7 @@ export function CollectionItem({ collectionItem }: { collectionItem: CollectionI
 
     return (
         <li className={classes.collectionItem}>
-            <img className={classes.img} src={collectionItem.img} alt={collectionItem.name} />
+            <img className={classes.img} src={getImagePath(collectionItem.img)} alt={collectionItem.name} />
             <div className={classes.title}>{collectionItem.name}</div>
             {collectionItem.hotspots.map((spot, j) => (
                 <Hotspot top={spot.top} left={spot.left} productId={spot.productId} key={j} />
