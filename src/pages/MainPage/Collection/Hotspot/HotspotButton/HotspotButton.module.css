@@ -2,12 +2,12 @@
     position: absolute;
     height: 20px;
     width: 20px;
-    border-radius: 50% ;
+    border-radius: 50%;
     color: white;
     border: none;
     opacity: 0.9;
     cursor: pointer;
-    
+
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
     animation: pulse 2s infinite;
     transition: transform 0.2s;
@@ -15,9 +15,22 @@
 }
 
 @keyframes pulse {
-    0% {transform: scale(1)}
-    50% {transform: scale(1.2)}
-    100% {transform: scale(1)}
+    0% {
+        transform: scale(1)
+    }
+
+    50% {
+        transform: scale(1.2)
+    }
+
+    100% {
+        transform: scale(1)
+    }
 }
 
-
+@media(max-width: 576px) {
+    .hotspotButton {
+        height: 15px;
+        width: 15px;
+    }
+}

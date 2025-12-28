@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { HorizontalScrollButton } from "../../../components/HorizontalScrollButton/HorizontalScrollButton";
-import { COLLECTION_UI } from "../../../data/collectionUi";
 import { CollectionItem } from "./CollectionItem/CollectionItem";
 import { useCollections } from "../../../hooks/useCollections";
 
 import classes from './Collection.module.css';
+import { ErrorState } from "../../../components/ErrorState/ErrorState";
 
 export function Collection() {
     const scrollRef = useRef<HTMLUListElement | null>(null);
@@ -17,11 +17,18 @@ export function Collection() {
         const el = scrollRef.current;
         if (!el) return;
 
+        const THRESHOLD = 5;
+
         const handleScroll = () => {
             const { scrollLeft, scrollWidth, clientWidth } = el;
 
-            setIsAtStart(scrollLeft <= 1);
-            setIsAtEnd(scrollLeft + clientWidth >= scrollWidth - 1); // невеликий запас
+            const canScroll = scrollWidth > clientWidth + THRESHOLD;
+
+            setIsAtStart(!canScroll || scrollLeft <= THRESHOLD);
+            setIsAtEnd(
+                !canScroll ||
+                scrollLeft + clientWidth >= scrollWidth - THRESHOLD
+            ); 
         };
 
         el.addEventListener("scroll", handleScroll);
@@ -34,7 +41,7 @@ export function Collection() {
             el.removeEventListener("scroll", handleScroll);
             resizeObserver.disconnect();
         };
-    }, []);
+    }, [collections]);
 
 
     const scroll = (direction: 'left' | 'right') => {
@@ -47,22 +54,14 @@ export function Collection() {
         target.scrollBy({ left: direction === 'left' ? -itemWidth : +itemWidth });
     }
 
-    const mergedCollections = COLLECTION_UI.map(ui => {
-        const serverCollection = collections?.find(c => c.id === ui.id);
-
-        return {
-            ...ui,
-            id: serverCollection?.id ?? ui.id,
-            name: serverCollection?.name ?? ui.name,
-        }
-    } )
+    if(!collections) return <ErrorState/>
 
     return (
         <div className={classes.collectionWrapper}>
 
             <HorizontalScrollButton onClick={() => scroll('left')} direction='left' disabled={isAtStart} />
             <ul className={classes.collection} ref={scrollRef} >
-                {mergedCollections.map(el => (
+                {collections.map(el => (
                     <CollectionItem key={el.id} collectionItem={el} />
                 ))
                 }

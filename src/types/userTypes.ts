@@ -1,7 +1,5 @@
 import { Dispatch } from "react";
 import { DataProps, DeliveryProps, PaymentProps } from "./checkoutTypes";
-import { ProductProps } from "./shopTypes";
-import { Product } from "./api/product";
 import { OrderItem } from "./orderItem";
 
 export type UserData = {
