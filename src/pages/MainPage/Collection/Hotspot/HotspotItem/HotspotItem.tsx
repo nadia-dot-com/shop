@@ -3,17 +3,26 @@ import { useShoppingNavigation } from '../../../../../hooks/useShoppingNavigatio
 import { getDiscountPrice } from '../../../../../utils/product';
 
 import classes from './HotspotItem.module.css'
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../../../../config/Routes';
+import { useShopContext } from '../../../../../context/ShopContext';
 
 export function HotspotItem({ item }: { item: Product }) {
-    const {navigateToCategory} = useShoppingNavigation()
+    const {chooseCategory} = useShopContext()
+    const navigate = useNavigate();
 
-    const name = item.name?.toLowerCase().replace(/ /g, '-');
+    const handleNavigate = () => {
+        const name = item.name?.toLowerCase().replace(/ /g, '-');
+        const categorySlug = item.categoryName.toLowerCase().replace(/\s+/g, "-");
+        navigate(`/${ROUTES.productCategory(categorySlug).toLowerCase()}/${name}`);
+        chooseCategory(categorySlug)
+    }
 
     return (
-        <div className={classes.hotspotItem} onClick={() => { navigateToCategory(name) }}>
+        <div className={classes.hotspotItem} onClick={() => handleNavigate()}>
             <img src={item.imagesUrls[0]} alt={item.name} className={classes.img} />
             <h2 className={classes.text} >{item.name}
-                 <div className={classes.price}>
+                <div className={classes.price}>
                     {item.discount <= 0 ?
                         <p>${Number(item.price).toFixed(2)}</p>
                         : <div>

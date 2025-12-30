@@ -40,7 +40,7 @@ export function ShoppingCart() {
 
   if (!user) return null;
 
-  const subtotal = getSubtotal(order);
+  // const subtotal = getSubtotal(order);
   const subtotalWithDiscount = getDiscountSubtotal(order);
   const country = data?.address.country ?? null;
   const total = subtotalWithDiscount + delivery.price + getVAT(subtotalWithDiscount, country);

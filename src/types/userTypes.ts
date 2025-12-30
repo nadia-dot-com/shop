@@ -3,16 +3,14 @@ import { DataProps, DeliveryProps, PaymentProps } from "./checkoutTypes";
 import { OrderItem } from "./orderItem";
 
 export type UserData = {
-  id: number;
+  id: string;
   name: string;
   email: string;
-  phone?: string;
-  address?: {
-    street: string;
-    postalCode: string;
-    city: string;
-    country: string;
-  }
+  phone?: string | null;
+  address?: string | null;
+  postalCode?: string | null;
+  city?: string | null;
+  country?: string | null;
 }
 
 export type StatusProps =
@@ -49,7 +47,7 @@ export type UserContextProps = {
   updateUser: Dispatch<React.SetStateAction<UserData | null>>;
   toggleModalOpen: () => void;
   addOrder: (data: NewOrderProps) => void;
-  logout: ()=> void;
+  logout: () => void;
   toggleUserWishlist: (productId: string) => void;
-  mergeUserWishlist: (wishlist: string[])=> void;
+  mergeUserWishlist: (wishlist: string[]) => void;
 }

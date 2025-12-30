@@ -1,33 +1,81 @@
-import { FormEvent } from "react";
+import { ChangeEvent, FormEvent, useEffect, useMemo, useState } from "react";
 import { useUserContext } from "../../../../context/UserContext";
+import { Button } from "../../../../components/Button/Button";
+import { useUpdateUserProfile } from "../../../../hooks/useUpdateUserProfile";
+import { useOptions } from "../../../../hooks/useOptions";
+import isEqual from "lodash/isEqual";
+import omitBy from "lodash/omitBy";
 
 import classes from './MyProfile.module.css';
-import { Button } from "../../../../components/Button/Button";
-import { toast } from "react-toastify";
-import { COUNTRIES } from "../../../../data/countries";
 
 export function MyProfile() {
-    const { user, updateUser } = useUserContext();
+    const { user } = useUserContext();
+    const updateProfileMutation = useUpdateUserProfile();
+    const { data } = useOptions();
+
+    const countries = data?.countries ?? [];
+
+
+    const [formState, setFormState] = useState({
+        phone: null as string | null,
+        address: null as string | null,
+        postalCode: null as string | null,
+        city: null as string | null,
+        country: null as string | null,
+    })
+
+
+    useEffect(() => {
+        if (!user) return;
+
+        setFormState({
+            phone: user.phone ?? null,
+            address: user.address ?? null,
+            postalCode: user.postalCode ?? null,
+            city: user.city ?? null,
+            country: user.country ?? null,
+        })
+    }, [user])
 
     if (!user) return null;
-    const { name, email, address } = user;
+
+    const { name, email } = user;
+
+    const handleChange = (
+        e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    ) => {
+        const { name, value } = e.target;
+
+        setFormState(prev => ({
+            ...prev,
+            [name]: value === "" ? null : value,
+        }));
+    };
+
+    const hasChanges = useMemo(() => {
+        const cleanedForm = omitBy(formState, v => v === null);
+        const cleanedUser = omitBy(
+            {
+                phone: user.phone ?? null,
+                address: user.address ?? null,
+                postalCode: user.postalCode ?? null,
+                city: user.city ?? null,
+                country: user.country ?? null,
+            },
+            v => v === null
+        );
+
+        return !isEqual(cleanedForm, cleanedUser);
+    }, [formState, user]);
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const formData = new FormData(e.currentTarget);
-        const updatedUserAdress = {
-            ...user,
-            phone: String(formData.get("phone") || ""),
-            address: {
-                street: String(formData.get("street") || ""),
-                postalCode: String(formData.get("postalCode") || ""),
-                city: String(formData.get("city") || ""),
-                country: String(formData.get("country") || ""),
-            }
-        };
 
-        updateUser(updatedUserAdress);
-        toast.success(`Address Saved!`)
+        if (!hasChanges) return;
+
+        const formData = new FormData(e.currentTarget);
+
+        updateProfileMutation.mutate(formState);
     };
 
     return (
@@ -62,8 +110,9 @@ export function MyProfile() {
                         pattern='[0-9]{9,15}'
                         type="tel"
                         name="phone"
-                        defaultValue={user?.phone ?? ""}
+                        defaultValue={formState.phone ?? ""}
                         placeholder="Phone"
+                        onChange={handleChange}
                     />
                 </div>
 
@@ -73,9 +122,10 @@ export function MyProfile() {
                     <label>Street</label>
                     <input
                         className={classes.input}
-                        name="street"
-                        defaultValue={address?.street ?? ""}
+                        name="address"
+                        defaultValue={formState.address ?? ""}
                         placeholder="Street and house number"
+                        onChange={handleChange}
                     />
                 </div>
 
@@ -84,8 +134,9 @@ export function MyProfile() {
                     <input
                         className={classes.input}
                         name="postalCode"
-                        defaultValue={address?.postalCode ?? ""}
+                        defaultValue={formState.postalCode ?? ""}
                         placeholder="e.g. 12345"
+                        onChange={handleChange}
                     />
 
 
@@ -95,8 +146,9 @@ export function MyProfile() {
                     <input
                         className={classes.input}
                         name="city"
-                        defaultValue={address?.city ?? ""}
+                        defaultValue={formState.city ?? ""}
                         placeholder="City"
+                        onChange={handleChange}
                     />
                 </div>
 
@@ -105,14 +157,15 @@ export function MyProfile() {
                     <select
                         className={classes.input}
                         name='country'
-                        defaultValue={address?.country ?? ""}
+                        defaultValue={formState.country ?? ""}
+                        onChange={handleChange}
                         required
                     >
                         <option value="">Select Country</option>
 
                         {
-                            COUNTRIES.map(country => (
-                                <option key={country} value={country}>{country}</option>
+                            countries.map(country => (
+                                <option key={country.name} value={country.name}>{country.name}</option>
                             ))
                         }
                     </select>
@@ -123,6 +176,7 @@ export function MyProfile() {
                         bgColor="black"
                         textColor="white"
                         text="• SAVE CHANGES"
+                        disabled={!hasChanges}
                     />
                 </div>
 
