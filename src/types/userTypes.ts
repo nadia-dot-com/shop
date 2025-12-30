@@ -1,6 +1,6 @@
 import { Dispatch } from "react";
-import { DataProps, DeliveryProps, PaymentProps } from "./checkoutTypes";
-import { OrderItem } from "./orderItem";
+import { NewOrderProps, OrderProps } from "./orderTypes";
+// import { OrderItem } from "./uiOrderTypes";
 
 export type UserData = {
   id: string;
@@ -23,20 +23,6 @@ export type StatusProps =
   | "failed"
   | "shipped"
   | "delivered";
-
-export type OrderProps = {
-  orderId: string;
-  items: OrderItem[];
-  shippingAddress: DataProps;
-  delivery: DeliveryProps;
-  payment: PaymentProps;
-  status: StatusProps;
-  createdAt: string;
-  total: number;
-  vat: number;
-}
-
-export type NewOrderProps = Omit<OrderProps, "orderId" | "createdAt" | "status">;
 
 export type UserContextProps = {
   user: UserData | null;

@@ -3,11 +3,14 @@ import { useUserContext } from '../../../../../context/UserContext'
 import classes from './AddressForm.module.css'
 import { useCheckoutContext } from '../../../../../context/CheckoutContext';
 import { DataProps } from '../../../../../types/checkoutTypes';
-import { COUNTRIES } from '../../../../../data/countries'; 
+import { useOptions } from '../../../../../hooks/useOptions';
 
 export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFormElement | null>; onSubmit: (data: DataProps) => void }) {
     const { user } = useUserContext();
-    const { data } = useCheckoutContext();
+    const { shippingData } = useCheckoutContext();
+    const { data } = useOptions();
+
+    const countries = data?.countries ?? [];
 
     if (!user) return null;
 
@@ -15,18 +18,15 @@ export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFor
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const updatedCheckoutData = {
-            ...data,
-            fullName: String(formData.get("fullName") || ""),
-            company: String(formData.get("company") || ""),
-            address: {
-                street: String(formData.get("street") || ""),
-                postalCode: String(formData.get("postalCode") || ""),
-                city: String(formData.get("city") || ""),
-                country: String(formData.get("country") || ""),
-            },
-            phone: String(formData.get("phone") || ""),
-            email: String(formData.get("email") || ""),
-            notes: String(formData.get("notes") || ""),
+            ...(shippingData ?? {}),
+            fullName: String(formData.get("fullName")) || null,
+            address: String(formData.get("street")) || null,
+            postalCode: String(formData.get("postalCode")) || null,
+            city: String(formData.get("city")) || null,
+            country: String(formData.get("country")) || null,
+            phone: String(formData.get("phone")) || null,
+            email: String(formData.get("email")) || null,
+            notes: String(formData.get("notes")) || null,
         }
 
         onSubmit(updatedCheckoutData)
@@ -47,23 +47,12 @@ export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFor
                         className={classes.input}
                         name='fullName'
                         type="text"
-                        defaultValue={data?.fullName ?? user?.name ?? ""}
+                        defaultValue={shippingData?.fullName ?? user?.name ?? ""}
                         placeholder='Full Name'
                         required
                     />
                 </div>
 
-                <div className={classes.inputGroup}>
-                    <label>Company Name (optional)</label>
-                    <input
-                        className={classes.input}
-                        name='company'
-                        type="text"
-                        defaultValue={data?.company ?? ""}
-                        placeholder='Company Name'
-                    />
-                </div>
-                
                 <h4 className={classes.subTitle}>Address *</h4>
 
                 <div className={classes.inputGroup}>
@@ -71,7 +60,7 @@ export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFor
                     <input
                         className={classes.input}
                         name="street"
-                        defaultValue={data?.address?.street ?? user?.address?.street ?? ""}
+                        defaultValue={shippingData?.address ?? user?.address ?? ""}
                         placeholder="Street and house number"
                         required
                     />
@@ -82,7 +71,7 @@ export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFor
                     <input
                         className={classes.input}
                         name="postalCode"
-                        defaultValue={data?.address.postalCode ?? user?.address?.postalCode ?? ""}
+                        defaultValue={shippingData?.postalCode ?? user?.postalCode ?? ""}
                         placeholder="e.g. 12345"
                         required
                     />
@@ -93,7 +82,7 @@ export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFor
                     <input
                         className={classes.input}
                         name="city"
-                        defaultValue={data?.address.city ?? user?.address?.city ?? ""}
+                        defaultValue={shippingData?.city ?? user?.city ?? ""}
                         placeholder="City"
                         required
                     />
@@ -104,17 +93,17 @@ export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFor
                     <select
                         className={classes.input}
                         name='country'
-                        defaultValue={data?.address.country ?? user?.address?.country ?? ""}
+                        defaultValue={shippingData?.country ?? user?.country ?? ""}
                         required
                     >
                         <option value="">Select Country</option>
 
                         {
-                            COUNTRIES.map(country => (
-                                <option value={country}>{country}</option>
+                            countries.map(country => (
+                                <option key={country.name} value={country.name}>{country.name}</option>
                             ))
                         }
-                        
+
                     </select>
                 </div>
 
@@ -125,7 +114,7 @@ export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFor
                         type="tel"
                         pattern='[0-9]{9,15}'
                         name="phone"
-                        defaultValue={data?.phone ?? user?.phone ?? ""}
+                        defaultValue={shippingData?.phone ?? user?.phone ?? ""}
                         placeholder="Phone"
                         required
                     />
@@ -137,7 +126,7 @@ export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFor
                         className={classes.input}
                         name='email'
                         type='email'
-                        defaultValue={data?.email ?? user?.email ?? ""}
+                        defaultValue={shippingData?.email ?? user?.email ?? ""}
                         required
                     />
                 </div>
@@ -147,7 +136,7 @@ export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFor
                     <textarea
                         name='notes'
                         className={classes.textarea}
-                        defaultValue={data?.notes ?? ""}
+                        defaultValue={shippingData?.notes ?? ""}
                         placeholder='Notes about your order, e.g. special notes for delivery.'
                     />
                 </div>

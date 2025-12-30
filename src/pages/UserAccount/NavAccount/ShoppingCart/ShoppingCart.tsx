@@ -12,19 +12,21 @@ import { getDiscountSubtotal, getSubtotal } from "../../../../utils/getSubtotal"
 import { getVAT } from "../../../../utils/getVAT";
 import { ShoppingCartNav } from "./ShoppingCartNav/ShoppingCartNav";
 import { CheckoutButtons } from "./CheckoutButtons/CheckoutButtons";
-import { NewOrderProps } from "../../../../types/userTypes";
-
-import classes from './ShoppingCart.module.css';
+import { NewOrderProps } from "../../../../types/orderTypes";
 import { useShoppingNavigation } from "../../../../hooks/useShoppingNavigation";
 import { ALL } from "../../../../data/categories";
+
+import classes from './ShoppingCart.module.css';
 
 export function ShoppingCart() {
   const { order, resetOrder } = useShopContext();
   const { user, addOrder } = useUserContext();
-  const { data, delivery, payment, updateItems, updateData, updateDelivery, updatePayment, resetCheckout } = useCheckoutContext();
+  const { shippingData, delivery, payment, updateItems, updateData, updateDelivery, updatePayment, resetCheckout } = useCheckoutContext();
   const [step, setStep] = useState(1);
   const addressFormRef = useRef<HTMLFormElement>(null);
   const { navigateToCategory } = useShoppingNavigation();
+
+  const deliveryPrice = delivery?.price ?? 0;
 
   useEffect(() => {
     if (step === 4) {
@@ -42,16 +44,16 @@ export function ShoppingCart() {
 
   // const subtotal = getSubtotal(order);
   const subtotalWithDiscount = getDiscountSubtotal(order);
-  const country = data?.address.country ?? null;
-  const total = subtotalWithDiscount + delivery.price + getVAT(subtotalWithDiscount, country);
+  const country = shippingData?.country ?? null;
+  const total = subtotalWithDiscount + deliveryPrice + getVAT(subtotalWithDiscount, country);
   const productVat = getVAT(subtotalWithDiscount, country);
 
   const handlePlaceOrder = () => {
-    if (!data) return;
+    if (!shippingData || !delivery || !payment) return;
 
     const newOrder: NewOrderProps = {
       items: order,
-      shippingAddress: data,
+      shippingAddress: shippingData,
       delivery,
       payment,
       total,

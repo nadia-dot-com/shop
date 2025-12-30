@@ -55,6 +55,15 @@
     font-size: 14px;
 }
 
+.oldPrice {
+    color: silver;
+    text-decoration: line-through ;
+}
+
+.discountPrice {
+    color:#d83030;
+}
+
 .closeBth {
     text-align: center;
 

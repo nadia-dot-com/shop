@@ -6,7 +6,7 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 import { ORDER_KEY, IS_ORDER_OPEN_KEY, GUEST_WISHLIST_KEY } from "../data/locatStorageKey";
 import { toast } from "react-toastify";
 import { Product } from "../types/api/product";
-import { OrderItem } from "../types/orderItem";
+import { OrderItem } from "../types/orderTypes";
 
 export const ShopContext = createContext<ShopContextProps | null>(null);
 

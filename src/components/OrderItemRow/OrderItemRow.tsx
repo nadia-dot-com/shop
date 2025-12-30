@@ -4,14 +4,13 @@ import { FaTrash } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../config/Routes';
 import { QuantityInput } from '../QuantityInput/QuantityInput';
-import { OrderItem } from '../../types/orderItem';
+import { OrderItem } from '../../types/orderTypes';
 import { getDiscountPrice } from '../../utils/product';
 import { cn } from '../../utils/cn';
 
 export function OrderItemRow({ product }: { product: OrderItem }) {
     const { id, name, img, price, stockQuantity, quantity, categoryName, discount } = product;
     const { removeFromOrder, updateQuantity } = useShopContext();
-    console.log('ORDER ITEM', product);
 
     const navigate = useNavigate();
 
@@ -45,23 +44,23 @@ export function OrderItemRow({ product }: { product: OrderItem }) {
                 )}
             />
 
-            <p className={cn(classes.price, discount > 0 && classes.discountPrice)}>
+            <div className={cn(classes.price, discount > 0 && classes.discountPrice)}>
                 Price:
                 <br />
                 {discount > 0 ?
                     <p>${getDiscountPrice(price, discount)}</p>
                     : <p>${Number(price).toFixed(2)}</p>
                 }
-            </p>
+            </div>
 
-            <p className={cn(classes.price, discount > 0 && classes.discountPrice)}>
+            <div className={cn(classes.price, discount > 0 && classes.discountPrice)}>
                 Subtotal:
                 <br />
                 {discount > 0 ?
-                    <p >${getDiscountPrice(price, discount)}</p>
+                    <p >${(getDiscountPrice(price, discount) * quantity).toFixed(2)}</p>
                     : <p>${(Number(price) * quantity).toFixed(2)}</p>
                 }
-            </p>
+            </div>
             <FaTrash className={classes.removeFromCard} onClick={() => removeFromOrder({ ...product })}>-</FaTrash>
         </div>
     )

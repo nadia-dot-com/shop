@@ -8,7 +8,7 @@ import { ROUTES } from "../../../../config/Routes";
 import { Subtotal } from "../../../Subtotal/Subtotal";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
-import { OrderItem } from "../../../../types/orderItem";
+import { OrderItem } from "../../../../types/orderTypes";
 
 import classes from "./ShowOrder.module.css";
 

@@ -2,12 +2,12 @@ import { OrderList } from "./CheckoutSections/OrderList/OrderList";
 import { Payment } from "./CheckoutSections/Payment/Payment";
 import { Subtotal } from "../../../../../components/Subtotal/Subtotal";
 import { Shipping } from "./CheckoutSections/Shipping/Shipping";
-import { DeliveryProps, PaymentProps } from "../../../../../types/checkoutTypes";
 import { VatSection } from "./CheckoutSections/VatSection/VatSection";
 import { TotalSection } from "./CheckoutSections/TotalSection/TotalSection";
 
 import classes from './CheckoutReview.module.css'
-import { OrderItem } from "../../../../../types/orderItem";
+import { OrderItem } from "../../../../../types/orderTypes";
+import { DeliveryMethod, PaymentMethod } from "../../../../../types/api/options";
 
 export function CheckoutReview({
     order,
@@ -19,15 +19,15 @@ export function CheckoutReview({
     updatePayment,
 }: {
     order: OrderItem[],
-    delivery: DeliveryProps,
-    payment: PaymentProps,
+    delivery: DeliveryMethod | null,
+    payment: PaymentMethod | null,
     total: number,
     vat: number,
-    updateDelivery: (data: DeliveryProps) => void,
-    updatePayment: (data: PaymentProps) => void,
+    updateDelivery: (data: DeliveryMethod) => void,
+    updatePayment: (data: PaymentMethod) => void,
 }) {
 
-    const discount = order.some(el => el.discount >= 0) 
+    const discount = order.some(el => el.discount >= 0)
 
     return (
         <div className={classes.wrapper}>
@@ -41,7 +41,7 @@ export function CheckoutReview({
 
             <Payment payment={payment} updatePayment={updatePayment} />
 
-            <VatSection vat={vat} />
+            <VatSection vat={vat}/>
 
             <TotalSection total={total} discount={discount} />
         </div>

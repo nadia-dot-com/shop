@@ -1,4 +1,4 @@
-import { OrderItem } from "../../types/orderItem";
+import { OrderItem } from "../../types/orderTypes";
 import { getDiscountSubtotal, getSubtotal } from "../../utils/getSubtotal";
 
 import classes from './Subtotal.module.css'
@@ -10,7 +10,7 @@ export function Subtotal({ arr, }: { arr: OrderItem[] }) {
     return (
         <section className={classes.subtotalSection}>
             Subtotal:
-            <p className={classes.price}>
+            <div className={classes.price}>
                 {discount ?
                     <div>
                         <p className={classes.oldPrice}>${getSubtotal(arr)}</p>
@@ -18,7 +18,7 @@ export function Subtotal({ arr, }: { arr: OrderItem[] }) {
                     </div>
                     : <p>${getSubtotal(arr)}</p>
                 }
-            </p>
+            </div>
         </section>
     )
 }

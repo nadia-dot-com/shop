@@ -11,6 +11,7 @@ import classes from './MyProfile.module.css';
 export function MyProfile() {
     const { user } = useUserContext();
     const updateProfileMutation = useUpdateUserProfile();
+
     const { data } = useOptions();
 
     const countries = data?.countries ?? [];
@@ -72,8 +73,6 @@ export function MyProfile() {
         e.preventDefault();
 
         if (!hasChanges) return;
-
-        const formData = new FormData(e.currentTarget);
 
         updateProfileMutation.mutate(formState);
     };
@@ -161,7 +160,7 @@ export function MyProfile() {
                         onChange={handleChange}
                         required
                     >
-                        <option value="">Select Country</option>
+                        <option value={formState.country ?? ""}>{formState.country ?? "Select Country"}</option>
 
                         {
                             countries.map(country => (

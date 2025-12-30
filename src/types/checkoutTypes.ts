@@ -1,47 +1,44 @@
-import { Product } from "./api/product";
-import { OrderItem } from "./orderItem";
+import { DeliveryMethod, PaymentMethod } from "./api/options";
+import { OrderItem } from "./orderTypes";
 
 export type DataProps = {
-    fullName: string;
-    company?: string;
-    address: {
-        street: string;
-        postalCode: string;
-        city: string
-        country: string;
-    }
-    phone: string;
-    email: string;
-    notes?: string;
+    fullName: string | null;
+    address: string | null;
+    postalCode: string | null;
+    city: string | null;
+    country: string | null;
+    phone: string | null;
+    email: string | null;
+    notes?: string | null;
 }
 
-export type PaymentProps = {
-    method: 'cash' ;
-}
-
-export type DeliveryMethod = "free" | "flat" | "pickup" ;
-
-export type DeliveryProps = {
-    method: DeliveryMethod;
-    price: number;
-}
 
 export type CheckoutContextProps = {
-    items: Product[];
-    data: DataProps | null;
-    delivery: DeliveryProps;
-    payment: PaymentProps;
-
+    items: OrderItem[] | [];
+    shippingData: DataProps | null;
+    delivery: DeliveryMethod | null;
+    payment: PaymentMethod | null;
+    
     updateItems: (items: OrderItem[]) => void;
     updateData: (data: DataProps) => void;
-    updateDelivery: (data: DeliveryProps) => void;
-    updatePayment: (data: PaymentProps) => void;
+    updateDelivery: (data: DeliveryMethod) => void;
+    updatePayment: (data: PaymentMethod) => void;
     resetCheckout: () => void;
 }
 
 export type CheckoutItitial = {
-    items: Product[];
-    data: DataProps | null;
-    delivery: DeliveryProps;
-    payment: PaymentProps;
+    items: OrderItem[];
+    shippingData: DataProps | null;
+    delivery: DeliveryMethod | null;
+    payment: PaymentMethod | null;
 }
+// export type PaymentProps = {
+//         method: 'cash';
+//     }
+
+// export type DeliveryMethod = "free" | "flat" | "pickup";
+
+// export type DeliveryProps = {
+//     method: DeliveryMethod;
+//     price: number;
+// }

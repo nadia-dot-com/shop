@@ -1,5 +1,5 @@
 import { OrderItemRow } from "../../../../../components/OrderItemRow/OrderItemRow";
-import { OrderItem } from "../../../../../types/orderItem";
+import { OrderItem } from "../../../../../types/orderTypes";
 
 import classes from './Cart.module.css';
 
@@ -9,8 +9,8 @@ export function Cart({ order }: { order: OrderItem[] }) {
         <ul className={classes.orderList}>
             {
                 order.map((el) => (
-                    <li className={classes.orderItem}>
-                        <OrderItemRow key={el.id} product={el} />
+                    <li className={classes.orderItem} key={el.id}>
+                        <OrderItemRow product={el} />
                     </li>
                 ))
             }

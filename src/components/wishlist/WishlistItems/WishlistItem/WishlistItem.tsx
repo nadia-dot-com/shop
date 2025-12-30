@@ -4,6 +4,7 @@ import { Button } from '../../../../components/Button/Button';
 import { useShopContext } from '../../../../context/ShopContext';
 import { Product } from '../../../../types/api/product';
 import { useShoppingNavigation } from '../../../../hooks/useShoppingNavigation';
+import { getDiscountPrice } from '../../../../utils/product';
 
 export function WishlistItem({ item }: { item: Product }) {
     const { id, name, imagesUrls, price, categoryName, stockQuantity } = item;
@@ -36,9 +37,15 @@ export function WishlistItem({ item }: { item: Product }) {
                     {name}
                 </h4>
 
-                <p className={classes.price}>
-                    ${Number(price).toFixed(2)}
-                </p>
+                 <div className={classes.price}>
+                    {item.discount <= 0 ?
+                        <p>${Number(price).toFixed(2)}</p>
+                        : <div>
+                            <p className={classes.oldPrice}>${Number(price).toFixed(2)}</p>
+                            <p className={classes.discountPrice}>${getDiscountPrice(price, item.discount)}</p>
+                        </div>
+                    }
+                </div>
 
             </div>
 

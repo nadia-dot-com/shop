@@ -1,4 +1,4 @@
-import { OrderItem } from "../types/orderItem";
+import { OrderItem } from "../types/orderTypes";
 import { getDiscountPrice } from "./product";
 
 export const getSubtotal = (arr: OrderItem[]) => {

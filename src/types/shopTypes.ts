@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
 import { Product } from "./api/product";
-import { OrderItem } from "./orderItem";
+import { OrderItem } from "./orderTypes";
 
 export type ItemProps = {
     id: string;
@@ -18,18 +18,18 @@ export type ItemProps = {
 }
 
 export type ProductProps = {
-  id?: string;
-  title: string;
-  imagesUrls: string[];
-  shortDescription: string;
-  fullDescription: string;
-  category: string;
-  collection?: string;
-  price: number;
-  stock?: number;
-  quantity?: number;
-  discount: number;
-  releaseDate: string;
+    id?: string;
+    title: string;
+    imagesUrls: string[];
+    shortDescription: string;
+    fullDescription: string;
+    category: string;
+    collection?: string;
+    price: number;
+    stock?: number;
+    quantity?: number;
+    discount: number;
+    releaseDate: string;
 }
 
 export type ShopContextProps = {
@@ -37,8 +37,8 @@ export type ShopContextProps = {
 
     addToOrder: (product: Product, quantity?: number) => void;
     removeFromOrder: (item: OrderItem) => void;
-    clearOrder: ()=> void;
-    resetOrder: ()=> void;
+    clearOrder: () => void;
+    resetOrder: () => void;
 
     isOrderOpen: boolean;
     toggleOrderModal: () => void;
@@ -46,10 +46,10 @@ export type ShopContextProps = {
     selectedCategory: string;
     chooseCategory: (category: string) => void;
 
-    updateQuantity: (id: string, quantity: number)=> void;
+    updateQuantity: (id: string, quantity: number) => void;
 
     guestWishlist: string[];
-    toggleGuestWishlist: (productId: string) => void; 
+    toggleGuestWishlist: (productId: string) => void;
     cleanGuestWishlist: () => void;
 };
 

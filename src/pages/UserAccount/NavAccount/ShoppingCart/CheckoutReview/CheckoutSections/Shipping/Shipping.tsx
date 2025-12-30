@@ -1,34 +1,28 @@
-import { SHIPPING_LABELS, SHIPPING_PRICES } from "../../../../../../../data/checkout";
-import { DeliveryMethod, DeliveryProps } from "../../../../../../../types/checkoutTypes";
+import { useOptions } from '../../../../../../../hooks/useOptions';
+import { DeliveryMethod } from '../../../../../../../types/api/options';
 
 import classes from './Shipping.module.css';
 
-export function Shipping({ delivery, updateDelivery }: { delivery: DeliveryProps, updateDelivery: (data: DeliveryProps) => void }) {
+export function Shipping({ delivery, updateDelivery }: { delivery: DeliveryMethod | null, updateDelivery: (data: DeliveryMethod) => void }) {
+      const { data } = useOptions();
 
-    const handleChange = (method: DeliveryProps["method"]) => {
-        updateDelivery({
-            method,
-            price: method ? SHIPPING_PRICES[method] : 0
-        })
-    }
+      const deliveryOptions = data?.deliveryMethods ?? [];
 
     return (
         <div className={classes.wrapper}>
             <h3 className={classes.title}>Shipping</h3>
 
-            {(Object.keys(SHIPPING_LABELS) as DeliveryMethod[]).map(method => (
+            {deliveryOptions.map(method => (
                 <div className={classes.option}>
-                    <label className={classes.label}>
+                    <label className={classes.label} key={method.id}>
                         <input
                             className={classes.radio}
                             type="radio"
-                            name="shipping"
-                            value="free"
-                            checked={delivery.method === method}
-                            onChange={() => handleChange(method)}
+                            checked={delivery?.id === method.id}
+                            onChange={() => updateDelivery(method)}
                         />
-                        {SHIPPING_LABELS[method]}</label>
-                    <p className={classes.price}>${SHIPPING_PRICES[method]}</p>
+                        {method.name}</label>
+                    <p className={classes.price}>${method.price}</p>
                 </div>
             ))}
 
