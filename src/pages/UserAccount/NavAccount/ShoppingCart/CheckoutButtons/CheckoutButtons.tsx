@@ -7,9 +7,11 @@ type CheckoutButtonsProps = {
   onNext: () => void;
   onPrev: () => void;
   onContinue: () => void;
+  onPost: () => void;
+  disabled: boolean;
 }
 
-export function CheckoutButtons({ step, orderLength, onNext, onPrev, onContinue }: CheckoutButtonsProps) {
+export function CheckoutButtons({ step, orderLength, onNext, onPrev, onContinue, disabled, onPost }: CheckoutButtonsProps) {
   const isFinal = step === 4;
   const isEmpty = orderLength === 0;
 
@@ -21,6 +23,7 @@ export function CheckoutButtons({ step, orderLength, onNext, onPrev, onContinue 
           textColor="white"
           text="CONTINUE SHOPPING"
           onClick={onContinue}
+          disabled={disabled}
         />
       </div>
     );
@@ -33,13 +36,20 @@ export function CheckoutButtons({ step, orderLength, onNext, onPrev, onContinue 
         textColor="white"
         text="BACK"
         onClick={onPrev}
-        disabled={step === 1}
+        disabled={step === 1 || disabled}
       />
       <Button
         bgColor="black"
         textColor="white"
         text={step === 3 ? "PLACE ORDER" : "NEXT"}
-        onClick={onNext}
+        onClick={() => {
+          if (step === 3) {
+            onPost();
+          } else {
+            onNext();
+          }
+        }}
+        disabled={disabled}
       />
     </div>
   );

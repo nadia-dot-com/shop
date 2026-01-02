@@ -8,25 +8,35 @@ import { OrderComplete } from "./OrderComplete/OrderComplete";
 import { useCheckoutContext } from "../../../../context/CheckoutContext";
 import { DataProps } from "../../../../types/checkoutTypes";
 import { CheckoutReview } from "./CheckoutReview/CheckoutReview";
-import { getDiscountSubtotal, getSubtotal } from "../../../../utils/getSubtotal";
-import { getVAT } from "../../../../utils/getVAT";
 import { ShoppingCartNav } from "./ShoppingCartNav/ShoppingCartNav";
 import { CheckoutButtons } from "./CheckoutButtons/CheckoutButtons";
-import { NewOrderProps } from "../../../../types/orderTypes";
 import { useShoppingNavigation } from "../../../../hooks/useShoppingNavigation";
 import { ALL } from "../../../../data/categories";
+import { useCheckoutPrice } from "../../../../hooks/useCheckoutPrice";
+import { useCreateOrder } from "../../../../hooks/useCreateOrder";
+import { buildOrderPayload } from "../../../../utils/buildOrderPayload";
 
 import classes from './ShoppingCart.module.css';
 
 export function ShoppingCart() {
   const { order, resetOrder } = useShopContext();
-  const { user, addOrder } = useUserContext();
+  const { user } = useUserContext();
   const { shippingData, delivery, payment, updateItems, updateData, updateDelivery, updatePayment, resetCheckout } = useCheckoutContext();
   const [step, setStep] = useState(1);
   const addressFormRef = useRef<HTMLFormElement>(null);
   const { navigateToCategory } = useShoppingNavigation();
+  const [isError, setIsError] = useState(false)
+  const { mutate: createOrder, isPending } = useCreateOrder(
+    () => setStep(4),
+    () => setIsError(true),
+  );
 
-  const deliveryPrice = delivery?.price ?? 0;
+  const country = shippingData?.country ?? null;
+  const { vat, total } = useCheckoutPrice({
+    order,
+    country,
+    delivery,
+  })
 
   useEffect(() => {
     if (step === 4) {
@@ -42,27 +52,21 @@ export function ShoppingCart() {
 
   if (!user) return null;
 
-  // const subtotal = getSubtotal(order);
-  const subtotalWithDiscount = getDiscountSubtotal(order);
-  const country = shippingData?.country ?? null;
-  const total = subtotalWithDiscount + deliveryPrice + getVAT(subtotalWithDiscount, country);
-  const productVat = getVAT(subtotalWithDiscount, country);
 
   const handlePlaceOrder = () => {
     if (!shippingData || !delivery || !payment) return;
+    if (isPending) return;
 
-    const newOrder: NewOrderProps = {
+    const payload = buildOrderPayload({
       items: order,
       shippingAddress: shippingData,
       delivery,
       payment,
       total,
-      vat: productVat,
-    }
+    });
 
-    addOrder(newOrder);
+    createOrder(payload);
   };
-
 
   const nextStep = () => {
     if (step === 1) {
@@ -79,10 +83,6 @@ export function ShoppingCart() {
 
       form.requestSubmit();
       return;
-    }
-
-    if (step === 3) {
-      handlePlaceOrder()
     }
 
     setStep((s) => s + 1)
@@ -104,11 +104,11 @@ export function ShoppingCart() {
       case 3:
         return (
           <CheckoutReview
-            total={total}
             order={order}
             delivery={delivery}
             payment={payment}
-            vat={productVat}
+            vat={vat}
+            total={total}
             updatePayment={updatePayment}
             updateDelivery={updateDelivery}
           />
@@ -123,7 +123,7 @@ export function ShoppingCart() {
         <div>
           <ShoppingCartNav step={step} />
           <div className={classes.orderContent}>
-            <OrderComplete />
+            <OrderComplete isError={isError} />
           </div>
         </div>
       ) : order.length === 0 ? (
@@ -144,6 +144,8 @@ export function ShoppingCart() {
         onNext={nextStep}
         onPrev={prevStep}
         onContinue={() => navigateToCategory(ALL)}
+        onPost={handlePlaceOrder}
+        disabled={isPending}
       />
     </div >
   )

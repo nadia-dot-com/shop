@@ -3,17 +3,14 @@ import { UserContextProps, UserData } from "../types/userTypes";
 import { createContextHook } from "../hooks/createContextHook";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { ORDERS_HISTORY_KEY, USER } from "../data/locatStorageKey";
-import { NewOrderProps, OrderProps } from "../types/orderTypes";
-
-import { v4 as uuid } from 'uuid';
 import { useCurrentUser } from "../hooks/useCurrentUser";
+import { OrderResponse } from "../types/api/order.response";
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const UserContext = createContext<UserContextProps | null>(null);
 
 export function UserProvider({ children }: { children: ReactNode }) {
     const [user, setUser] = useLocalStorage<UserData | null>(USER, null);
-    const [orders, setOrders] = useLocalStorage<OrderProps[]>(ORDERS_HISTORY_KEY, []);
+    const [orders, setOrders] = useLocalStorage<OrderResponse[]>(ORDERS_HISTORY_KEY, []);
     const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(false);
     const [userWishlist, setUserWishlist] = useState<string[]>([]);
     const { data } = useCurrentUser();
@@ -26,15 +23,8 @@ export function UserProvider({ children }: { children: ReactNode }) {
 
     const toggleModalOpen = () => setIsLoginModalOpen((prev) => !prev);
 
-    const addOrder = (data: NewOrderProps) => {
-        const newOrder: OrderProps = {
-            ...data,
-            orderId: uuid().slice(0, 8),
-            createdAt: new Date().toISOString(),
-            status: "on-hold",
-        }
-
-        setOrders(prev => [...prev, newOrder])
+    const addOrder = (order: OrderResponse) => {
+        setOrders(prev => [...prev, order])
     }
 
     const logout = () => setUser(null);
@@ -70,5 +60,4 @@ export function UserProvider({ children }: { children: ReactNode }) {
     )
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const useUserContext = createContextHook(UserContext, UserProvider);

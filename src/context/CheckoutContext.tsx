@@ -5,7 +5,6 @@ import { CHECKOUT_INITIAL } from "../data/checkout";
 import { OrderItem } from "../types/orderTypes";
 import { DeliveryMethod, PaymentMethod } from "../types/api/options";
 
-
 export const CheckoutContext = createContext<CheckoutContextProps | null>(null);
 
 export function CheckoutProvider({ children }: { children: ReactNode }) {

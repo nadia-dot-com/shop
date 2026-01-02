@@ -1,6 +1,5 @@
 import { Dispatch } from "react";
-import { NewOrderProps, OrderProps } from "./orderTypes";
-// import { OrderItem } from "./uiOrderTypes";
+import { OrderResponse } from "./api/order.response";
 
 export type UserData = {
   id: string;
@@ -13,26 +12,15 @@ export type UserData = {
   country?: string | null;
 }
 
-export type StatusProps =
-  | "pending"
-  | "processing"
-  | "on-hold"
-  | "completed"
-  | "cancelled"
-  | "refunded"
-  | "failed"
-  | "shipped"
-  | "delivered";
-
 export type UserContextProps = {
   user: UserData | null;
   isLoginModalOpen: boolean;
-  orders: OrderProps[];
+  orders: OrderResponse[];
   userWishlist: string[];
 
   updateUser: Dispatch<React.SetStateAction<UserData | null>>;
   toggleModalOpen: () => void;
-  addOrder: (data: NewOrderProps) => void;
+  addOrder: (order: OrderResponse) => void;
   logout: () => void;
   toggleUserWishlist: (productId: string) => void;
   mergeUserWishlist: (wishlist: string[]) => void;

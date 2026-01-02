@@ -1,6 +1,5 @@
 import { DeliveryMethod, PaymentMethod } from "./api/options";
 import { DataProps } from "./checkoutTypes";
-import { StatusProps } from "./userTypes";
 
 export type OrderItem = {
     id: string;
@@ -22,7 +21,7 @@ export type OrderProps = {
     shippingAddress: DataProps;
     delivery: DeliveryMethod;
     payment: PaymentMethod;
-    status: StatusProps;
+    // status: StatusProps;
     createdAt: string;
     total: number;
     vat: number;

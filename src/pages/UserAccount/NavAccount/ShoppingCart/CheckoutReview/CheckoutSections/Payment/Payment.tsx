@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useOptions } from '../../../../../../../hooks/useOptions';
 import { PaymentMethod } from '../../../../../../../types/api/options';
 
@@ -8,13 +9,19 @@ export function Payment({ payment, updatePayment }: { payment: PaymentMethod | n
 
     const paymentOptions = data?.paymentMethods ?? [];
 
+    useEffect(() => {
+        if (!payment && paymentOptions.length > 0) {
+            updatePayment(paymentOptions[0])
+        }
+    }, [payment, paymentOptions, updatePayment])
+
     return (
         <div className={classes.wrapper}>
             <h2 className={classes.title}>Payment</h2>
 
             {paymentOptions.map(method => (
-                <div className={classes.option}>
-                    <label key={method.id}>
+                <div className={classes.option} key={method.id}>
+                    <label >
                         <input
                             className={classes.radio}
                             type="radio"

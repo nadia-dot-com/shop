@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useOptions } from '../../../../../../../hooks/useOptions';
 import { DeliveryMethod } from '../../../../../../../types/api/options';
 
@@ -8,12 +9,18 @@ export function Shipping({ delivery, updateDelivery }: { delivery: DeliveryMetho
 
       const deliveryOptions = data?.deliveryMethods ?? [];
 
+      useEffect(() => {
+        if(!delivery && deliveryOptions.length > 0) {
+            updateDelivery(deliveryOptions[0])
+        }
+      }, [delivery, deliveryOptions, updateDelivery])
+
     return (
         <div className={classes.wrapper}>
             <h3 className={classes.title}>Shipping</h3>
 
             {deliveryOptions.map(method => (
-                <div className={classes.option}>
+                <div key={method.id} className={classes.option}>
                     <label className={classes.label} key={method.id}>
                         <input
                             className={classes.radio}
