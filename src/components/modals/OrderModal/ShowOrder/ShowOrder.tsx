@@ -6,11 +6,10 @@ import { useUserContext } from "../../../../context/UserContext";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../../../config/Routes";
 import { Subtotal } from "../../../Subtotal/Subtotal";
-import { useGoogleLogin } from "@react-oauth/google";
-import axios from "axios";
 import { OrderItem } from "../../../../types/orderTypes";
 
 import classes from "./ShowOrder.module.css";
+import { LoginButton } from "../../../LoginButton/LoginButton";
 
 export function ShowOrder({ orderItems }: { orderItems: OrderItem[] }) {
     const { clearOrder, toggleOrderModal } = useShopContext();
@@ -23,30 +22,9 @@ export function ShowOrder({ orderItems }: { orderItems: OrderItem[] }) {
         toggleOrderModal();
     }
 
-    const login = useGoogleLogin({
-        onSuccess: async (tokenResponse) => {
-            try {
-                const res = await axios.get(
-                    "https://www.googleapis.com/oauth2/v3/userinfo",
-                    {
-                        headers: {
-                            Authorization: `Bearer ${tokenResponse.access_token}`
-                        },
-                    }
-                );
-
-                if (res.data.email_verified) {
-                    updateUser(res.data);
-                    handleOrder();
-                }
-            } catch (error) {
-                console.log("Error fetching user info", error);
-            }
-        },
-        onError: () => {
-            console.log("❌ Login failed");
-        },
-    })
+    const handleLogin = () => {
+        window.location.href = "http://localhost:3000/auth/google";
+    }
 
     return (
         <div className={classes.showOrderWrapper}>
@@ -83,14 +61,7 @@ export function ShowOrder({ orderItems }: { orderItems: OrderItem[] }) {
                         />
                     ) :
                     (
-                        <Button
-                            bgColor="black"
-                            textColor="white"
-                            text=" LOGIN WITH GOOGLE & COMPLETE A ORDER"
-                            onClick={login}
-                        >
-                            <FcGoogle className={classes.googleIcon} />
-                        </Button>
+                        <LoginButton login={handleLogin} text="Login with GOOGLE & complete a order" />
                     )
             }
         </div>

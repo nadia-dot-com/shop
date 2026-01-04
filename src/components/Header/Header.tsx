@@ -14,7 +14,7 @@ export default function Header() {
             classes.header, 
             isScrollingUp ? classes.headerVisible : classes.headerHidden)}>
             <StyledLink to={`${ROUTES.home}${ROUTES.mainLayout}`} className={classes.logo}>House Staff</StyledLink>
-            <Menu />
+            <Menu />          
         </header>
     )
 }

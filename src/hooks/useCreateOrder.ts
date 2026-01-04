@@ -4,7 +4,7 @@ import { sendOrderToServer } from "../api/order.api";
 import { OrderResponse } from "../types/api/order.response";
 import { OrderPayload } from "../types/api/order.payload";
 
-export function useCreateOrder(onSuccessCallback?: () => void, onErrorCallback?: ()=> void) {
+export function useCreateOrder(onSuccessCallback?: () => void, onNextStepCallback?: () => void, onErrorCallback?: (err: Error) => void) {
     const { addOrder } = useUserContext();
 
     return useMutation<OrderResponse, Error, OrderPayload>({
@@ -13,10 +13,11 @@ export function useCreateOrder(onSuccessCallback?: () => void, onErrorCallback?:
         onSuccess: (order: OrderResponse) => {
             addOrder(order);
             onSuccessCallback?.();
+            onNextStepCallback?.();
         },
-        onError: () => {
-            onSuccessCallback?.();
-            onErrorCallback?.();
+        onError: err => {
+            onErrorCallback?.(err);
+            onNextStepCallback?.();
         }
     })
 }

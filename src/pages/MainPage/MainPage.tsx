@@ -6,7 +6,6 @@ import { Sale } from './Sale/Sale';
 import { OurShowroom } from './OurShowroom/OurShowroom';
 
 export function MainPage() {
-
     return (
         <div className={classes.mainPageContainer}>
             < Presentation />

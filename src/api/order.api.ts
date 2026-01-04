@@ -5,10 +5,7 @@ import { API_URL } from "./config";
 export async function sendOrderToServer(
     order: OrderPayload
 ): Promise<OrderResponse> {
-    console.log('sendOrderToServer called', order);
-
     const token = localStorage.getItem("token");
-    console.log('token', token);
 
     if (!token) {
         console.log('NO TOKEN');
@@ -22,20 +19,20 @@ export async function sendOrderToServer(
             Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
-            ...order, 
+            ...order,
             shippingDetails: {
                 ...order.shippingDetails,
-                company: 'stub',
+                // company: 'stub',
                 notes: 'stub',
             }
         }),
     });
 
-    console.log('RESPONSE STATUS', res.status);
+    const response = await res.json()
 
     if (!res.ok) {
-        throw new Error("Failed to post order")
+        throw new Error(response.message)
     }
 
-    return res.json();
+    return response;
 }

@@ -11,7 +11,7 @@ export function MakeLogin() {
     return (
         <div className={classes.makeLogin}>
             <div>Hi there! Sign in / Log in to continue.</div>
-            <LoginButton login={handleLogin} />
+            <LoginButton login={handleLogin} text="Continue with Google"/>
         </div>
     )
 }

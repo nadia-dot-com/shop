@@ -18,36 +18,46 @@ import { buildOrderPayload } from "../../../../utils/buildOrderPayload";
 
 import classes from './ShoppingCart.module.css';
 
+const STEP_1 = 1;
+const STEP_2 = 2;
+const STEP_3 = 3;
+const STEP_4 = 4;
+
+
 export function ShoppingCart() {
   const { order, resetOrder } = useShopContext();
   const { user } = useUserContext();
   const { shippingData, delivery, payment, updateItems, updateData, updateDelivery, updatePayment, resetCheckout } = useCheckoutContext();
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(STEP_1);
   const addressFormRef = useRef<HTMLFormElement>(null);
   const { navigateToCategory } = useShoppingNavigation();
-  const [isError, setIsError] = useState(false)
+  const [error, setError] = useState<Error | null>(null)
+
   const { mutate: createOrder, isPending } = useCreateOrder(
-    () => setStep(4),
-    () => setIsError(true),
+    () => handleSuccessCallback,
+    ()=>  setStep(STEP_4),
+    (err) => setError(err),
   );
+
+  const handleSuccessCallback = () => {
+    resetOrder();
+    resetCheckout();
+  }
+
+  const handleErrorCallback = () => {
+    setError;
+  }
 
   const country = shippingData?.country ?? null;
   const { vat, total } = useCheckoutPrice({
     order,
     country,
     delivery,
-  })
-
-  useEffect(() => {
-    if (step === 4) {
-      resetOrder();
-      resetCheckout();
-    }
-  }, [step]);
+  });
 
   const handleAddressForm = (data: DataProps) => {
     updateData(data);
-    setStep(3);
+    setStep(STEP_3);
   }
 
   if (!user) return null;
@@ -69,11 +79,11 @@ export function ShoppingCart() {
   };
 
   const nextStep = () => {
-    if (step === 1) {
+    if (step === STEP_1) {
       updateItems(order);
     }
 
-    if (step === 2) {
+    if (step === STEP_2) {
       const form = addressFormRef.current;
       if (!form) return;
 
@@ -92,16 +102,16 @@ export function ShoppingCart() {
 
   const renderStep = () => {
     switch (step) {
-      case 1:
+      case STEP_1:
         return <Cart order={order} />;
-      case 2:
+      case STEP_2:
         return (
           <AddressForm
             formRef={addressFormRef}
             onSubmit={handleAddressForm}
           />
         );
-      case 3:
+      case STEP_3:
         return (
           <CheckoutReview
             order={order}
@@ -119,11 +129,11 @@ export function ShoppingCart() {
   return (
     <div className={classes.shoppingCart}>
 
-      {step === 4 ? (
+      {step === STEP_4 ? (
         <div>
           <ShoppingCartNav step={step} />
           <div className={classes.orderContent}>
-            <OrderComplete isError={isError} />
+            <OrderComplete error={error} />
           </div>
         </div>
       ) : order.length === 0 ? (

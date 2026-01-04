@@ -15,9 +15,11 @@ import { MyWishlist } from "./pages/UserAccount/NavAccount/MyWishlist/MyWishlist
 import { Wishlist } from "./pages/Wishlist/Wishlist";
 import { ScrollToTop } from "./components/ScrollToTop/ScrollToTop";
 import { GoogleCallback } from "./pages/GoogleCallback/GoogleCallback";
+import { ErrorBoundary } from "react-error-boundary";
+import { ErrorFallback } from "./components/ErrorFallback/ErrorFallback";
 
 function App() {
-  return (
+  return ( <ErrorBoundary FallbackComponent={ErrorFallback}>
     <BrowserRouter basename={ROUTES.basePath}>
       <ScrollToTop />
       <Routes>
@@ -57,6 +59,8 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+               
+              </ErrorBoundary>
   );
 }
 
