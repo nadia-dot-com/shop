@@ -2,16 +2,29 @@ import Lottie from "lottie-react";
 import warning from '../../animations/warning.json'
 
 import classes from './ErrorFallback.module.css';
+import { FallbackProps } from "react-error-boundary";
+import { Button } from "../Button/Button";
 
-export function ErrorFallback() {
+export function ErrorFallback({ resetErrorBoundary }: FallbackProps) {
 
     return (
-        <div className={classes.errorFallback} >
-            <Lottie
-                animationData={warning}
-                loop={false}
-            />
-            <h3 className={classes.title}>Something went wrong...</h3>
-        </div >
+        <div className={classes.wrapper}>
+            <div className={classes.errorFallback}>
+                <Lottie
+                    animationData={warning}
+                    loop={false}
+                />
+
+                <div>Something went wrong...</div>
+
+                <div>Please refresh the page!</div>
+                <Button
+                    bgColor="black"
+                    textColor="white"
+                    text="Try again"
+                    onClick={resetErrorBoundary}
+                />
+            </div >
+        </div>
     )
 }

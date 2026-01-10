@@ -10,8 +10,6 @@ import { QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { queryClient } from './query/queryClient.ts'
 import { initGlobalErrorHandler } from './utils/globalErrorHandler.ts'
-import { ErrorBoundary } from 'react-error-boundary'
-import { ErrorFallback } from './components/ErrorFallback/ErrorFallback.tsx'
 
 initGlobalErrorHandler();
 
@@ -23,9 +21,7 @@ function Main() {
         <UserProvider>
           <ShopProvider>
             <CheckoutProvider>
-              {/* <ErrorBoundary FallbackComponent={ErrorFallback}> */}
-                <App />
-              {/* </ErrorBoundary> */}
+              <App />
             </CheckoutProvider>
           </ShopProvider>
         </UserProvider>

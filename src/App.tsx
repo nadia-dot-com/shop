@@ -19,7 +19,8 @@ import { ErrorBoundary } from "react-error-boundary";
 import { ErrorFallback } from "./components/ErrorFallback/ErrorFallback";
 
 function App() {
-  return ( <ErrorBoundary FallbackComponent={ErrorFallback}>
+  return (
+  <ErrorBoundary FallbackComponent={ErrorFallback}>
     <BrowserRouter basename={ROUTES.basePath}>
       <ScrollToTop />
       <Routes>
@@ -59,8 +60,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
-               
-              </ErrorBoundary>
+  </ErrorBoundary>
   );
 }
 
