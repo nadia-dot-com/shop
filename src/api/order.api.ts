@@ -22,7 +22,7 @@ export async function sendOrderToServer(
             ...order,
             shippingDetails: {
                 ...order.shippingDetails,
-                // company: 'stub',
+                company: 'stub',
                 notes: 'stub',
             }
         }),

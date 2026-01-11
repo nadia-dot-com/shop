@@ -1,18 +1,21 @@
 import { Button } from '../../../../../components/Button/Button';
+import { STEP } from '../step';
 import classes from './CheckoutButtons.module.css';
 
 type CheckoutButtonsProps = {
   step: number;
   orderLength: number;
+  error: Error | null;
   onNext: () => void;
   onPrev: () => void;
   onContinue: () => void;
+  onError: () => void;
   onPost: () => void;
   disabled: boolean;
 }
 
-export function CheckoutButtons({ step, orderLength, onNext, onPrev, onContinue, disabled, onPost }: CheckoutButtonsProps) {
-  const isFinal = step === 4;
+export function CheckoutButtons({ step, orderLength, onNext, onPrev, onContinue, error, onError, disabled, onPost }: CheckoutButtonsProps) {
+  const isFinal = step === STEP.COMPLETE;
   const isEmpty = orderLength === 0;
 
   if (isEmpty || isFinal) {
@@ -21,8 +24,8 @@ export function CheckoutButtons({ step, orderLength, onNext, onPrev, onContinue,
         <Button
           bgColor="black"
           textColor="white"
-          text="CONTINUE SHOPPING"
-          onClick={onContinue}
+          text={error ? "TRY AGAIN" : "CONTINUE SHOPPING"}
+          onClick={error ? onError : onContinue}
           disabled={disabled}
         />
       </div>
@@ -36,14 +39,14 @@ export function CheckoutButtons({ step, orderLength, onNext, onPrev, onContinue,
         textColor="white"
         text="BACK"
         onClick={onPrev}
-        disabled={step === 1 || disabled}
+        disabled={step === STEP.CART || disabled}
       />
       <Button
         bgColor="black"
         textColor="white"
-        text={step === 3 ? "PLACE ORDER" : "NEXT"}
+        text={step === STEP.REVIEW ? "PLACE ORDER" : "NEXT"}
         onClick={() => {
-          if (step === 3) {
+          if (step === STEP.REVIEW) {
             onPost();
           } else {
             onNext();

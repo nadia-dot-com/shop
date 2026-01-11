@@ -1,5 +1,4 @@
 import { OrderItem } from '../../../../../../../types/orderTypes'
-import { getSubtotal } from '../../../../../../../utils/getSubtotals'
 import { getDiscountPrice } from '../../../../../../../utils/product'
 
 import classes from './OrderList.module.css'

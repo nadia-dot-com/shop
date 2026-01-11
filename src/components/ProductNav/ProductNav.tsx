@@ -8,22 +8,34 @@ import { useCategories } from "../../hooks/useCategories";
 import { LoadingSpinner } from "../LoadingSpinner/LoadingSpinner";
 import { ErrorState } from "../ErrorState/ErrorState";
 import { useCollections } from "../../hooks/useCollections";
+import { ERROR_MESSAGES } from "../../constants/messages";
 
 export function ProductNav() {
     const [isOpen, setIsOpen] = useToggle(true);
     const { navigateToCategory } = useShoppingNavigation();
-    const { data: categories, isLoading, error } = useCategories();
-    const { data: collections } = useCollections();
+    const {
+        data: categories,
+        isLoading: isCategoriesLoading,
+        error: categoriesError,
+    } = useCategories();
 
-    if (isLoading) {
-        return <LoadingSpinner />
+    const {
+        data: collections,
+        isLoading: isCollectionsLoading,
+        error: collectionsError,
+    } = useCollections();
+
+    if (isCategoriesLoading || isCollectionsLoading) {
+        return <LoadingSpinner />;
     }
 
-    if (error) {
-        return <ErrorState />
+    if (categoriesError || collectionsError) {
+        return <ErrorState message={ERROR_MESSAGES.GENERIC} />;
     }
 
-    if (!categories || !collections) return null;
+    if (!categories || !collections) {
+        return <ErrorState message={ERROR_MESSAGES.NOT_FOUND} />;
+    }
 
     const categoriesNav =
         new Set([

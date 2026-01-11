@@ -7,6 +7,8 @@ import isEqual from "lodash/isEqual";
 import omitBy from "lodash/omitBy";
 
 import classes from './MyProfile.module.css';
+import { ERROR_MESSAGES } from "../../../../constants/messages";
+import { ErrorState } from "../../../../components/ErrorState/ErrorState";
 
 export function MyProfile() {
     const { user } = useUserContext();
@@ -38,7 +40,7 @@ export function MyProfile() {
         })
     }, [user])
 
-    if (!user) return null;
+    if (!user) return <ErrorState message={ERROR_MESSAGES.UNAUTHORIZED} />;
 
     const { name, email } = user;
 

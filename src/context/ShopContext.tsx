@@ -95,8 +95,6 @@ export function ShopProvider({ children }: { children: ReactNode }) {
 
     const clearOrder = () => setOrder([]);
 
-    const resetOrder = () => setOrder([]);
-
     const toggleOrderModal = () => setIsOrderOpen(prev => !prev);
 
     const chooseCategory = (category: string) => {
@@ -124,7 +122,6 @@ export function ShopProvider({ children }: { children: ReactNode }) {
                 addToOrder,
                 removeFromOrder,
                 clearOrder,
-                resetOrder, // actual submit → mutation this
 
                 isOrderOpen,
                 toggleOrderModal,

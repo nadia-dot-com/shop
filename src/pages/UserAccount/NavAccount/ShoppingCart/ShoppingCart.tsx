@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useShopContext } from "../../../../context/ShopContext";
 import { useUserContext } from "../../../../context/UserContext";
 import { EmptyCard } from "../../../../components/EmptyCard/EmptyCard";
@@ -15,38 +15,27 @@ import { ALL } from "../../../../data/categories";
 import { useCheckoutPrice } from "../../../../hooks/useCheckoutPrice";
 import { useCreateOrder } from "../../../../hooks/useCreateOrder";
 import { buildOrderPayload } from "../../../../utils/buildOrderPayload";
+import { STEP } from "./step";
 
 import classes from './ShoppingCart.module.css';
 
-const STEP_1 = 1;
-const STEP_2 = 2;
-const STEP_3 = 3;
-const STEP_4 = 4;
-
-
 export function ShoppingCart() {
-  const { order, resetOrder } = useShopContext();
+  const { order, clearOrder } = useShopContext();
   const { user } = useUserContext();
   const { shippingData, delivery, payment, updateItems, updateData, updateDelivery, updatePayment, resetCheckout } = useCheckoutContext();
-  const [step, setStep] = useState(STEP_1);
+  const [step, setStep] = useState(STEP.CART);
   const addressFormRef = useRef<HTMLFormElement>(null);
   const { navigateToCategory } = useShoppingNavigation();
-  const [error, setError] = useState<Error | null>(null)
+  const [error, setError] = useState<Error | null>(null);
 
   const { mutate: createOrder, isPending } = useCreateOrder(
-    () => handleSuccessCallback,
-    ()=>  setStep(STEP_4),
+    () => {
+      clearOrder();
+      resetCheckout();
+    },
+    () => setStep(STEP.COMPLETE),
     (err) => setError(err),
   );
-
-  const handleSuccessCallback = () => {
-    resetOrder();
-    resetCheckout();
-  }
-
-  const handleErrorCallback = () => {
-    setError;
-  }
 
   const country = shippingData?.country ?? null;
   const { vat, total } = useCheckoutPrice({
@@ -57,7 +46,7 @@ export function ShoppingCart() {
 
   const handleAddressForm = (data: DataProps) => {
     updateData(data);
-    setStep(STEP_3);
+    setStep(STEP.REVIEW);
   }
 
   if (!user) return null;
@@ -79,11 +68,11 @@ export function ShoppingCart() {
   };
 
   const nextStep = () => {
-    if (step === STEP_1) {
+    if (step === STEP.CART) {
       updateItems(order);
     }
 
-    if (step === STEP_2) {
+    if (step === STEP.ADDRESS) {
       const form = addressFormRef.current;
       if (!form) return;
 
@@ -100,18 +89,22 @@ export function ShoppingCart() {
 
   const prevStep = () => setStep((s) => s - 1);
 
+  const onError = () => setStep(STEP.CART);
+
+  const onContinue = () => navigateToCategory(ALL);
+
   const renderStep = () => {
     switch (step) {
-      case STEP_1:
+      case STEP.CART:
         return <Cart order={order} />;
-      case STEP_2:
+      case STEP.ADDRESS:
         return (
           <AddressForm
             formRef={addressFormRef}
             onSubmit={handleAddressForm}
           />
         );
-      case STEP_3:
+      case STEP.REVIEW:
         return (
           <CheckoutReview
             order={order}
@@ -129,7 +122,7 @@ export function ShoppingCart() {
   return (
     <div className={classes.shoppingCart}>
 
-      {step === STEP_4 ? (
+      {step === STEP.COMPLETE ? (
         <div>
           <ShoppingCartNav step={step} />
           <div className={classes.orderContent}>
@@ -149,11 +142,13 @@ export function ShoppingCart() {
 
 
       < CheckoutButtons
+        error={error}
+        onError={onError}
         step={step}
         orderLength={order.length}
         onNext={nextStep}
         onPrev={prevStep}
-        onContinue={() => navigateToCategory(ALL)}
+        onContinue={onContinue}
         onPost={handlePlaceOrder}
         disabled={isPending}
       />

@@ -3,19 +3,17 @@ import { PopularCategory } from './PopularCategory/PopularCategory';
 import { LoadingSpinner } from '../../../components/LoadingSpinner/LoadingSpinner';
 import { ErrorState } from '../../../components/ErrorState/ErrorState';
 import { useCategories } from '../../../hooks/useCategories';
+import { ERROR_MESSAGES } from '../../../constants/messages';
 
 export function PopularCategories() {
- const { data: categories, isLoading, error } = useCategories();
+    const { data: categories, isLoading, error } = useCategories();
 
-    if (isLoading) {
-        return <LoadingSpinner />
-    }
+    if (isLoading) return <LoadingSpinner />
 
-    if (error) {
-        return <ErrorState />
-    }
+    if (error) return <ErrorState message={ERROR_MESSAGES.GENERIC} />
 
-    if (!categories) return null;
+    if (!categories) return <ErrorState message={ERROR_MESSAGES.NOT_FOUND} />;
+
     return (
         <div className={classes.categoriesWrapper}>
             <div className={classes.popular}>Popular categories</div>

@@ -5,13 +5,21 @@ import { useCollections } from "../../../hooks/useCollections";
 
 import classes from './Collection.module.css';
 import { ErrorState } from "../../../components/ErrorState/ErrorState";
+import { ERROR_MESSAGES } from "../../../constants/messages";
+import { LoadingSpinner } from "../../../components/LoadingSpinner/LoadingSpinner";
 
 export function Collection() {
     const scrollRef = useRef<HTMLUListElement | null>(null);
     const [isAtStart, setIsAtStart] = useState(true);
     const [isAtEnd, setIsAtEnd] = useState(false);
 
-    const {data: collections} = useCollections();
+    const {data: collections, isLoading, error} = useCollections();
+
+    if(isLoading) return <LoadingSpinner/>
+
+    if(error) return <ErrorState message={ERROR_MESSAGES.GENERIC}/>
+
+    if(!collections) return <ErrorState message={ERROR_MESSAGES.NOT_FOUND}/>
 
     useEffect(() => {
         const el = scrollRef.current;
@@ -53,8 +61,6 @@ export function Collection() {
         const itemWidth = target.children[0].getBoundingClientRect().width + gap;
         target.scrollBy({ left: direction === 'left' ? -itemWidth : +itemWidth });
     }
-
-    if(!collections) return <ErrorState/>
 
     return (
         <div className={classes.collectionWrapper}>

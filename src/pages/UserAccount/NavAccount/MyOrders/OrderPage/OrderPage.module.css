@@ -15,8 +15,82 @@
     padding: 5px;
 }
 
+.title {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    border-bottom: 1px solid silver;
+}
+
+.orderList {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.orderItem {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.price {
+    font-size: 15px;
+    color: black;
+    font-weight: 600;
+}
+
+.discountPrice {
+    font-size: 15px;
+    color:#d83030;
+}
+
+.subtotalSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid silver;
+    padding: 5px;
+}
+
+.price {
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+}
+
+.oldPrice {
+    font-size: 14px;
+    color: silver;
+    text-decoration: line-through ;
+}
+
+.discountPrice {
+    font-size: 14px;
+    color:#d83030;
+}
+
 @media(max-width: 768px) {
     .checkoutSection {
+        font-size: 16px;
+    }
+     .title {
+        font-size: 16px;
+    }
+    .orderList {
+        font-size: 14px;
+    }
+    .subtotalSection {
         font-size: 16px;
     }
 }

@@ -1,4 +1,4 @@
-type OrderItemResponse = {
+export type OrderItemResponse = {
 			id: string;
 			product: {
             id: string;

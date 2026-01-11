@@ -6,21 +6,18 @@ import classes from './ProductPage.module.css'
 import { useProducts } from '../../../hooks/useProducts.ts';
 import { LoadingSpinner } from '../../../components/LoadingSpinner/LoadingSpinner.tsx';
 import { ErrorState } from '../../../components/ErrorState/ErrorState.tsx';
+import { ERROR_MESSAGES } from '../../../constants/messages.ts';
 
 export function ProductPage() {
     const { category, itemId } = useParams();
     const normalizedCategory = category ?? "";
     const { data: products, isLoading, error } = useProducts(normalizedCategory);
 
-    if (isLoading) {
-        return <LoadingSpinner />
-    }
+    if (isLoading) return <LoadingSpinner />;
 
-    if (error) {
-        return <ErrorState />
-    }
+    if (error) return <ErrorState message={ERROR_MESSAGES.GENERIC} />;
 
-    if (!products) return null
+    if (!products) return <ErrorState message={ERROR_MESSAGES.NOT_FOUND} />;
 
     const name = itemId?.toLowerCase() ?? "";
 

@@ -21,7 +21,6 @@ export type OrderProps = {
     shippingAddress: DataProps;
     delivery: DeliveryMethod;
     payment: PaymentMethod;
-    // status: StatusProps;
     createdAt: string;
     total: number;
     vat: number;

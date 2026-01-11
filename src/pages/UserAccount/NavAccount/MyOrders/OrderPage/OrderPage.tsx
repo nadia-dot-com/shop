@@ -1,45 +1,86 @@
 import { useParams } from "react-router-dom";
-import { Subtotal } from "../../../../../components/Subtotal/Subtotal";
-import { useUserContext } from "../../../../../context/UserContext"
-import { OrderList } from "../../ShoppingCart/CheckoutReview/CheckoutSections/OrderList/OrderList";
-
-import classes from './OrderPage.module.css'
 import { VatSection } from "../../ShoppingCart/CheckoutReview/CheckoutSections/VatSection/VatSection";
 import { TotalSection } from "../../ShoppingCart/CheckoutReview/CheckoutSections/TotalSection/TotalSection";
-// import { SHIPPING_LABELS } from "../../../../../data/checkout";
+import { LoadingSpinner } from "../../../../../components/LoadingSpinner/LoadingSpinner";
+import { ErrorState } from "../../../../../components/ErrorState/ErrorState";
+import { getDiscountPrice } from "../../../../../utils/product";
+import { getDiscountSubtotal, getSubtotal } from "../../../../../utils/getSubtotals";
+
+import classes from './OrderPage.module.css';
+import { useOrderFromOrders } from "../../../../../hooks/useOrderFromOrders";
+import { ERROR_MESSAGES } from "../../../../../constants/messages";
+
+const ORDER_ERROR_MESSAGE = "Order not found";
 
 export function OrderPage() {
-    const { orders } = useUserContext();
     const { orderId } = useParams();
+   const { order, isLoading, error } = useOrderFromOrders(orderId);
 
-    // const order = orders.find(o => o.orderId === orderId);
+    if (isLoading) return <LoadingSpinner />
+    if (error) return <ErrorState message={ERROR_MESSAGES.GENERIC}/>
     
-    // if (!order) return null;
+    if(!order) return <ErrorState message={ORDER_ERROR_MESSAGE}/>;
+    const hasDiscount = order?.items.some(el => el.discount > 0);
     
-    // const discount = order.items.some(el => el.discount > 0);
-
     return (
         <div className={classes.wrap}>
+            <div>
+                <section className={classes.orderListSection}>
 
-            {/* <OrderList order={order.items} />
+                    <div className={classes.title}>
+                        <div>Product</div>
+                        <div>Total</div>
+                    </div>
 
-            <Subtotal arr={order.items} />
+                    <ul className={classes.orderList}>
+                        {order.items.map((product) => (
+                            <li
+                                className={classes.orderItem}
+                                key={product.id}>
+                                <p>
+                                    {product.product.name} x {product.quantity}
+                                </p>
+                                <div className={classes.price}>
+                                    {product.discount ?
+                                        <p className={classes.discountPrice}>${(getDiscountPrice(product.price, product.discount) * product.quantity).toFixed(2)}</p>
+                                        : <p>${Number(product.price * product.quantity).toFixed(2)}</p>
+                                    }
+                                </div>
+                            </li>
+                        ))
+                        }
+                    </ul>
+                </section>
 
-            <VatSection vat={order.vat} /> */}
+                <section className={classes.subtotalSection}>
+                    Subtotal:
+                    <div className={classes.price}>
+                        {hasDiscount ?
+                            <div>
+                                <p className={classes.oldPrice}>${getSubtotal(order.items).toFixed(2)}</p>
+                                <p className={classes.discountPrice}>${getDiscountSubtotal(order.items).toFixed(2)}</p>
+                            </div>
+                            : <p>${getSubtotal(order.items).toFixed(2)}</p>
+                        }
+                    </div>
+                </section>
 
-            <div className={classes.checkoutSection}>
-                <div>Shipping</div>
-                {/* <div>{SHIPPING_LABELS[order.delivery.method]} {' '}
-                    ${order.delivery.price}
-                </div> */}
+                <VatSection vat={order.vat} />
+
+                <div className={classes.checkoutSection}>
+                    <div>Shipping</div>
+                    <div>{order.delivery.method} {' '}
+                        ${order.delivery.price}
+                    </div>
+                </div>
+
+                <div className={classes.checkoutSection}>
+                    <div>Payment method</div>
+                    <div>{order.payment.method}</div>
+                </div>
+
+                <TotalSection total={order.totalPrice} discount={hasDiscount} />
             </div>
-
-            <div className={classes.checkoutSection}>
-                <div>Payment method</div>
-                {/* <div>{order.payment.method}</div> */}
-            </div>
-
-            {/* <TotalSection total={order.total} discount={discount} /> */}
         </div>
     )
 }

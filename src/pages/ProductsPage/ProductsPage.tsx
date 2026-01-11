@@ -10,29 +10,19 @@ import { useProducts } from "../../hooks/useProducts";
 import { LoadingSpinner } from "../../components/LoadingSpinner/LoadingSpinner";
 import { ErrorState } from "../../components/ErrorState/ErrorState";
 import { ALL } from "../../data/categories";
+import { ERROR_MESSAGES } from "../../constants/messages";
 
 export function ProductsPage() {
-    // const { selectedCategory } = useShopContext();
     const { category, itemId } = useParams();
     const normalizedCategory = category ?? ALL;
 
-    // const navigate = useNavigate();
-
-    // useEffect(() => {
-    //     if (!category) {
-    //         const path = selectedCategory.toLowerCase();
-    //         navigate(path)
-    //     }
-    // }, [category])
-
     const { data: products, isLoading, error } = useProducts(normalizedCategory);
 
+    if (isLoading) return <LoadingSpinner />;
 
-    if (isLoading) return <LoadingSpinner />
+    if (error) return <ErrorState message={ERROR_MESSAGES.GENERIC} />;
 
-    if (error) return <ErrorState />
-
-    if (!products) return null;
+    if (!products) return <ErrorState message={ERROR_MESSAGES.NOT_FOUND} />;
 
     return (
         <div className={classes.productsPage}>

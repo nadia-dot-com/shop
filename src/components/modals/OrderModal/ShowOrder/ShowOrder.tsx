@@ -1,7 +1,6 @@
 import { Button } from "../../../Button/Button";
 import { OrderItemRow } from "../../../OrderItemRow/OrderItemRow";
 import { useShopContext } from "../../../../context/ShopContext";
-import { FcGoogle } from "react-icons/fc";
 import { useUserContext } from "../../../../context/UserContext";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../../../config/Routes";
@@ -13,7 +12,7 @@ import { LoginButton } from "../../../LoginButton/LoginButton";
 
 export function ShowOrder({ orderItems }: { orderItems: OrderItem[] }) {
     const { clearOrder, toggleOrderModal } = useShopContext();
-    const { user, updateUser } = useUserContext();
+    const { user } = useUserContext();
     const navigate = useNavigate();
 
     const handleOrder = () => {

@@ -5,20 +5,17 @@ import { Category } from "../../../../types/api/category";
 import { useCategories } from "../../../../hooks/useCategories";
 import { LoadingSpinner } from "../../../../components/LoadingSpinner/LoadingSpinner";
 import { ErrorState } from "../../../../components/ErrorState/ErrorState";
+import { ERROR_MESSAGES } from "../../../../constants/messages";
 
 export function PopularCategory({ category }: { category: Category }) {
     const { data: categories, isLoading, error } = useCategories();
     const { navigateToCategory } = useShoppingNavigation();
 
-    if (isLoading) {
-        return <LoadingSpinner />
-    }
+    if (isLoading) return <LoadingSpinner />
 
-    if (error) {
-        return <ErrorState />
-    }
+    if (error) return <ErrorState message={ERROR_MESSAGES.GENERIC}/>
 
-    if (!categories) return null;
+    if (!categories) return <ErrorState message={ERROR_MESSAGES.NOT_FOUND}/>;
 
     return category && (
         <li className={classes.categoryItem}>

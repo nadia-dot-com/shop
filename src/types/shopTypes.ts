@@ -38,7 +38,6 @@ export type ShopContextProps = {
     addToOrder: (product: Product, quantity?: number) => void;
     removeFromOrder: (item: OrderItem) => void;
     clearOrder: () => void;
-    resetOrder: () => void;
 
     isOrderOpen: boolean;
     toggleOrderModal: () => void;
