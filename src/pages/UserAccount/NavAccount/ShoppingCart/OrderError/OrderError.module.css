@@ -1,0 +1,28 @@
+.orderError {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 280px;
+    background-color: white;
+}
+
+.title{
+    text-align: center;
+}
+
+@media(max-width: 768px) {
+    .orderError {
+        width: 250px;
+    }
+}
+
+@media(max-width: 576px) {
+    .orderError {
+        width: 200px;
+    }
+    
+    .title {
+        font-size: 17px;
+    }
+}

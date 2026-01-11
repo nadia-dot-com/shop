@@ -1,4 +1,4 @@
-.orderComplete {
+.orderSuccess {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,13 +12,13 @@
 }
 
 @media(max-width: 768px) {
-    .orderComplete {
+    .orderSuccess {
         width: 250px;
     }
 }
 
 @media(max-width: 576px) {
-    .orderComplete {
+    .orderSuccess {
         width: 200px;
     }
     

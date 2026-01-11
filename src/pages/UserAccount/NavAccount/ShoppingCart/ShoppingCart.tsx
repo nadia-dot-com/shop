@@ -4,7 +4,6 @@ import { useUserContext } from "../../../../context/UserContext";
 import { EmptyCard } from "../../../../components/EmptyCard/EmptyCard";
 import { Cart } from "./Cart/Cart";
 import { AddressForm } from "./AddressForm/AddressForm";
-import { OrderComplete } from "./OrderComplete/OrderComplete";
 import { useCheckoutContext } from "../../../../context/CheckoutContext";
 import { DataProps } from "../../../../types/checkoutTypes";
 import { CheckoutReview } from "./CheckoutReview/CheckoutReview";
@@ -18,6 +17,9 @@ import { buildOrderPayload } from "../../../../utils/buildOrderPayload";
 import { STEP } from "./step";
 
 import classes from './ShoppingCart.module.css';
+import { OrderError } from "./OrderError/OrderError";
+import { ERROR_MESSAGES } from "../../../../constants/messages";
+import { OrderSuccess } from "./OrderSuccess/OrderSuccess";
 
 export function ShoppingCart() {
   const { order, clearOrder } = useShopContext();
@@ -55,6 +57,8 @@ export function ShoppingCart() {
   const handlePlaceOrder = () => {
     if (!shippingData || !delivery || !payment) return;
     if (isPending) return;
+
+    setError(null);
 
     const payload = buildOrderPayload({
       items: order,
@@ -126,7 +130,11 @@ export function ShoppingCart() {
         <div>
           <ShoppingCartNav step={step} />
           <div className={classes.orderContent}>
-            <OrderComplete error={error} />
+            {error ? (
+              <OrderError message={`${ERROR_MESSAGES.GENERIC} ${ERROR_MESSAGES.TRY_AGAIN}`} />
+            ) : (
+              <OrderSuccess />
+            )}
           </div>
         </div>
       ) : order.length === 0 ? (
