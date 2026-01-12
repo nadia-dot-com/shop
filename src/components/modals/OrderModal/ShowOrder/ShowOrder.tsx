@@ -21,10 +21,6 @@ export function ShowOrder({ orderItems }: { orderItems: OrderItem[] }) {
         toggleOrderModal();
     }
 
-    const handleLogin = () => {
-        window.location.href = "http://localhost:3000/auth/google";
-    }
-
     return (
         <div className={classes.showOrderWrapper}>
             <div className={classes.cartTitle}>
@@ -60,7 +56,7 @@ export function ShowOrder({ orderItems }: { orderItems: OrderItem[] }) {
                         />
                     ) :
                     (
-                        <LoginButton login={handleLogin} text="Login with GOOGLE & complete a order" />
+                        <LoginButton text="Login with GOOGLE & complete a order" />
                     )
             }
         </div>
