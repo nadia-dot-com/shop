@@ -6,9 +6,8 @@ import { API_URL } from "../../../api/config";
 import classes from './LoginModal.module.css';
 
 export function LoginModal() {
-    const { toggleModalOpen, mergeUserWishlist } = useUserContext();
+    const { toggleModalOpen } = useUserContext();
     const refCallback = useClickOutside(toggleModalOpen);
-    // const { guestWishlist, cleanGuestWishlist } = useShopContext();
 
     const handleLogin = () => {
         window.location.href = `${API_URL}/auth/google`;

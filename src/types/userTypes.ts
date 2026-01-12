@@ -16,12 +16,9 @@ export type UserContextProps = {
   user: UserData | null;
   isLoginModalOpen: boolean;
   orders: OrderResponse[];
-  userWishlist: string[];
 
   updateUser: Dispatch<React.SetStateAction<UserData | null>>;
   toggleModalOpen: () => void;
   addOrder: (order: OrderResponse) => void;
   logout: () => void;
-  toggleUserWishlist: (productId: string) => void;
-  mergeUserWishlist: (wishlist: string[]) => void;
 }

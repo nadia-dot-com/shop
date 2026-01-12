@@ -2,11 +2,16 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../config/Routes";
 import { toast } from "react-toastify";
+import { GUEST_WISHLIST_KEY } from "../../data/locatStorageKey";
+import { useShopContext } from "../../context/ShopContext";
 
 import classes from './GoogleCallback.module.css';
+import { useAddToWishlist } from "../../hooks/wishlist/useAddToWishlist";
 
 export function GoogleCallback() {
     const navigate = useNavigate();
+    const merge = useAddToWishlist();
+    const { cleanGuestWishlist } = useShopContext();
 
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
@@ -19,7 +24,17 @@ export function GoogleCallback() {
         }
 
         localStorage.setItem("token", token);
-        navigate(ROUTES.userAccount, {replace: true})
+
+        const localWishlist: string[] = JSON.parse(
+            localStorage.getItem(GUEST_WISHLIST_KEY) ?? "[]"
+        );
+
+        if(localWishlist.length > 0) {
+            merge.mutate(localWishlist);
+        }
+
+        cleanGuestWishlist();
+        navigate(ROUTES.userAccount, { replace: true })
     }, []);
 
     return <div className={classes.signing}>Signing you in...</div>

@@ -1,0 +1,19 @@
+import { useMutation, useQueryClient } from "@tanstack/react-query"
+import { API_URL } from "../../api/config";
+
+export const useRemoveFromWishlist = () => {
+    const qc = useQueryClient();
+
+    return useMutation({
+        mutationFn: (productId: string) =>
+            fetch(`${API_URL}/user/wishlist/remove-product`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+                body: JSON.stringify({productId}),
+            }),
+            onSuccess: () => qc.invalidateQueries({queryKey: ["wishlist"]})
+    })
+}

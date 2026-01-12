@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../../../components/Button/Button';
-import { useOrders } from '../../../../hooks/useOrders';
+import { useOrders } from '../../../../hooks/orders/useOrders'; 
 
 import classes from './MyOrders.module.css';
 import { LoadingSpinner } from '../../../../components/LoadingSpinner/LoadingSpinner';

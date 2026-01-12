@@ -12,7 +12,6 @@ export function UserProvider({ children }: { children: ReactNode }) {
     const [user, setUser] = useLocalStorage<UserData | null>(USER, null);
     const [orders, setOrders] = useLocalStorage<OrderResponse[]>(ORDERS_HISTORY_KEY, []);
     const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(false);
-    const [userWishlist, setUserWishlist] = useState<string[]>([]);
     const { data } = useCurrentUser();
 
     useEffect(() => {
@@ -29,30 +28,17 @@ export function UserProvider({ children }: { children: ReactNode }) {
 
     const logout = () => setUser(null);
 
-    const toggleUserWishlist = (productId: string) => {
-        setUserWishlist(prev =>
-            prev.includes(productId)
-                ? prev.filter(id => id !== productId)
-                : [...prev, productId]
-        )
-    }
-
-    const mergeUserWishlist = (wishlist: string[]) => setUserWishlist(prev => [...new Set([...prev, ...wishlist])]);
-
     return (
         <UserContext.Provider
             value={{
                 user,
                 orders,
                 isLoginModalOpen,
-                userWishlist,
 
                 updateUser: setUser,
                 toggleModalOpen,
                 addOrder,
                 logout,
-                toggleUserWishlist,
-                mergeUserWishlist,
             }}
         >
             {children}
