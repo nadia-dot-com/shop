@@ -38,7 +38,6 @@ export type OrderResponse = {
             street: string;
         },
 
-        company: null;
         email: string;
         phone: string;
         notes: string | null;

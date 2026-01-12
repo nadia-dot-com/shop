@@ -46,7 +46,6 @@ export function buildOrderPayload({
                 street: shippingAddress.address,
             },
 
-            company: null,
             email: shippingAddress.email,
             phone: shippingAddress.phone,
             notes: shippingAddress.notes || null,

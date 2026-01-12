@@ -15,10 +15,8 @@ export type UserData = {
 export type UserContextProps = {
   user: UserData | null;
   isLoginModalOpen: boolean;
-  orders: OrderResponse[];
 
   updateUser: Dispatch<React.SetStateAction<UserData | null>>;
   toggleModalOpen: () => void;
-  addOrder: (order: OrderResponse) => void;
   logout: () => void;
 }

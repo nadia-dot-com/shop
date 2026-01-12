@@ -22,7 +22,6 @@ export async function sendOrderToServer(
             ...order,
             shippingDetails: {
                 ...order.shippingDetails,
-                company: 'stub',
                 notes: 'stub',
             }
         }),

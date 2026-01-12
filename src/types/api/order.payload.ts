@@ -23,7 +23,6 @@ export type OrderPayload = {
             street: string;
         },
 
-        company: null;
         email: string;
         phone: string;
         notes: string | null;
