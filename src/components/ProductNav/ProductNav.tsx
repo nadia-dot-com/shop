@@ -1,4 +1,4 @@
-import { ALL, ALL_UI, SALE, SALE_UI } from "../../data/categories";
+import { ALL_UI, SALE, SALE_UI } from "../../data/categories";
 import { cn } from "../../utils/cn";
 import { useShoppingNavigation } from "../../hooks/useShoppingNavigation";
 import { useToggle } from "../../hooks/useToggle";

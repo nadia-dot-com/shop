@@ -13,15 +13,11 @@ export function Collection() {
     const [isAtStart, setIsAtStart] = useState(true);
     const [isAtEnd, setIsAtEnd] = useState(false);
 
-    const {data: collections, isLoading, error} = useCollections();
-
-    if(isLoading) return <LoadingSpinner/>
-
-    if(error) return <ErrorState message={ERROR_MESSAGES.GENERIC}/>
-
-    if(!collections) return <ErrorState message={ERROR_MESSAGES.NOT_FOUND}/>
+    const { data: collections, isLoading, error } = useCollections();
 
     useEffect(() => {
+        if (!collections) return;
+
         const el = scrollRef.current;
         if (!el) return;
 
@@ -36,7 +32,7 @@ export function Collection() {
             setIsAtEnd(
                 !canScroll ||
                 scrollLeft + clientWidth >= scrollWidth - THRESHOLD
-            ); 
+            );
         };
 
         el.addEventListener("scroll", handleScroll);
@@ -50,6 +46,11 @@ export function Collection() {
             resizeObserver.disconnect();
         };
     }, [collections]);
+
+    if (isLoading) return <LoadingSpinner />
+    if (error) return <ErrorState message={ERROR_MESSAGES.GENERIC} />
+    if (!collections) return <ErrorState message={ERROR_MESSAGES.NOT_FOUND} />
+
 
 
     const scroll = (direction: 'left' | 'right') => {

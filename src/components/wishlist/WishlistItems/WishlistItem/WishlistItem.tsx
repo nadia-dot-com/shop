@@ -1,12 +1,13 @@
-import { useWishlist } from '../../../../hooks/useWishlist';
-import classes from './WishlistItem.module.css'
+import { useWishlist } from '../../../../hooks/wishlist/useWishlist'; 
 import { Button } from '../../../../components/Button/Button';
 import { useShopContext } from '../../../../context/ShopContext';
 import { Product } from '../../../../types/api/product';
 import { useShoppingNavigation } from '../../../../hooks/useShoppingNavigation';
 import { getDiscountPrice } from '../../../../utils/product';
 
-export function WishlistItem({ item }: { item: Product }) {
+import classes from './WishlistItem.module.css';
+
+export function WishlistItem({ item }: { item: Product}) {
     const { id, name, imagesUrls, price, categoryName, stockQuantity } = item;
     const { toggleLike } = useWishlist(id);
     const { addToOrder } = useShopContext();

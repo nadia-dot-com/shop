@@ -7,7 +7,7 @@ import { getDiscountPrice } from "../../../../../utils/product";
 import { getDiscountSubtotal, getSubtotal } from "../../../../../utils/getSubtotals";
 
 import classes from './OrderPage.module.css';
-import { useOrderFromOrders } from "../../../../../hooks/useOrderFromOrders";
+import { useOrderFromOrders } from "../../../../../hooks/orders/useOrderFromOrders";
 import { ERROR_MESSAGES } from "../../../../../constants/messages";
 
 const ORDER_ERROR_MESSAGE = "Order not found";

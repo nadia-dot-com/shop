@@ -7,7 +7,7 @@ import { SaleLabel } from "../SaleLabel/SaleLabel";
 import { cn } from "../../utils/cn";
 import { checkProductDate } from "../../utils/checkProductDate";
 import { NewProductLabel } from "../NewProductLabel/NewProductLabel";
-import { useWishlist } from "../../hooks/useWishlist";
+import { useWishlist } from "../../hooks/wishlist/useWishlist"; 
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 
 import classes from './ProductDetails.module.css'

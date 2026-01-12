@@ -3,7 +3,7 @@ import { useShopContext } from '../../../../context/ShopContext';
 import { useNavigate } from 'react-router-dom';
 import { SaleLabel } from '../../../SaleLabel/SaleLabel';
 import { IoIosHeart, IoIosHeartEmpty } from 'react-icons/io';
-import { useWishlist } from '../../../../hooks/useWishlist';
+import { useWishlist } from '../../../../hooks/wishlist/useWishlist'; 
 import { checkProductDate } from '../../../../utils/checkProductDate';
 import { NewProductLabel } from '../../../NewProductLabel/NewProductLabel';
 import { Product } from '../../../../types/api/product';
@@ -15,11 +15,11 @@ export function ProductItem({ product }: { product: Product }) {
     const { id, name, imagesUrls, shortDescription, price, stockQuantity, discount, categoryName, releaseDate } = product;
     const { addToOrder, chooseCategory } = useShopContext();
     const { liked, toggleLike } = useWishlist(id);
-
+    
     const navigate = useNavigate();
     const path = name.toLowerCase().replace(/ /g, "-");
     const categoryPath = categoryName.toLowerCase();
-
+    
     const QUANTITY = 1;
 
     const handleClick = () => {
