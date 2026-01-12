@@ -18,13 +18,7 @@ export async function sendOrderToServer(
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({
-            ...order,
-            shippingDetails: {
-                ...order.shippingDetails,
-                notes: 'stub',
-            }
-        }),
+        body: JSON.stringify(order),
     });
 
     const response = await res.json()
