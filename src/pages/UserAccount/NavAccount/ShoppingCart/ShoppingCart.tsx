@@ -14,7 +14,7 @@ import { ALL } from "../../../../data/categories";
 import { useCheckoutPrice } from "../../../../hooks/useCheckoutPrice";
 import { useCreateOrder } from "../../../../hooks/useCreateOrder";
 import { buildOrderPayload } from "../../../../utils/buildOrderPayload";
-import { STEP } from "./step";
+import { CHECKOUT_STEP } from "./checkoutStep";
 
 import classes from './ShoppingCart.module.css';
 import { OrderError } from "./OrderError/OrderError";
@@ -25,7 +25,7 @@ export function ShoppingCart() {
   const { order, clearOrder } = useShopContext();
   const { user } = useUserContext();
   const { shippingData, delivery, payment, updateItems, updateData, updateDelivery, updatePayment, resetCheckout } = useCheckoutContext();
-  const [step, setStep] = useState(STEP.CART);
+  const [step, setStep] = useState(CHECKOUT_STEP.CART_OVERVIEW);
   const addressFormRef = useRef<HTMLFormElement>(null);
   const { navigateToCategory } = useShoppingNavigation();
   const [error, setError] = useState<Error | null>(null);
@@ -35,7 +35,7 @@ export function ShoppingCart() {
       clearOrder();
       resetCheckout();
     },
-    () => setStep(STEP.COMPLETE),
+    () => setStep(CHECKOUT_STEP.ORDER_COMPLETE),
     (err) => setError(err),
   );
 
@@ -48,7 +48,7 @@ export function ShoppingCart() {
 
   const handleAddressForm = (data: DataProps) => {
     updateData(data);
-    setStep(STEP.REVIEW);
+    setStep(CHECKOUT_STEP.ORDER_REVIEW);
   }
 
   if (!user) return null;
@@ -72,11 +72,11 @@ export function ShoppingCart() {
   };
 
   const nextStep = () => {
-    if (step === STEP.CART) {
+    if (step === CHECKOUT_STEP.CART_OVERVIEW) {
       updateItems(order);
     }
 
-    if (step === STEP.ADDRESS) {
+    if (step === CHECKOUT_STEP.SHIPPING_ADDRESS) {
       const form = addressFormRef.current;
       if (!form) return;
 
@@ -93,22 +93,22 @@ export function ShoppingCart() {
 
   const prevStep = () => setStep((s) => s - 1);
 
-  const onError = () => setStep(STEP.CART);
+  const onError = () => setStep(CHECKOUT_STEP.CART_OVERVIEW);
 
   const onContinue = () => navigateToCategory(ALL);
 
   const renderStep = () => {
     switch (step) {
-      case STEP.CART:
+      case CHECKOUT_STEP.CART_OVERVIEW:
         return <Cart order={order} />;
-      case STEP.ADDRESS:
+      case CHECKOUT_STEP.SHIPPING_ADDRESS:
         return (
           <AddressForm
             formRef={addressFormRef}
             onSubmit={handleAddressForm}
           />
         );
-      case STEP.REVIEW:
+      case CHECKOUT_STEP.ORDER_REVIEW:
         return (
           <CheckoutReview
             order={order}
@@ -126,7 +126,7 @@ export function ShoppingCart() {
   return (
     <div className={classes.shoppingCart}>
 
-      {step === STEP.COMPLETE ? (
+      {step === CHECKOUT_STEP.ORDER_COMPLETE ? (
         <div>
           <ShoppingCartNav step={step} />
           <div className={classes.orderContent}>
