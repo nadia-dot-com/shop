@@ -9,7 +9,7 @@ export const useWishlistQuery = () => {
     return useQuery<Product[], Error>({
         queryKey: ['wishlist'],
         queryFn: async () => {
-            const wishlist = await fetchWishlist();
+            const wishlist = await fetchWishlist(token!);
             const products = await fetchProducts();
 
             const productMap = new Map(products.map(p => [p.id, p]));

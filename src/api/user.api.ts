@@ -1,47 +1,40 @@
 import { UserData } from "../types/userTypes";
 import { API_URL } from "./config";
 
-export const fetchUser = async (): Promise<any> => {
-    const token = localStorage.getItem("token");
-
-    if (!token) {
-        throw new Error("No token");
-    }
-
+export const fetchUser = async (token: string): Promise<UserData> => {
     const res = await fetch(`${API_URL}/user`, {
         headers: {
             Authorization: `Bearer ${token}`,
         },
     });
 
+    const data = await res.json()
+
     if (!res.ok) {
-        throw new Error('Failed to fetch user')
+        throw new Error(data?.message ?? "Failed to fetch user. An unexpected Error was received from the server.")
     }
 
-    return res.json();
+    return data;
 }
 
 export async function updateUserProfile(
-    data: Partial<UserData>
+    token: string,
+    payload: Partial<UserData>
 ): Promise<UserData> {
-    const token = localStorage.getItem("token");
-
-    if (!token) {
-        throw new Error("No token");
-    }
-
     const res = await fetch(`${API_URL}/user`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(payload),
     });
 
+    const data = await res.json()
+
     if (!res.ok) {
-        throw new Error("Failed to update user")
+        throw new Error(data?.message ?? "Failed to update user. An unexpected Error was received from the server.")
     }
 
-    return res.json();
+    return data;
 }
