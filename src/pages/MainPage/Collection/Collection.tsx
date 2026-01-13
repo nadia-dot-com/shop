@@ -2,11 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { HorizontalScrollButton } from "../../../components/HorizontalScrollButton/HorizontalScrollButton";
 import { CollectionItem } from "./CollectionItem/CollectionItem";
 import { useCollections } from "../../../hooks/useCollections";
+import { DataLoader } from "../../../components/DataLoader/DataLoader";
 
 import classes from './Collection.module.css';
-import { ErrorState } from "../../../components/ErrorState/ErrorState";
-import { ERROR_MESSAGES } from "../../../constants/messages";
-import { LoadingSpinner } from "../../../components/LoadingSpinner/LoadingSpinner";
 
 export function Collection() {
     const scrollRef = useRef<HTMLUListElement | null>(null);
@@ -47,12 +45,6 @@ export function Collection() {
         };
     }, [collections]);
 
-    if (isLoading) return <LoadingSpinner />
-    if (error) return <ErrorState message={ERROR_MESSAGES.GENERIC} />
-    if (!collections) return <ErrorState message={ERROR_MESSAGES.NOT_FOUND} />
-
-
-
     const scroll = (direction: 'left' | 'right') => {
         const target = scrollRef.current;
         if (!target) return;
@@ -64,17 +56,23 @@ export function Collection() {
     }
 
     return (
-        <div className={classes.collectionWrapper}>
+        <DataLoader
+            loading={isLoading}
+            loaded={!!collections}
+            error={error}
+        >
+            <div className={classes.collectionWrapper}>
 
-            <HorizontalScrollButton onClick={() => scroll('left')} direction='left' disabled={isAtStart} />
-            <ul className={classes.collection} ref={scrollRef} >
-                {collections.map(el => (
-                    <CollectionItem key={el.id} collectionItem={el} />
-                ))
-                }
-            </ul>
-            <HorizontalScrollButton onClick={() => scroll('right')} direction='right' disabled={isAtEnd} />
+                <HorizontalScrollButton onClick={() => scroll('left')} direction='left' disabled={isAtStart} />
+                <ul className={classes.collection} ref={scrollRef} >
+                    {(collections || []).map(el => (
+                        <CollectionItem key={el.id} collectionItem={el} />
+                    ))
+                    }
+                </ul>
+                <HorizontalScrollButton onClick={() => scroll('right')} direction='right' disabled={isAtEnd} />
 
-        </div>
+            </div>
+        </DataLoader>
     )
 }

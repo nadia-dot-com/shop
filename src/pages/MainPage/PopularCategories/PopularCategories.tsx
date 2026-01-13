@@ -1,27 +1,26 @@
-import classes from './PopularCategories.module.css';
 import { PopularCategory } from './PopularCategory/PopularCategory';
-import { LoadingSpinner } from '../../../components/LoadingSpinner/LoadingSpinner';
-import { ErrorState } from '../../../components/ErrorState/ErrorState';
 import { useCategories } from '../../../hooks/useCategories';
-import { ERROR_MESSAGES } from '../../../constants/messages';
+import { DataLoader } from '../../../components/DataLoader/DataLoader';
+
+import classes from './PopularCategories.module.css';
 
 export function PopularCategories() {
     const { data: categories, isLoading, error } = useCategories();
 
-    if (isLoading) return <LoadingSpinner />
-
-    if (error) return <ErrorState message={ERROR_MESSAGES.GENERIC} />
-
-    if (!categories) return <ErrorState message={ERROR_MESSAGES.NOT_FOUND} />;
-
     return (
-        <div className={classes.categoriesWrapper}>
-            <div className={classes.popular}>Popular categories</div>
-            <ul className={classes.categories} >
-                {Array.from(categories).map((category, index) => (
-                    < PopularCategory key={index} category={category} />
-                ))}
-            </ul>
-        </div>
+        <DataLoader
+            loading={isLoading}
+            loaded={!!categories}
+            error={error}
+        >
+            <div className={classes.categoriesWrapper}>
+                <div className={classes.popular}>Popular categories</div>
+                <ul className={classes.categories} >
+                    {(categories || []).map((category, index) => (
+                        < PopularCategory key={index} category={category} />
+                    ))}
+                </ul>
+            </div>
+        </DataLoader>
     )
 }
