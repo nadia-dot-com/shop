@@ -1,4 +1,18 @@
-# React + TypeScript + Vite
+House Staff App
+Frontend project built with **React, Vite, and TypeScript**.
+
+Live App: https://<live-app-link>
+
+Storybook: https://nadia-dot-com.github.io/shop/
+Storybook is used for isolated UI component development and documentation.
+
+Getting Started
+
+```bash
+npm install
+npm run dev
+
+--
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

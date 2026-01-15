@@ -1,32 +1,31 @@
 import { useParams } from 'react-router-dom'
 import { ProductDetails } from '../../../components/ProductDetails/ProductDetails.tsx';
 import { slugity } from '../../../utils/slugify.ts';
-
-import classes from './ProductPage.module.css'
 import { useProducts } from '../../../hooks/useProducts.ts';
-import { LoadingSpinner } from '../../../components/LoadingSpinner/LoadingSpinner.tsx';
-import { ErrorState } from '../../../components/ErrorState/ErrorState.tsx';
-import { ERROR_MESSAGES } from '../../../constants/messages.ts';
+import { DataLoader } from '../../../components/DataLoader/DataLoader.tsx';
+
+import classes from './ProductPage.module.css';
+import { AppError } from '../../../errors/index.ts';
 
 export function ProductPage() {
     const { category, itemId } = useParams();
     const normalizedCategory = category ?? "";
     const { data: products, isLoading, error } = useProducts(normalizedCategory);
 
-    if (isLoading) return <LoadingSpinner />;
-
-    if (error) return <ErrorState message={ERROR_MESSAGES.GENERIC} />;
-
-    if (!products) return <ErrorState message={ERROR_MESSAGES.NOT_FOUND} />;
-
     const name = itemId?.toLowerCase() ?? "";
 
     const product = products.find((i) => slugity(i.name) === name);
 
     return (
-        <div className={classes.productPage}>
-            {product && <ProductDetails product={product} />}
-        </div>
+        <DataLoader
+            loading={isLoading}
+            loaded={!!product}
+            error={product ? error : new AppError(`Product '${name}' does not exist`)}
+        >
+            <div className={classes.productPage}>
+                {product && <ProductDetails product={product} />}
+            </div>
+        </DataLoader>
     )
 }
 

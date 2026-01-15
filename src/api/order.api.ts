@@ -3,35 +3,23 @@ import { OrderResponse } from "../types/api/order.response";
 import { API_URL } from "./config";
 
 export async function sendOrderToServer(
+    token: string,
     order: OrderPayload
 ): Promise<OrderResponse> {
-    const token = localStorage.getItem("token");
-
-    if (!token) {
-        console.log('NO TOKEN');
-        throw new Error("No token");
-    }
-
     const res = await fetch(`${API_URL}/orders`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({
-            ...order,
-            shippingDetails: {
-                ...order.shippingDetails,
-                notes: 'stub',
-            }
-        }),
+        body: JSON.stringify( order),
     });
 
-    const response = await res.json()
+    const data = await res.json()
 
     if (!res.ok) {
-        throw new Error(response.message)
+        throw new Error(data?.message ?? "Failed to create order. An unexpected Error was received from the server.")
     }
 
-    return response;
+    return data;
 }

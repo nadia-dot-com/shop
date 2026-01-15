@@ -32,8 +32,6 @@ export function Payment({ payment, updatePayment }: { payment: PaymentMethod | n
                     </label>
                 </div>
             ))}
-
-
         </div>
     )
 }

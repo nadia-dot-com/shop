@@ -1,5 +1,5 @@
 import { Button } from '../../../../../components/Button/Button';
-import { STEP } from '../step';
+import { CHECKOUT_STEP } from '../checkoutStep';
 import classes from './CheckoutButtons.module.css';
 
 type CheckoutButtonsProps = {
@@ -15,7 +15,7 @@ type CheckoutButtonsProps = {
 }
 
 export function CheckoutButtons({ step, orderLength, onNext, onPrev, onContinue, error, onError, disabled, onPost }: CheckoutButtonsProps) {
-  const isFinal = step === STEP.COMPLETE;
+  const isFinal = step === CHECKOUT_STEP.ORDER_COMPLETE;
   const isEmpty = orderLength === 0;
 
   if (isEmpty || isFinal) {
@@ -39,14 +39,14 @@ export function CheckoutButtons({ step, orderLength, onNext, onPrev, onContinue,
         textColor="white"
         text="BACK"
         onClick={onPrev}
-        disabled={step === STEP.CART || disabled}
+        disabled={step === CHECKOUT_STEP.CART_OVERVIEW || disabled}
       />
       <Button
         bgColor="black"
         textColor="white"
-        text={step === STEP.REVIEW ? "PLACE ORDER" : "NEXT"}
+        text={step === CHECKOUT_STEP.ORDER_REVIEW ? "PLACE ORDER" : "NEXT"}
         onClick={() => {
-          if (step === STEP.REVIEW) {
+          if (step === CHECKOUT_STEP.ORDER_REVIEW) {
             onPost();
           } else {
             onNext();

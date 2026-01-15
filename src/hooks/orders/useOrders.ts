@@ -7,7 +7,7 @@ export const useOrders = () => {
 
     return useQuery<OrderResponse[], Error>({
         queryKey: ['orders'],
-        queryFn: fetchOrders,
+        queryFn: () => fetchOrders(token!),
         enabled: !!token,
     })
 }

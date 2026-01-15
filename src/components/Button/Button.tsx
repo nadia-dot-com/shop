@@ -3,7 +3,17 @@ import { CSSProperties, ReactNode } from 'react';
 import classes from './Button.module.css';
 import { cn } from '../../utils/cn';
 
-export function Button({ 
+type Button = {
+    bgColor: string;
+    textColor: string;
+    text: string;
+    type?: "button" | "submit" | "reset" | undefined;
+    onClick?: () => void;
+    children?: ReactNode;
+    disabled?: boolean;
+}
+
+export function Button({
     bgColor,
     textColor,
     text,
@@ -11,15 +21,7 @@ export function Button({
     onClick,
     children,
     disabled,
-}: {
-    bgColor: string,
-    textColor: string,
-    text: string,
-    type?: "button" | "submit" | "reset" | undefined,
-    onClick?: () => void,
-    children?: ReactNode,
-    disabled?: boolean,
-}) {
+}: Button) {
     const style: CSSProperties = {
         backgroundColor: bgColor,
         color: textColor,

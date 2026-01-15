@@ -18,7 +18,6 @@ export function MyProfile() {
 
     const countries = data?.countries ?? [];
 
-
     const [formState, setFormState] = useState({
         phone: null as string | null,
         address: null as string | null,
@@ -26,7 +25,6 @@ export function MyProfile() {
         city: null as string | null,
         country: null as string | null,
     })
-
 
     useEffect(() => {
         if (!user) return;

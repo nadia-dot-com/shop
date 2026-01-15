@@ -3,7 +3,7 @@ import { useProducts } from "./useProducts";
 import { Product } from "../types/api/product";
 
 export function useItemsByIds(ids: string[]) {
-    const {data: products = []} = useProducts();
+    const {data: products} = useProducts();
 
     return useMemo(()=> {
         return ids
