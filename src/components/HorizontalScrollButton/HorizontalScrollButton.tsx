@@ -1,14 +1,14 @@
 import { cn } from '../../utils/cn'
 import classes from './HorizontalScrollButton.module.css';
 
-export type HorizontalScrollButtonProps = {
+type HorizontalScrollButton = {
     onClick?: () => void;
     direction: 'left' | 'right';
     className?: string;
     disabled?: boolean;
 }
 
-export function HorizontalScrollButton({ onClick, direction, className, disabled }: HorizontalScrollButtonProps) {
+export function HorizontalScrollButton({ onClick, direction, className, disabled }: HorizontalScrollButton) {
 
     return (
         <button
@@ -27,6 +27,5 @@ export function HorizontalScrollButton({ onClick, direction, className, disabled
                 )}
             </svg>
         </button>
-
     )
 }

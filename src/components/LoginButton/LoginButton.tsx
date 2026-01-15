@@ -17,7 +17,7 @@ export function LoginButton({ text }: { text: string }) {
             text={text}
             onClick={handleLogin}
         >
-            <FcGoogle className={classes.googleIcon} />
+                <FcGoogle className={classes.googleIcon} />
         </Button>
     )
 }
