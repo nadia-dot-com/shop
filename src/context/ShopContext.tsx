@@ -45,8 +45,6 @@ export function ShopProvider({ children }: { children: ReactNode }) {
                     return prev;
                 }
 
-                didAdd = true;
-
                 return prev.map(i =>
                     i.id === product.id
                         ? {
