@@ -1,35 +1,32 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
-import type { ShopContextProps } from "../types/shopTypes";
+import { createContext, ReactNode, useEffect } from "react";
+import type { CartContextValue } from "../types/shopTypes";
 import { createContextHook } from "../hooks/createContextHook";
-import { ALL } from "../data/categories";
 import { useLocalStorage } from "../hooks/useLocalStorage";
-import { ORDER_KEY, IS_ORDER_OPEN_KEY, GUEST_WISHLIST_KEY } from "../data/locatStorageKey";
+import { ORDER_KEY, IS_ORDER_OPEN_KEY } from "../data/locatStorageKey";
 import { toast } from "react-toastify";
 import { Product } from "../types/api/product";
 import { OrderItem } from "../types/orderTypes";
 
-export const ShopContext = createContext<ShopContextProps | null>(null);
+export const CartContext = createContext<CartContextValue | null>(null);
 
 const MAX_ITEMS = 100;
 
-export function ShopProvider({ children }: { children: ReactNode }) {
-    const [selectedCategory, setSelectedCategory] = useState<string>(ALL);
-    const [order, setOrder] = useLocalStorage<OrderItem[]>(ORDER_KEY, []);
-    const [isOrderOpen, setIsOrderOpen] = useLocalStorage<boolean>(IS_ORDER_OPEN_KEY, false);
-    const [guestWishlist, setGuestWishlist] = useLocalStorage<string[]>(GUEST_WISHLIST_KEY, []);
+export function CartProvider({ children }: { children: ReactNode }) {
+    const [cartItems, setCartItems] = useLocalStorage<OrderItem[]>(ORDER_KEY, []);
+    const [isCartOpen, setIsCartOpen] = useLocalStorage<boolean>(IS_ORDER_OPEN_KEY, false);
 
     useEffect(() => {
-        if (isOrderOpen) {
+        if (isCartOpen) {
             document.body.style.overflow = "hidden";
         } else {
             document.body.style.overflow = ''
         }
-    }, [isOrderOpen])
+    }, [isCartOpen])
 
-    const addToOrder = (product: Product, quantity: number = 1) => {
+    const addToCart = (product: Product, quantity: number = 1) => {
         let didAdd = false;
 
-        setOrder(prev => {
+        setCartItems(prev => {
 
             const totalItems = prev.reduce((sum, i) => sum + i.quantity, 0);
 
@@ -80,10 +77,10 @@ export function ShopProvider({ children }: { children: ReactNode }) {
     };
 
 
-    const removeFromOrder = (item: OrderItem) => setOrder(prev => prev.filter((i) => i.id != item.id));
+    const removeFromCart = (item: OrderItem) => setCartItems(prev => prev.filter((i) => i.id != item.id));
 
     const updateQuantity = (id: string, quantity: number) => {
-        setOrder(prev =>
+        setCartItems(prev =>
             prev.map(i =>
                 i.id === id
                     ? { ...i, quantity: Math.min(quantity, i.stockQuantity) }
@@ -91,42 +88,25 @@ export function ShopProvider({ children }: { children: ReactNode }) {
             ));
     };
 
-    const clearOrder = () => setOrder([]);
+    const clearCart = () => setCartItems([]);
 
-    const toggleOrderModal = () => setIsOrderOpen(prev => !prev);
-
-    const toggleGuestWishlist = (productId: string) => {
-        setGuestWishlist(prev =>
-            prev.includes(productId)
-                ? prev.filter(id => id !== productId)
-                : [...prev, productId]
-        )
-    }
-
-    const cleanGuestWishlist = () => setGuestWishlist([])
+    const toggleCartOpen = () => setIsCartOpen(prev => !prev);
 
     return (
-        <ShopContext.Provider
+        <CartContext.Provider
             value={{
-                selectedCategory,
-                chooseCategory: setSelectedCategory,
-
-                order,
+                cartItems,
                 updateQuantity,
-                addToOrder,
-                removeFromOrder,
-                clearOrder,
+                addToCart,
+                removeFromCart,
+                clearCart,
 
-                isOrderOpen,
-                toggleOrderModal,
-
-                guestWishlist,
-                toggleGuestWishlist,
-                cleanGuestWishlist
+                isCartOpen,
+                toggleCartOpen,
             }}>
             {children}
-        </ShopContext.Provider>
+        </CartContext.Provider>
     );
 };
 
-export const useShopContext = createContextHook(ShopContext, ShopProvider);
+export const useCartContext = createContextHook(CartContext, CartProvider);

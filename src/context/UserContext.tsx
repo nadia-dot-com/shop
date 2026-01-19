@@ -3,7 +3,7 @@ import { UserContextProps, UserData } from "../types/userTypes";
 import { createContextHook } from "../hooks/createContextHook";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { USER } from "../data/locatStorageKey";
-import { useCurrentUser } from "../hooks/useCurrentUser";
+import { useCurrentUser } from "../hooks/user/useCurrentUser";
 import { useToggle } from "../hooks/useToggle";
 
 export const UserContext = createContext<UserContextProps | null>(null);

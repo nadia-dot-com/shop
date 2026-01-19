@@ -32,13 +32,3 @@ export type CheckoutItitial = {
     delivery: DeliveryMethod | null;
     payment: PaymentMethod | null;
 }
-// export type PaymentProps = {
-//         method: 'cash';
-//     }
-
-// export type DeliveryMethod = "free" | "flat" | "pickup";
-
-// export type DeliveryProps = {
-//     method: DeliveryMethod;
-//     price: number;
-// }

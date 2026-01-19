@@ -4,17 +4,17 @@ import { getVAT } from "./getVAT";
 import { roundMoney } from "./roundMoney";
 
 type Args = {
-    order: OrderItem[];
+    cartItems: OrderItem[];
     deliveryPrice: number;
     vatRate: number;
 }
 
 export function calculateCheckoutPrice({
-    order,
+    cartItems,
     deliveryPrice,
     vatRate,
 }: Args) {
-    const subtotal = getDiscountSubtotal(order);
+    const subtotal = getDiscountSubtotal(cartItems);
 
     const vat = roundMoney(getVAT(subtotal, vatRate));
 

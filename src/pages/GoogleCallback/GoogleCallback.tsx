@@ -3,16 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../config/Routes";
 import { toast } from "react-toastify";
 import { GUEST_WISHLIST_KEY } from "../../data/locatStorageKey";
-import { useShopContext } from "../../context/ShopContext";
-
-import classes from './GoogleCallback.module.css';
 import { useAddToWishlist } from "../../hooks/wishlist/useAddToWishlist";
 import { useUserContext } from "../../context/UserContext";
+import { useWishlistContext } from "../../context/WishlistContext";
+
+import classes from './GoogleCallback.module.css';
 
 export function GoogleCallback() {
     const navigate = useNavigate();
     const merge = useAddToWishlist();
-    const { cleanGuestWishlist } = useShopContext();
+    const { cleanGuestWishlist } = useWishlistContext();
     const {updateToken} = useUserContext();
 
     useEffect(() => {

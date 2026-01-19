@@ -1,6 +1,6 @@
 import { Button } from "../../../Button/Button";
 import { OrderItemRow } from "../../../OrderItemRow/OrderItemRow";
-import { useShopContext } from "../../../../context/ShopContext";
+import { useCartContext } from "../../../../context/CartContext";
 import { useUserContext } from "../../../../context/UserContext";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../../../config/Routes";
@@ -11,14 +11,14 @@ import classes from "./ShowOrder.module.css";
 import { LoginButton } from "../../../LoginButton/LoginButton";
 
 export function ShowOrder({ orderItems }: { orderItems: OrderItem[] }) {
-    const { clearOrder, toggleOrderModal } = useShopContext();
+    const { clearCart, toggleCartOpen } = useCartContext();
     const { user } = useUserContext();
     const navigate = useNavigate();
 
     const handleOrder = () => {
         const path = `${ROUTES.userAccount}/${ROUTES.shoppingCart}`
         navigate(path);
-        toggleOrderModal();
+        toggleCartOpen();
     }
 
     return (
@@ -30,7 +30,7 @@ export function ShowOrder({ orderItems }: { orderItems: OrderItem[] }) {
 
                 <button
                     className={classes.clearButton}
-                    onClick={clearOrder}
+                    onClick={clearCart}
                 >
                     CLEAR
                 </button>

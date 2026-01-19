@@ -1,7 +1,7 @@
 import classes from './OurShowroom.module.css';
 import { getImagePath } from '../../../utils/getImagePath';
 import { Button } from '../../../components/Button/Button';
-import { GOOLE_MAPS_URL } from '../../../data/shop';
+import { SHOP_GOOGLE_MAPS_LOCATION_URL } from '../../../config'; 
 
 export function OurShowroom() {
 
@@ -20,7 +20,7 @@ export function OurShowroom() {
                         bgColor='white'
                         textColor='black'
                         text='• VISIT US'
-                        onClick={() => window.open(GOOLE_MAPS_URL)}
+                        onClick={() => window.open(SHOP_GOOGLE_MAPS_LOCATION_URL)}
                     />
                 </div>
             </div>

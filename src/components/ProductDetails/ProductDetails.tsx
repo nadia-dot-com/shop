@@ -1,4 +1,4 @@
-import { useShopContext } from "../../context/ShopContext";
+import { useCartContext } from "../../context/CartContext";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "../Button/Button";
 import { QuantityInput } from "../QuantityInput/QuantityInput";
@@ -7,12 +7,12 @@ import { SaleLabel } from "../SaleLabel/SaleLabel";
 import { cn } from "../../utils/cn";
 import { checkProductDate } from "../../utils/checkProductDate";
 import { NewProductLabel } from "../NewProductLabel/NewProductLabel";
-import { useWishlist } from "../../hooks/wishlist/useWishlist"; 
+import { useWishlist } from "../../hooks/wishlist/useWishlist";
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
-
-import classes from './ProductDetails.module.css'
 import { Product } from "../../types/api/product";
 import { getDiscountPrice, isProductInStock, isProductOnSale } from "../../utils/product";
+
+import classes from './ProductDetails.module.css';
 
 export function ProductDetails({ product }: { product: Product }) {
     const { name, imagesUrls, fullDescription, price, stockQuantity, id, categoryName, releaseDate, discount } = product;
@@ -20,7 +20,7 @@ export function ProductDetails({ product }: { product: Product }) {
 
     const [quantityValue, setQuantity] = useState(1);
 
-    const { addToOrder } = useShopContext();
+    const { addToCart } = useCartContext();
     const { navigateToCategory } = useShoppingNavigation();
 
     const { liked, toggleLike } = useWishlist(id);
@@ -155,7 +155,7 @@ export function ProductDetails({ product }: { product: Product }) {
                         textColor="white"
                         text="ADD TO ORDER"
                         onClick={() => {
-                            addToOrder(product, quantityValue);
+                            addToCart(product, quantityValue);
                         }}
                     />
                 </div>

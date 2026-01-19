@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useEffect, useMemo, useState } from "react";
 import { useUserContext } from "../../../../context/UserContext";
 import { Button } from "../../../../components/Button/Button";
-import { useUpdateUserProfile } from "../../../../hooks/useUpdateUserProfile";
+import { useUpdateUserProfile } from "../../../../hooks/user/useUpdateUserProfile"; 
 import { useOptions } from "../../../../hooks/useOptions";
 import isEqual from "lodash/isEqual";
 import omitBy from "lodash/omitBy";

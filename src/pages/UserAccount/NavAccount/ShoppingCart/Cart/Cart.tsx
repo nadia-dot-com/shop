@@ -3,12 +3,12 @@ import { OrderItem } from "../../../../../types/orderTypes";
 
 import classes from './Cart.module.css';
 
-export function Cart({ order }: { order: OrderItem[] }) {
+export function Cart({ cartItems }: { cartItems: OrderItem[] }) {
 
     return (
         <ul className={classes.orderList}>
             {
-                order.map((el) => (
+                cartItems.map((el) => (
                     <li className={classes.orderItem} key={el.id}>
                         <OrderItemRow product={el} />
                     </li>

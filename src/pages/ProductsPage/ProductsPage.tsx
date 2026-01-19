@@ -1,7 +1,7 @@
 import { Outlet, useParams } from "react-router-dom";
 import { Products } from "../../components/products/Products/Products";
 import { ProductNav } from "../../components/ProductNav/ProductNav";
-import { useProducts } from "../../hooks/useProducts";
+import { useProducts } from "../../hooks/products/useProducts";
 import { ALL } from "../../data/categories";
 import { DataLoader } from "../../components/DataLoader/DataLoader";
 import { cn } from "../../utils/cn";

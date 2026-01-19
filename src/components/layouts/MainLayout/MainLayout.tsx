@@ -3,7 +3,7 @@ import Footer from "../../Footer/Footer";
 import Header from "../../Header/Header";
 import { Wrapper } from "../../Wrapper/Wrapper";
 import { ToastContainer } from "react-toastify";
-import { useShopContext } from "../../../context/ShopContext";
+import { useCartContext } from "../../../context/CartContext";
 import { useUserContext } from "../../../context/UserContext";
 import { LoginModal } from "../../modals/LoginModal/LoginModal";
 import { OrderModal } from "../../modals/OrderModal/OrderModal";
@@ -11,7 +11,7 @@ import { OrderModal } from "../../modals/OrderModal/OrderModal";
 import classes from './MainLayout.module.css';
 
 export function MainLayout() {
-    const { isOrderOpen } = useShopContext();
+    const { isCartOpen } = useCartContext();
     const { isLoginModalOpen } = useUserContext();
 
     return (
@@ -27,7 +27,7 @@ export function MainLayout() {
             </Wrapper>
 
             {isLoginModalOpen && <LoginModal />}
-            {isOrderOpen && <OrderModal />}
+            {isCartOpen && <OrderModal />}
 
             <ToastContainer
                 position="top-right"

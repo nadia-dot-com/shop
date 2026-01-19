@@ -1,14 +1,13 @@
 import { Product } from '../../../../../types/api/product';
-import { useShoppingNavigation } from '../../../../../hooks/useShoppingNavigation';
 import { getDiscountPrice } from '../../../../../utils/product';
-
-import classes from './HotspotItem.module.css'
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../../../../config/Routes';
-import { useShopContext } from '../../../../../context/ShopContext';
+import { useCategoryContext } from '../../../../../context/CategoryContext';
+
+import classes from './HotspotItem.module.css';
 
 export function HotspotItem({ item }: { item: Product }) {
-    const {chooseCategory} = useShopContext()
+    const {chooseCategory} = useCategoryContext()
     const navigate = useNavigate();
 
     const handleNavigate = () => {

@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query"
-import { fetchProducts } from "../api/products.api"
+import { fetchProducts } from "../../api/products.api"
 import { useMemo } from "react";
-import { ALL, SALE } from "../data/categories";
-import { fromSlugToTitle } from "../utils/fromSlugToTitle";
+import { ALL, SALE } from "../../data/categories";
+import { fromSlugToTitle } from "../../utils/fromSlugToTitle";
 
 export const useProducts = (selectedCategory: string = ALL) => {
     const query = useQuery({

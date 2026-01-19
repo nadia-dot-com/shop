@@ -1,17 +1,17 @@
-import { useWishlist } from '../../../../hooks/wishlist/useWishlist'; 
+import { useWishlist } from '../../../../hooks/wishlist/useWishlist';
 import { Button } from '../../../../components/Button/Button';
-import { useShopContext } from '../../../../context/ShopContext';
+import { useCartContext } from '../../../../context/CartContext';
 import { Product } from '../../../../types/api/product';
 import { useShoppingNavigation } from '../../../../hooks/useShoppingNavigation';
 import { getDiscountPrice } from '../../../../utils/product';
 
 import classes from './WishlistItem.module.css';
 
-export function WishlistItem({ item }: { item: Product}) {
+export function WishlistItem({ item }: { item: Product }) {
     const { id, name, imagesUrls, price, categoryName, stockQuantity } = item;
     const { toggleLike } = useWishlist(id);
-    const { addToOrder } = useShopContext();
-    const {navigateToCategory} = useShoppingNavigation();
+    const { addToCart } = useCartContext();
+    const { navigateToCategory } = useShoppingNavigation();
 
     return (
         <div className={classes.wishlistItem}>
@@ -38,7 +38,7 @@ export function WishlistItem({ item }: { item: Product}) {
                     {name}
                 </h4>
 
-                 <div className={classes.price}>
+                <div className={classes.price}>
                     {item.discount <= 0 ?
                         <p>${Number(price).toFixed(2)}</p>
                         : <div>
@@ -55,14 +55,14 @@ export function WishlistItem({ item }: { item: Product}) {
                     bgColor='#ddd'
                     textColor='black'
                     text='ADD TO CART'
-                    onClick={() => addToOrder(item)}
+                    onClick={() => addToCart(item)}
                     disabled={stockQuantity === 0}
                 />
             </div>
 
             <button
                 className={classes.addToCard}
-                onClick={() => addToOrder(item)}
+                onClick={() => addToCart(item)}
                 disabled={stockQuantity === 0}
             >
                 +

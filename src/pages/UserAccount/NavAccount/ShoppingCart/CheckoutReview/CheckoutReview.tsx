@@ -33,7 +33,7 @@ export function CheckoutReview({
         <div className={classes.wrapper}>
             <h2 className={classes.title}>Order Summary</h2>
 
-            <OrderList order={order} />
+            <OrderList orderItems={order} />
 
             <Subtotal arr={order} />
 

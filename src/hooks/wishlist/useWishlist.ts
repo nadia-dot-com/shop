@@ -1,11 +1,11 @@
-import { useShopContext } from "../../context/ShopContext";
 import { useUserContext } from "../../context/UserContext";
+import { useWishlistContext } from "../../context/WishlistContext";
 import { useAddToWishlist } from "./useAddToWishlist";
 import { useRemoveFromWishlist } from "./useRemoveFromWishlist";
 import { useWishlistQuery } from "./useWishlistQuery";
 
 export function useWishlist(productId: string) {
-    const { guestWishlist, toggleGuestWishlist } = useShopContext();
+    const { guestWishlist, toggleGuestWishlist } = useWishlistContext();
     const { user } = useUserContext();
 
     const {data: wishlist = []} = useWishlistQuery();

@@ -1,5 +1,5 @@
 import classes from './OrderItemRow.module.css'
-import { useShopContext } from '../../context/ShopContext';
+import { useCartContext } from '../../context/CartContext';
 import { FaTrash } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../config/Routes';
@@ -10,7 +10,7 @@ import { cn } from '../../utils/cn';
 
 export function OrderItemRow({ product }: { product: OrderItem }) {
     const { id, name, img, price, stockQuantity, quantity, categoryName, discount } = product;
-    const { removeFromOrder, updateQuantity } = useShopContext();
+    const { removeFromCart, updateQuantity } = useCartContext();
 
     const navigate = useNavigate();
 
@@ -61,7 +61,7 @@ export function OrderItemRow({ product }: { product: OrderItem }) {
                     : <p>${(Number(price) * quantity).toFixed(2)}</p>
                 }
             </div>
-            <FaTrash className={classes.removeFromCard} onClick={() => removeFromOrder({ ...product })}>-</FaTrash>
+            <FaTrash className={classes.removeFromCard} onClick={() => removeFromCart({ ...product })}>-</FaTrash>
         </div>
     )
 }

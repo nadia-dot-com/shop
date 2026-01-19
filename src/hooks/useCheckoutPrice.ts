@@ -4,11 +4,11 @@ import { calculateCheckoutPrice } from "../utils/calculateCheckoutPrice";
 import { useOptions } from "./useOptions";
 
 export function useCheckoutPrice({
-  order,
+  cartItems,
   country,
   delivery,
 }: {
-  order: OrderItem[],
+  cartItems: OrderItem[],
   country: string | null,
  delivery: DeliveryMethod | null,
 }) {
@@ -20,7 +20,7 @@ export function useCheckoutPrice({
     const deliveryPrice = delivery?.price ?? 0;
 
     return calculateCheckoutPrice({
-        order,
+        cartItems,
         deliveryPrice,
         vatRate,
     });

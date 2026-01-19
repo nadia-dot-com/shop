@@ -1,25 +1,27 @@
 import { cn } from '../../../../utils/cn';
-import { useShopContext } from '../../../../context/ShopContext';
+import { useCartContext } from '../../../../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import { SaleLabel } from '../../../SaleLabel/SaleLabel';
 import { IoIosHeart, IoIosHeartEmpty } from 'react-icons/io';
-import { useWishlist } from '../../../../hooks/wishlist/useWishlist'; 
+import { useWishlist } from '../../../../hooks/wishlist/useWishlist';
 import { checkProductDate } from '../../../../utils/checkProductDate';
 import { NewProductLabel } from '../../../NewProductLabel/NewProductLabel';
 import { Product } from '../../../../types/api/product';
 import { getDiscountPrice, isProductInStock } from '../../../../utils/product';
 
 import classes from './ProductItem.module.css';
+import { useCategoryContext } from '../../../../context/CategoryContext';
 
 export function ProductItem({ product }: { product: Product }) {
     const { id, name, imagesUrls, shortDescription, price, stockQuantity, discount, categoryName, releaseDate } = product;
-    const { addToOrder, chooseCategory } = useShopContext();
+    const { addToCart } = useCartContext();
+    const { chooseCategory } = useCategoryContext();
     const { liked, toggleLike } = useWishlist(id);
-    
+
     const navigate = useNavigate();
     const path = name.toLowerCase().replace(/ /g, "-");
     const categoryPath = categoryName.toLowerCase();
-    
+
     const QUANTITY = 1;
 
     const handleClick = () => {
@@ -80,7 +82,7 @@ export function ProductItem({ product }: { product: Product }) {
 
                 <button
                     className={classes.addToCard}
-                    onClick={() => addToOrder(product, QUANTITY)}
+                    onClick={() => addToCart(product, QUANTITY)}
                     disabled={!isProductInStock(stockQuantity)}
                 >
                     +
