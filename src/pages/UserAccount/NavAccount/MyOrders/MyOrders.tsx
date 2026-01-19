@@ -1,9 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../../../components/Button/Button';
 import { useOrders } from '../../../../hooks/orders/useOrders';
-import { LoadingSpinner } from '../../../../components/LoadingSpinner/LoadingSpinner';
-import { ErrorState } from '../../../../components/ErrorState/ErrorState';
-import { ERROR_MESSAGES } from '../../../../constants/messages';
 import { DataLoader } from '../../../../components/DataLoader/DataLoader';
 
 import classes from './MyOrders.module.css';
@@ -11,10 +8,6 @@ import classes from './MyOrders.module.css';
 export function MyOrders() {
     const { data: orders, isLoading, error } = useOrders();
     const navigate = useNavigate();
-
-    if (isLoading) return <LoadingSpinner />;
-
-    if (error) return <ErrorState message={ERROR_MESSAGES.GENERIC} />;
 
     const handleClick = (id: string) => {
         const path = `${id}`;
