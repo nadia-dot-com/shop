@@ -134,7 +134,7 @@ export function ProductDetails({ product }: { product: Product }) {
                     </span>
 
                 </h2>
-                <p className={cn(classes.price)}>
+                <div className={cn(classes.price)}>
                     {discount <= 0 ?
                         <p>${Number(price).toFixed(2)}</p>
                         : <div>
@@ -142,7 +142,7 @@ export function ProductDetails({ product }: { product: Product }) {
                             <p className={classes.discountPrice}>${getDiscountPrice(price, discount).toFixed(2)}</p>
                         </div>
                     }
-                </p>
+                </div>
                 <div className={classes.quantityContainer}>
                     <QuantityInput
                         quantity={quantityValue}

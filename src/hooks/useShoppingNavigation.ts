@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { useShopContext } from "../context/CartContext";
 import { ROUTES } from "../config/Routes";
 import { useCategoryContext } from "../context/CategoryContext";
 

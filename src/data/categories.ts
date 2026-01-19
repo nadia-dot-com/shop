@@ -1,7 +1,7 @@
-export const ALL: string = 'all';
+// export const ALL: string = 'all';
 
-export const SALE: string = 'sale';
+// export const SALE: string = 'sale';
 
-export const ALL_UI: string = 'All';
+export const ALL: string = 'All';
 
-export const SALE_UI: string = 'Sale';
+export const SALE: string = 'Sale';

@@ -3,7 +3,7 @@ import { useCollections } from "../../hooks/useCollections";
 import { DataLoader } from "../DataLoader/DataLoader";
 import { ProductNavView } from "./ProductNavView/ProductNavView";
 
-export function ProductNav() {
+export function  ProductNav() {
     const {
         data: categories,
         isLoading: isCategoriesLoading,

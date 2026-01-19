@@ -1,4 +1,4 @@
-import { ALL_UI, SALE_UI } from '../../../data/categories';
+import { ALL, SALE } from '../../../data/categories';
 import { useShoppingNavigation } from '../../../hooks/useShoppingNavigation';
 import { useToggle } from '../../../hooks/useToggle';
 import { Category } from '../../../types/api/category';
@@ -13,8 +13,8 @@ export function ProductNavView({ categories = [], collections = [] }: { categori
 
     const categoriesNav =
         new Set([
-            ALL_UI,
-            SALE_UI,
+            ALL,
+            SALE,
             ...(categories || []).map((i) => i.name),
             ...(collections || []).map((i) => i.name),
         ])
@@ -26,7 +26,7 @@ export function ProductNavView({ categories = [], collections = [] }: { categori
                     <li
                         className={cn(
                             classes.category,
-                            category === SALE_UI && classes.saleCategory)}
+                            category === SALE && classes.saleCategory)}
                         key={category}
                         onClick={() => navigateToCategory(category)}>{category}</li>
                 ))}
@@ -59,7 +59,7 @@ export function ProductNavView({ categories = [], collections = [] }: { categori
                             <li
                                 className={cn(
                                     classes.mobileCategory,
-                                    category === SALE_UI && classes.saleCategory)}
+                                    category === SALE && classes.saleCategory)}
                                 key={index}
                                 onClick={() => navigateToCategory(category)}>{category}</li>
                         ))

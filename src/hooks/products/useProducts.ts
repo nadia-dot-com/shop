@@ -6,8 +6,9 @@ import { fromSlugToTitle } from "../../utils/fromSlugToTitle";
 
 export const useProducts = (selectedCategory: string = ALL) => {
     const query = useQuery({
-        queryKey: ['products', selectedCategory],
+        queryKey: ['products'],
         queryFn: fetchProducts,
+        staleTime: Infinity,
     });
 
 

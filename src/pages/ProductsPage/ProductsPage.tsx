@@ -5,12 +5,14 @@ import { useProducts } from "../../hooks/products/useProducts";
 import { ALL } from "../../data/categories";
 import { DataLoader } from "../../components/DataLoader/DataLoader";
 import { cn } from "../../utils/cn";
+import { useCategoryContext } from "../../context/CategoryContext";
 
 import classes from './ProductsPage.module.css';
 
 export function ProductsPage() {
-    const { category, itemId } = useParams();
-    const normalizedCategory = category ?? ALL;
+    const { itemId } = useParams();
+    const { selectedCategory } = useCategoryContext();
+    const normalizedCategory = selectedCategory ?? ALL;
 
     const { data: products, isLoading, error } = useProducts(normalizedCategory);
 
