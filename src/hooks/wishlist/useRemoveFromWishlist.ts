@@ -1,7 +1,9 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { API_URL } from "../../api/config";
+import { useUserContext } from "../../context/UserContext";
 
 export const useRemoveFromWishlist = () => {
+    const { token } = useUserContext();
     const qc = useQueryClient();
 
     return useMutation({
@@ -10,10 +12,10 @@ export const useRemoveFromWishlist = () => {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
-                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                    Authorization: `Bearer ${token}`,
                 },
-                body: JSON.stringify({productId}),
+                body: JSON.stringify({ productId }),
             }),
-            onSuccess: () => qc.invalidateQueries({queryKey: ["wishlist"]})
+        onSuccess: () => qc.invalidateQueries({ queryKey: ["wishlist"] })
     })
 }

@@ -5,15 +5,14 @@ import { toast } from "react-toastify";
 import { UserData } from "../types/userTypes";
 
 export const useUpdateUserProfile = () => {
-    const { updateUser } = useUserContext();
-    const token = localStorage.getItem("token");
+    const { token, updateUser } = useUserContext();
 
     if (!token) {
         throw new Error("No token");
     }
 
     return useMutation({
-        mutationFn: (data: Partial<UserData>) => 
+        mutationFn: (data: Partial<UserData>) =>
             updateUserProfile(token, data),
         onSuccess: (updatedUser) => {
             updateUser(updatedUser);

@@ -95,10 +95,6 @@ export function ShopProvider({ children }: { children: ReactNode }) {
 
     const toggleOrderModal = () => setIsOrderOpen(prev => !prev);
 
-    const chooseCategory = (category: string) => {
-        setSelectedCategory(category);
-    };
-
     const toggleGuestWishlist = (productId: string) => {
         setGuestWishlist(prev =>
             prev.includes(productId)
@@ -113,7 +109,7 @@ export function ShopProvider({ children }: { children: ReactNode }) {
         <ShopContext.Provider
             value={{
                 selectedCategory,
-                chooseCategory,
+                chooseCategory: setSelectedCategory,
 
                 order,
                 updateQuantity,

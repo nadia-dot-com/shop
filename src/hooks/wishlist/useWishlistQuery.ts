@@ -2,9 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchWishlist } from "../../api/wishlist.api";
 import { fetchProducts } from "../../api/products.api";
 import { Product } from "../../types/api/product";
+import { useUserContext } from "../../context/UserContext";
 
 export const useWishlistQuery = () => {
-    const token = localStorage.getItem("token");
+    const { token } = useUserContext();
 
     return useQuery<Product[], Error>({
         queryKey: ['wishlist'],
