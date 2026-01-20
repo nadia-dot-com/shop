@@ -7,7 +7,7 @@ export function Wishlist() {
    const wishlist = useResolvedWishlist();
 
     return (
-        <div className={classes.guestWishlistContainer}>
+        <section className={classes.guestWishlistContainer}>
 
             <div className={classes.wishlistWrapper}>
                 <h1 className={classes.title}>
@@ -17,6 +17,6 @@ export function Wishlist() {
                 <WishlistItems list={wishlist} />
             </div>
 
-        </div>
+        </section>
     )
 }

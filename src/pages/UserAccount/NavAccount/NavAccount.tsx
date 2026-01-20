@@ -9,22 +9,24 @@ export function NavAccount() {
   const { logout } = useUserContext();
 
   return (
-    <ul className={classes.nav}>
-      <li >
-        <StyledLink to={ROUTES.profile}>My Profile </StyledLink>
-      </li>
-      <li>
-        <StyledLink to={ROUTES.shoppingCart} >Shopping Cart</StyledLink>
-      </li>
-      <li>
-        <StyledLink to={ROUTES.myOrders}>My Orders</StyledLink>
-      </li>
-      <li>
-        <StyledLink to={ROUTES.myWishlist}>My Wishlist</StyledLink>
-      </li>
-      <li>
-        <Logout onClick={logout} />
-      </li>
-    </ul>
+    <aside>
+      <ul className={classes.nav}>
+        <li >
+          <StyledLink to={ROUTES.profile}>My Profile </StyledLink>
+        </li>
+        <li>
+          <StyledLink to={ROUTES.shoppingCart} >Shopping Cart</StyledLink>
+        </li>
+        <li>
+          <StyledLink to={ROUTES.myOrders}>My Orders</StyledLink>
+        </li>
+        <li>
+          <StyledLink to={ROUTES.myWishlist}>My Wishlist</StyledLink>
+        </li>
+        <li>
+          <Logout onClick={logout} />
+        </li>
+      </ul>
+    </aside>
   )
 }

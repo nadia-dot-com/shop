@@ -2,7 +2,7 @@ import { cn } from '../../../../../../../utils/cn';
 import classes from './TotalSection.module.css';
 
 
-export function TotalSection({ total, discount }: { total: number, discount: boolean }) {
+export function TotalPrice({ total, discount }: { total: number, discount: boolean }) {
     
     return (
         <section className={classes.checkoutSection}>

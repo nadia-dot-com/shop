@@ -24,12 +24,12 @@ export function ProductsPage() {
         >
             <div className={classes.productsPage}>
                 <ProductNav />
-                <div>
+                <section>
                     <Outlet />
-                </div>
-                <div className={cn(classes.productsContainer, itemId && classes.productPageOpen)}>
+                </section>
+                <section className={cn(classes.productsContainer, itemId && classes.productPageOpen)}>
                     <Products products={products} />
-                </div>
+                </section>
             </div>
         </DataLoader>
     )

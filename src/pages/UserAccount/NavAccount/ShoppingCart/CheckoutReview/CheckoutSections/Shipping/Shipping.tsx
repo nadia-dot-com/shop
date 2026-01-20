@@ -16,8 +16,8 @@ export function Shipping({ delivery, updateDelivery }: { delivery: DeliveryMetho
       }, [delivery, deliveryOptions, updateDelivery])
 
     return (
-        <div className={classes.wrapper}>
-            <h3 className={classes.title}>Shipping</h3>
+        <fieldset className={classes.wrapper}>
+            <legend className={classes.title}>Shipping</legend>
 
             {deliveryOptions.map(method => (
                 <div key={method.id} className={classes.option}>
@@ -33,6 +33,6 @@ export function Shipping({ delivery, updateDelivery }: { delivery: DeliveryMetho
                 </div>
             ))}
 
-        </div>
+        </fieldset>
     )
 }

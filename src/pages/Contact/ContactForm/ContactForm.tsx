@@ -34,7 +34,7 @@ export function ContactForm() {
     };
 
     return (
-        <div className={classes.formWrapper}>
+        <section className={classes.formWrapper}>
             <form 
             className={classes.form} 
             onSubmit={onSubmit} 
@@ -94,6 +94,6 @@ export function ContactForm() {
                     {result}
                 </p>
             </form>
-        </div>
+        </section>
     )
 }

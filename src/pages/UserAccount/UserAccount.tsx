@@ -17,15 +17,15 @@ export function UserAccount() {
         >
             {user ? (
                 <div className={classes.userWrapper}>
-                    <div className={classes.helloUser}>
+                    <h1 className={classes.helloUser}>
                         Hello, {user.name} ;)
-                    </div>
+                    </h1>
 
                     <NavAccount />
 
-                    <div className={classes.content}>
+                    <section className={classes.content}>
                         <Outlet />
-                    </div>
+                    </section>
                 </div>
             ) : (
                 <MakeLogin />

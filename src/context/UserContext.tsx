@@ -9,20 +9,28 @@ import { useToggle } from "../hooks/useToggle";
 export const UserContext = createContext<UserContextProps | null>(null);
 
 export function UserProvider({ children }: { children: ReactNode }) {
-    const [token, setToken] = useState<string | null>(()=> localStorage.getItem("token"))
+    const [token, setToken] = useState<string | null>(() => localStorage.getItem("token"))
     const [user, setUser] = useLocalStorage<UserData | null>(USER, null);
     const [isLoginModalOpen, setIsLoginModalOpen] = useToggle(false);
     const { data, isLoading, error } = useCurrentUser(token);
 
     useEffect(() => {
-        if(isLoading) return;
+        if (isLoading) return;
 
         if (data) {
             setUser(data);
         } else {
             setUser(null)
         }
-    }, [data, isLoading])
+    }, [data, isLoading]);
+
+    useEffect(() => {
+        if (isLoginModalOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = ''
+        }
+    }, [isLoginModalOpen])
 
     const logout = () => {
         window.localStorage.removeItem("token");

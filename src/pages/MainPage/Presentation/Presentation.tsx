@@ -34,12 +34,12 @@ export function Presentation() {
   const refCallback = useHover(stop, start);
 
   return (
-    <div ref={refCallback} className={classes.presentation}>
+    <section ref={refCallback} className={classes.presentation}>
       <PresentationItem
         array={PRESENTATION}
         index={index}
         currentItem={PRESENTATION[index]}
       />
-    </div>
+    </section>
   );
 }

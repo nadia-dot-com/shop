@@ -61,7 +61,7 @@ export function Collection() {
             loaded={!!collections}
             error={error}
         >
-            <div className={classes.collectionWrapper}>
+            <section className={classes.collectionWrapper}>
 
                 <HorizontalScrollButton onClick={() => scroll('left')} direction='left' disabled={isAtStart} />
                 <ul className={classes.collection} ref={scrollRef} >
@@ -72,7 +72,7 @@ export function Collection() {
                 </ul>
                 <HorizontalScrollButton onClick={() => scroll('right')} direction='right' disabled={isAtEnd} />
 
-            </div>
+            </section>
         </DataLoader>
     )
 }

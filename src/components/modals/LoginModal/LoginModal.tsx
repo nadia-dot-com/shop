@@ -9,9 +9,15 @@ export function LoginModal() {
     const refCallback = useClickOutside(toggleModalOpen);
 
     return (
-        <div ref={refCallback} className={classes.loginModal}>
+        <div
+            role='dialog'
+            aria-modal="true"
+            aria-label="Login"
+            ref={refCallback}
+            className={classes.loginModal}
+        >
             <h2>LogIn/SingIn</h2>
-            <LoginButton text="Continue with Google"/>
+            <LoginButton text="Continue with Google" />
         </div>
     )
 }

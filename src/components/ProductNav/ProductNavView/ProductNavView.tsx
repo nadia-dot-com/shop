@@ -20,7 +20,7 @@ export function ProductNavView({ categories = [], collections = [] }: { categori
         ])
 
     return (
-        <div>
+        <aside>
             <ul className={classes.desktopCategories}>
                 {Array.from(categoriesNav).map((category) => (
                     <li
@@ -66,6 +66,6 @@ export function ProductNavView({ categories = [], collections = [] }: { categori
                 }
 
             </ul>
-        </div>
+        </aside>
     )
 }

@@ -1,6 +1,6 @@
 import classes from './VatSection.module.css'
 
-export function VatSection({ vat }: { vat: number}) {
+export function Vat({ vat }: { vat: number}) {
 
     return (
         <section className={classes.checkoutSection}>

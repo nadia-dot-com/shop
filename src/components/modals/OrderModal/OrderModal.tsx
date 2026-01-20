@@ -11,6 +11,9 @@ export function OrderModal() {
 
     return (
         <div
+            role='dialog'
+            aria-modal="true"
+            aria-label="Shopping cart"
             ref={refCallback}
             className={classes.orderModal}
         >
