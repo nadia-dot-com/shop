@@ -5,6 +5,6 @@ export const useOptions = () => {
     return useQuery({
         queryKey: ['options'],
         queryFn: fetchOptions,
-        staleTime: 1000 * 60 * 10
+        staleTime: Infinity,
     });
 }

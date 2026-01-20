@@ -10,5 +10,6 @@ export const useOrders = () => {
         queryKey: ['orders'],
         queryFn: () => fetchOrders(token!),
         enabled: !!token,
+        staleTime: 0,
     })
 }
