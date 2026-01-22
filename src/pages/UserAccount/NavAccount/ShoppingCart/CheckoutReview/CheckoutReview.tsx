@@ -2,8 +2,8 @@ import { OrderList } from "./CheckoutSections/OrderList/OrderList";
 import { Payment } from "./CheckoutSections/Payment/Payment";
 import { Subtotal } from "../../../../../components/Subtotal/Subtotal";
 import { Shipping } from "./CheckoutSections/Shipping/Shipping";
-import { VatSection } from "./CheckoutSections/VatSection/VatSection";
-import { TotalSection } from "./CheckoutSections/TotalSection/TotalSection";
+import { Vat } from "./CheckoutSections/VatSection/VatSection";
+import { TotalPrice } from "./CheckoutSections/TotalSection/TotalSection";
 
 import classes from './CheckoutReview.module.css'
 import { OrderItem } from "../../../../../types/orderTypes";
@@ -33,7 +33,7 @@ export function CheckoutReview({
         <div className={classes.wrapper}>
             <h2 className={classes.title}>Order Summary</h2>
 
-            <OrderList order={order} />
+            <OrderList orderItems={order} />
 
             <Subtotal arr={order} />
 
@@ -41,9 +41,9 @@ export function CheckoutReview({
 
             <Payment payment={payment} updatePayment={updatePayment} />
 
-            <VatSection vat={vat}/>
+            <Vat vat={vat}/>
 
-            <TotalSection total={total} discount={discount} />
+            <TotalPrice total={total} discount={discount} />
         </div>
     )
 }

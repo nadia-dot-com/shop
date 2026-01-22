@@ -1,24 +1,25 @@
 import { useQuery } from "@tanstack/react-query"
-import { fetchProducts } from "../api/products.api"
+import { fetchProducts } from "../../api/products.api"
 import { useMemo } from "react";
-import { ALL, SALE } from "../data/categories";
-import { fromSlugToTitle } from "../utils/fromSlugToTitle";
+import { categoriesGroups } from "../../data/categories";
+import { fromSlugToTitle } from "../../utils/fromSlugToTitle";
 
-export const useProducts = (selectedCategory: string = ALL) => {
+export const useProducts = (selectedCategory: string = categoriesGroups.all) => {
     const query = useQuery({
-        queryKey: ['products', selectedCategory],
+        queryKey: ['products'],
         queryFn: fetchProducts,
+        staleTime: Infinity,
     });
 
 
     const filtered = useMemo(() => {
         if (!query.data) return [];
 
-        if (selectedCategory === ALL) {
+        if (selectedCategory === categoriesGroups.all) {
             return query.data;
         }
 
-        if (selectedCategory === SALE) {
+        if (selectedCategory === categoriesGroups.sale) {
             return query.data.filter(p => p.discount > 0);
         }
 

@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-import { useShopContext } from "../../../../context/ShopContext";
 import { useUserContext } from "../../../../context/UserContext";
 import { EmptyCard } from "../../../../components/EmptyCard/EmptyCard";
 import { Cart } from "./Cart/Cart";
@@ -10,9 +9,9 @@ import { CheckoutReview } from "./CheckoutReview/CheckoutReview";
 import { ShoppingCartNav } from "./ShoppingCartNav/ShoppingCartNav";
 import { CheckoutButtons } from "./CheckoutButtons/CheckoutButtons";
 import { useShoppingNavigation } from "../../../../hooks/useShoppingNavigation";
-import { ALL } from "../../../../data/categories";
+import { categoriesGroups } from "../../../../data/categories";
 import { useCheckoutPrice } from "../../../../hooks/useCheckoutPrice";
-import { useCreateOrder } from "../../../../hooks/useCreateOrder";
+import { useCreateOrder } from "../../../../hooks/orders/useCreateOrder";
 import { buildOrderPayload } from "../../../../utils/buildOrderPayload";
 import { CHECKOUT_STEP } from "./checkoutStep";
 
@@ -20,9 +19,10 @@ import classes from './ShoppingCart.module.css';
 import { OrderError } from "./OrderError/OrderError";
 import { ERROR_MESSAGES } from "../../../../constants/messages";
 import { OrderSuccess } from "./OrderSuccess/OrderSuccess";
+import { useCartContext } from "../../../../context/CartContext";
 
 export function ShoppingCart() {
-  const { order, clearOrder } = useShopContext();
+  const { cartItems, clearCart } = useCartContext();
   const { user } = useUserContext();
   const { shippingData, delivery, payment, updateItems, updateData, updateDelivery, updatePayment, resetCheckout } = useCheckoutContext();
   const [step, setStep] = useState(CHECKOUT_STEP.CART_OVERVIEW);
@@ -32,7 +32,7 @@ export function ShoppingCart() {
 
   const { mutate: createOrder, isPending } = useCreateOrder(
     () => {
-      clearOrder();
+      clearCart();
       resetCheckout();
     },
     () => setStep(CHECKOUT_STEP.ORDER_COMPLETE),
@@ -41,7 +41,7 @@ export function ShoppingCart() {
 
   const country = shippingData?.country ?? null;
   const { vat, total } = useCheckoutPrice({
-    order,
+    cartItems,
     country,
     delivery,
   });
@@ -61,7 +61,7 @@ export function ShoppingCart() {
     setError(null);
 
     const payload = buildOrderPayload({
-      items: order,
+      items: cartItems,
       shippingAddress: shippingData,
       delivery,
       payment,
@@ -73,7 +73,7 @@ export function ShoppingCart() {
 
   const nextStep = () => {
     if (step === CHECKOUT_STEP.CART_OVERVIEW) {
-      updateItems(order);
+      updateItems(cartItems);
     }
 
     if (step === CHECKOUT_STEP.SHIPPING_ADDRESS) {
@@ -95,12 +95,12 @@ export function ShoppingCart() {
 
   const onError = () => setStep(CHECKOUT_STEP.CART_OVERVIEW);
 
-  const onContinue = () => navigateToCategory(ALL);
+  const onContinue = () => navigateToCategory(categoriesGroups.all);
 
   const renderStep = () => {
     switch (step) {
       case CHECKOUT_STEP.CART_OVERVIEW:
-        return <Cart order={order} />;
+        return <Cart cartItems={cartItems} />;
       case CHECKOUT_STEP.SHIPPING_ADDRESS:
         return (
           <AddressForm
@@ -111,7 +111,7 @@ export function ShoppingCart() {
       case CHECKOUT_STEP.ORDER_REVIEW:
         return (
           <CheckoutReview
-            order={order}
+            order={cartItems}
             delivery={delivery}
             payment={payment}
             vat={vat}
@@ -137,7 +137,7 @@ export function ShoppingCart() {
             )}
           </div>
         </div>
-      ) : order.length === 0 ? (
+      ) : cartItems.length === 0 ? (
         <div className={classes.emptyCard}>
           <EmptyCard />
         </div>
@@ -153,7 +153,7 @@ export function ShoppingCart() {
         error={error}
         onError={onError}
         step={step}
-        orderLength={order.length}
+        orderLength={cartItems.length}
         onNext={nextStep}
         onPrev={prevStep}
         onContinue={onContinue}

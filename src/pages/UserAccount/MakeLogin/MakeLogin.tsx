@@ -5,9 +5,9 @@ import classes from './MakeLogin.module.css';
 export function MakeLogin() {
 
     return (
-        <div className={classes.makeLogin}>
-            <div>Hi there! Sign in / Log in to continue.</div>
+        <section className={classes.makeLogin}>
+            <h3 className={classes.title}>Hi there! Sign in / Log in to continue.</h3>
             <LoginButton text="Continue with Google"/>
-        </div>
+        </section>
     )
 }

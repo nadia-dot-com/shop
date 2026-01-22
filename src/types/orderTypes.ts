@@ -9,7 +9,7 @@ export type OrderItem = {
     price: number;
     discount: number;
 
-    stockQuantity: number;
+    // stockQuantity: number;
     categoryName: string;
 
     quantity: number;

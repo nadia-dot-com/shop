@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { ProductDetails } from '../../../components/ProductDetails/ProductDetails.tsx';
 import { slugity } from '../../../utils/slugify.ts';
-import { useProducts } from '../../../hooks/useProducts.ts';
+import { useProducts } from '../../../hooks/products/useProducts.ts';
 import { DataLoader } from '../../../components/DataLoader/DataLoader.tsx';
 
 import classes from './ProductPage.module.css';

@@ -3,7 +3,7 @@ import { getDiscountPrice } from '../../../../../../../utils/product'
 
 import classes from './OrderList.module.css'
 
-export function OrderList({ order }: { order: OrderItem[] }) {
+export function OrderList({ orderItems }: { orderItems: OrderItem[] }) {
 
     return (
         <section className={classes.orderListSection}>
@@ -14,7 +14,7 @@ export function OrderList({ order }: { order: OrderItem[] }) {
             </div>
 
             <ul className={classes.orderList}>
-                {order.map((product) => (
+                {orderItems.map((product) => (
                     <li
                         className={classes.orderItem}
                         key={product.id}>

@@ -1,13 +1,13 @@
 import { StyledLink } from "../StyledLink/StyledLink";
-import classes from './Menu.module.css'
 import { ShopingCardIcon } from "./ShopingCardIcon/ShopingCartIcon";
-// import { NavLink } from "react-router-dom";
-import { useShopContext } from "../../context/ShopContext";
+import { useCartContext } from "../../context/CartContext";
 import { ROUTES } from "../../config/Routes";
 import { AccountIcon } from "./AccountIcon/AccountIcon";
 import { WishlistIcon } from "./WishlistIcon/WishlistIcon";
 import { useToggle } from "../../hooks/useToggle";
 import { useEffect } from "react";
+
+import classes from './Menu.module.css';
 
 type MenuLinksProps = {
     to: string;
@@ -22,7 +22,7 @@ const menuLinks: MenuLinksProps[] = [
 
 export function Menu() {
     const [isOpen, setIsOpen] = useToggle(false);
-    const { isOrderOpen } = useShopContext();
+    const { isCartOpen } = useCartContext();
 
     useEffect(() => {
         const closeMenuOnScroll = () => {
@@ -54,7 +54,7 @@ export function Menu() {
                         <WishlistIcon />
                     </StyledLink>
 
-                    <ShopingCardIcon active={isOrderOpen} />
+                    <ShopingCardIcon active={isCartOpen} />
                 </li>
             </ul>
 
@@ -68,7 +68,7 @@ export function Menu() {
                         <WishlistIcon />
                     </StyledLink>
 
-                    <ShopingCardIcon active={isOrderOpen} />
+                    <ShopingCardIcon active={isCartOpen} />
                 </div>
 
                 <div className={classes.burgerMenu}>

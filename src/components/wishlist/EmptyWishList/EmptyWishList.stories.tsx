@@ -1,5 +1,5 @@
 import { MemoryRouter } from "react-router-dom";
-import { ShopProvider } from "../../../context/ShopContext";
+import { ShopProvider } from "../../../context/CartContext";
 import { EmptyWishList } from "./EmptyWishList";
 import { Meta, StoryObj } from "@storybook/react";
 

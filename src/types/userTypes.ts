@@ -1,9 +1,8 @@
 import { Dispatch } from "react";
-import { OrderResponse } from "./api/order.response";
 
 export type UserData = {
   id: string;
-  name: string;
+  name?: string | null;
   email: string;
   phone?: string | null;
   address?: string | null;
@@ -14,9 +13,14 @@ export type UserData = {
 
 export type UserContextProps = {
   user: UserData | null;
+  token: string | null;
   isLoginModalOpen: boolean;
 
+  updateToken: Dispatch<React.SetStateAction<string | null>>;
   updateUser: Dispatch<React.SetStateAction<UserData | null>>;
   toggleModalOpen: () => void;
   logout: () => void;
+
+  isLoading: boolean;
+  error: Error | null;
 }

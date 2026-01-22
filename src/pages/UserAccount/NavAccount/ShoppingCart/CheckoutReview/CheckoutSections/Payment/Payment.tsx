@@ -16,8 +16,8 @@ export function Payment({ payment, updatePayment }: { payment: PaymentMethod | n
     }, [payment, paymentOptions, updatePayment])
 
     return (
-        <div className={classes.wrapper}>
-            <h2 className={classes.title}>Payment</h2>
+        <fieldset className={classes.wrapper}>
+            <legend className={classes.title}>Payment</legend>
 
             {paymentOptions.map(method => (
                 <div className={classes.option} key={method.id}>
@@ -32,6 +32,6 @@ export function Payment({ payment, updatePayment }: { payment: PaymentMethod | n
                     </label>
                 </div>
             ))}
-        </div>
+        </fieldset>
     )
 }

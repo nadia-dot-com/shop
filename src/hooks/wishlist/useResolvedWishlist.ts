@@ -1,10 +1,10 @@
-import { useShopContext } from "../../context/ShopContext";
 import { useUserContext } from "../../context/UserContext";
-import { useItemsByIds } from "../useItemByIds";
+import { useWishlistContext } from "../../context/WishlistContext";
+import { useItemsByIds } from "../products/useItemByIds"; 
 import { useWishlistQuery } from "./useWishlistQuery";
 
 export const useResolvedWishlist = () => {
-    const { guestWishlist } = useShopContext();
+    const { guestWishlist } = useWishlistContext();
     const { user } = useUserContext();
 
     const { data: userWishlist = [] } = useWishlistQuery();

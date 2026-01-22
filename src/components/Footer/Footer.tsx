@@ -4,11 +4,17 @@ import { IoIosTime } from "react-icons/io";
 import { MdPlace } from "react-icons/md";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import { FaSquareFacebook, FaSquareInstagram } from "react-icons/fa6";
-
-import classes from './Footer.module.css'
 import { StyledLink } from "../StyledLink/StyledLink";
 import { ROUTES } from "../../config/Routes";
-import { ADDRESS, GOOLE_MAPS_URL } from "../../data/shop";
+import {
+    SHOP_ADDRESS, SHOP_EMAIL,
+    SHOP_GOOGLE_MAPS_LOCATION_URL,
+    SHOP_PHONE, SHOP_PHONE_TEL,
+    SHOP_SOCIALS,
+    SHOP_WORKING_HOURS
+} from "../../config";
+
+import classes from './Footer.module.css';
 
 export default function Footer() {
 
@@ -17,34 +23,34 @@ export default function Footer() {
             <ul className={classes.info}>
                 <li>
                     <FaPhoneAlt />
-                    <a href="tel:+48111111111">
-                        +48 111 111 111
+                    <a href={`tel:${SHOP_PHONE_TEL}`}>
+                        {SHOP_PHONE}
                     </a>
                 </li>
                 <li>
                     <MdOutlineAlternateEmail />
                     <a href="mailto:housestaffcontact@gmail.com">
-                        housestaffcontact@gmail.com
+                        {SHOP_EMAIL}
                     </a>
                 </li>
                 <li className={classes.time}>
                     <IoIosTime />
-                    Mon – Sun: 10:00 – 20:00
+                    {SHOP_WORKING_HOURS}
                 </li>
                 <li>
                     <MdPlace />
                     <a
-                        href={GOOLE_MAPS_URL}
+                        href={SHOP_GOOGLE_MAPS_LOCATION_URL}
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        {ADDRESS}
+                        {SHOP_ADDRESS}
                     </a>
                 </li>
             </ul>
             <div className={classes.socials}>
                 <a
-                    href="https://www.facebook.com"
+                    href={SHOP_SOCIALS.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Facebook"
@@ -52,7 +58,7 @@ export default function Footer() {
                     <FaSquareFacebook />
                 </a>
                 <a
-                    href="https://www.instagram.com"
+                    href={SHOP_SOCIALS.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram"

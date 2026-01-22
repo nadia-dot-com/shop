@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import { VatSection } from "../../ShoppingCart/CheckoutReview/CheckoutSections/VatSection/VatSection";
-import { TotalSection } from "../../ShoppingCart/CheckoutReview/CheckoutSections/TotalSection/TotalSection";
+import { Vat } from "../../ShoppingCart/CheckoutReview/CheckoutSections/VatSection/VatSection";
+import { TotalPrice} from "../../ShoppingCart/CheckoutReview/CheckoutSections/TotalSection/TotalSection";
 import { LoadingSpinner } from "../../../../../components/LoadingSpinner/LoadingSpinner";
 import { ErrorState } from "../../../../../components/ErrorState/ErrorState";
 import { getDiscountPrice } from "../../../../../utils/product";
@@ -65,7 +65,7 @@ export function OrderPage() {
                     </div>
                 </section>
 
-                <VatSection vat={order.vat} />
+                <Vat vat={order.vat} />
 
                 <div className={classes.checkoutSection}>
                     <div>Shipping</div>
@@ -79,7 +79,7 @@ export function OrderPage() {
                     <div>{order.payment.method}</div>
                 </div>
 
-                <TotalSection total={order.totalPrice} discount={hasDiscount} />
+                <TotalPrice total={order.totalPrice} discount={hasDiscount} />
             </div>
         </div>
     )

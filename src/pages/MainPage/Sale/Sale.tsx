@@ -1,5 +1,5 @@
 import { Button } from "../../../components/Button/Button";
-import { SALE } from "../../../data/categories";
+import { categoriesGroups } from "../../../data/categories";
 import { getImagePath } from "../../../utils/getImagePath";
 import { useShoppingNavigation } from "../../../hooks/useShoppingNavigation";
 
@@ -39,7 +39,7 @@ export function Sale() {
                 <Button
                     bgColor="#D74F0E"
                     textColor="white"
-                    onClick={() => navigateToCategory(SALE)}
+                    onClick={() => navigateToCategory(categoriesGroups.sale)}
                     text={"• SHOP NOW"}
                 />
             </div>

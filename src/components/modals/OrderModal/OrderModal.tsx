@@ -1,21 +1,24 @@
 import { EmptyCard } from '../../EmptyCard/EmptyCard';
-import { useShopContext } from '../../../context/ShopContext';
+import { useCartContext } from '../../../context/CartContext';
 import { useClickOutside } from '../../../hooks/useClickOutside';
 import { ShowOrder } from './ShowOrder/ShowOrder';
 
 import classes from './OrderModal.module.css'
 
 export function OrderModal() {
-    const { order, toggleOrderModal } = useShopContext();
-    const refCallback = useClickOutside(toggleOrderModal);
+    const { cartItems, toggleCartOpen } = useCartContext();
+    const refCallback = useClickOutside(toggleCartOpen);
 
     return (
         <div
+            role='dialog'
+            aria-modal="true"
+            aria-label="Shopping cart"
             ref={refCallback}
             className={classes.orderModal}
         >
-            {order.length > 0
-                ? <ShowOrder orderItems={order} />
+            {cartItems.length > 0
+                ? <ShowOrder orderItems={cartItems} />
                 : <EmptyCard />
             }
         </div>

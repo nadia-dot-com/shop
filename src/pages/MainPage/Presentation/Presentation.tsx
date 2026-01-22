@@ -17,7 +17,7 @@ export function Presentation() {
     intervalRef.current = window.setInterval(() => {
       setIndex(prev => (prev + 1) % PRESENTATION.length);
     }, DELAY);
-  }, []);
+  }, [PRESENTATION.length]);
 
   const stop = useCallback(() => {
     if (intervalRef.current !== null) {
@@ -34,12 +34,12 @@ export function Presentation() {
   const refCallback = useHover(stop, start);
 
   return (
-    <div ref={refCallback} className={classes.presentation}>
+    <section ref={refCallback} className={classes.presentation}>
       <PresentationItem
         array={PRESENTATION}
         index={index}
         currentItem={PRESENTATION[index]}
       />
-    </div>
+    </section>
   );
 }

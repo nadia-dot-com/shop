@@ -13,14 +13,14 @@ export function PopularCategories() {
             loaded={!!categories}
             error={error}
         >
-            <div className={classes.categoriesWrapper}>
+            <section className={classes.categoriesWrapper}>
                 <div className={classes.popular}>Popular categories</div>
                 <ul className={classes.categories} >
                     {(categories || []).map((category, index) => (
                         < PopularCategory key={index} category={category} />
                     ))}
                 </ul>
-            </div>
+            </section>
         </DataLoader>
     )
 }

@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useEffect, useMemo, useState } from "react";
 import { useUserContext } from "../../../../context/UserContext";
 import { Button } from "../../../../components/Button/Button";
-import { useUpdateUserProfile } from "../../../../hooks/useUpdateUserProfile";
+import { useUpdateUserProfile } from "../../../../hooks/user/useUpdateUserProfile"; 
 import { useOptions } from "../../../../hooks/useOptions";
 import isEqual from "lodash/isEqual";
 import omitBy from "lodash/omitBy";
@@ -19,6 +19,7 @@ export function MyProfile() {
     const countries = data?.countries ?? [];
 
     const [formState, setFormState] = useState({
+        name: null as string | null,
         phone: null as string | null,
         address: null as string | null,
         postalCode: null as string | null,
@@ -30,6 +31,7 @@ export function MyProfile() {
         if (!user) return;
 
         setFormState({
+            name: user.name ?? null,
             phone: user.phone ?? null,
             address: user.address ?? null,
             postalCode: user.postalCode ?? null,
@@ -40,7 +42,7 @@ export function MyProfile() {
 
     if (!user) return <ErrorState message={ERROR_MESSAGES.UNAUTHORIZED} />;
 
-    const { name, email } = user;
+    const {  email } = user;
 
     const handleChange = (
         e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -57,6 +59,7 @@ export function MyProfile() {
         const cleanedForm = omitBy(formState, v => v === null);
         const cleanedUser = omitBy(
             {
+                name: user.name ?? null,
                 phone: user.phone ?? null,
                 address: user.address ?? null,
                 postalCode: user.postalCode ?? null,
@@ -88,8 +91,10 @@ export function MyProfile() {
                     <label>Name</label>
                     <input
                         className={classes.input}
-                        value={name}
-                        readOnly
+                        name="name"
+                        placeholder="Name"
+                        value={formState.name ?? ""}
+                        onChange={handleChange}
                     />
                 </div>
 
@@ -109,7 +114,7 @@ export function MyProfile() {
                         pattern='[0-9]{9,15}'
                         type="tel"
                         name="phone"
-                        defaultValue={formState.phone ?? ""}
+                        value={formState.phone ?? ""}
                         placeholder="Phone"
                         onChange={handleChange}
                     />
@@ -122,7 +127,7 @@ export function MyProfile() {
                     <input
                         className={classes.input}
                         name="address"
-                        defaultValue={formState.address ?? ""}
+                        value={formState.address ?? ""}
                         placeholder="Street and house number"
                         onChange={handleChange}
                     />
@@ -133,7 +138,7 @@ export function MyProfile() {
                     <input
                         className={classes.input}
                         name="postalCode"
-                        defaultValue={formState.postalCode ?? ""}
+                        value={formState.postalCode ?? ""}
                         placeholder="e.g. 12345"
                         onChange={handleChange}
                     />
@@ -145,7 +150,7 @@ export function MyProfile() {
                     <input
                         className={classes.input}
                         name="city"
-                        defaultValue={formState.city ?? ""}
+                        value={formState.city ?? ""}
                         placeholder="City"
                         onChange={handleChange}
                     />
@@ -156,7 +161,7 @@ export function MyProfile() {
                     <select
                         className={classes.input}
                         name='country'
-                        defaultValue={formState.country ?? ""}
+                        value={formState.country ?? ""}
                         onChange={handleChange}
                         required
                     >

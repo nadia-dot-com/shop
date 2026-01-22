@@ -1,16 +1,18 @@
 import { Outlet, useParams } from "react-router-dom";
 import { Products } from "../../components/products/Products/Products";
 import { ProductNav } from "../../components/ProductNav/ProductNav";
-import { useProducts } from "../../hooks/useProducts";
-import { ALL } from "../../data/categories";
+import { useProducts } from "../../hooks/products/useProducts";
+import { categoriesGroups } from "../../data/categories";
 import { DataLoader } from "../../components/DataLoader/DataLoader";
 import { cn } from "../../utils/cn";
+import { useCategoryContext } from "../../context/CategoryContext";
 
 import classes from './ProductsPage.module.css';
 
 export function ProductsPage() {
-    const { category, itemId } = useParams();
-    const normalizedCategory = category ?? ALL;
+    const { itemId } = useParams();
+    const { selectedCategory } = useCategoryContext();
+    const normalizedCategory = selectedCategory ?? categoriesGroups.all;
 
     const { data: products, isLoading, error } = useProducts(normalizedCategory);
 
@@ -22,12 +24,12 @@ export function ProductsPage() {
         >
             <div className={classes.productsPage}>
                 <ProductNav />
-                <div>
+                <section>
                     <Outlet />
-                </div>
-                <div className={cn(classes.productsContainer, itemId && classes.productPageOpen)}>
+                </section>
+                <section className={cn(classes.productsContainer, itemId && classes.productPageOpen)}>
                     <Products products={products} />
-                </div>
+                </section>
             </div>
         </DataLoader>
     )

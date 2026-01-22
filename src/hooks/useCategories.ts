@@ -6,5 +6,6 @@ export const useCategories = () => {
     return useQuery<Category[], Error>({
         queryKey: ['categories'],
         queryFn: fetchCategories,
+        staleTime: Infinity,
     })
 }

@@ -32,24 +32,17 @@ export type ProductProps = {
     releaseDate: string;
 }
 
-export type ShopContextProps = {
-    order: OrderItem[];
+export type CartContextValue = {
 
-    addToOrder: (product: Product, quantity?: number) => void;
-    removeFromOrder: (item: OrderItem) => void;
-    clearOrder: () => void;
+    cartItems: OrderItem[];
+    addToCart: (product: Product, quantity?: number) => void;
+    removeFromCart: (item: OrderItem) => void;
+    clearCart: () => void;
 
-    isOrderOpen: boolean;
-    toggleOrderModal: () => void;
-
-    selectedCategory: string;
-    chooseCategory: (category: string) => void;
+    isCartOpen: boolean;
+    toggleCartOpen: () => void;
 
     updateQuantity: (id: string, quantity: number) => void;
-
-    guestWishlist: string[];
-    toggleGuestWishlist: (productId: string) => void;
-    cleanGuestWishlist: () => void;
 };
 
 export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> & {

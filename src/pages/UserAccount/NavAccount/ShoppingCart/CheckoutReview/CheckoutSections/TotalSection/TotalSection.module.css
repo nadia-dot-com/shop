@@ -1,9 +1,8 @@
 .checkoutSection {
     display: flex;
     justify-content: space-between;
-    width: 100%;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 15px;
     border-bottom: 1px solid silver;
     padding: 5px;

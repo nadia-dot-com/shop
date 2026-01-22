@@ -5,5 +5,6 @@ export const useCollections = () => {
     return useQuery({
         queryKey: ['collections'],
         queryFn: fetchCollections,
+        staleTime: Infinity,
     })
 }
