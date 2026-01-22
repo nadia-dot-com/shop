@@ -15,7 +15,7 @@ import { useCategoryContext } from '../../../../context/CategoryContext';
 export function ProductItem({ product }: { product: Product }) {
     const { id, name, imagesUrls, shortDescription, price, stockQuantity, discount, categoryName, releaseDate } = product;
     const { addToCart } = useCartContext();
-    const { chooseCategory } = useCategoryContext();
+    const { setSelectedCategory } = useCategoryContext();
     const { liked, toggleLike } = useWishlist(id);
 
     const navigate = useNavigate();
@@ -26,7 +26,7 @@ export function ProductItem({ product }: { product: Product }) {
 
     const handleClick = () => {
         navigate(`${categoryPath}/${path}`);
-        chooseCategory(categoryName);
+        setSelectedCategory(categoryName);
     };
 
 

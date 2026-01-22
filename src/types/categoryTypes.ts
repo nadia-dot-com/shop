@@ -1,4 +1,4 @@
 export type CategoryContextValue = {
     selectedCategory: string;
-    chooseCategory: (category: string) => void;
+    setSelectedCategory: (category: string) => void;
 }

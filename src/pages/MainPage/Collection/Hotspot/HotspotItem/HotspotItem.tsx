@@ -7,14 +7,14 @@ import { useCategoryContext } from '../../../../../context/CategoryContext';
 import classes from './HotspotItem.module.css';
 
 export function HotspotItem({ item }: { item: Product }) {
-    const {chooseCategory} = useCategoryContext()
+    const {setSelectedCategory} = useCategoryContext()
     const navigate = useNavigate();
 
     const handleNavigate = () => {
         const name = item.name?.toLowerCase().replace(/ /g, '-');
         const categorySlug = item.categoryName.toLowerCase().replace(/\s+/g, "-");
         navigate(`/${ROUTES.productCategory(categorySlug).toLowerCase()}/${name}`);
-        chooseCategory(categorySlug)
+        setSelectedCategory(categorySlug)
     }
 
     return (

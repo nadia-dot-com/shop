@@ -11,7 +11,7 @@ export function CategoryProvider({ children }: { children: ReactNode }) {
    return <CategoryContext.Provider
         value={{
             selectedCategory,
-            chooseCategory: setSelectedCategory,
+            setSelectedCategory,
         }}
     >
         {children}

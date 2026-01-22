@@ -1,15 +1,14 @@
 import { useMutation } from "@tanstack/react-query";
-import { updateUserProfile } from "../../api/user.api"; 
-import { useUserContext } from "../../context/UserContext"; 
+import { updateUserProfile } from "../../api/user.api";
+import { useUserContext } from "../../context/UserContext";
 import { toast } from "react-toastify";
-import { UserData } from "../../types/userTypes"; 
+import { UserData } from "../../types/userTypes";
+import { assert } from "../../utils/assert";
 
 export const useUpdateUserProfile = () => {
     const { token, updateUser } = useUserContext();
 
-    if (!token) {
-        throw new Error("No token");
-    }
+    assert(token, "No token");
 
     return useMutation({
         mutationFn: (data: Partial<UserData>) =>
