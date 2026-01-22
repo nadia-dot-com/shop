@@ -22,6 +22,5 @@ export const useWishlistQuery = () => {
                 .filter(isProduct);
         },
         enabled: !!token,
-        staleTime: 1000 * 60 * 10,
     })
 }
