@@ -24,21 +24,18 @@ export function CartProvider({ children }: { children: ReactNode }) {
     }, [isCartOpen])
 
     const addToCart = (product: Product, quantity: number = 1) => {
-        let didAdd = false;
-
         setCartItems(prev => {
-
             const totalItems = prev.reduce((sum, i) => sum + i.quantity, 0);
 
             if (totalItems + quantity > MAX_ITEMS) {
-                toast.error(`Cart limit reached (100 items)`);
+                toast.error("Cart limit reached (100 items)");
                 return prev;
             }
 
             const existing = prev.find(i => i.id === product.id);
 
             if (existing) {
-                if (existing.quantity >= existing.stockQuantity) {
+                if (existing.quantity >= product.stockQuantity) {
                     return prev;
                 }
 
@@ -48,32 +45,26 @@ export function CartProvider({ children }: { children: ReactNode }) {
                             ...i,
                             quantity: Math.min(
                                 i.quantity + quantity,
-                                i.stockQuantity
+                                product.stockQuantity
                             ),
                         }
                         : i
                 );
             }
 
-            didAdd = true;
+            toast.success(`${product.name} added to Shopping Cart!`);
 
-            const newItem: OrderItem = {
+            return [...prev,
+            {
                 id: product.id,
                 name: product.name,
                 price: product.price,
                 discount: product.discount,
                 img: product.imagesUrls[0],
-                stockQuantity: product.stockQuantity,
                 categoryName: product.categoryName,
                 quantity: Math.min(quantity, product.stockQuantity),
-            };
-
-            return [...prev, newItem];
+            }];
         });
-
-        if (didAdd) {
-            toast.success(`${product.name} added to Shopping Cart!`);
-        }
     };
 
 
@@ -83,7 +74,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         setCartItems(prev =>
             prev.map(i =>
                 i.id === id
-                    ? { ...i, quantity: Math.min(quantity, i.stockQuantity) }
+                    ? { ...i, quantity: quantity }
                     : i
             ));
     };

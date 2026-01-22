@@ -6,8 +6,10 @@ export function useItemsByIds(ids: string[]) {
     const { data: products } = useProducts();
 
     return useMemo(() => {
+        const map = new Map(products.map(p=> [p.id, p]));
+
         return ids
-            .map(id => products.find(p => p.id === id))
+            .map(id => map.get(id))
             .filter(Boolean) as Product[];
     }, [ids, products])
 }

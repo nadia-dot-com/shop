@@ -166,7 +166,7 @@
     .mobileImg {
         width: 100%;
         height: auto;
-        scroll-snap-align: start;
+        scroll-snap-align: center;
         margin-bottom: 20px;
     }
 

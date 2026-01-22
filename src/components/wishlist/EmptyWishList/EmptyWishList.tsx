@@ -3,7 +3,7 @@ import { TbShoppingBagHeart } from "react-icons/tb";
 
 import classes from './EmptyWishList.module.css';
 import { useShoppingNavigation } from "../../../hooks/useShoppingNavigation";
-import { ALL } from "../../../data/categories";
+import { categoriesGroups } from "../../../data/categories";
 
 export function EmptyWishList() {
     const { navigateToCategory } = useShoppingNavigation();
@@ -20,7 +20,7 @@ export function EmptyWishList() {
                 bgColor="#F6F6F3"
                 textColor="black"
                 text="START SHOPPING"
-                onClick={() => navigateToCategory(ALL)}
+                onClick={() => navigateToCategory(categoriesGroups.all)}
             />
         </div>
     )

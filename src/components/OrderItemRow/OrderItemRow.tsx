@@ -8,8 +8,8 @@ import { OrderItem } from '../../types/orderTypes';
 import { getDiscountPrice } from '../../utils/product';
 import { cn } from '../../utils/cn';
 
-export function OrderItemRow({ product }: { product: OrderItem }) {
-    const { id, name, img, price, stockQuantity, quantity, categoryName, discount } = product;
+export function OrderItemRow({ product, stockQuantity }: { product: OrderItem, stockQuantity: number }) {
+    const { id, name, img, price, quantity, categoryName, discount } = product;
     const { removeFromCart, updateQuantity } = useCartContext();
 
     const navigate = useNavigate();

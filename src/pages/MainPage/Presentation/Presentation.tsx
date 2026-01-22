@@ -17,7 +17,7 @@ export function Presentation() {
     intervalRef.current = window.setInterval(() => {
       setIndex(prev => (prev + 1) % PRESENTATION.length);
     }, DELAY);
-  }, []);
+  }, [PRESENTATION.length]);
 
   const stop = useCallback(() => {
     if (intervalRef.current !== null) {

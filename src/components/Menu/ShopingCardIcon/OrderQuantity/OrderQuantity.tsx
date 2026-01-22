@@ -1,11 +1,12 @@
 import { useCartContext } from "../../../../context/CartContext"
+import { sumBy } from "lodash";
 
 import classes from './OrderQuantity.module.css';
 
 export function OrderQuantity() {
     const { cartItems } = useCartContext();
 
-    const quantity = cartItems.reduce((sum, item) => sum + item.quantity, 0)
+    const quantity = sumBy(cartItems, "quantity")
 
     return (
         <div className={classes.orderQuantity}>

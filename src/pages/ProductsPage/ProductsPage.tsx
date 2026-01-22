@@ -2,7 +2,7 @@ import { Outlet, useParams } from "react-router-dom";
 import { Products } from "../../components/products/Products/Products";
 import { ProductNav } from "../../components/ProductNav/ProductNav";
 import { useProducts } from "../../hooks/products/useProducts";
-import { ALL } from "../../data/categories";
+import { categoriesGroups } from "../../data/categories";
 import { DataLoader } from "../../components/DataLoader/DataLoader";
 import { cn } from "../../utils/cn";
 import { useCategoryContext } from "../../context/CategoryContext";
@@ -12,7 +12,7 @@ import classes from './ProductsPage.module.css';
 export function ProductsPage() {
     const { itemId } = useParams();
     const { selectedCategory } = useCategoryContext();
-    const normalizedCategory = selectedCategory ?? ALL;
+    const normalizedCategory = selectedCategory ?? categoriesGroups.all;
 
     const { data: products, isLoading, error } = useProducts(normalizedCategory);
 

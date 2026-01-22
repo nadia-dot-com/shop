@@ -39,7 +39,6 @@ export function ProductDetails({ product }: { product: Product }) {
         else setQuantity(prev => Math.min(prev || 1, stockQuantity));
     }, [stockQuantity]);
 
-
     const handleScroll = () => {
         const el = containerRef.current;
         if (!el) return;
@@ -48,7 +47,7 @@ export function ProductDetails({ product }: { product: Product }) {
         const scrollLeft = el.scrollLeft;
 
         const index = Math.round(scrollLeft / width);
-        setActiveIndex(index);
+        setActiveIndex(prev => prev !== index ? index : prev);
     }
 
     return (

@@ -9,7 +9,7 @@ import { CheckoutReview } from "./CheckoutReview/CheckoutReview";
 import { ShoppingCartNav } from "./ShoppingCartNav/ShoppingCartNav";
 import { CheckoutButtons } from "./CheckoutButtons/CheckoutButtons";
 import { useShoppingNavigation } from "../../../../hooks/useShoppingNavigation";
-import { ALL } from "../../../../data/categories";
+import { categoriesGroups } from "../../../../data/categories";
 import { useCheckoutPrice } from "../../../../hooks/useCheckoutPrice";
 import { useCreateOrder } from "../../../../hooks/orders/useCreateOrder";
 import { buildOrderPayload } from "../../../../utils/buildOrderPayload";
@@ -95,7 +95,7 @@ export function ShoppingCart() {
 
   const onError = () => setStep(CHECKOUT_STEP.CART_OVERVIEW);
 
-  const onContinue = () => navigateToCategory(ALL);
+  const onContinue = () => navigateToCategory(categoriesGroups.all);
 
   const renderStep = () => {
     switch (step) {
