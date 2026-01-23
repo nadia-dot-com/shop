@@ -1,7 +1,10 @@
 import { FormEvent, useRef, useState } from 'react';
 import { Button } from '../../../components/Button/Button';
 import { cn } from '../../../utils/cn';
+import { WEB3FORMS_KEY } from '../../../api/config';
+
 import classes from './ContactForm.module.css';
+import { CONTACT_FORM_URL } from '../../../config';
 
 export function ContactForm() {
     const [result, setResult] = useState("");
@@ -10,10 +13,10 @@ export function ContactForm() {
     const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const formData = new FormData(event.currentTarget);
-        formData.append("access_key", "457e2e14-13e0-4ac2-b78c-14b04dc33145");
+        formData.append("access_key", WEB3FORMS_KEY);
 
         try {
-            const response = await fetch("https://api.web3forms.com/submit", {
+            const response = await fetch(CONTACT_FORM_URL, {
                 method: "POST",
                 body: formData
             });
