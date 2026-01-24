@@ -10,7 +10,11 @@ export const useWishlistQuery = () => {
     return useQuery<Product[], Error>({
         queryKey: ['wishlist'],
         queryFn: async () => {
-            const wishlist = await fetchWishlist(token!);
+            if (!token) {
+                throw new Error("No token");
+            }
+
+            const wishlist = await fetchWishlist(token);
             const products = await fetchProducts();
 
             const productMap = new Map(products.map(p => [p.id, p]));

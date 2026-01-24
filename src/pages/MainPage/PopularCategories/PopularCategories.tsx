@@ -1,5 +1,5 @@
 import { PopularCategory } from './PopularCategory/PopularCategory';
-import { useCategories } from '../../../hooks/useCategories';
+import { useCategories } from '../../../hooks/categories/useCategories';
 import { DataLoader } from '../../../components/DataLoader/DataLoader';
 
 import classes from './PopularCategories.module.css';

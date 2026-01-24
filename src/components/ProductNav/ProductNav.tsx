@@ -1,5 +1,5 @@
-import { useCategories } from "../../hooks/useCategories";
-import { useCollections } from "../../hooks/useCollections";
+import { useCategories } from "../../hooks/categories/useCategories";
+import { useCollections } from "../../hooks/collection/useCollections"; 
 import { DataLoader } from "../DataLoader/DataLoader";
 import { ProductNavView } from "./ProductNavView/ProductNavView";
 
@@ -22,7 +22,7 @@ export function ProductNav() {
             loaded={!!categories && !!collections}
             error={categoriesError || collectionsError}
         >
-            <ProductNavView categories={categories} collections={collections}/>
+            <ProductNavView categories={categories} collections={collections} />
         </DataLoader>
     )
 }

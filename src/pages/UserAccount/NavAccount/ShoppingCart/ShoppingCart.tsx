@@ -53,10 +53,8 @@ export function ShoppingCart() {
 
   if (!user) return null;
 
-
   const handlePlaceOrder = () => {
-    if (!shippingData || !delivery || !payment) return;
-    if (isPending) return;
+    if (isPending || !shippingData || !delivery || !payment) return;
 
     setError(null);
 

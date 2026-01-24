@@ -12,4 +12,10 @@ export type Product = {
     collectionId: string | null;
     collectionName: string | null;
     stockQuantity: number;
+};
+
+export type ProductsInfiniteResponse = {
+    products: Product[];
+    nextCursor?: number;
+    prevCursor?: number;
 }

@@ -5,7 +5,7 @@ import { Hotspot } from "../Hotspot/Hotspot";
 import classes from './CollectionItem.module.css';
 
 export function CollectionItem({ collectionItem }: { collectionItem: Collection }) {
-    const { data: products, isLoading } = useProducts();
+    const { data: products = [], isLoading } = useProducts();
 
     if (isLoading || !products) return null;
 

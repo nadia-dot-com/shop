@@ -1,8 +1,8 @@
 import { ChangeEvent, FormEvent, useEffect, useMemo, useState } from "react";
 import { useUserContext } from "../../../../context/UserContext";
 import { Button } from "../../../../components/Button/Button";
-import { useUpdateUserProfile } from "../../../../hooks/user/useUpdateUserProfile"; 
-import { useOptions } from "../../../../hooks/useOptions";
+import { useUpdateUserProfile } from "../../../../hooks/user/useUpdateUserProfile";
+import { useOptions } from "../../../../hooks/options/useOptions"; 
 import isEqual from "lodash/isEqual";
 import omitBy from "lodash/omitBy";
 
@@ -42,7 +42,7 @@ export function MyProfile() {
 
     if (!user) return <ErrorState message={ERROR_MESSAGES.UNAUTHORIZED} />;
 
-    const {  email } = user;
+    const { email } = user;
 
     const handleChange = (
         e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -165,7 +165,7 @@ export function MyProfile() {
                         onChange={handleChange}
                         required
                     >
-                        <option value={formState.country ?? ""}>{formState.country ?? "Select Country"}</option>
+                        <option value="" disabled>Select Country</option>
 
                         {
                             countries.map(country => (

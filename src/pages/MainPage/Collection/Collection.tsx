@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { HorizontalScrollButton } from "../../../components/HorizontalScrollButton/HorizontalScrollButton";
 import { CollectionItem } from "./CollectionItem/CollectionItem";
-import { useCollections } from "../../../hooks/useCollections";
+import { useCollections } from "../../../hooks/collection/useCollections";
 import { DataLoader } from "../../../components/DataLoader/DataLoader";
 
 import classes from './Collection.module.css';
