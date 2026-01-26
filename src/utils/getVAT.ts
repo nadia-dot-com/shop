@@ -1,3 +1,3 @@
 export const getVAT = (subtotal: number, vatRate: number) => {
-    return (vatRate * subtotal) / 100;
+  return (vatRate * subtotal) / 100;
 };

@@ -1,117 +1,115 @@
 .desktopCategories {
-    padding: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    list-style: none;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    border-bottom: 1px solid silver;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid silver;
 }
 
 .mobileCategories {
-    display: none;
+  display: none;
 }
 
 .category {
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 300ms ease;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 300ms ease;
 }
 
 .category:hover {
-    color: #dd701d;
+  color: #dd701d;
 }
 
 .saleCategory {
-    color: #d30404;
+  color: #d30404;
 }
 
 .saleCategory:hover {
-    color: red;
+  color: red;
 }
 
 .categoryButton {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid silver;
+  width: 100%;
+  padding: 15px 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+
+.categoryButton:hover {
+  color: #dd701d;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+@media (max-width: 1200px) {
+  .desktopCategories {
+    display: none;
+  }
+
+  .mobileCategories {
+    display: block;
+    flex-direction: column;
+    align-items: flex-start;
+    border: none;
+    margin-bottom: 20px;
+    transition: transform 0.3s linear;
+  }
+
+  .mobileCategory {
+    display: block;
     border-bottom: 1px solid silver;
     width: 100%;
     padding: 15px 20px;
     font-weight: 500;
     cursor: pointer;
     transition: all 300ms ease;
+  }
+
+  .mobileCategory:hover {
+    color: rgba(221, 112, 29, 1);
+  }
+
+  .saleCategory:hover {
+    color: red;
+  }
 }
 
-.categoryButton:hover {
-    color: #dd701d;
-}
+@media (max-width: 576px) {
+  .categoryButton {
+    font-size: 15px;
+  }
 
-.icon {
-    width: 24px;
-    height: 24px;
-    fill: currentColor;
-}
+  .mobileCategories {
+    display: block;
+    flex-direction: column;
+    align-items: flex-start;
+    border: none;
+    margin-bottom: 20px;
+    transition: transform 0.3s linear;
+  }
 
-@media(max-width: 1200px) {
-    .desktopCategories {
-        display: none;
-    }
+  .mobileCategory {
+    font-size: 15px;
+    padding: 12px 18px;
+  }
 
-    .mobileCategories {
-        display: block;
-        flex-direction: column;
-        align-items: flex-start;
-        border: none;
-        margin-bottom: 20px;
-        transition: transform 0.3s linear;
-    }
+  .mobileCategory:hover {
+    color: rgba(221, 112, 29, 1);
+  }
 
-    .mobileCategory {
-        display: block;
-        border-bottom: 1px solid silver;
-        width: 100%;
-        padding: 15px 20px;
-        font-weight: 500;
-        cursor: pointer;
-        transition: all 300ms ease;
-    }
-
-    .mobileCategory:hover {
-        color: rgba(221, 112, 29, 1);
-    }
-
-    .saleCategory:hover {
-        color: red;
-    }
-
-}
-
-@media(max-width: 576px) {
-    .categoryButton {
-        font-size: 15px;
-    }
-
-    .mobileCategories {
-        display: block;
-        flex-direction: column;
-        align-items: flex-start;
-        border: none;
-        margin-bottom: 20px;
-        transition: transform 0.3s linear;
-    }
-
-    .mobileCategory {
-        font-size: 15px;
-        padding: 12px 18px;
-    }
-
-    .mobileCategory:hover {
-        color: rgba(221, 112, 29, 1);
-    }
-
-    .icon {
-        width: 20px;
-        height: 20px;
-
-    }
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
 }

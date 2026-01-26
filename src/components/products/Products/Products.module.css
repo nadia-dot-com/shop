@@ -1,14 +1,14 @@
 .products {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    width: 100%;
-    justify-content: center;
-    margin-bottom: 40px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 40px;
 }
 
 @media (max-width: 576px) {
-    .products {
-        grid-template-columns: 1fr;
-    }
+  .products {
+    grid-template-columns: 1fr;
+  }
 }

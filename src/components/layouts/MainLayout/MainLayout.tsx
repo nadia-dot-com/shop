@@ -8,37 +8,36 @@ import { useUserContext } from "../../../context/UserContext";
 import { LoginModal } from "../../modals/LoginModal/LoginModal";
 import { OrderModal } from "../../modals/OrderModal/OrderModal";
 
-import classes from './MainLayout.module.css';
+import classes from "./MainLayout.module.css";
 
 export function MainLayout() {
-    const { isCartOpen } = useCartContext();
-    const { isLoginModalOpen } = useUserContext();
+  const { isCartOpen } = useCartContext();
+  const { isLoginModalOpen } = useUserContext();
 
-    return (
-        <>
-            < Header />
-            <Wrapper>
+  return (
+    <>
+      <Header />
+      <Wrapper>
+        <main>
+          <Outlet />
+        </main>
 
-                <main className={classes.content}>
-                    <Outlet />
-                </main>
+        <Footer />
+      </Wrapper>
 
-                <Footer />
-            </Wrapper>
+      {isLoginModalOpen && <LoginModal />}
+      {isCartOpen && <OrderModal />}
 
-            {isLoginModalOpen && <LoginModal />}
-            {isCartOpen && <OrderModal />}
-
-            <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                closeOnClick
-                pauseOnHover
-                draggable
-                theme="light"
-                className={classes.toastContainer}
-            />
-        </>
-    )
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+        theme="light"
+        className={classes.toastContainer}
+      />
+    </>
+  );
 }

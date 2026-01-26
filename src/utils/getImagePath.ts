@@ -4,12 +4,12 @@
  * In production with base path, this prepends the base URL
  */
 export function getImagePath(path: string): string {
-    // Remove leading slash if present to ensure consistent handling
-    const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  // Remove leading slash if present to ensure consistent handling
+  const cleanPath = path.startsWith("/") ? path.slice(1) : path;
 
-    // In development, Vite serves public assets from the root
-    // In production with a base path, we need to prepend it
-    const base = import.meta.env.BASE_URL;
+  // In development, Vite serves public assets from the root
+  // In production with a base path, we need to prepend it
+  const base = import.meta.env.BASE_URL;
 
-    return `${base}${cleanPath}`;
+  return `${base}${cleanPath}`;
 }

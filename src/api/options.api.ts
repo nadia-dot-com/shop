@@ -1,14 +1,17 @@
 import { OptionsResponse } from "../types/api/options";
-import { API_URL } from "./config"
+import { API_URL } from "./config";
 
 export const fetchOptions = async (): Promise<OptionsResponse> => {
-    const res = await fetch(`${API_URL}/options`);
+  const res = await fetch(`${API_URL}/options`);
 
-    const data = await res.json()
+  const data = await res.json();
 
-    if (!res.ok) {
-        throw new Error(data?.message ?? "Failed to fetch options. An unexpected Error was received from the server.")
-    }
+  if (!res.ok) {
+    throw new Error(
+      data?.message ??
+        "Failed to fetch options. An unexpected Error was received from the server.",
+    );
+  }
 
-    return data;
-}
+  return data;
+};

@@ -1,32 +1,32 @@
 type ItemPayload = {
-    product: {
-        id: string;
-    },
-    quantity: number;
+  product: {
+    id: string;
+  };
+  quantity: number;
 };
 
 export type OrderPayload = {
-    delivery: {
-        method: string;
-    },
-    payment: {
-        method: string;
-    },
+  delivery: {
+    method: string;
+  };
+  payment: {
+    method: string;
+  };
 
-    totalPrice: number;
+  totalPrice: number;
 
-    shippingDetails: {
-        address: {
-            country: string;
-            city: string;
-            postalCode: string;
-            street: string;
-        },
+  shippingDetails: {
+    address: {
+      country: string;
+      city: string;
+      postalCode: string;
+      street: string;
+    };
 
-        email: string;
-        phone: string;
-        notes: string | null;
-    },
+    email: string;
+    phone: string;
+    notes: string | null;
+  };
 
-    items: ItemPayload[]
-}
+  items: ItemPayload[];
+};

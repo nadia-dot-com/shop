@@ -1,77 +1,75 @@
 .ourshowroomSection {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: #f6f6f3;
-    margin: 40px 0;
-    overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #f6f6f3;
+  margin: 40px 0;
+  overflow: hidden;
 }
 
 .text {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 40px;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+  gap: 20px;
 }
 
 .title {
-    color: rgba(114, 114, 36, 1);
-    font-weight: 400;
+  color: rgba(114, 114, 36, 1);
+  font-weight: 400;
 }
 
 .img {
-    height: auto;
-    width: 55%;
-    transition: transform 500ms ease;
-    object-fit: cover;
+  height: auto;
+  width: 55%;
+  transition: transform 500ms ease;
+  object-fit: cover;
 }
 
 .img:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
-
 .button {
-    margin-left: -10px;
+  margin-left: -10px;
 }
 
 @media (max-width: 768px) {
+  .text {
+    padding: 30px;
+    gap: 10px;
+  }
 
-    .text {
-        padding: 30px;
-        gap: 10px;
-    }
+  .title {
+    font-size: 26px;
+  }
 
-    .title {
-        font-size: 26px;
-    }
-
-    .desc {
-        font-size: 14px;
-    }
+  .desc {
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 576px) {
-    .ourshowroomSection {
-        flex-direction: column;
-    }
+  .ourshowroomSection {
+    flex-direction: column;
+  }
 
-    .img {
-        width: 100%;
-    }
+  .img {
+    width: 100%;
+  }
 
-    .text {
-        padding: 30px 15px;
-        gap: 10px;
-    }
+  .text {
+    padding: 30px 15px;
+    gap: 10px;
+  }
 
-    .title {
-        font-size: 21px;
-    }
+  .title {
+    font-size: 21px;
+  }
 
-    .desc {
-        font-size: 14px;
-    }
+  .desc {
+    font-size: 14px;
+  }
 }

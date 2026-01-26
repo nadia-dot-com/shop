@@ -5,21 +5,21 @@ import { toast } from "react-toastify";
 import { UserData } from "../../types/userTypes";
 
 export const useUpdateUserProfile = () => {
-    const { token, updateUser } = useUserContext();
+  const { token, updateUser } = useUserContext();
 
-    return useMutation({
-        mutationFn: async (data: Partial<UserData>) => {
-            if (!token) {
-                throw new Error("No token");
-            }
-            return updateUserProfile(token, data);
-        },
-        onSuccess: (updatedUser) => {
-            updateUser(updatedUser);
-            toast.success("Provile saved!");
-        },
-        onError: () => {
-            toast.error("Failed to save profile")
-        },
-    });
-}
+  return useMutation({
+    mutationFn: async (data: Partial<UserData>) => {
+      if (!token) {
+        throw new Error("No token");
+      }
+      return updateUserProfile(token, data);
+    },
+    onSuccess: (updatedUser) => {
+      updateUser(updatedUser);
+      toast.success("Provile saved!");
+    },
+    onError: () => {
+      toast.error("Failed to save profile");
+    },
+  });
+};

@@ -10,8 +10,8 @@
   color: #dc3d3d;
 }
 
-@media(max-width: 992px) {
-    .shopingCardIcon {
-        font-size: 20px;
-    }
+@media (max-width: 992px) {
+  .shopingCardIcon {
+    font-size: 20px;
+  }
 }

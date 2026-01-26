@@ -8,13 +8,12 @@ import classes from './ProductPage.module.css';
 import { AppError } from '../../../errors/index.ts';
 
 export function ProductPage() {
-    const { category, itemId } = useParams();
-    const normalizedCategory = category ?? "";
-    const { data: products, isLoading, error } = useProducts(normalizedCategory);
+    const { itemId } = useParams();
+    const { data: products, isLoading, error } = useProducts();
 
     const name = itemId?.toLowerCase() ?? "";
 
-    const product = products.find((i) => slugity(i.name) === name);
+    const product = products?.find((i) => slugity(i.name) === name);
 
     return (
         <DataLoader

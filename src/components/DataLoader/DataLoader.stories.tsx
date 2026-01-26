@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { DataLoader } from './DataLoader';
+import type { Meta, StoryObj } from "@storybook/react";
+import { DataLoader } from "./DataLoader";
 
 const meta: Meta<typeof DataLoader> = {
   component: DataLoader,
@@ -17,29 +17,28 @@ export default meta;
 type Story = StoryObj<typeof DataLoader>;
 
 export const Loading: Story = {
-    args: {
-        loading: true, 
-        loaded: false, 
-        error: null, 
-        children: <div>Content</div>
-    }
-}
+  args: {
+    loading: true,
+    loaded: false,
+    error: null,
+    children: <div>Content</div>,
+  },
+};
 
 export const Loaded: Story = {
-    args: {
-        loading: false, 
-        loaded: true, 
-        error: null, 
-        children: <div>Content</div>
-    }
-}
+  args: {
+    loading: false,
+    loaded: true,
+    error: null,
+    children: <div>Content</div>,
+  },
+};
 
 export const WithError: Story = {
-    args: {
-        loading: false, 
-        loaded: false, 
-        error: new Error("Something went wrong"), 
-        children: <div>Content</div>
-    }
-}
-
+  args: {
+    loading: false,
+    loaded: false,
+    error: new Error("Something went wrong"),
+    children: <div>Content</div>,
+  },
+};

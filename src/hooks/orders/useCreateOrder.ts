@@ -5,25 +5,29 @@ import { OrderPayload } from "../../types/api/order.payload";
 import { useUserContext } from "../../context/UserContext";
 import { queryClient } from "../../query/queryClient";
 
-export function useCreateOrder(onSuccessCallback?: () => void, onNextStepCallback?: () => void, onErrorCallback?: (err: Error) => void) {
-    const { token } = useUserContext();
+export function useCreateOrder(
+  onSuccessCallback?: () => void,
+  onNextStepCallback?: () => void,
+  onErrorCallback?: (err: Error) => void,
+) {
+  const { token } = useUserContext();
 
-    return useMutation<OrderResponse, Error, OrderPayload>({
-        mutationFn: async (payload: OrderPayload) => {
-            if (!token) {
-                throw new Error("No token");
-            }
-            return sendOrderToServer(token, payload)
-        },
+  return useMutation<OrderResponse, Error, OrderPayload>({
+    mutationFn: async (payload: OrderPayload) => {
+      if (!token) {
+        throw new Error("No token");
+      }
+      return sendOrderToServer(token, payload);
+    },
 
-        onSuccess: () => {
-            onSuccessCallback?.();
-            onNextStepCallback?.();
-            queryClient.invalidateQueries({ queryKey: ["orders"] })
-        },
-        onError: err => {
-            onErrorCallback?.(err);
-            onNextStepCallback?.();
-        },
-    })
+    onSuccess: () => {
+      onSuccessCallback?.();
+      onNextStepCallback?.();
+      queryClient.invalidateQueries({ queryKey: ["orders"] });
+    },
+    onError: (err) => {
+      onErrorCallback?.(err);
+      onNextStepCallback?.();
+    },
+  });
 }

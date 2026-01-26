@@ -1,72 +1,72 @@
 .collectionItem {
-    position: relative;
-    flex-shrink: 0;
-    list-style: none;
+  position: relative;
+  flex-shrink: 0;
+  list-style: none;
 
-    scroll-snap-align: start;
-    scroll-behavior: smooth;
+  scroll-snap-align: start;
+  scroll-behavior: smooth;
 
-    margin: 0 auto;
-    max-width: 1100px;
-    width: 100%;
+  margin: 0 auto;
+  max-width: 1100px;
+  width: 100%;
 }
 
 .imageWrapper {
-    position: relative;
-    width: 100%;
+  position: relative;
+  width: 100%;
 }
 
 .img {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .title {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    font-size: 20px;
-    font-weight: 600;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 @media (max-width: 1200px) {
-    .collectionItem {
-        max-width: 1000px;
-    }
+  .collectionItem {
+    max-width: 1000px;
+  }
 }
 
 @media (max-width: 992px) {
-    .collectionItem {
-        max-width: 850px;
-    }
+  .collectionItem {
+    max-width: 850px;
+  }
 
-    .title {
-        font-size: 18px;
-        top: 25px;
-        left: 25px;
-    }
+  .title {
+    font-size: 18px;
+    top: 25px;
+    left: 25px;
+  }
 }
 
 @media (max-width: 768px) {
-    .collectionItem {
-        max-width: 650px;
-    }
+  .collectionItem {
+    max-width: 650px;
+  }
 
-    .title {
-        font-size: 18px;
-        top: 25px;
-        left: 25px;
-    }
+  .title {
+    font-size: 18px;
+    top: 25px;
+    left: 25px;
+  }
 }
 
 @media (max-width: 576px) {
-    .collectionItem {
-        max-width: 100%;
-    }
+  .collectionItem {
+    max-width: 100%;
+  }
 
-    .title {
-        font-size: 18px;
-        top: 25px;
-        left: 25px;
-    }
+  .title {
+    font-size: 18px;
+    top: 25px;
+    left: 25px;
+  }
 }

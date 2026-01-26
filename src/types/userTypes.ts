@@ -9,7 +9,7 @@ export type UserData = {
   postalCode?: string | null;
   city?: string | null;
   country?: string | null;
-}
+};
 
 export type UserContextProps = {
   user: UserData | null;
@@ -23,4 +23,4 @@ export type UserContextProps = {
 
   isLoading: boolean;
   error: Error | null;
-}
+};

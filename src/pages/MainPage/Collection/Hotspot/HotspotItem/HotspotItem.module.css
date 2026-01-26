@@ -1,71 +1,69 @@
 .hotspotItem,
 .productNotFound {
-    position: absolute;
-    display: grid;
-    grid-template-columns: 40% 1fr auto;
-    align-items: center;
-    justify-content: flex-start;
-    top: 50%;
-    left: 35px;
-    transform: translateY(-50%);
-    background: #fff;
-    z-index: 10;
+  position: absolute;
+  display: grid;
+  grid-template-columns: 40% 1fr auto;
+  align-items: center;
+  justify-content: flex-start;
+  top: 50%;
+  left: 35px;
+  transform: translateY(-50%);
+  background: #fff;
+  z-index: 10;
 
-    width: 300px;
-    cursor: pointer;
+  width: 300px;
+  cursor: pointer;
 }
 
 .img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .text {
-    font-size: 18px;
-    font-weight: 400;
-    padding-left: 20px;
+  font-size: 18px;
+  font-weight: 400;
+  padding-left: 20px;
 }
 
 .button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
 }
 
 .price {
-    margin-top: 4px;
-    font-size: 16px;
-    color: black;
+  margin-top: 4px;
+  font-size: 16px;
+  color: black;
 }
 
 .oldPrice {
-    color: silver;
-    text-decoration: line-through;
+  color: silver;
+  text-decoration: line-through;
 }
 
 .discountPrice {
-    color: #d83030;
+  color: #d83030;
 }
 
-@media(max-width: 576px) {
+@media (max-width: 576px) {
+  .hotspotItem,
+  .productNotFound {
+    left: 25px;
+    width: 200px;
+  }
 
-    .hotspotItem,
-    .productNotFound {
-        left: 25px;
-        width: 200px;
-    }
+  .text {
+    font-size: 12px;
+    padding-left: 10px;
+  }
 
-    .text {
-        font-size: 12px;
-        padding-left: 10px;
-    }
-
-    .price {
-        margin-top: 4px;
-        font-size: 12px;
-        color: black;
-    }
-
+  .price {
+    margin-top: 4px;
+    font-size: 12px;
+    color: black;
+  }
 }

@@ -1,25 +1,20 @@
 import { FaCartShopping } from "react-icons/fa6";
 
-import classes from './ShopingCardIcon.module.css';
+import classes from "./ShopingCardIcon.module.css";
 import { cn } from "../../../utils/cn";
 import { useCartContext } from "../../../context/CartContext";
 import { OrderQuantity } from "./OrderQuantity/OrderQuantity";
 
 export function ShopingCardIcon({ active }: { active: boolean }) {
-    const { cartItems, toggleCartOpen } = useCartContext();
+  const { cartItems, toggleCartOpen } = useCartContext();
 
-    return (
-        <div>
-            <FaCartShopping
-                className={cn(
-                    classes.shopingCardIcon,
-                    active && classes.active
-                )}
-                onClick={() => toggleCartOpen()}
-            />
-            {cartItems.length > 0 &&
-                <OrderQuantity />
-            }
-        </div>
-    )
+  return (
+    <div>
+      <FaCartShopping
+        className={cn(classes.shopingCardIcon, active && classes.active)}
+        onClick={() => toggleCartOpen()}
+      />
+      {cartItems.length > 0 && <OrderQuantity />}
+    </div>
+  );
 }

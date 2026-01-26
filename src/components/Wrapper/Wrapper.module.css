@@ -4,11 +4,10 @@
   padding: 0 20px;
   box-sizing: border-box;
   overflow-x: hidden;
-
 }
 
-@media(max-width: 576px) {
-    .wrapper {
-      padding: 0 12px;
-    }
+@media (max-width: 576px) {
+  .wrapper {
+    padding: 0 12px;
+  }
 }

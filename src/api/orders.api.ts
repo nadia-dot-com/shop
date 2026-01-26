@@ -1,5 +1,5 @@
-import { OrderResponse } from "../types/api/order.response"
-import { API_URL } from "./config"
+import { OrderResponse } from "../types/api/order.response";
+import { API_URL } from "./config";
 
 export const fetchOrders = async (token: string): Promise<OrderResponse[]> => {
   const res = await fetch(`${API_URL}/orders`, {
@@ -7,13 +7,16 @@ export const fetchOrders = async (token: string): Promise<OrderResponse[]> => {
     headers: {
       Authorization: `Bearer ${token}`,
     },
-  })
+  });
 
-  const data = await res.json()
+  const data = await res.json();
 
   if (!res.ok) {
-    throw new Error(data?.message ?? "Failed to fetch order. An unexpected Error was received from the server.")
+    throw new Error(
+      data?.message ??
+        "Failed to fetch order. An unexpected Error was received from the server.",
+    );
   }
 
   return data;
-}
+};

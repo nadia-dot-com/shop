@@ -2,7 +2,6 @@
   max-height: 600px;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 0 10px;
 }
 
 .showOrderWrapper {
@@ -47,10 +46,10 @@
 }
 
 .subtotal {
-  padding: 10px
+  padding: 10px;
 }
 
 .googleIcon {
   position: relative;
-  top: 2px
+  top: 2px;
 }
