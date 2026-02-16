@@ -1,21 +1,21 @@
 .emptyCard {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-    margin: 20px 0 20px 0;
-    font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  margin: 20px 0 20px 0;
+  font-weight: 500;
 }
 
 .shopingIcon {
-    position: relative;
-    top: 1.5px;
-    margin-left: 6px;
+  position: relative;
+  top: 1.5px;
+  margin-left: 6px;
 }
 
-@media(max-width:576px) {
-    .emptyCard {
-        font-size: 16px;
-        margin: 10px 0 10px 0;
-    }
+@media (max-width: 576px) {
+  .emptyCard {
+    font-size: 16px;
+    margin: 10px 0 10px 0;
+  }
 }

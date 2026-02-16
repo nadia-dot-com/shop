@@ -3,7 +3,7 @@ import { useUserContext } from '../../../../../context/UserContext'
 import classes from './AddressForm.module.css'
 import { useCheckoutContext } from '../../../../../context/CheckoutContext';
 import { DataProps } from '../../../../../types/checkoutTypes';
-import { useOptions } from '../../../../../hooks/useOptions';
+import { useOptions } from '../../../../../hooks/options/useOptions'; 
 
 export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFormElement | null>; onSubmit: (data: DataProps) => void }) {
     const { user } = useUserContext();
@@ -96,7 +96,7 @@ export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFor
                         defaultValue={shippingData?.country ?? user?.country ?? ""}
                         required
                     >
-                        <option value={shippingData?.country ?? user?.country ?? "Select Country"}>{shippingData?.country ?? user?.country ?? "Select Country"}</option>
+                        <option value= "" disabled>Select Country</option>
 
                         {
                             countries.map(country => (

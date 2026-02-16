@@ -1,200 +1,198 @@
 .productDetails {
-    position: relative;
-    margin: 0 0px 30px 0px;
-    justify-content: left;
-    align-items: center;
-    display: grid;
-    grid-template-columns: 1fr 1fr auto;
-    gap: 30px;
+  position: relative;
+  margin: 0 0 30px 0px;
+  justify-content: left;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 30px;
 }
 
 .productDisabled {
-    opacity: 0.8; 
+  opacity: 0.8;
 }
 
 .desktopContainer {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: auto;
 }
 
 .mainImg {
-    width: 100%;
-    max-width: 790px;
-    height: auto;
-    cursor: pointer;
+  width: 100%;
+  max-width: 790px;
+  height: auto;
+  cursor: pointer;
 }
 
 .imgContainer {
-    display: flex;
-    justify-content: left;
-    gap: 15px;
-    margin-top: 15px;
-    width: 100%;
+  display: flex;
+  justify-content: left;
+  gap: 15px;
+  margin-top: 15px;
+  width: 100%;
 }
 
 .img {
-    width: 20%;
-    aspect-ratio: 1/1;
-    max-width: 180px;
-    object-fit: cover;
-    opacity: 0.7;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  width: 20%;
+  aspect-ratio: 1/1;
+  max-width: 180px;
+  object-fit: cover;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .img:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
-
 .closeBth:hover {
-    border: 1px solid #ccc;
+  border: 1px solid #ccc;
 }
 
 .title {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    color: #333;
-    cursor: pointer;
-    transition: text-decoration 500ms ease;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #333;
+  cursor: pointer;
+  transition: text-decoration 500ms ease;
 }
 
 .title svg {
-    display: block;
-    line-height: 1;
-    vertical-align: middle;
-    font-weight: normal;
+  display: flex;
+  line-height: 1;
+  vertical-align: middle;
+  font-weight: normal;
 }
 
 .quantityContainer {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .price {
-    color: black;
-    font-weight: 500;
+  color: black;
+  font-weight: 500;
 }
 
 .oldPrice {
-    color: silver;
-    text-decoration: line-through ;
+  color: silver;
+  text-decoration: line-through;
 }
 
 .discountPrice {
-    color:#d83030;
+  color: #d83030;
 }
 
 .salePrice {
-    color: red;
+  color: red;
 }
 
 .labels {
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    top: 15px;
-    left: 15px;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 15px;
+  left: 15px;
 }
 
 .closeBth {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: transparent;
-    width: 32px;
-    height: 32px;
-    font-size: 18px;
-    color: #7c7b7bff;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0px 0px;
-    transition: all 0.2s ease;
-    z-index: 10;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  color: #7c7b7bff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 0px;
+  transition: all 0.2s ease;
+  z-index: 10;
 }
 
 .mobileContainer {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .productDetails {
+    gap: 25px;
+  }
+
+  .title {
+    font-size: 20px;
+    gap: 10px;
+  }
+
+  .desc {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .productDetails {
+    display: block;
+  }
+
+  .desktopContainer {
     display: none;
-}
+  }
 
-@media(max-width: 992px) {
-    .productDetails {
-        gap: 25px;
-    }
+  .mobileContainer {
+    display: block;
+  }
 
-    .title {
-        font-size: 20px;
-        gap: 10px;
-    }
+  .mobileImgs {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+  }
 
-    .desc {
-        font-size: 14px;
-    }
-}
+  .mobileImgs::-webkit-scrollbar {
+    display: none;
+  }
 
-@media(max-width: 576px) {
-    .productDetails {
-        display: block;
-    }
+  .mobileImg {
+    width: 100%;
+    height: auto;
+    scroll-snap-align: center;
+    margin-bottom: 20px;
+  }
 
-    .desktopContainer {
-        display: none;
-    }
+  .title {
+    margin-top: 10px;
+  }
 
-    .mobileContainer {
-        display: block;
-    }
+  .closeBth {
+    display: none;
+  }
 
-    .mobileImgs {
-        display: flex;
-        overflow-x: auto;
-        scroll-behavior: smooth;
-        scroll-snap-type: x mandatory;
-    }
+  .dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 0 20px 0;
+  }
 
-    .mobileImgs::-webkit-scrollbar {
-        display: none;
-    }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ddd;
+    transition: all 0.3s ease;
+  }
 
-    .mobileImg {
-        width: 100%;
-        height: auto;
-        scroll-snap-align: center;
-        margin-bottom: 20px;
-    }
-
-    .title {
-        margin-top: 10px;
-    }
-
-    .closeBth {
-        display: none;
-    }
-
-    .dots {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin: 0 0 20px 0;
-    }
-
-    .dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: #ddd;
-        transition: all 0.3s ease;
-
-    }
-
-    .active {
-        background: #796F51;
-    }
+  .active {
+    background: #796f51;
+  }
 }

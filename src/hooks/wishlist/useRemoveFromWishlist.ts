@@ -1,24 +1,20 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { API_URL } from "../../api/config";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useUserContext } from "../../context/UserContext";
-import { assert } from "../../utils/assert";
+import { fetchDeleteFromWiszlist } from "../../api/wishlist.api";
 
 export const useRemoveFromWishlist = () => {
-    const { token } = useUserContext();
-    const qc = useQueryClient();
+  const { token } = useUserContext();
+  const qc = useQueryClient();
 
-     assert(token, "No token");
+  return useMutation({
+    mutationFn: async (productId: string) => {
+      if (!token) {
+        throw new Error("No token");
+      }
 
-    return useMutation({
-        mutationFn: (productId: string) =>
-            fetch(`${API_URL}/user/wishlist/remove-product`, {
-                method: "DELETE",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${token}`,
-                },
-                body: JSON.stringify({ productId }),
-            }),
-        onSuccess: () => qc.invalidateQueries({ queryKey: ["wishlist"] })
-    })
-}
+      return fetchDeleteFromWiszlist(productId, token);
+    },
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["wishlist"] }),
+    onError: (err) => console.error(err.message ?? " to remove from wishlist"),
+  });
+};

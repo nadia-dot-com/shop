@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useOptions } from '../../../../../../../hooks/useOptions';
+import { useOptions } from '../../../../../../../hooks/options/useOptions'; 
 import { PaymentMethod } from '../../../../../../../types/api/options';
 
 import classes from './Payment.module.css'

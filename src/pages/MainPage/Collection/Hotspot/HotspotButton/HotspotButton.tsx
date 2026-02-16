@@ -1,7 +1,5 @@
-import classes from './HotspotButton.module.css'
+import classes from "./HotspotButton.module.css";
 
-export  function HotspotButton({onClick}: {onClick: ()=> void}) {
-    return (
-        <button className={classes.hotspotButton} onClick={onClick} />
-    )
+export function HotspotButton({ onClick }: { onClick: () => void }) {
+  return <button className={classes.hotspotButton} onClick={onClick} />;
 }

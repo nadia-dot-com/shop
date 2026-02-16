@@ -1,44 +1,47 @@
 .collectionWrapper {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    padding: 40px 0;
-    background-color: #fff;
-    overflow-y: visible;
-    width: 100%;
-    z-index: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+  background-color: #fff;
+  overflow-y: visible;
+  width: 100%;
+  z-index: 1;
 }
-
 
 .collection {
-    display: flex;
-    gap: 40px;
-    list-style: none;
+  display: flex;
+  gap: 40px;
+  list-style: none;
 
-    width: 100%;
+  width: 100%;
 
-    overflow-y: hidden;
-    overflow-x: hidden;
-    align-items: flex-start;
+  overflow-y: hidden;
+  overflow-x: auto;
+  align-items: flex-start;
 
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
 }
 
-@media(max-width:992px) {
-    .collection {
-        gap: 18px
-    }
+.collection::-webkit-scrollbar {
+  display: none;
 }
 
-@media(max-width:568px) {
-    .collection {
-        gap: 12px;
-    }
+@media (max-width: 992px) {
+  .collection {
+    gap: 18px;
+  }
 }
 
-@media(max-width:400px) {
-    .collection {
-        gap: 0px;
-    }
+@media (max-width: 568px) {
+  .collection {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .collection {
+    gap: 0px;
+  }
 }

@@ -1,320 +1,314 @@
 .saleSection {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 
-    position: relative;
-    width: 100vw;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    height: 600px;
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  height: 600px;
 
-    background-repeat: no-repeat;
-    background-position: left top;
-    background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-repeat: no-repeat;
 
-    background-size: contain;
-    overflow: hidden;
-
+  background-size: contain;
+  overflow: hidden;
 }
 
 .bg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .products {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
 }
 
-
 .chair {
-    position: absolute;
-    top: 90px;
-    left: 70px;
+  position: absolute;
+  top: 90px;
+  left: 70px;
 }
 
 .chair img {
-    width: 410px;
-    height: auto;
-    object-fit: contain;
-
+  width: 410px;
+  height: auto;
+  object-fit: contain;
 }
 
 .table {
-    position: absolute;
-    top: 60px;
-    right: 190px;
+  position: absolute;
+  top: 60px;
+  right: 190px;
 }
 
 .table img {
-    width: 330px;
-    height: auto;
-    object-fit: contain;
+  width: 330px;
+  height: auto;
+  object-fit: contain;
 }
 
 .vase {
-    position: absolute;
-    top: 270px;
-    right: 130px;
+  position: absolute;
+  top: 270px;
+  right: 130px;
 }
 
 .vase img {
-    width: 140px;
-    height: auto;
-    object-fit: contain;
+  width: 140px;
+  height: auto;
+  object-fit: contain;
 }
 
-
-
 .text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 
-    position: relative;
-    z-index: 2;
+  position: relative;
+  z-index: 2;
 }
 
 .title {
-    color: #D74F0E;
-    font-weight: 300;
-    font-size: 100px;
-    font-family: 'Cormorant';
+  color: #d74f0e;
+  font-weight: 300;
+  font-size: 100px;
+  font-family: "Cormorant";
 }
 
 .desc {
-    font-weight: 400;
-    margin-bottom: 8px;
+  font-weight: 400;
+  margin-bottom: 8px;
 }
 
 .percent {
-    position: absolute;
-    top: -35px;
-    left: 12px;
+  position: absolute;
+  top: -35px;
+  left: 12px;
 
-    background: white;
-    padding: 10px 10px;
+  background: white;
+  padding: 10px 10px;
 
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    display: block;
-    font-size: 18px;
-    font-weight: 500;
-    color:#D74F0E;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  color: #d74f0e;
 }
 
 @media (max-width: 1200px) {
+  .chair {
+    top: 180px;
+    left: 40px;
+  }
 
-    .chair {
-        top: 180px;
-        left: 40px;
-    }
+  .chair img {
+    width: 330px;
+  }
 
-    .chair img {
-        width: 330px;
-    }
+  .table {
+    top: 140px;
+    right: 50px;
+  }
 
-    .table {
-        top: 140px;
-        right: 50px;
-    }
+  .table img {
+    width: 280px;
+  }
 
-    .table img {
-        width: 280px;
-    }
+  .vase {
+    top: 320px;
+    right: 20px;
+  }
 
-    .vase {
-        top: 320px;
-        right: 20px;
-    }
+  .vase img {
+    width: 120px;
+  }
 
-    .vase img {
-        width: 120px;
-    }
+  .title {
+    font-size: 80px;
+  }
 
-    .title {
-        font-size: 80px;
-    }
+  .desc {
+    font-size: 20px;
+  }
 
-    .desc {
-        font-size: 20px;
-    }
-
-    .percent {
-        top: -35px;
-        left: -8px;
-    }
+  .percent {
+    top: -35px;
+    left: -8px;
+  }
 }
 
 @media (max-width: 992px) {
-    .chair {
-        top: 260px;
-    }
+  .chair {
+    top: 260px;
+  }
 
-    .chair img {
-        width: 270px;
-    }
+  .chair img {
+    width: 270px;
+  }
 
-    .table {
-        top: 180px;
-    }
+  .table {
+    top: 180px;
+  }
 
-    .table img {
-        width: 250px;
-    }
+  .table img {
+    width: 250px;
+  }
 
-    .vase {
-        top: 350px;
-        right: 20px;
-    }
+  .vase {
+    top: 350px;
+    right: 20px;
+  }
 
-    .vase img {
-        width: 100px;
-    }
+  .vase img {
+    width: 100px;
+  }
 
-    .title {
-        font-size: 60px;
-    }
+  .title {
+    font-size: 60px;
+  }
 
-    .text {
-        width: 40%;
-    }
+  .text {
+    width: 40%;
+  }
 
-     .percent {
-        top: -35px;
-        left: -8px;
-    }
+  .percent {
+    top: -35px;
+    left: -8px;
+  }
 }
 
 @media (max-width: 768px) {
-    .saleSection {
-        height: 450px;
-    }
+  .saleSection {
+    height: 450px;
+  }
 
-    .chair {
-        top: 200px;
-    }
+  .chair {
+    top: 200px;
+  }
 
-    .chair img {
-        width: 200px;
-    }
+  .chair img {
+    width: 200px;
+  }
 
-    .table {
-        top: 155px;
-        right: 45px;
-    }
+  .table {
+    top: 155px;
+    right: 45px;
+  }
 
-    .table img {
-        width: 180px;
-    }
+  .table img {
+    width: 180px;
+  }
 
-    .vase {
-        top: 270px;
-    }
+  .vase {
+    top: 270px;
+  }
 
-    .vase img {
-        width: 80px;
-    }
+  .vase img {
+    width: 80px;
+  }
 
-    .percent {
-        top: -30px;
-        left: -5px;
-        font-size: 14px;
-        padding: 8px 8px;
-    }
+  .percent {
+    top: -30px;
+    left: -5px;
+    font-size: 14px;
+    padding: 8px 8px;
+  }
 }
 
 @media (max-width: 576px) {
-    .saleSection {
-        height: 650px;
-    }
+  .saleSection {
+    height: 650px;
+  }
 
-    .bg {
-        background-position: -80px top;
-    }
+  .bg {
+    background-position: -80px top;
+  }
 
-    .chair {
-        top: 400px;
-    }
+  .chair {
+    top: 400px;
+  }
 
-    .table {
-        top: 60px;
-        right: 20px;
-    }
+  .table {
+    top: 60px;
+    right: 20px;
+  }
 
-    .table img {
-        width: 160px;
-    }
+  .table img {
+    width: 160px;
+  }
 
-    .vase {
-        top: 470px;
-        right: 40px;
-    }
+  .vase {
+    top: 470px;
+    right: 40px;
+  }
 
-    .vase img {
-        width: 80px;
-    }
+  .vase img {
+    width: 80px;
+  }
 
-    .text {
-        width: 90%;
-        margin-top: 50px;
-    }
+  .text {
+    width: 90%;
+    margin-top: 50px;
+  }
 
-    .title {
-        font-size: 40px;
-    }
+  .title {
+    font-size: 40px;
+  }
 
-    .desc {
-        font-size: 19px;
-    }
+  .desc {
+    font-size: 19px;
+  }
 }
 
 @media (max-width: 400px) {
-    .saleSection {
-        height: 750px;
-    }
+  .saleSection {
+    height: 750px;
+  }
 
-    .bg {
-        background-position: -190px top;        
-    }
+  .bg {
+    background-position: -190px top;
+  }
 
-    .chair {
-        top: 500px;
-    }
+  .chair {
+    top: 500px;
+  }
 
-    .chair img {
-        width: 180px;
-    }
+  .chair img {
+    width: 180px;
+  }
 
-    .table {
-        top: 90px;
-    }
+  .table {
+    top: 90px;
+  }
 
-    .table img {
-        width: 140px;
-    }
+  .table img {
+    width: 140px;
+  }
 
-    .vase {
-        top: 585px;
-        right: 40px;
-    }
+  .vase {
+    top: 585px;
+    right: 40px;
+  }
 
-    .vase img {
-        width: 72px;
-    }
+  .vase img {
+    width: 72px;
+  }
 
-     .percent {
-        left: -10px;
-    }
+  .percent {
+    left: -10px;
+  }
 }

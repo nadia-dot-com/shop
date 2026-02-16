@@ -1,9 +1,9 @@
 .errorState {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: brown;
-    padding: 20px;
-    font-size: 18px;
-    font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: brown;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: 600;
 }

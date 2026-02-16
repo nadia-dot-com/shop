@@ -1,31 +1,30 @@
 .wrapper {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .errorFallback {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 280px;
-    background-color: white;
-    font-weight: 600;
-    font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 280px;
+  font-weight: 600;
+  font-size: 18px;
 }
 
-@media(max-width: 768px) {
-    .errorFallback {
-        width: 250px;
-    }
+@media (max-width: 768px) {
+  .errorFallback {
+    width: 250px;
+  }
 }
 
-@media(max-width: 576px) {
-    .errorFallback {
-        width: 200px;
-        font-size: 16px;
-    }
+@media (max-width: 576px) {
+  .errorFallback {
+    width: 200px;
+    font-size: 16px;
+  }
 }

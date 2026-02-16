@@ -1,4 +1,4 @@
 export const categoriesGroups = {
-    all: "All",
-    sale: 'Sale'
-}
+  all: "All",
+  sale: "Sale",
+};

@@ -5,27 +5,25 @@ import { useRemoveFromWishlist } from "./useRemoveFromWishlist";
 import { useWishlistQuery } from "./useWishlistQuery";
 
 export function useWishlist(productId: string) {
-    const { guestWishlist, toggleGuestWishlist } = useWishlistContext();
-    const { user } = useUserContext();
+  const { guestWishlist, toggleGuestWishlist } = useWishlistContext();
+  const { user } = useUserContext();
 
-    const {data: wishlist = []} = useWishlistQuery();
-    const add = useAddToWishlist();
-    const remove = useRemoveFromWishlist();
+  const { data: wishlist = [] } = useWishlistQuery();
+  const add = useAddToWishlist();
+  const remove = useRemoveFromWishlist();
 
-    const liked = user
-    ? wishlist.some(item => item.id === productId)
+  const liked = user
+    ? wishlist.some((item) => item.id === productId)
     : guestWishlist.includes(productId);
 
-    const toggleLike = () => {
-        if(!user) {
-            toggleGuestWishlist(productId);
-            return;
-        }
+  const toggleLike = () => {
+    if (!user) {
+      toggleGuestWishlist(productId);
+      return;
+    }
 
-        liked
-        ? remove.mutate(productId)
-        : add.mutate([productId])
-    };
+    liked ? remove.mutate(productId) : add.mutate([productId]);
+  };
 
-    return {liked, toggleLike}
+  return { liked, toggleLike };
 }

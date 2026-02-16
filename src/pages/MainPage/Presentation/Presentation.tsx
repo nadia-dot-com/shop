@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
-import { PRESENTATION } from '../../../data/presentation';
-import { PresentationItem } from './PresentationItem/PresentationItem';
+import { useCallback, useEffect, useRef, useState } from "react";
+import { PRESENTATION } from "../../../data/presentation";
+import { PresentationItem } from "./PresentationItem/PresentationItem";
 
-import classes from './Presentation.module.css'
-import { useHover } from '../../../hooks/useHover';
+import classes from "./Presentation.module.css";
+import { useHover } from "../../../hooks/useHover";
 
 const DELAY = 3000;
 
@@ -15,7 +15,7 @@ export function Presentation() {
     if (intervalRef.current !== null) return;
 
     intervalRef.current = window.setInterval(() => {
-      setIndex(prev => (prev + 1) % PRESENTATION.length);
+      setIndex((prev) => (prev + 1) % PRESENTATION.length);
     }, DELAY);
   }, [PRESENTATION.length]);
 

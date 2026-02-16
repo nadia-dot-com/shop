@@ -1,20 +1,19 @@
 import { MemoryRouter } from "react-router-dom";
-import { ShopProvider } from "../../../context/CartContext";
+import { WishlistProvider } from "../../../context/WishlistContext";
 import { EmptyWishList } from "./EmptyWishList";
 import { Meta, StoryObj } from "@storybook/react";
 
-
 const meta: Meta<typeof EmptyWishList> = {
-    component: EmptyWishList,
-    decorators: [
-        (Story) => (
-            <MemoryRouter>
-                <ShopProvider>
-                    <Story />
-                </ShopProvider>
-            </MemoryRouter>
-        )
-    ]
+  component: EmptyWishList,
+  decorators: [
+    (Story) => (
+      <MemoryRouter>
+        <WishlistProvider>
+          <Story />
+        </WishlistProvider>
+      </MemoryRouter>
+    ),
+  ],
 };
 
 export default meta;

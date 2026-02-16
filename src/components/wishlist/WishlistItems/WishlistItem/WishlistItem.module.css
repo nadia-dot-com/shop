@@ -1,124 +1,120 @@
 .wishlistItem {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 0;
-    border-bottom: 1px solid silver;
-    gap: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  border-bottom: 1px solid silver;
+  gap: 20px;
 }
 
 .itemInfo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .itemImg {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-
 
 .wrapOne {
-    display: flex;
-    gap: 40px;
-    align-items: center;
+  display: flex;
+  gap: 40px;
+  align-items: center;
 }
 
-
 .img {
-    max-width: 150px;
-    max-height: 150px;
-    object-fit: cover;
-    cursor: pointer;
+  max-width: 150px;
+  max-height: 150px;
+  object-fit: cover;
+  cursor: pointer;
 }
 
 .text {
-    /* margin: 0 10px; */
-    /* margin-bottom: 10px; */
-    color: #333;
-    cursor: pointer;
-    transition: all 0.5s ease;
-    font-size: 15px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  font-size: 15px;
 }
 
 .text:hover {
-    color: rgba(167, 85, 23, 1);
+  color: #A75517;
 }
 
 .price {
-    color: black;
-    font-weight: 500;
-    font-size: 14px;
+  color: black;
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .oldPrice {
-    color: silver;
-    text-decoration: line-through ;
+  color: silver;
+  text-decoration: line-through;
 }
 
 .discountPrice {
-    color:#d83030;
+  color: #d83030;
 }
 
 .closeBth {
-    text-align: center;
+  text-align: center;
 
-    font-size: 16px;
-    font-weight: 300;
-    cursor: pointer;
-    opacity: 0.8;
+  font-size: 16px;
+  font-weight: 300;
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 .closeBth:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 .addToCard {
-    display: none;
-    right: 20px;
-    bottom: 20px;
-    background: silver;
-    font-size: 15px;
-    border: none;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    color: black;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 500ms ease;
+  display: none;
+  right: 20px;
+  bottom: 20px;
+  background: silver;
+  font-size: 15px;
+  border: none;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  color: black;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 500ms ease;
 }
 
 @media (max-width: 576px) {
-    .img {
-        max-width: 100px;
-        max-height: 100px;
-    }
+  .img {
+    max-width: 100px;
+    max-height: 100px;
+  }
 
-    .price {
-        font-size: 12px;
-    }
+  .price {
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 400px) {
-    .wishlistItem {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        align-items: center;
-    }
+  .wishlistItem {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+  }
 
-    .addToCard {
-        display: block;
-        justify-content: center;
-        align-items: center;
-        margin: 30px;
-    }
+  .addToCard {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+  }
 
-    .button {
-        display: none;
-    }
+  .button {
+    display: none;
+  }
 }

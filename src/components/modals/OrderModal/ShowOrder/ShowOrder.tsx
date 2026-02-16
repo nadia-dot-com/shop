@@ -10,67 +10,64 @@ import { LoginButton } from "../../../LoginButton/LoginButton";
 import { useItemsByIds } from "../../../../hooks/products/useItemByIds";
 
 import classes from "./ShowOrder.module.css";
+import { DataLoader } from "../../../DataLoader/DataLoader";
 
-export function ShowOrder({ orderItems }: { orderItems: OrderItem[] }) {
-    const { clearCart, toggleCartOpen } = useCartContext();
-    const { user } = useUserContext();
-    const navigate = useNavigate();
-    const products = useItemsByIds(orderItems.map(i => i.id));
+export function ShowOrder({ cartItems }: { cartItems: OrderItem[] }) {
+  const { clearCart, toggleCartOpen } = useCartContext();
+  const { user } = useUserContext();
+  const navigate = useNavigate();
+  const { productMap, cartProducts, isLoading, error } = useItemsByIds(
+    cartItems.map((i) => i.id),
+  );
 
-    const handleOrder = () => {
-        const path = `${ROUTES.userAccount}/${ROUTES.shoppingCart}`
-        navigate(path);
-        toggleCartOpen();
-    }
+  const handleOrder = () => {
+    const path = `${ROUTES.userAccount}/${ROUTES.shoppingCart}`;
+    navigate(path);
+    toggleCartOpen();
+  };
 
-    return (
-        <div className={classes.showOrderWrapper}>
-            <div className={classes.cartTitle}>
-                <h2 >
-                    Cart ({orderItems.length})
-                </h2>
+  return (
+    <div className={classes.showOrderWrapper}>
+      <div className={classes.cartTitle}>
+        <h2>Cart ({cartItems.length})</h2>
 
-                <button
-                    className={classes.clearButton}
-                    onClick={clearCart}
-                >
-                    CLEAR
-                </button>
-            </div>
-            <div className={classes.orderList}>
-                {orderItems.map(item => {
-                    const product = products.find(p => p.id === item.id);
+        <button className={classes.clearButton} onClick={clearCart}>
+          CLEAR
+        </button>
+      </div>
 
-                    if (!product) return null;
+      <DataLoader loaded={!!cartProducts} loading={isLoading} error={error}>
+        {cartProducts && (
+          <div className={classes.orderList}>
+            {cartItems.map((cartItem) => {
+              const stockQuantity =
+                productMap.get(cartItem.id)?.stockQuantity ?? 0;
+              return (
+                <OrderItemRow
+                  key={cartItem.id}
+                  product={cartItem}
+                  stockQuantity={stockQuantity}
+                />
+              );
+            })}
+          </div>
+        )}
+      </DataLoader>
 
-                    return (
-                        <OrderItemRow
-                            key={item.id}
-                            product={item}
-                            stockQuantity={product.stockQuantity}
-                        />
-                    );
-                })}
-            </div>
+      <div className={classes.subtotal}>
+        <Subtotal arr={cartItems} />
+      </div>
 
-            <div className={classes.subtotal}>
-                <Subtotal arr={orderItems} />
-            </div>
-
-            {
-                user ?
-                    (
-                        <Button
-                            bgColor="black"
-                            textColor="white"
-                            text="COMPLETE ORDER"
-                            onClick={handleOrder}
-                        />
-                    ) :
-                    (
-                        <LoginButton text="Login with GOOGLE & complete a order" />
-                    )
-            }
-        </div>
-    )
+      {user ? (
+        <Button
+          bgColor="black"
+          textColor="white"
+          text="COMPLETE ORDER"
+          onClick={handleOrder}
+        />
+      ) : (
+        <LoginButton text="Login with GOOGLE & complete a order" />
+      )}
+    </div>
+  );
 }

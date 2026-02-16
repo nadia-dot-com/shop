@@ -5,22 +5,24 @@ import { Product } from "../../types/api/product";
 import { useUserContext } from "../../context/UserContext";
 
 export const useWishlistQuery = () => {
-    const { token } = useUserContext();
+  const { token } = useUserContext();
 
-    return useQuery<Product[], Error>({
-        queryKey: ['wishlist'],
-        queryFn: async () => {
-            const wishlist = await fetchWishlist(token!);
-            const products = await fetchProducts();
+  return useQuery<Product[], Error>({
+    queryKey: ["wishlist"],
+    queryFn: async () => {
+      if (!token) {
+        throw new Error("No token");
+      }
 
-            const productMap = new Map(products.map(p => [p.id, p]));
+      const wishlist = await fetchWishlist(token);
+      const products = await fetchProducts();
 
-            const isProduct = (p: Product | undefined): p is Product => Boolean(p);
+      const productMap = new Map(products.map((p) => [p.id, p]));
 
-            return wishlist
-                .map(w => productMap.get(w.id))
-                .filter(isProduct);
-        },
-        enabled: !!token,
-    })
-}
+      const isProduct = (p: Product | undefined): p is Product => Boolean(p);
+
+      return wishlist.map((w) => productMap.get(w.id)).filter(isProduct);
+    },
+    enabled: !!token,
+  });
+};

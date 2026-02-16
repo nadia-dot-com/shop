@@ -1,22 +1,22 @@
 export type DeliveryMethod = {
-    id: string;
-    name: string;
-    price: number;
-}
+  id: string;
+  name: string;
+  price: number;
+};
 
 export type PaymentMethod = {
-    id: string;
-    name: string;
-}
+  id: string;
+  name: string;
+};
 
 export type Country = {
-    name: string;
-    code: string;
-    vatRate: number;
-}
+  name: string;
+  code: string;
+  vatRate: number;
+};
 
 export type OptionsResponse = {
-    deliveryMethods: DeliveryMethod[];
-    paymentMethods: PaymentMethod[];
-    countries: Country[];
-}
+  deliveryMethods: DeliveryMethod[];
+  paymentMethods: PaymentMethod[];
+  countries: Country[];
+};

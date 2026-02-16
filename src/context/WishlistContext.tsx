@@ -7,27 +7,35 @@ import { WishlistValue } from "../types/wishlistTypes";
 export const WishlistContext = createContext<WishlistValue | null>(null);
 
 export function WishlistProvider({ children }: { children: ReactNode }) {
-    const [guestWishlist, setGuestWishlist] = useLocalStorage<string[]>(GUEST_WISHLIST_KEY, []);
+  const [guestWishlist, setGuestWishlist] = useLocalStorage<string[]>(
+    GUEST_WISHLIST_KEY,
+    [],
+  );
 
-    const toggleGuestWishlist = (productId: string) => {
-        setGuestWishlist(prev =>
-            prev.includes(productId)
-                ? prev.filter(id => id !== productId)
-                : [...prev, productId]
-        )
-    }
+  const toggleGuestWishlist = (productId: string) => {
+    setGuestWishlist((prev) =>
+      prev.includes(productId)
+        ? prev.filter((id) => id !== productId)
+        : [...prev, productId],
+    );
+  };
 
-    const cleanGuestWishlist = () => setGuestWishlist([])
+  const cleanGuestWishlist = () => setGuestWishlist([]);
 
-    return <WishlistContext.Provider
-        value={{
-            guestWishlist,
-            toggleGuestWishlist,
-            cleanGuestWishlist
-        }}
+  return (
+    <WishlistContext.Provider
+      value={{
+        guestWishlist,
+        toggleGuestWishlist,
+        cleanGuestWishlist,
+      }}
     >
-        {children}
-    </ WishlistContext.Provider>
+      {children}
+    </WishlistContext.Provider>
+  );
 }
 
-export const useWishlistContext = createContextHook(WishlistContext, WishlistProvider);
+export const useWishlistContext = createContextHook(
+  WishlistContext,
+  WishlistProvider,
+);

@@ -1,48 +1,48 @@
 .categoriesWrapper {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin: 40px 0 0 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 40px 0 0 0;
 }
 
 .categories {
-    display: flex;
-    gap: 12px;
-    list-style: none;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    margin: 0 0;
+  display: flex;
+  gap: 12px;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0 0;
 }
 
 .popular {
-    font-size: 20px;
-    margin-bottom: 12px;
-    font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 12px;
+  font-weight: 500;
 }
 
 @media (max-width: 992px) {
-    .categories {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
+  .categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
 
-    .popular {
-        font-size: 19px;
-    }
+  .popular {
+    font-size: 19px;
+  }
 }
 
 @media (max-width: 768px) {
-    .categories {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .categories {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 576px) {
-     .popular {
-        font-size: 18px;
-    }
+  .popular {
+    font-size: 18px;
+  }
 }

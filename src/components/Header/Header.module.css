@@ -1,42 +1,43 @@
 .header {
-    display: flex;
-    position: sticky;
-    top: 0;
-    z-index: 2000;
+  display: flex;
+  position: sticky;
+  align-items: center;
+  justify-content: space-between;
+  top: 0;
+  width: 100%;
 
-    width: 100%;
-   
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 0px;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(5px);
-    border-bottom: 1px solid silver;
-    transition: transform 0.3s ease;
+  border-bottom: 1px solid silver;
+  background: #ffffffe6;
+  opacity: 0.9;
+  backdrop-filter: blur(5px);
+
+  transition: transform 0.3s ease;
+  padding: 15px 0px;
+  z-index: 20;
 }
 
 .headerHidden {
-    transform: translateY(-100%);
+  transform: translateY(-100%);
 }
 
 .headerVisible {
-    transform: translateY(0);
+  transform: translateY(0);
 }
 
 .logo {
-    font-weight: 500;
-    padding: 0 20px;
-    font-size: 30px;
-    text-decoration: none;
-    transition: color 500ms ease;
+  font-weight: 500;
+  padding: 0 20px;
+  font-size: 30px;
+  text-decoration: none;
+  transition: color 500ms ease;
 }
 
 .logo:hover {
-    color: rgba(221, 112, 29, 1);
+  color: #DD701D;
 }
 
-@media(max-width: 768px) {
-    .logo {
-        font-size: 25px;
-    }
+@media (max-width: 768px) {
+  .logo {
+    font-size: 25px;
+  }
 }

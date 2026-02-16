@@ -2,7 +2,7 @@ import { EmptyCard } from "./EmptyCard";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof EmptyCard> = {
-    component: EmptyCard,
+  component: EmptyCard,
 };
 
 export default meta;

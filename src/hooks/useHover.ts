@@ -8,12 +8,10 @@ export function useHover(onEnter: () => void, onLeave: () => void) {
     if (!el) return;
 
     const handleMouseOver = (e: MouseEvent) => {
-     
       if (!el.contains(e.relatedTarget as Node)) onEnter();
     };
 
     const handleMouseOut = (e: MouseEvent) => {
-   
       if (!el.contains(e.relatedTarget as Node)) onLeave();
     };
 

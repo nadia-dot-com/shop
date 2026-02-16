@@ -1,22 +1,18 @@
-import { WishlistItems } from '../../components/wishlist/WishlistItems/WishlistItems';
-import { useResolvedWishlist } from '../../hooks/wishlist/useResolvedWishlist';
+import { WishlistItems } from "../../components/wishlist/WishlistItems/WishlistItems";
+import { useResolvedWishlist } from "../../hooks/wishlist/useResolvedWishlist";
 
-import classes from './Wishlist.module.css';
+import classes from "./Wishlist.module.css";
 
 export function Wishlist() {
-   const wishlist = useResolvedWishlist();
+  const wishlist = useResolvedWishlist();
 
-    return (
-        <section className={classes.guestWishlistContainer}>
+  return (
+    <section className={classes.guestWishlistContainer}>
+      <div className={classes.wishlistWrapper}>
+        <h1 className={classes.title}>Wishlist</h1>
 
-            <div className={classes.wishlistWrapper}>
-                <h1 className={classes.title}>
-                    Wishlist
-                </h1>
-
-                <WishlistItems list={wishlist} />
-            </div>
-
-        </section>
-    )
+        <WishlistItems list={wishlist} />
+      </div>
+    </section>
+  );
 }

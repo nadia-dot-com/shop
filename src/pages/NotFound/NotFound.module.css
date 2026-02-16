@@ -1,19 +1,19 @@
 .container {
-    min-height: 700px;
-    padding: 20px 0;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+  min-height: 700px;
+  padding: 20px 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .text {
-    text-align: center;
-    font-weight: 500;
+  text-align: center;
+  font-weight: 500;
 }
 
 .error {
-    font-size: 60px;
+  font-size: 60px;
 }

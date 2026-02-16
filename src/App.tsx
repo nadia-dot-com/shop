@@ -1,4 +1,10 @@
-import { BrowserRouter, Navigate, Outlet, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Navigate,
+  Outlet,
+  Route,
+  Routes,
+} from "react-router-dom";
 import { MainLayout } from "./components/layouts/MainLayout/MainLayout";
 import { ProductsPage } from "./pages/ProductsPage/ProductsPage";
 import { NotFounded } from "./pages/NotFound/NotFound";
@@ -20,48 +26,44 @@ import { ErrorFallback } from "./components/ErrorFallback/ErrorFallback";
 
 function App() {
   return (
-  <ErrorBoundary FallbackComponent={ErrorFallback}>
-    <BrowserRouter basename={ROUTES.basePath}>
-      <ScrollToTop />
-      <Routes>
+    <ErrorBoundary FallbackComponent={ErrorFallback}>
+      <BrowserRouter basename={ROUTES.basePath}>
+        <ScrollToTop />
+        <Routes>
+          <Route path={ROUTES.googleCallback} element={<GoogleCallback />} />
 
-        <Route path={ROUTES.googleCallback} element={<GoogleCallback />} />
+          <Route path={ROUTES.mainLayout} element={<MainLayout />}>
+            <Route index element={<MainPage />} />
 
-        <Route path={ROUTES.mainLayout} element={<MainLayout />}>
+            <Route path={ROUTES.contact} element={<Contact />} />
 
-          <Route index element={<MainPage />} />
-
-          <Route path={ROUTES.contact} element={<Contact />} />
-
-          <Route path={ROUTES.products} element={<ProductsPage />}>
-            <Route path=":category" element={<Outlet />}>
-              <Route path=":itemId" element={<ProductPage />} />
+            <Route path={ROUTES.products} element={<ProductsPage />}>
+              <Route path=":category" element={<Outlet />}>
+                <Route path=":itemId" element={<ProductPage />} />
+              </Route>
             </Route>
+
+            <Route path={ROUTES.guestWishlist} element={<Wishlist />} />
+
+            <Route path={ROUTES.userAccount} element={<UserAccount />}>
+              <Route index element={<Navigate to={ROUTES.profile} replace />} />
+
+              <Route index path={ROUTES.profile} element={<MyProfile />} />
+              <Route path={ROUTES.shoppingCart} element={<ShoppingCart />} />
+              <Route path={ROUTES.myOrders} element={<MyOrders />} />
+              <Route
+                path={ROUTES.orderPage(":orderId")}
+                element={<OrderPage />}
+              />
+              <Route path={ROUTES.myWishlist} element={<MyWishlist />} />
+            </Route>
+
+            <Route path="*" element={<NotFounded />} />
           </Route>
-
-          <Route path={ROUTES.guestWishlist} element={<Wishlist />} />
-
-
-          <Route path={ROUTES.userAccount} element={<UserAccount />}>
-
-            <Route
-              index
-              element={<Navigate to={ROUTES.profile} replace />}
-            />
-
-            <Route index path={ROUTES.profile} element={<MyProfile />} />
-            <Route path={ROUTES.shoppingCart} element={<ShoppingCart />} />
-            <Route path={ROUTES.myOrders} element={<MyOrders />} />
-            <Route path={ROUTES.orderPage(":orderId")} element={<OrderPage />} />
-            <Route path={ROUTES.myWishlist} element={<MyWishlist />} />
-          </Route>
-
-          <Route path="*" element={<NotFounded />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  </ErrorBoundary>
+        </Routes>
+      </BrowserRouter>
+    </ErrorBoundary>
   );
 }
 
-export default App
+export default App;
