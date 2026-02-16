@@ -41,7 +41,7 @@ export type CartContextValue = {
   isCartOpen: boolean;
   toggleCartOpen: () => void;
 
-  updateQuantity: (id: string, quantity: number) => void;
+  updateQuantity: (id: string, quantity: number, stock?: number) => void;
 };
 
 export type ButtonProps = Omit<

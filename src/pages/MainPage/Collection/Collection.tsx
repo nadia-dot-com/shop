@@ -19,14 +19,14 @@ export function Collection() {
     const el = scrollRef.current;
     if (!el) return;
 
-    const THRESHOLD = 5;
+    const THRESHOLD = 40;
 
     const handleScroll = () => {
       const { scrollLeft, scrollWidth, clientWidth } = el;
 
       const canScroll = scrollWidth > clientWidth + THRESHOLD;
 
-      setIsAtStart(!canScroll || scrollLeft <= THRESHOLD);
+      setIsAtStart(scrollLeft <= THRESHOLD);
       setIsAtEnd(
         !canScroll || scrollLeft + clientWidth >= scrollWidth - THRESHOLD,
       );
@@ -44,12 +44,16 @@ export function Collection() {
     };
   }, [collections]);
 
+  useEffect(() => {
+}, [isAtStart]);
+
   const scroll = (direction: "left" | "right") => {
     const target = scrollRef.current;
     if (!target) return;
 
     const style = window.getComputedStyle(target);
     const gap = parseFloat(style.columnGap || style.gap);
+
     const itemWidth = target.children[0].getBoundingClientRect().width + gap;
     target.scrollBy({ left: direction === "left" ? -itemWidth : +itemWidth });
   };

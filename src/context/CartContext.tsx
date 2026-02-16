@@ -75,9 +75,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const removeFromCart = (item: OrderItem) =>
     setCartItems((prev) => prev.filter((i) => i.id != item.id));
 
-  const updateQuantity = (id: string, quantity: number) => {
+  const updateQuantity = (id: string, quantity: number, stock?: number) => {
+    const safeQuantity = stock != null ? Math.min(quantity, stock): quantity
     setCartItems((prev) =>
-      prev.map((i) => (i.id === id ? { ...i, quantity: quantity } : i)),
+      prev.map((i) => (i.id === id ? { ...i, quantity: safeQuantity } : i)),
     );
   };
 

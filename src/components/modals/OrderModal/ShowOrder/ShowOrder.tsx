@@ -10,12 +10,15 @@ import { LoginButton } from "../../../LoginButton/LoginButton";
 import { useItemsByIds } from "../../../../hooks/products/useItemByIds";
 
 import classes from "./ShowOrder.module.css";
+import { DataLoader } from "../../../DataLoader/DataLoader";
 
-export function ShowOrder({ orderItems }: { orderItems: OrderItem[] }) {
+export function ShowOrder({ cartItems }: { cartItems: OrderItem[] }) {
   const { clearCart, toggleCartOpen } = useCartContext();
   const { user } = useUserContext();
   const navigate = useNavigate();
-  const products = useItemsByIds(orderItems.map((i) => i.id));
+  const { productMap, cartProducts, isLoading, error } = useItemsByIds(
+    cartItems.map((i) => i.id),
+  );
 
   const handleOrder = () => {
     const path = `${ROUTES.userAccount}/${ROUTES.shoppingCart}`;
@@ -26,30 +29,33 @@ export function ShowOrder({ orderItems }: { orderItems: OrderItem[] }) {
   return (
     <div className={classes.showOrderWrapper}>
       <div className={classes.cartTitle}>
-        <h2>Cart ({orderItems.length})</h2>
+        <h2>Cart ({cartItems.length})</h2>
 
         <button className={classes.clearButton} onClick={clearCart}>
           CLEAR
         </button>
       </div>
-      <div className={classes.orderList}>
-        {orderItems.map((item) => {
-          const product = products.find((p) => p.id === item.id);
 
-          if (!product) return null;
-
-          return (
-            <OrderItemRow
-              key={item.id}
-              product={item}
-              stockQuantity={product.stockQuantity}
-            />
-          );
-        })}
-      </div>
+      <DataLoader loaded={!!cartProducts} loading={isLoading} error={error}>
+        {cartProducts && (
+          <div className={classes.orderList}>
+            {cartItems.map((cartItem) => {
+              const stockQuantity =
+                productMap.get(cartItem.id)?.stockQuantity ?? 0;
+              return (
+                <OrderItemRow
+                  key={cartItem.id}
+                  product={cartItem}
+                  stockQuantity={stockQuantity}
+                />
+              );
+            })}
+          </div>
+        )}
+      </DataLoader>
 
       <div className={classes.subtotal}>
-        <Subtotal arr={orderItems} />
+        <Subtotal arr={cartItems} />
       </div>
 
       {user ? (

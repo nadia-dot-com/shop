@@ -89,7 +89,6 @@ export function ContactForm() {
         <Button
           bgColor="white"
           textColor="black"
-          type="submit"
           text={"• SEND ENQUIRY"}
         />
         <p

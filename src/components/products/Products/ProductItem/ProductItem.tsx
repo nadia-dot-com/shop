@@ -7,7 +7,7 @@ import { useWishlist } from "../../../../hooks/wishlist/useWishlist";
 import { checkProductDate } from "../../../../utils/checkProductDate";
 import { NewProductLabel } from "../../../NewProductLabel/NewProductLabel";
 import { Product } from "../../../../types/api/product";
-import { getDiscountPrice, isProductInStock } from "../../../../utils/product";
+import { getDiscountPrice, isProductInStock, isProductOnSale } from "../../../../utils/product";
 
 import classes from "./ProductItem.module.css";
 import { useCategoryContext } from "../../../../context/CategoryContext";
@@ -39,16 +39,20 @@ export function ProductItem({ product }: { product: Product }) {
     setSelectedCategory(categoryName);
   };
 
+  const isOnSale = isProductOnSale(product);
+  const isInStock = isProductInStock(stockQuantity);
+  const isNew = checkProductDate(releaseDate);
+
   return (
     <div
       className={cn(
         classes.product,
-        !isProductInStock(stockQuantity) && classes.disableProduct,
+        !isInStock && classes.disableProduct,
       )}
     >
       <div className={classes.labels}>
-        {discount > 0 && <SaleLabel />}
-        {checkProductDate(releaseDate) && <NewProductLabel />}
+        {isOnSale && <SaleLabel />}
+        {isNew && <NewProductLabel />}
       </div>
 
       <img
@@ -84,7 +88,7 @@ export function ProductItem({ product }: { product: Product }) {
             <div>
               <p className={classes.oldPrice}>${Number(price).toFixed(2)}</p>
               <p className={classes.discountPrice}>
-                ${getDiscountPrice(price, discount)}
+                ${getDiscountPrice(price, discount).toFixed(2)}
               </p>
             </div>
           )}
@@ -93,7 +97,7 @@ export function ProductItem({ product }: { product: Product }) {
         <button
           className={classes.addToCard}
           onClick={() => addToCart(product, QUANTITY)}
-          disabled={!isProductInStock(stockQuantity)}
+          disabled={!isInStock}
         >
           +
         </button>

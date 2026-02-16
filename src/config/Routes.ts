@@ -1,5 +1,5 @@
 export const ROUTES = {
-  basePath: "/house-staff",
+  basePath: "/house-staff/",
   mainLayout: "",
   home: "",
   contact: "contacts",
@@ -17,3 +17,4 @@ export const ROUTES = {
 
   guestWishlist: "wishlist",
 };
+

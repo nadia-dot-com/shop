@@ -1,4 +1,3 @@
-import classes from "./OrderItemRow.module.css";
 import { useCartContext } from "../../context/CartContext";
 import { FaTrash } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +6,7 @@ import { QuantityInput } from "../QuantityInput/QuantityInput";
 import { OrderItem } from "../../types/orderTypes";
 import { getDiscountPrice } from "../../utils/product";
 import { cn } from "../../utils/cn";
+import classes from "./OrderItemRow.module.css";
 
 export function OrderItemRow({
   product,
@@ -19,7 +19,6 @@ export function OrderItemRow({
   const { removeFromCart, updateQuantity } = useCartContext();
 
   const navigate = useNavigate();
-
   const category = categoryName.toLowerCase() ?? "";
   const path = name.toLowerCase().replace(/ /g, "-");
 
@@ -39,11 +38,12 @@ export function OrderItemRow({
           onClick={() => navigate(`${ROUTES.products}/${category}/${path}`)}
         />
       </div>
-
       <QuantityInput
         quantity={quantity}
         stock={stockQuantity}
-        onChange={(e) => updateQuantity(id, Number(e.target.value))}
+        onChange={(e) =>
+          updateQuantity(id, Number(e.target.value), stockQuantity)
+        }
       />
 
       <div className={cn(classes.price, discount > 0 && classes.discountPrice)}>

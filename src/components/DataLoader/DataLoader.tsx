@@ -24,7 +24,6 @@ const resolveError = (error: Error | null) => {
 
 export function DataLoader({ loading, loaded, error, children }: DataLoader) {
   const userError = resolveError(error);
-
   return (
     <>
       {loading && <LoadingSpinner />}

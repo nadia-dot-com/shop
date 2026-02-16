@@ -43,15 +43,17 @@ export function ProductDetails({ product }: { product: Product }) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const isOnSale = isProductOnSale(product);
+  const isInStock = isProductInStock(stockQuantity);
+  const isNew = checkProductDate(releaseDate);
 
   useEffect(() => {
     setMainImg(imagesUrls[0]);
   }, [imagesUrls]);
 
   useEffect(() => {
-    if (!isProductInStock) setQuantity(0);
+    if (!isInStock) setQuantity(0);
     else setQuantity((prev) => Math.min(prev || 1, stockQuantity));
-  }, [stockQuantity]);
+  }, [isInStock, stockQuantity]);
 
   const handleScroll = () => {
     const el = containerRef.current;
@@ -68,13 +70,13 @@ export function ProductDetails({ product }: { product: Product }) {
     <div
       className={cn(
         classes.productDetails,
-        !isProductInStock(stockQuantity) && classes.productDisabled,
+        !isInStock && classes.productDisabled,
       )}
     >
       <div className={classes.desktopContainer}>
         <div className={classes.labels}>
           {isOnSale && <SaleLabel />}
-          {checkProductDate(releaseDate) && <NewProductLabel />}
+          {isNew && <NewProductLabel />}
         </div>
         <img src={mainImg} alt={name} className={classes.mainImg} />
         <div className={classes.imgContainer}>
@@ -92,7 +94,7 @@ export function ProductDetails({ product }: { product: Product }) {
       <div className={classes.mobileContainer}>
         <div className={classes.labels}>
           {isOnSale && <SaleLabel />}
-          {checkProductDate(releaseDate) && <NewProductLabel />}
+          {isNew && <NewProductLabel />}
         </div>
         <div
           className={classes.mobileImgs}
@@ -156,7 +158,7 @@ export function ProductDetails({ product }: { product: Product }) {
             onChange={(e) => setQuantity(Number(e.target.value))}
           />
           <Button
-            disabled={!isProductInStock(stockQuantity)}
+            disabled={!isInStock}
             bgColor="black"
             textColor="white"
             text="ADD TO ORDER"
