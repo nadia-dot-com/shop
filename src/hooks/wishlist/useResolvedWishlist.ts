@@ -8,7 +8,7 @@ export const useResolvedWishlist = () => {
   const { user } = useUserContext();
 
   const { data: userWishlist = [] } = useWishlistQuery();
-  const guestWishlistItems = useItemsByIds(guestWishlist);
+  const { productsByIds: guestWishlistItems } = useItemsByIds(guestWishlist);
 
   return user ? userWishlist : guestWishlistItems;
 };

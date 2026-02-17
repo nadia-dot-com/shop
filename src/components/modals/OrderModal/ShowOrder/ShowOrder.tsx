@@ -16,9 +16,12 @@ export function ShowOrder({ cartItems }: { cartItems: OrderItem[] }) {
   const { clearCart, toggleCartOpen } = useCartContext();
   const { user } = useUserContext();
   const navigate = useNavigate();
-  const { productMap, cartProducts, isLoading, error } = useItemsByIds(
-    cartItems.map((i) => i.id),
-  );
+  const {
+    productMap,
+    productsByIds: cartProducts,
+    isLoading,
+    error,
+  } = useItemsByIds(cartItems.map((i) => i.id));
 
   const handleOrder = () => {
     const path = `${ROUTES.userAccount}/${ROUTES.shoppingCart}`;

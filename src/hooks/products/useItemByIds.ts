@@ -7,7 +7,7 @@ export function useItemsByIds(ids: string[]) {
 
   return useMemo(() => {
     const productMap = new Map(products.map((p) => [p.id, p]));
-    const cartProducts = ids.map((id) => productMap.get(id)).filter(Boolean) as Product[];
-    return {productMap, cartProducts, error, isLoading};
+    const productsByIds = ids.map((id) => productMap.get(id)).filter(Boolean) as Product[];
+    return {productMap, productsByIds, error, isLoading};
   }, [ids, products]);
 }

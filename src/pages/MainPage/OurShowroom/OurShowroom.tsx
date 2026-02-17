@@ -30,6 +30,7 @@ export function OurShowroom() {
       </div>
 
       <img
+        loading="lazy"
         className={classes.img}
         src={getImagePath("/img/ourshowroom/ourshowroom.png")}
         alt="ourshowroom"
