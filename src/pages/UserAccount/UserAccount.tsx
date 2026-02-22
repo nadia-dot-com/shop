@@ -6,7 +6,7 @@ import { DataLoader } from "../../components/DataLoader/DataLoader";
 
 import classes from "./UserAccount.module.css";
 
-export function UserAccount() {
+export default function UserAccount() {
   const { user, isLoading, error } = useUserContext();
 
   return (

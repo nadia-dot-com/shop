@@ -6,23 +6,28 @@ import {
   Routes,
 } from "react-router-dom";
 import { MainLayout } from "./components/layouts/MainLayout/MainLayout";
-import { ProductsPage } from "./pages/ProductsPage/ProductsPage";
 import { NotFounded } from "./pages/NotFound/NotFound";
-import { ProductPage } from "./pages/ProductsPage/ProductPage/ProductPage";
 import { MainPage } from "./pages/MainPage/MainPage";
 import { ROUTES } from "./config/Routes";
-import { Contact } from "./pages/Contact/Contact";
-import { UserAccount } from "./pages/UserAccount/UserAccount";
 import { MyProfile } from "./pages/UserAccount/NavAccount/MyProfile/MyProfile";
-import { ShoppingCart } from "./pages/UserAccount/NavAccount/ShoppingCart/ShoppingCart";
 import { MyOrders } from "./pages/UserAccount/NavAccount/MyOrders/MyOrders";
 import { OrderPage } from "./pages/UserAccount/NavAccount/MyOrders/OrderPage/OrderPage";
 import { MyWishlist } from "./pages/UserAccount/NavAccount/MyWishlist/MyWishlist";
-import { Wishlist } from "./pages/Wishlist/Wishlist";
 import { ScrollToTop } from "./components/ScrollToTop/ScrollToTop";
 import { GoogleCallback } from "./pages/GoogleCallback/GoogleCallback";
 import { ErrorBoundary } from "react-error-boundary";
 import { ErrorFallback } from "./components/ErrorFallback/ErrorFallback";
+import { lazy } from "react";
+
+const Contact = lazy(() => import("./pages/Contact/Contact"));
+const UserAccount = lazy(() => import("./pages/UserAccount/UserAccount"));
+const Wishlist = lazy(() => import("./pages/Wishlist/Wishlist"));
+const ProductsPage = lazy(() => import("./pages/ProductsPage/ProductsPage"));
+const ProductPage = lazy(() => import("./pages/ProductsPage/ProductsPage"));
+
+const ShoppingCart = lazy(
+  () => import("./pages/UserAccount/NavAccount/ShoppingCart/ShoppingCart"),
+);
 
 function App() {
   return (
