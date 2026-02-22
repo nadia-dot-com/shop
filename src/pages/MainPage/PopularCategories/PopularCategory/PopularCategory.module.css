@@ -13,11 +13,12 @@
 
 .title {
   margin-top: 10px;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 14px;
   color: #212529;
   cursor: pointer;
   transition: all 500ms ease;
+  font-family: "Inter", sans-serif;
 }
 
 .title:hover {

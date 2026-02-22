@@ -15,15 +15,15 @@ export function MainLayout() {
   const { isLoginModalOpen } = useUserContext();
 
   return (
-    <>
+    <div className={classes.layout}>
       <Header />
-      <Wrapper>
-        <main>
+      <main>
+        <Wrapper>
           <Outlet />
-        </main>
+        </Wrapper>
+      </main>
 
-        <Footer />
-      </Wrapper>
+      <Footer />
 
       {isLoginModalOpen && <LoginModal />}
       {isCartOpen && <OrderModal />}
@@ -38,6 +38,6 @@ export function MainLayout() {
         theme="light"
         className={classes.toastContainer}
       />
-    </>
+    </div>
   );
 }

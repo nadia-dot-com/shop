@@ -18,7 +18,7 @@ export function OrderModal() {
       className={classes.orderModal}
     >
       {cartItems.length > 0 ? (
-        <ShowOrder orderItems={cartItems} />
+        <ShowOrder cartItems={cartItems} />
       ) : (
         <EmptyCard />
       )}

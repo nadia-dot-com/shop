@@ -9,27 +9,40 @@ export function Sale() {
   const { navigateToCategory } = useShoppingNavigation();
 
   return (
-    <section className={classes.saleSection}>
+    <section
+      className={classes.saleSection}
+    >
       <div
         className={classes.bg}
         style={{
-          backgroundImage: `url(${getImagePath("img/sale/sale-bg.png")})`,
+          backgroundImage: `url(${getImagePath("img/sale/sale-bg.webp")})`,
         }}
       />
 
       <div className={classes.products}>
-        <div className={classes.chair}>
-          <img src={getImagePath("img/sale/sale-chair.png")} alt="sale-chair" />
-          <span className={classes.percent}>-10%</span>
-        </div>
+        <div className={classes.contentLimit}>
+          <div className={classes.chair}>
+            <img
+              src={getImagePath("img/sale/sale-chair.webp")}
+              alt="sale-chair"
+            />
+            <span className={classes.percent}>-10%</span>
+          </div>
 
-        <div className={classes.table}>
-          <img src={getImagePath("img/sale/table-sale.png")} alt="sale-table" />
-          <span className={classes.percent}>-20%</span>
-        </div>
-        <div className={classes.vase}>
-          <img src={getImagePath("img/sale/sale-vase.png")} alt="sale-vase" />
-          <span className={classes.percent}>-20%</span>
+          <div className={classes.table}>
+            <img
+              src={getImagePath("img/sale/table-sale.webp")}
+              alt="sale-table"
+            />
+            <span className={classes.percent}>-20%</span>
+          </div>
+          <div className={classes.vase}>
+            <img
+              src={getImagePath("img/sale/sale-vase.webp")}
+              alt="sale-vase"
+            />
+            <span className={classes.percent}>-20%</span>
+          </div>
         </div>
       </div>
 

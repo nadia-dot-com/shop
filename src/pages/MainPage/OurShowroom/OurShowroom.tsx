@@ -30,9 +30,8 @@ export function OurShowroom() {
       </div>
 
       <img
-        loading="lazy"
         className={classes.img}
-        src={getImagePath("/img/ourshowroom/ourshowroom.png")}
+        src={getImagePath("/img/ourshowroom/ourshowroom.webp")}
         alt="ourshowroom"
       />
     </section>

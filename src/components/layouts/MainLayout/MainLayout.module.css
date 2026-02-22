@@ -1,3 +1,10 @@
+.layout {
+  min-height: 100dvh;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
 .toastContainer {
   --toastify-color-progress-success: #DD701D;
   top: 80px;
@@ -5,35 +12,6 @@
 
 .toastContainer svg {
   fill: #DD701D;
-}
-
-@media (max-width: 992px) {
-  .toastContainer {
-    font-size: 14px;
-  }
-
-  .toastContainer svg {
-    width: 19px;
-    height: 19px;
-  }
-
-  :global(.Toastify__progress-bar) {
-    height: 3px !important;
-  }
-
-  :global(.Toastify__progress-bar--wrp) {
-    height: 3px !important;
-  }
-
-  :global(.Toastify__toast-icon) {
-    margin-right: 6px !important;
-  }
-
-  :global(.Toastify__toast) {
-    width: 90% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
 }
 
 @media (max-width: 992px) {

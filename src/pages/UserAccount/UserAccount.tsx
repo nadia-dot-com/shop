@@ -11,19 +11,21 @@ export function UserAccount() {
 
   return (
     <DataLoader loading={isLoading} loaded={!isLoading} error={error}>
-      {user ? (
-        <div className={classes.userWrapper}>
-          <h1 className={classes.helloUser}>Hello, {user.name} ;)</h1>
+      <div className={classes.userWrapper}>
+        {user ? (
+          <>
+            <h1 className={classes.helloUser}>Hello, {user.name} ;)</h1>
 
-          <NavAccount />
+            <NavAccount />
 
-          <section className={classes.content}>
-            <Outlet />
-          </section>
-        </div>
-      ) : (
-        <MakeLogin />
-      )}
+            <section className={classes.content}>
+              <Outlet />
+            </section>
+          </>
+        ) : (
+          <MakeLogin />
+        )}
+      </div>
     </DataLoader>
   );
 }

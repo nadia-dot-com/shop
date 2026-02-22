@@ -1,5 +1,5 @@
 .accountIcon {
-  font-size: 26px;
+  font-size: 21px;
   text-decoration: none;
   cursor: pointer;
   transition: color 500ms ease;
@@ -8,10 +8,4 @@
 .active,
 .accountIcon:hover {
   color: #DD701D;
-}
-
-@media (max-width: 992px) {
-  .accountIcon {
-    font-size: 22px;
-  }
 }

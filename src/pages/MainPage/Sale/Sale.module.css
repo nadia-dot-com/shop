@@ -4,18 +4,8 @@
 
   position: relative;
   width: 100vw;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  margin-left: calc(-50vw + 50%);
   height: 600px;
-
-  background-repeat: no-repeat;
-  background-position: left top;
-  background-repeat: no-repeat;
-
-  background-size: contain;
-  overflow: hidden;
 }
 
 .bg {
@@ -25,43 +15,50 @@
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
+
 }
 
 .products {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   display: flex;
+  justify-content: center; 
 }
 
+.contentLimit {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  height: 100%;
+}
 .chair {
   position: absolute;
-  top: 90px;
-  left: 70px;
+  top: 110px;
+  left: 40px;
 }
 
 .chair img {
-  width: 410px;
+  width: 390px;
   height: auto;
   object-fit: contain;
 }
 
 .table {
   position: absolute;
-  top: 60px;
-  right: 190px;
+  top: 75px;
+  right: 100px;
 }
 
 .table img {
-  width: 330px;
+  width: 320px;
   height: auto;
   object-fit: contain;
 }
 
 .vase {
   position: absolute;
-  top: 270px;
-  right: 130px;
+  top: 300px;
+  right: 60px;
 }
 
 .vase img {

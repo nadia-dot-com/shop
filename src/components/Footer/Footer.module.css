@@ -1,7 +1,8 @@
 .footer {
   display: flex;
   flex-direction: column;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
   border-top: 1px solid silver;
   padding: 40px 0;
   gap: 10px;
@@ -10,16 +11,21 @@
 .info {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  text-align: center;
   list-style: none;
   cursor: pointer;
   font-weight: 500;
   gap: 3px;
   font-size: 14px;
+  padding: 0;
 }
 
 .info li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
   transition: color 0.3s ease;
 }
 
@@ -30,7 +36,7 @@
 
 .info li:hover,
 .info a:hover {
-  color: #DD701D;
+  color: #dd701d;
 }
 .time {
   cursor: auto;
@@ -40,8 +46,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px; 
-  font-size: 22px; 
+  gap: 15px;
+  font-size: 22px;
 }
 
 .socials a {
@@ -52,7 +58,7 @@
 }
 
 .socials a:hover {
-  color: #DD701D;
+  color: #dd701d;
   transform: scale(1.1);
 }
 

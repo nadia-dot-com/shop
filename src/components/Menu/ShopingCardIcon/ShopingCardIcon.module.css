@@ -1,6 +1,6 @@
 .shopingCardIcon {
   position: relative;
-  font-size: 23px;
+  font-size: 19px;
   cursor: pointer;
   transition: color 500ms ease;
 }
@@ -12,6 +12,6 @@
 
 @media (max-width: 992px) {
   .shopingCardIcon {
-    font-size: 20px;
+    font-size: 18px;
   }
 }

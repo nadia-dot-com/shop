@@ -1,9 +1,4 @@
 .wishlistIcon {
-  font-size: 25px;
+  font-size: 20px;
 }
 
-@media (max-width: 992px) {
-  .wishlistIcon {
-    font-size: 22px;
-  }
-}

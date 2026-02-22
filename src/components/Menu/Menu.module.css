@@ -4,8 +4,7 @@
   list-style: none;
   align-items: center;
   gap: 25px;
-  font-size: 18px;
-  padding-right: 15px;
+  font-size: 14px;
 }
 
 .navIcons {
@@ -41,7 +40,7 @@
 
 .burgerList {
   position: absolute;
-  top: 44px;
+  top: 18px;
   width: 200px;
   background: #ffffff;
   opacity: 0.9;
@@ -50,12 +49,13 @@
   align-items: flex-end;
   list-style: none;
   padding-inline-start: 0px;
+  font-size: 14px;
 }
 
 .burgerList li {
   border-bottom: 1px solid silver;
   width: 100%;
-  padding: 15px 20px;
+  padding: 12px 15px;
 }
 
 .burgerList li:last-child {
@@ -72,6 +72,12 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
-    padding-right: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .burgerList {
+    top: 20px;
+    right: -8px;
   }
 }

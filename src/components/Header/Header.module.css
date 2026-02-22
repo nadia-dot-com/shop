@@ -12,8 +12,8 @@
   backdrop-filter: blur(5px);
 
   transition: transform 0.3s ease;
-  padding: 15px 0px;
   z-index: 20;
+  padding: 0px 20px;
 }
 
 .headerHidden {
@@ -25,9 +25,8 @@
 }
 
 .logo {
-  font-weight: 500;
-  padding: 0 20px;
-  font-size: 30px;
+  font-weight: 400;
+  font-size: 25px;
   text-decoration: none;
   transition: color 500ms ease;
 }
@@ -36,8 +35,8 @@
   color: #DD701D;
 }
 
-@media (max-width: 768px) {
-  .logo {
-    font-size: 25px;
+@media(max-width: 768px) {
+  .header{
+    padding: 5px 20px;
   }
 }

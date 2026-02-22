@@ -1,6 +1,6 @@
 .orderModal {
   position: absolute;
-  top: 90px;
+  top: 50px;
   right: 0;
   width: 100%;
   max-width: 580px;
@@ -15,7 +15,7 @@
   backdrop-filter: blur(5px);
 
   font-size: 11px;
-  z-index: 20;
+  z-index: 30;
 }
 
 @media (max-width: 992px) {
@@ -27,16 +27,22 @@
 
 @media (max-width: 768px) {
   .orderModal {
-    top: 66px;
+    top: 46px;
   }
 }
 
 @media (max-width: 576px) {
   .orderModal {
-    max-width: 400px;
-    width: 100vw;
-    max-width: 100vw;
-    height: auto;
-    margin: 0;
+    max-width: 100%;
+    width: 100%;
+    padding: 5px;
   }
 }
+/* 
+@media (max-width: 400px) {
+  .orderModal {
+    max-width: 100dvh;
+    width: 100dvh;
+    padding: 5px;
+  }
+} */

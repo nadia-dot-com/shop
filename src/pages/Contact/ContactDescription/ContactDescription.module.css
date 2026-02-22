@@ -1,5 +1,4 @@
 .background {
-  background-image: url("/img/contact/contact.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -16,7 +15,8 @@
 
 .text {
   color: white;
-  font-size: 45px;
+  font-size: 50px;
+  font-family: "Cormorant";
   font-weight: 400;
   margin: 10px;
 }
