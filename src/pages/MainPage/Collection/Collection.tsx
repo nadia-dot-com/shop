@@ -5,6 +5,7 @@ import { useCollections } from "../../../hooks/collection/useCollections";
 import { DataLoader } from "../../../components/DataLoader/DataLoader";
 
 import classes from "./Collection.module.css";
+import { useResize } from "../../../hooks/useResize";
 
 export function Collection() {
   const scrollRef = useRef<HTMLUListElement | null>(null);
@@ -13,39 +14,38 @@ export function Collection() {
 
   const { data: collections, isLoading, error } = useCollections();
 
+  const handleScroll = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const THRESHOLD = 40;
+    const { scrollLeft, scrollWidth, clientWidth } = el;
+
+    const canScroll = scrollWidth > clientWidth + THRESHOLD;
+
+    setIsAtStart(scrollLeft <= THRESHOLD);
+    setIsAtEnd(
+      !canScroll || scrollLeft + clientWidth >= scrollWidth - THRESHOLD,
+    );
+  };
+
+  useResize(scrollRef, handleScroll);
+
   useEffect(() => {
     if (!collections) return;
 
     const el = scrollRef.current;
     if (!el) return;
 
-    const THRESHOLD = 40;
-
-    const handleScroll = () => {
-      const { scrollLeft, scrollWidth, clientWidth } = el;
-
-      const canScroll = scrollWidth > clientWidth + THRESHOLD;
-
-      setIsAtStart(scrollLeft <= THRESHOLD);
-      setIsAtEnd(
-        !canScroll || scrollLeft + clientWidth >= scrollWidth - THRESHOLD,
-      );
-    };
-
     el.addEventListener("scroll", handleScroll);
     handleScroll();
 
-    const resizeObserver = new ResizeObserver(handleScroll);
-    resizeObserver.observe(el);
-
     return () => {
       el.removeEventListener("scroll", handleScroll);
-      resizeObserver.disconnect();
     };
   }, [collections]);
 
-  useEffect(() => {
-}, [isAtStart]);
+  useEffect(() => {}, [isAtStart]);
 
   const scroll = (direction: "left" | "right") => {
     const target = scrollRef.current;

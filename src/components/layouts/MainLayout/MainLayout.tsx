@@ -33,6 +33,7 @@ export function MainLayout() {
       {isCartOpen && <OrderModal />}
 
       <ToastContainer
+        role="alert"
         position="top-right"
         autoClose={5000}
         hideProgressBar={false}

@@ -23,6 +23,9 @@ export function PresentationItem({
         src={getImagePath(current.img)}
         alt={current.title}
         className={cn(classes.image, i === index && classes.active)}
+        width="1760"
+        height="600"
+        fetchPriority="high"
       />
       <div
         className={cn(

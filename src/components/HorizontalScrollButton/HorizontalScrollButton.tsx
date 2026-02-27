@@ -24,6 +24,7 @@ export function HorizontalScrollButton({
         disabled && classes.disabled,
         className,
       )}
+      aria-label={direction === "left" ? "Scroll left" : "Scroll right"}
     >
       <svg className={classes.icon} viewBox="0 0 24 24">
         {direction === "left" ? (

@@ -28,6 +28,7 @@ export function AccountIcon() {
         (isLoginModalOpen || isAccountPage) && classes.active,
       )}
       onClick={() => handleClick()}
+      aria-label={user ? "My Account" : "Login"}
     />
   );
 }

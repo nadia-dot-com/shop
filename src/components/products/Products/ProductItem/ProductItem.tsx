@@ -1,16 +1,19 @@
 import { cn } from "../../../../utils/cn";
 import { useCartContext } from "../../../../context/CartContext";
-import { useNavigate } from "react-router-dom";
 import { SaleLabel } from "../../../SaleLabel/SaleLabel";
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 import { useWishlist } from "../../../../hooks/wishlist/useWishlist";
 import { checkProductDate } from "../../../../utils/checkProductDate";
 import { NewProductLabel } from "../../../NewProductLabel/NewProductLabel";
 import { Product } from "../../../../types/api/product";
-import { getDiscountPrice, isProductInStock, isProductOnSale } from "../../../../utils/product";
+import { useShoppingNavigation } from "../../../../hooks/useShoppingNavigation";
+import {
+  getDiscountPrice,
+  isProductInStock,
+  isProductOnSale,
+} from "../../../../utils/product";
 
 import classes from "./ProductItem.module.css";
-import { useCategoryContext } from "../../../../context/CategoryContext";
 
 export function ProductItem({ product }: { product: Product }) {
   const {
@@ -25,31 +28,17 @@ export function ProductItem({ product }: { product: Product }) {
     releaseDate,
   } = product;
   const { addToCart } = useCartContext();
-  const { setSelectedCategory } = useCategoryContext();
   const { liked, toggleLike } = useWishlist(id);
-
-  const navigate = useNavigate();
-  const path = name.toLowerCase().replace(/ /g, "-");
-  const categoryPath = categoryName.toLowerCase();
+  const { navigateToCategory } = useShoppingNavigation();
 
   const QUANTITY = 1;
-
-  const handleClick = () => {
-    navigate(`${categoryPath}/${path}`);
-    setSelectedCategory(categoryName);
-  };
 
   const isOnSale = isProductOnSale(product);
   const isInStock = isProductInStock(stockQuantity);
   const isNew = checkProductDate(releaseDate);
 
   return (
-    <div
-      className={cn(
-        classes.product,
-        !isInStock && classes.disableProduct,
-      )}
-    >
+    <div className={cn(classes.product, !isInStock && classes.disableProduct)}>
       <div className={classes.labels}>
         {isOnSale && <SaleLabel />}
         {isNew && <NewProductLabel />}
@@ -59,7 +48,9 @@ export function ProductItem({ product }: { product: Product }) {
         src={imagesUrls[0]}
         alt={name}
         className={classes.img}
-        onClick={() => handleClick()}
+        onClick={() => navigateToCategory(categoryName, name)}
+        width="425"
+        height="509"
       />
 
       {liked ? (
@@ -72,7 +63,7 @@ export function ProductItem({ product }: { product: Product }) {
       )}
 
       <div className={classes.productInformation}>
-        <h3 className={classes.title} onClick={() => handleClick()}>
+        <h3 className={classes.title} onClick={() => navigateToCategory(categoryName, name)}>
           {name}
 
           <span className={classes.categoryTitle}>

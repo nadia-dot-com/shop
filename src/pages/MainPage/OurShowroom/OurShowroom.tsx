@@ -33,6 +33,8 @@ export function OurShowroom() {
         className={classes.img}
         src={getImagePath("/img/ourshowroom/ourshowroom.webp")}
         alt="ourshowroom"
+        width="968"
+        height="646"
       />
     </section>
   );
