@@ -65,7 +65,7 @@ export function OrderItemRow({
       </div>
       <FaTrash
         className={classes.removeFromCard}
-        onClick={() => removeFromCart({ ...product })}
+        onClick={() => removeFromCart(id)}
       >
         -
       </FaTrash>

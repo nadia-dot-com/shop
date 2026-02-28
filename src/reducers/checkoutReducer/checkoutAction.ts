@@ -1,5 +1,5 @@
 import { DeliveryMethod, PaymentMethod } from "../../types/api/options";
-import { CheckoutItitial, DataProps } from "../../types/checkoutTypes";
+import { DataProps } from "../../types/checkoutTypes";
 import { OrderItem } from "../../types/orderTypes";
 
 export type CheckoutAction =
