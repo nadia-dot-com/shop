@@ -4,10 +4,6 @@
     margin: 0 auto;
 }
 
-.emptyCard {
-   margin-top: 200px;
-}
-
 .orderContent {
     display: flex;
     justify-content: center;

@@ -9,9 +9,7 @@ export function Sale() {
   const { navigateToCategory } = useShoppingNavigation();
 
   return (
-    <section
-      className={classes.saleSection}
-    >
+    <section className={classes.saleSection}>
       <div
         className={classes.bg}
         style={{
@@ -25,6 +23,8 @@ export function Sale() {
             <img
               src={getImagePath("img/sale/sale-chair.webp")}
               alt="sale-chair"
+              width="390"
+              height="454"
             />
             <span className={classes.percent}>-10%</span>
           </div>
@@ -33,6 +33,8 @@ export function Sale() {
             <img
               src={getImagePath("img/sale/table-sale.webp")}
               alt="sale-table"
+              width="320"
+              height="492"
             />
             <span className={classes.percent}>-20%</span>
           </div>
@@ -40,6 +42,8 @@ export function Sale() {
             <img
               src={getImagePath("img/sale/sale-vase.webp")}
               alt="sale-vase"
+              width="140"
+              height="259"
             />
             <span className={classes.percent}>-20%</span>
           </div>

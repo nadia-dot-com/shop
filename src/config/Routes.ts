@@ -1,5 +1,6 @@
+
 export const ROUTES = {
-  basePath: "/house-staff/",
+  basePath: '/house-staff/',
   mainLayout: "",
   home: "",
   contact: "contacts",
@@ -8,7 +9,7 @@ export const ROUTES = {
   productCategory: (category: string) => `products/${category}`,
 
   googleCallback: "auth/google-callback",
-  userAccount: "/user-account",
+  userAccount: "user-account",
   profile: "profile",
   myOrders: "my-orders",
   orderPage: (id: string) => `my-orders/${id}`,
@@ -17,4 +18,3 @@ export const ROUTES = {
 
   guestWishlist: "wishlist",
 };
-

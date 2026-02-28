@@ -3,7 +3,7 @@ import { ContactForm } from "./ContactForm/ContactForm";
 
 import classes from "./Contact.module.css";
 
-export function Contact() {
+export default function Contact() {
   return (
     <div className={classes.contactWrapper}>
       <ContactDescription />

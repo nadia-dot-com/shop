@@ -5,7 +5,7 @@ import classes from "./LoadingSpinner.module.css";
 export function LoadingSpinner() {
   return (
     <div className={classes.loadingSpinner}>
-      <Lottie animationData={loading} style={{ width: 600, height: 600 }} />
+      <Lottie animationData={loading} style={{ width: '100%', maxWidth: 400, height: 'auto'}} />
     </div>
   );
 }

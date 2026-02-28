@@ -9,6 +9,8 @@ import { LoginModal } from "../../modals/LoginModal/LoginModal";
 import { OrderModal } from "../../modals/OrderModal/OrderModal";
 
 import classes from "./MainLayout.module.css";
+import { Suspense } from "react";
+import { LoadingSpinner } from "../../LoadingSpinner/LoadingSpinner";
 
 export function MainLayout() {
   const { isCartOpen } = useCartContext();
@@ -18,9 +20,11 @@ export function MainLayout() {
     <div className={classes.layout}>
       <Header />
       <main>
-        <Wrapper>
-          <Outlet />
-        </Wrapper>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Wrapper>
+            <Outlet />
+          </Wrapper>
+        </Suspense>
       </main>
 
       <Footer />
@@ -29,6 +33,7 @@ export function MainLayout() {
       {isCartOpen && <OrderModal />}
 
       <ToastContainer
+        role="alert"
         position="top-right"
         autoClose={5000}
         hideProgressBar={false}

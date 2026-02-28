@@ -79,7 +79,7 @@
 }
 
 .title {
-  color: #d74f0e;
+  color: #d43905;
   font-weight: 300;
   font-size: 100px;
   font-family: "Cormorant";
@@ -103,7 +103,7 @@
   display: block;
   font-size: 18px;
   font-weight: 500;
-  color: #d74f0e;
+  color: #d43c05;
 }
 
 @media (max-width: 1200px) {

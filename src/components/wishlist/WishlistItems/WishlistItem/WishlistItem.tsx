@@ -24,13 +24,15 @@ export function WishlistItem({ item }: { item: Product }) {
           src={imagesUrls[0]}
           alt={name}
           className={classes.img}
-          onClick={() => navigateToCategory(categoryName)}
+          onClick={() => navigateToCategory(categoryName, name)}
+          width="126"
+          height="150"
         />
       </div>
       <div className={classes.itemInfo}>
         <h4
           className={classes.text}
-          onClick={() => navigateToCategory(categoryName)}
+          onClick={() => navigateToCategory(categoryName, name)}
         >
           {name}
         </h4>

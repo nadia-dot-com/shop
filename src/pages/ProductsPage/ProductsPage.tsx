@@ -9,7 +9,7 @@ import { useCategoryContext } from "../../context/CategoryContext";
 import classes from "./ProductsPage.module.css";
 import { useInfiniteProducts } from "../../hooks/products/useInfiniteProducts";
 
-export function ProductsPage() {
+export default function ProductsPage() {
   const { itemId } = useParams();
   const { selectedCategory } = useCategoryContext();
   const normalizedCategory = selectedCategory ?? categoriesGroups.all;
@@ -19,14 +19,14 @@ export function ProductsPage() {
   const products = pages?.flat() ?? [];
 
   return (
-    <DataLoader loading={isLoading} loaded={!!products.length} error={error}>
-      <div className={classes.productsPage}>
-        <ProductNav />
+    <div className={classes.productsPage}>
+      <ProductNav />
 
-        <section>
-          <Outlet />
-        </section>
+      <section>
+        <Outlet />
+      </section>
 
+      <DataLoader loading={isLoading} loaded={!!products.length} error={error}>
         <section
           className={cn(
             classes.productsContainer,
@@ -35,7 +35,7 @@ export function ProductsPage() {
         >
           <Products products={products} />
         </section>
-      </div>
-    </DataLoader>
+      </DataLoader>
+    </div>
   );
 }

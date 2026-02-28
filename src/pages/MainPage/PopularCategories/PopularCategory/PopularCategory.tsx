@@ -13,6 +13,8 @@ export function PopularCategory({ category }: { category: Category }) {
         alt={category.name}
         className={classes.img}
         onClick={() => navigateToCategory(category.name)}
+        width="284"
+        height="350"
       />
       <div
         className={classes.title}

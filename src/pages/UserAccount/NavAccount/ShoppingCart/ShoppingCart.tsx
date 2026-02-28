@@ -21,7 +21,7 @@ import { ERROR_MESSAGES } from "../../../../constants/messages";
 import { OrderSuccess } from "./OrderSuccess/OrderSuccess";
 import { useCartContext } from "../../../../context/CartContext";
 
-export function ShoppingCart() {
+export default function ShoppingCart() {
   const { cartItems, clearCart } = useCartContext();
   const { user } = useUserContext();
   const { shippingData, delivery, payment, updateItems, updateData, updateDelivery, updatePayment, resetCheckout } = useCheckoutContext();

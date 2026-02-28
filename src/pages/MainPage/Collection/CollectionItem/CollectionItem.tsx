@@ -21,7 +21,9 @@ export function CollectionItem({
         <img
           className={classes.img}
           src={collectionItem.presentation.imageUrl}
-          alt={collectionItem.name}
+          alt=""
+          width="1100"
+          height="613"
         />
         <div className={classes.title}>{collectionItem.name}</div>
         {hotspots.map((spot) => (

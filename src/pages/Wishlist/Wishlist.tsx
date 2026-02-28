@@ -3,7 +3,7 @@ import { useResolvedWishlist } from "../../hooks/wishlist/useResolvedWishlist";
 
 import classes from "./Wishlist.module.css";
 
-export function Wishlist() {
+export default function Wishlist() {
   const wishlist = useResolvedWishlist();
 
   return (

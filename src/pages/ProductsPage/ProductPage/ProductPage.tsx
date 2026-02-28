@@ -7,7 +7,7 @@ import { DataLoader } from '../../../components/DataLoader/DataLoader.tsx';
 import classes from './ProductPage.module.css';
 import { AppError } from '../../../errors/index.ts';
 
-export function ProductPage() {
+export default function ProductPage() {
     const { itemId } = useParams();
     const { data: products, isLoading, error } = useProducts();
 

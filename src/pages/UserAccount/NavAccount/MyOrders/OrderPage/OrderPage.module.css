@@ -29,14 +29,13 @@
     display: flex;
     flex-direction: column;
     list-style: none;
+    padding-left: 15px;
 }
 
 .orderItem {
     display: flex;
     justify-content: space-between;
     gap: 10px;
-    padding: 5px;
-    margin-bottom: 10px;
     font-weight: 400;
 }
 
@@ -60,7 +59,6 @@
     font-size: 18px;
     margin-bottom: 10px;
     border-bottom: 1px solid silver;
-    padding: 5px;
 }
 
 .price {

@@ -17,7 +17,6 @@ import {
 } from "../../config";
 
 import classes from "./Footer.module.css";
-import { Wrapper } from "../Wrapper/Wrapper";
 
 export default function Footer() {
   return (

@@ -37,7 +37,7 @@ export function GoogleCallback() {
     }
 
     cleanGuestWishlist();
-    navigate(ROUTES.userAccount, { replace: true });
+    navigate(`/${ROUTES.userAccount}`, { replace: true });
   }, []);
 
   return <div className={classes.signing}>Signing you in...</div>;
