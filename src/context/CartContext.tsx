@@ -6,7 +6,13 @@ import { toast } from "react-toastify";
 import { Product } from "../types/api/product";
 import { OrderItem } from "../types/orderTypes";
 import { CartContextValue } from "../types/cartTypes";
-import { cartReducer } from "../reducers/cartReducer/cartReducer";
+import { cartReducer } from "../store/reducers/cart";
+import {
+  addToCartAction,
+  clearCartAction,
+  removeFromCartAction,
+  updateQuantityAction,
+} from "../store/actions/cart";
 
 export const CartContext = createContext<CartContextValue | null>(null);
 
@@ -31,17 +37,16 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, [isCartOpen]);
 
   const addToCart = (product: Product, quantity: number = 1) => {
-    dispatch({ type: "ADD_TO_CART", payload: { product, quantity } });
+    dispatch(addToCartAction(product, quantity));
     toast.success(`${product.name} added to Shopping Cart!`);
   };
 
-  const removeFromCart = (id: string) =>
-    dispatch({ type: "REMOVE_FROM_CART", payload: { id } });
+  const removeFromCart = (id: string) => dispatch(removeFromCartAction(id));
 
   const updateQuantity = (id: string, quantity: number, stock?: number) =>
-    dispatch({ type: "UPDATE_QUANTITY", payload: { id, quantity, stock } });
+    dispatch(updateQuantityAction(id, quantity, stock));
 
-  const clearCart = () => dispatch({ type: "CLEAR_CART" });
+  const clearCart = () => dispatch(clearCartAction());
 
   const toggleCartOpen = () => setIsCartOpen((prev) => !prev);
 

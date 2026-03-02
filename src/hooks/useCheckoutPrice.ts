@@ -20,13 +20,9 @@ export function useCheckoutPrice({
     () => keyBy(data?.countries, "name"),
     [data?.countries],
   );
-  console.log("Wybrany kraj:", country);
-  console.log("Dostępne kraje w mapie:", countriesMap);
-
   const vatRate =
     country && countriesMap[country] ? countriesMap[country].vatRate : 0;
-  console.log("Wyliczony VAT Rate:", vatRate);
-  
+
   const deliveryPrice = delivery?.price ?? 0;
 
   return calculateCheckoutPrice({
