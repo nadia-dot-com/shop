@@ -8,7 +8,7 @@ type Button = {
   textColor: string;
   text: string;
   type?: "button" | "submit" | "reset" | undefined;
-  onClick?: () => void;
+  onClick?: (...args: any[]) => void;
   children?: ReactNode;
   disabled?: boolean;
 };

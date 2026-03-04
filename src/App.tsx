@@ -39,6 +39,7 @@ const MyWishlist = lazy(
 const OrderPage = lazy(
   () => import("./pages/UserAccount/NavAccount/MyOrders/OrderPage/OrderPage"),
 );
+
 function App() {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
