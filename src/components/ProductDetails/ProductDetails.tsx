@@ -17,7 +17,7 @@ import {
 } from "../../utils/product";
 
 import classes from "./ProductDetails.module.css";
-import { WishlistButton } from "../WishlistButton/WishlistButton";
+import { WishlistButton } from "../wishlist/WishlistButton/WishlistButton";
 import { Price } from "../Price/Price";
 
 export function ProductDetails({ product }: { product: Product }) {

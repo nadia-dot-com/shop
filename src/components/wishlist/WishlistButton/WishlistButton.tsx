@@ -1,9 +1,9 @@
 import classes from "./WishlistButton.module.css";
 import Lottie from "lottie-react";
-import likeLoading from "../../animations/insider-loading.json";
+import likeLoading from "../../../animations/insider-loading.json";
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 import { memo } from "react";
-import { cn } from "../../utils/cn";
+import { cn } from "../../../utils/cn";
 
 type WishlistButton = {
   isLoading: boolean;

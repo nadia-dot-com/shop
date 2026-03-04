@@ -8,13 +8,25 @@ const meta: Meta<typeof Price> = {
       <div
         style={{
           display: "flex",
-          width: 240,
-          height: 320,
+          flexDirection: "column",
+          gap: 10,
+          width: 260,
+          height: 'auto',
           border: "1px solid #eee",
           padding: 8,
           backgroundColor: "#f5f5f5",
         }}
       >
+        <div
+          style={{
+            display: "flex",
+            width: 240,
+            height: 320,
+            border: "1px solid #c9c7c7ff",
+            padding: 8,
+            backgroundColor: "#f5f5f5",
+          }}
+        />
         <Story />
       </div>
     ),

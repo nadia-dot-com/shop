@@ -9,7 +9,7 @@ import { useShoppingNavigation } from "../../../../hooks/useShoppingNavigation";
 import { isProductInStock, isProductOnSale } from "../../../../utils/product";
 import { memo, useCallback } from "react";
 import classes from "./ProductItem.module.css";
-import { WishlistButton } from "../../../WishlistButton/WishlistButton";
+import { WishlistButton } from "../../../wishlist/WishlistButton/WishlistButton";
 import { Price } from "../../../Price/Price";
 
 const ProductItemVisual = memo(
@@ -110,4 +110,3 @@ export const ProductItem = memo(({ product }: { product: Product }) => {
     />
   );
 });
-

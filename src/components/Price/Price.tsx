@@ -7,7 +7,7 @@ export const Price = memo (
     return (
       <div className={classes.price}>
         {discount <= 0 ? (
-          <p>${Number(price).toFixed(2)}</p>
+          <div>${Number(price).toFixed(2)}</div>
         ) : (
           <div className={classes.discountContainer}>
             <div className={classes.discountPrice}>
