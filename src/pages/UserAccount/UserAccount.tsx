@@ -5,6 +5,8 @@ import { MakeLogin } from "./MakeLogin/MakeLogin";
 import { DataLoader } from "../../components/DataLoader/DataLoader";
 
 import classes from "./UserAccount.module.css";
+import { ErrorBoundary } from "react-error-boundary";
+import { ErrorFallback } from "../../components/ErrorFallback/ErrorFallback";
 
 export default function UserAccount() {
   const { user, isLoading, error } = useUserContext();
@@ -19,7 +21,9 @@ export default function UserAccount() {
             <NavAccount />
 
             <section className={classes.content}>
-              <Outlet />
+              <ErrorBoundary FallbackComponent={ErrorFallback}>
+                <Outlet />
+              </ErrorBoundary>
             </section>
           </>
         ) : (

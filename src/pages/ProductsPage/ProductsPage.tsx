@@ -8,6 +8,8 @@ import { useCategoryContext } from "../../context/CategoryContext";
 
 import classes from "./ProductsPage.module.css";
 import { useInfiniteProducts } from "../../hooks/products/useInfiniteProducts";
+import { ErrorBoundary } from "react-error-boundary";
+import { ErrorFallback } from "../../components/ErrorFallback/ErrorFallback";
 
 export default function ProductsPage() {
   const { itemId } = useParams();
@@ -23,7 +25,7 @@ export default function ProductsPage() {
       <ProductNav />
 
       <section>
-        <Outlet />
+          <Outlet />
       </section>
 
       <DataLoader loading={isLoading} loaded={!!products.length} error={error}>
@@ -33,7 +35,9 @@ export default function ProductsPage() {
             itemId && classes.productPageOpen,
           )}
         >
-          <Products products={products} />
+          <ErrorBoundary FallbackComponent={ErrorFallback}>
+            <Products products={products} />
+          </ErrorBoundary>
         </section>
       </DataLoader>
     </div>

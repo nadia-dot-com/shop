@@ -11,6 +11,8 @@ import classes from "./MainLayout.module.css";
 import { Suspense } from "react";
 import { LoadingSpinner } from "../../LoadingSpinner/LoadingSpinner";
 import { useCartUiContext } from "../../../context/CartUIContext";
+import { ErrorBoundary } from "react-error-boundary";
+import { ErrorFallback } from "../../ErrorFallback/ErrorFallback";
 
 export function MainLayout() {
   const { isCartOpen } = useCartUiContext();
@@ -20,11 +22,13 @@ export function MainLayout() {
     <div className={classes.layout}>
       <Header />
       <main>
-        <Suspense fallback={<LoadingSpinner />}>
-          <Wrapper>
-            <Outlet />
-          </Wrapper>
-        </Suspense>
+        <ErrorBoundary FallbackComponent={ErrorFallback}>
+          <Suspense fallback={<LoadingSpinner />}>
+            <Wrapper>
+              <Outlet />
+            </Wrapper>
+          </Suspense>
+        </ErrorBoundary>
       </main>
 
       <Footer />
