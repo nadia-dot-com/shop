@@ -4,6 +4,7 @@ import { OrderResponse } from "../../types/api/order.response";
 import { OrderPayload } from "../../types/api/order.payload";
 import { useUserContext } from "../../context/UserContext";
 import { queryClient } from "../../query/queryClient";
+import { QUERY_KEYS } from "../../api/queryKeys";
 
 export function useCreateOrder(
   onSuccessCallback?: () => void,
@@ -21,7 +22,7 @@ export function useCreateOrder(
 
     onSuccess: () => {
       onSuccessCallback?.();
-      queryClient.invalidateQueries({ queryKey: ["orders"] });
+      queryClient.invalidateQueries({ queryKey: QUERY_KEYS.orders(token)});
     },
     onError: (err) => onErrorCallback?.(err),
   });

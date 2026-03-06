@@ -24,7 +24,6 @@ export const WishlistItemVisual = memo(
     addToCart: () => void;
   }) => {
     const { name, imagesUrls, price, stockQuantity, discount } = item;
-    console.log(name);
 
     return (
       <div className={classes.wishlistItem}>

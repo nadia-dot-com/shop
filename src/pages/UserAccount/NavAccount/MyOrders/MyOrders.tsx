@@ -6,6 +6,8 @@ import classes from "./MyOrders.module.css";
 export default function MyOrders() {
   const { data: orders, isLoading, error } = useOrders();
 
+  const ordersUi = orders ? [...orders].reverse() : [];
+
   return (
     <DataLoader loading={isLoading} loaded={!!orders} error={error}>
       <table className={classes.ordersTable}>
@@ -19,7 +21,7 @@ export default function MyOrders() {
           </tr>
         </thead>
         <tbody>
-          {(orders || []).map((order) => (
+          {ordersUi.map((order) => (
             <OrderRow key={order.id} order={order} />
           ))}
         </tbody>
