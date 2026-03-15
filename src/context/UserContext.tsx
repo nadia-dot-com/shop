@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useCallback, useEffect, useMemo, useState } from "react";
+import { createContext, ReactNode, useCallback, useEffect, useMemo } from "react";
 import { UserContextProps, UserData } from "../types/userTypes";
 import { createContextHook } from "../hooks/createContextHook";
 import { useLocalStorage } from "../hooks/useLocalStorage";

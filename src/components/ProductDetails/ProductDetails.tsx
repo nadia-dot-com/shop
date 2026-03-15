@@ -8,10 +8,8 @@ import { cn } from "../../utils/cn";
 import { checkProductDate } from "../../utils/checkProductDate";
 import { NewProductLabel } from "../NewProductLabel/NewProductLabel";
 import { useWishlist } from "../../hooks/wishlist/useWishlist";
-import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 import { Product } from "../../types/api/product";
 import {
-  getDiscountPrice,
   isProductInStock,
   isProductOnSale,
 } from "../../utils/product";
