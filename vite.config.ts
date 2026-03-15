@@ -16,7 +16,7 @@ const dirname =
 
 export default defineConfig({
   plugins: [react()],
-  base: "/house-staff/",
+  base: "/",
   server: {
     port: 5175,
     strictPort: true,

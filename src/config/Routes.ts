@@ -1,6 +1,6 @@
 
 export const ROUTES = {
-  basePath: '/house-staff/',
+  basePath: '/',
   mainLayout: "",
   home: "",
   contact: "contacts",
