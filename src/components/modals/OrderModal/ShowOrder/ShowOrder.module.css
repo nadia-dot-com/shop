@@ -1,3 +1,9 @@
+.showOrderWrapper {
+  margin-bottom: 20px;
+}
+
+
+
 .orderList {
   max-height: 600px;
   overflow-y: auto;
@@ -5,21 +11,17 @@
   margin: 0 40px;
 }
 
-.showOrderWrapper {
-  margin-bottom: 20px;
-}
-
 .orderList::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 .orderList::-webkit-scrollbar-track {
   background: transparent;
-  margin: 10px 0;
+  margin: 0px 0px 0px 10px;
 }
 
 .orderList::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #afadad;
   border-radius: 10px;
 }
 
@@ -58,6 +60,14 @@
 .googleIcon {
   position: relative;
   top: 2px;
+}
+
+@media (max-width: 576px) {
+  .showOrderWrapper {
+    max-height: 100dvh;
+    height: 90dvh;
+    overflow-y: auto;
+  }
 }
 
 @media (max-width: 400px) {

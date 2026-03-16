@@ -69,7 +69,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  line-height: 1;
   right: 20px;
   bottom: 20px;
   background: black;
@@ -78,7 +77,6 @@
   width: 25px;
   height: 25px;
   text-align: center;
-  font-size: 15px;
   border-radius: 50%;
   cursor: pointer;
   transition: all 500ms ease;
