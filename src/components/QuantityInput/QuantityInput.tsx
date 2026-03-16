@@ -20,6 +20,7 @@ export function QuantityInput({
       max={stock}
       className={classes.quantityInput}
       onChange={onChange}
+      aria-label="Change quantity"
     />
   );
 }
