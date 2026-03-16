@@ -8,47 +8,53 @@ import { useUserContext } from "../../context/UserContext";
 import { useWishlistContext } from "../../context/WishlistContext";
 
 import classes from "./GoogleCallback.module.css";
+import { useCartUiContext } from "../../context/CartUIContext";
 
 export function GoogleCallback() {
   const navigate = useNavigate();
   const merge = useAddToWishlist();
   const { cleanGuestWishlist } = useWishlistContext();
   const { updateToken } = useUserContext();
+  const { isCartOpen, toggleCartOpen } = useCartUiContext();
 
-useEffect(() => {
-  const params = new URLSearchParams(window.location.search);
-  const token = params.get(TOKEN); 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get(TOKEN);
 
-  if (!token) {
-    toast.error("Login failed");
-    navigate("/", { replace: true });
-    return;
-  }
+    if (!token) {
+      toast.error("Login failed");
+      navigate("/", { replace: true });
+      return;
+    }
 
-  localStorage.setItem(TOKEN, token);
-  
-  updateToken(token);
+    localStorage.setItem(TOKEN, token);
 
-  const localWishlist = JSON.parse(
-    localStorage.getItem(GUEST_WISHLIST_KEY) ?? "[]"
-  );
+    updateToken(token);
 
-  const handleRedirect = () => {
-    setTimeout(() => {
-      navigate(`/${ROUTES.userAccount}`, { replace: true });
-    }, 50); 
-  };
+     if (isCartOpen) {
+        toggleCartOpen();
+      }
 
-  if (localWishlist.length > 0) {
-    merge.mutate(localWishlist, {
-      onSettled: () => {
-        cleanGuestWishlist();
-        handleRedirect();
-      },
-    });
-  } else {
-    handleRedirect();
-  }
-}, [navigate, updateToken, cleanGuestWishlist, merge]);
+    const localWishlist = JSON.parse(
+      localStorage.getItem(GUEST_WISHLIST_KEY) ?? "[]",
+    );
+
+    const handleRedirect = () => {
+      setTimeout(() => {
+        navigate(`/${ROUTES.userAccount}`, { replace: true });
+      }, 50);
+    };
+
+    if (localWishlist.length > 0) {
+      merge.mutate(localWishlist, {
+        onSettled: () => {
+          cleanGuestWishlist();
+          handleRedirect();
+        },
+      });
+    } else {
+      handleRedirect();
+    }
+  }, [navigate, updateToken, cleanGuestWishlist, merge, isCartOpen, toggleCartOpen]);
   return <div className={classes.signing}>Signing you in...</div>;
 }

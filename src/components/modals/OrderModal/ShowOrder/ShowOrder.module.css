@@ -1,14 +1,13 @@
 .showOrderWrapper {
   margin-bottom: 20px;
+  height: auto;
 }
-
-
 
 .orderList {
   max-height: 600px;
   overflow-y: auto;
   overflow-x: hidden;
-  margin: 0 40px;
+  margin: 5px 40px;
 }
 
 .orderList::-webkit-scrollbar {
@@ -64,8 +63,6 @@
 
 @media (max-width: 576px) {
   .showOrderWrapper {
-    max-height: 100dvh;
-    height: 90dvh;
     overflow-y: auto;
   }
 }

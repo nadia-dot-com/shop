@@ -1,10 +1,4 @@
-import {
-  ReactNode,
-  useCallback,
-  useMemo,
-  createContext,
-  useEffect,
-} from "react";
+import { ReactNode, useCallback, useMemo, createContext, useEffect } from "react";
 import { IS_ORDER_OPEN_KEY } from "../data/locatStorageKey";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { createContextHook } from "../hooks/createContextHook";
@@ -19,27 +13,26 @@ export function CartUIProvider({ children }: { children: ReactNode }) {
   );
 
   useEffect(() => {
-    document.body.style.overflow = isCartOpen ? "hidden" : "";
-  }, [isCartOpen]);
+      document.body.style.overflow = isCartOpen ? "hidden" : "";
+    }, [isCartOpen]);
 
   const toggleCartOpen = useCallback(() => {
     setIsCartOpen((prev) => !prev);
   }, [setIsCartOpen]);
 
-  const value = useMemo(
-    () => ({
-      isCartOpen,
-      toggleCartOpen,
-    }),
-    [isCartOpen, toggleCartOpen],
-  );
+  const value = useMemo(() => ({
+    isCartOpen,
+    toggleCartOpen
+  }), [isCartOpen, toggleCartOpen]);
 
   return (
-    <CartUIContext.Provider value={value}>{children}</CartUIContext.Provider>
+    <CartUIContext.Provider value={value}>
+      {children}
+    </CartUIContext.Provider>
   );
 }
 
 export const useCartUiContext = createContextHook(
   CartUIContext,
-  CartUIProvider,
+  CartUIProvider
 );
