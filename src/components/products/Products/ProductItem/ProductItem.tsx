@@ -76,7 +76,7 @@ const ProductItemVisual = memo(
           >
             <svg
               width="8"
-              height="10"
+              height="8"
               viewBox="0 0 14 14"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
