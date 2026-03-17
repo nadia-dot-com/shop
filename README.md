@@ -14,37 +14,50 @@ Storybook is used for **isolated UI component development and documentation**.
 
 ---
 
-# Key Features
+## Features
+
+### UI Components & Documentation
+Storybook is used for isolated UI component development and documentation.
 
 ### Shopping Cart Management
-Full CRUD operations on cart items with persistent storage.
+Full CRUD operations on cart items with persistent data storage.
 
 ### User Authentication
-Secure **Google OAuth integration** for personalized user experience.
-
-### Optimized Checkout Flow
-Mobile-first design with a custom-built modal and scroll-lock mechanics.
+Secure Google OAuth integration enabling a personalized user experience.
 
 ### Wishlist System
-Users can save favorite products. The wishlist works for both **guest and authenticated users**.
+Users can save their favorite products. The wishlist works for both guest and authenticated users.
 
-### Performance Focused
-Implemented **Code Splitting (React.lazy)** and image optimization to ensure fast loading times.
+### Performance Optimization
+Implemented Code Splitting using React.lazy and image optimization to reduce application loading times.
 
 ### Responsive Design
-Fully responsive layout optimized for **desktop, tablet, and mobile devices (iOS/Android)**.
+Fully responsive interface optimized for desktop, tablet, and mobile devices.
 
+### Accessibility (A11y) and SEO
+Implementation of accessibility standards (semantic HTML, ARIA attributes) and SEO optimization (metadata and structured content).
+
+### Efficient Data Management
+Uses TanStack Query for server state management, including automatic caching, background updates, and smooth handling of loading and error states.
+
+### State Management
+React Context API used for managing application state (Cart, User, UI).
 ---
 
 # Tech Stack
 
 ### Core
-- React 18
+- React 19
 - TypeScript
 - Vite
+- TanStack Query (React Query)
+- Storybook
 
 ### State Management
 - React Context API (Cart, User, UI state)
+
+### Server State
+- TanStack Query (React Query)
 
 ### Routing
 - React Router DOM
