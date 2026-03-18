@@ -13,8 +13,8 @@ export const ROUTES = {
   profile: "profile",
   myOrders: "my-orders",
   orderPage: (id: string) => `my-orders/${id}`,
-  shoppingCart: "shoping-cart",
+  shoppingCart: "shopping-cart",
   myWishlist: "my-wishlist",
 
   guestWishlist: "wishlist",
-};
+} as const;
