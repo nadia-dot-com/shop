@@ -16,6 +16,15 @@ Storybook is used for **isolated UI component development and documentation**.
 
 ## Features
 
+### Server State Management
+Powered by TanStack Query for efficient data fetching, automated caching, real-time synchronization, and seamless handling of loading/error states.
+
+### Global State
+Managed via React Context API + useReducer for scalable and predictable state transitions.
+
+### TypeScript
+Fully typed codebase using interfaces and custom types to describe data structures, eliminating runtime errors and providing superior developer experience through enhanced autocompletion.
+
 ### UI Components & Documentation
 Storybook is used for isolated UI component development and documentation.
 
@@ -37,11 +46,6 @@ Fully responsive interface optimized for desktop, tablet, and mobile devices.
 ### Accessibility (A11y) and SEO
 Implementation of accessibility standards (semantic HTML, ARIA attributes) and SEO optimization (metadata and structured content).
 
-### Efficient Data Management
-Uses TanStack Query for server state management, including automatic caching, background updates, and smooth handling of loading and error states.
-
-### State Management
-React Context API used for managing application state (Cart, User, UI).
 ---
 
 # Tech Stack
