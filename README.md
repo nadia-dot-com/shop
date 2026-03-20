@@ -8,9 +8,9 @@ Frontend project built with **React, Vite, and TypeScript**.
 
 Live App: https://house-staff.onrender.com
 
-Storybook: https://nadia-dot-com.github.io/shop
+Storybook: https://nadia-dot-com.github.io/house-staff
 
-Storybook is used for **isolated UI component development and documentation**.
+Storybook is used for **isolated UI component development and git documentation**.
 
 ---
 
