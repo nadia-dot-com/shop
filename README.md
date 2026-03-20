@@ -16,6 +16,9 @@ Storybook is used for **isolated UI component development and git documentation*
 
 ## Features
 
+### Backend Communication 
+Integration with a dedicated Node.js/Express server. Managed the full data lifecycle (fetching, sending, and updating) and established seamless communication with the database.
+
 ### Server State Management
 Powered by TanStack Query for efficient data fetching, automated caching, real-time synchronization, and seamless handling of loading/error states.
 
