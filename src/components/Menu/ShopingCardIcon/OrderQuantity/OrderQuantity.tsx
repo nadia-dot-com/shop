@@ -1,6 +1,5 @@
-import { useCartContext } from "../../../../context/CartContext";
+import { useCartContext } from "@/context/CartContext";
 import { sumBy } from "lodash";
-
 import classes from "./OrderQuantity.module.css";
 
 export function OrderQuantity() {

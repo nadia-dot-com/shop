@@ -1,4 +1,4 @@
-import { Product } from "../types/api/product";
+import { Product } from "@/types/api/product";
 
 export const isProductOnSale = (product: Product): boolean =>
   product.discount > 0;

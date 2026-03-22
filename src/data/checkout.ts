@@ -1,4 +1,4 @@
-import { CheckoutState } from "../types/checkoutTypes";
+import { CheckoutState } from "@/types/checkoutTypes";
 
 export const CHECKOUT_INITIAL: CheckoutState = {
   items: [],

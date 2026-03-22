@@ -1,6 +1,5 @@
 import Lottie from 'lottie-react';
-import success from '../../../../../animations/completed.json';
-
+import success from '@/animations/completed.json';
 import classes from './OrderSuccess.module.css';
 
 export function OrderSuccess() {

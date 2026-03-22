@@ -1,5 +1,5 @@
-import { useOrders } from "../../../../hooks/orders/useOrders";
-import { DataLoader } from "../../../../components/DataLoader/DataLoader";
+import { useOrders } from "@/hooks/orders/useOrders";
+import { DataLoader } from "@/components/DataLoader/DataLoader";
 import { OrderRow } from "./OrderRow/OrderRow";
 import classes from "./MyOrders.module.css";
 

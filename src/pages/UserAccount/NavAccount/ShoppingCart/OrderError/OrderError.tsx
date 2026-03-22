@@ -1,6 +1,5 @@
 import Lottie from "lottie-react";
-import warning from '../../../../../animations/warning.json'
-
+import warning from '@/animations/warning.json'
 import classes from './OrderError.module.css'
 
 export function OrderError({message}: {message: string}) {

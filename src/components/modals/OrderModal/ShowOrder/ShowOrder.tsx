@@ -1,16 +1,15 @@
 import { Button } from "../../../Button/Button";
 import { OrderItemRow } from "../../../OrderItemRow/OrderItemRow";
-import { useCartContext } from "../../../../context/CartContext";
-import { useUserContext } from "../../../../context/UserContext";
+import { useCartContext } from "@/context/CartContext";
+import { useUserContext } from "@/context/UserContext";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../../../../config/Routes";
+import { ROUTES } from "@/config/Routes";
 import { Subtotal } from "../../../Subtotal/Subtotal";
-import { OrderItem } from "../../../../types/orderTypes";
+import { OrderItem } from "@/types/orderTypes";
 import { LoginButton } from "../../../LoginButton/LoginButton";
-import { useItemsByIds } from "../../../../hooks/products/useItemByIds";
-
+import { useItemsByIds } from "@/hooks/products/useItemByIds";
+import { useCartUiContext } from "@/context/CartUIContext";
 import classes from "./ShowOrder.module.css";
-import { useCartUiContext } from "../../../../context/CartUIContext";
 
 export function ShowOrder({ cartItems }: { cartItems: OrderItem[] }) {
   const {toggleCartOpen} = useCartUiContext();

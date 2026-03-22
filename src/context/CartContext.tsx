@@ -6,20 +6,20 @@ import {
   useMemo,
   useReducer,
 } from "react";
-import { createContextHook } from "../hooks/createContextHook";
-import { useLocalStorage } from "../hooks/useLocalStorage";
-import { ORDER_KEY } from "../data/locatStorageKey";
+import { createContextHook } from "@/hooks/createContextHook";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { ORDER_KEY } from "@/data/locatStorageKey";
 import { toast } from "react-toastify";
-import { Product } from "../types/api/product";
-import { OrderItem } from "../types/orderTypes";
-import { CartContextValue } from "../types/cartTypes";
-import { cartReducer } from "../store/reducers/cart";
+import { Product } from "@/types/api/product";
+import { OrderItem } from "@/types/orderTypes";
+import { CartContextValue } from "@/types/cartTypes";
+import { cartReducer } from "@/store/reducers/cart";
 import {
   addToCartAction,
   clearCartAction,
   removeFromCartAction,
   updateQuantityAction,
-} from "../store/actions/cart";
+} from "@/store/actions/cart";
 
 export const CartContext = createContext<CartContextValue | null>(null);
 

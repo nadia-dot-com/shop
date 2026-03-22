@@ -1,7 +1,7 @@
-import { OrderResponse } from "../../../../../types/api/order.response";
-import { Button } from "../../../../../components/Button/Button";
-import classes from "./OrderRow.module.css";
+import { OrderResponse } from "@/types/api/order.response";
+import { Button } from "@/components/Button/Button";
 import { useNavigate } from "react-router-dom";
+import classes from "./OrderRow.module.css";
 
 export function OrderRow({ order }: { order: OrderResponse }) {
   const navigate = useNavigate();

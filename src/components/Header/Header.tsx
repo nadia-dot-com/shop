@@ -2,9 +2,9 @@ import { Menu } from "../Menu/Menu";
 import { StyledLink } from "../StyledLink/StyledLink";
 
 import classes from "./Header.module.css";
-import { ROUTES } from "../../config/Routes";
-import { useScrollUp } from "../../hooks/useScrollUp";
-import { cn } from "../../utils/cn";
+import { ROUTES } from "@/config/Routes";
+import { useScrollUp } from "@/hooks/useScrollUp";
+import { cn } from "@/utils/cn";
 
 export default function Header() {
   const { isScrollingUp } = useScrollUp();

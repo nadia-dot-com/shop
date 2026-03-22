@@ -1,4 +1,4 @@
-import { OrderItem } from "../types/orderTypes";
+import { OrderItem } from "@/types/orderTypes";
 import { getDiscountSubtotal } from "./getSubtotals";
 import { getVAT } from "./getVAT";
 import { roundMoney } from "./roundMoney";

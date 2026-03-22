@@ -1,7 +1,6 @@
-import { Price } from "../../../../../../../components/Price/Price";
-import { OrderItemResponse } from "../../../../../../../types/api/order.response";
-import { OrderItem } from "../../../../../../../types/orderTypes";
-
+import { Price } from "@/components/Price/Price";
+import { OrderItemResponse } from "@/types/api/order.response";
+import { OrderItem } from "@/types/orderTypes";
 import classes from "./OrderList.module.css";
 
 export function OrderList({

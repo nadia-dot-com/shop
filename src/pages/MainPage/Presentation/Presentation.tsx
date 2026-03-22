@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { PRESENTATION } from "../../../data/presentation";
+import { PRESENTATION } from "@/data/presentation";
 import { PresentationItem } from "./PresentationItem/PresentationItem";
-
+import { useHover } from "@/hooks/useHover";
 import classes from "./Presentation.module.css";
-import { useHover } from "../../../hooks/useHover";
 
 const DELAY = 3000;
 

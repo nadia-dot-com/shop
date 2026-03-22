@@ -1,8 +1,7 @@
-import { StyledLink } from "../../../components/StyledLink/StyledLink";
-import { ROUTES } from "../../../config/Routes";
-import { useUserContext } from "../../../context/UserContext";
+import { StyledLink } from "@/components/StyledLink/StyledLink";
+import { ROUTES } from "@/config/Routes";
+import { useUserContext } from "@/context/UserContext";
 import { Logout } from "./Logout/Logout";
-
 import classes from './NavAccount.module.css';
 
 export function NavAccount() {

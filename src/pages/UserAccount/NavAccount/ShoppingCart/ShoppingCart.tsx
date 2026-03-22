@@ -1,24 +1,24 @@
 import { useRef, useState } from "react";
-import { useUserContext } from "../../../../context/UserContext";
-import { EmptyCard } from "../../../../components/EmptyCard/EmptyCard";
+import { useUserContext } from "@/context/UserContext";
+import { EmptyCard } from "@/components/EmptyCard/EmptyCard";
 import { Cart } from "./Cart/Cart";
 import { AddressForm } from "./AddressForm/AddressForm";
-import { useCheckoutContext } from "../../../../context/CheckoutContext";
-import { DataProps } from "../../../../types/checkoutTypes";
+import { useCheckoutContext } from "@/context/CheckoutContext";
+import { DataProps } from "@/types/checkoutTypes";
 import { CheckoutReview } from "./CheckoutReview/CheckoutReview";
 import { ShoppingCartNav } from "./ShoppingCartNav/ShoppingCartNav";
 import { CheckoutButtons } from "./CheckoutButtons/CheckoutButtons";
-import { useShoppingNavigation } from "../../../../hooks/useShoppingNavigation";
-import { categoriesGroups } from "../../../../data/categories";
-import { useCheckoutPrice } from "../../../../hooks/useCheckoutPrice";
-import { useCreateOrder } from "../../../../hooks/orders/useCreateOrder";
-import { buildOrderPayload } from "../../../../utils/buildOrderPayload";
+import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";
+import { categoriesGroups } from "@/data/categories";
+import { useCheckoutPrice } from "@/hooks/useCheckoutPrice";
+import { useCreateOrder } from "@/hooks/orders/useCreateOrder";
+import { buildOrderPayload } from "@/utils/buildOrderPayload";
 import classes from "./ShoppingCart.module.css";
 import { OrderError } from "./OrderError/OrderError";
-import { ERROR_MESSAGES } from "../../../../constants/messages";
+import { ERROR_MESSAGES } from "@/constants/messages";
 import { OrderSuccess } from "./OrderSuccess/OrderSuccess";
-import { useCartContext } from "../../../../context/CartContext";
-import { CHECKOUT_STEP } from "../../../../constants/checkout";
+import { useCartContext } from "@/context/CartContext";
+import { CHECKOUT_STEP } from "@/constants/checkout";
 
 export default function ShoppingCart() {
   const { cartItems, clearCart } = useCartContext();

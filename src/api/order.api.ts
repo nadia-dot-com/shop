@@ -1,5 +1,5 @@
-import { OrderPayload } from "../types/api/order.payload";
-import { OrderResponse } from "../types/api/order.response";
+import { OrderPayload } from "@/types/api/order.payload";
+import { OrderResponse } from "@/types/api/order.response";
 import { API_URL } from "./config";
 
 export async function sendOrderToServer(

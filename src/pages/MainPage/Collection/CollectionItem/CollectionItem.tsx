@@ -1,7 +1,6 @@
-import { useProducts } from "../../../../hooks/products/useProducts";
-import { Collection, HotSpotProps } from "../../../../types/api/collection";
+import { useProducts } from "@/hooks/products/useProducts";
+import { Collection, HotSpotProps } from "@/types/api/collection";
 import { Hotspot } from "../Hotspot/Hotspot";
-
 import classes from "./CollectionItem.module.css";
 
 export function CollectionItem({

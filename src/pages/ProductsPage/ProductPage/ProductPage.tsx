@@ -1,11 +1,10 @@
 import { useParams } from 'react-router-dom'
-import { ProductDetails } from '../../../components/ProductDetails/ProductDetails.tsx';
-import { slugify } from '../../../utils/slugify.ts';
-import { useProducts } from '../../../hooks/products/useProducts.ts';
-import { DataLoader } from '../../../components/DataLoader/DataLoader.tsx';
-
+import { ProductDetails } from '@/components/ProductDetails/ProductDetails.tsx';
+import { slugify } from '@/utils/slugify.ts';
+import { useProducts } from '@/hooks/products/useProducts.ts';
+import { DataLoader } from '@/components/DataLoader/DataLoader.tsx';
+import { AppError } from '@/errors/index.ts';
 import classes from './ProductPage.module.css';
-import { AppError } from '../../../errors/index.ts';
 
 export default function ProductPage() {
     const { itemId } = useParams();

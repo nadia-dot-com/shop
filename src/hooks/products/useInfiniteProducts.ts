@@ -1,10 +1,10 @@
 // import { useInfiniteQuery } from "@tanstack/react-query"
 // import { fetchInfiniteProducts } from "../../api/products.api"
-import { categoriesGroups } from "../../data/categories";
-import { fromSlugToTitle } from "../../utils/fromSlugToTitle";
+import { categoriesGroups } from "@/data/categories";
+import { fromSlugToTitle } from "@/utils/fromSlugToTitle";
 import { useProducts } from "./useProducts";
 import { useMemo } from "react";
-import { Product } from "../../types/api/product";
+import { Product } from "@/types/api/product";
 
 const PAGE_SIZE = 12;
 

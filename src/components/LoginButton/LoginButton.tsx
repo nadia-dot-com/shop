@@ -1,6 +1,6 @@
 import { FcGoogle } from "react-icons/fc";
 import { Button } from "../Button/Button";
-import { API_URL } from "../../api/config";
+import { API_URL } from "@/api/config";
 
 import classes from "./LoginButton.module.css";
 

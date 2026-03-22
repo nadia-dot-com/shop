@@ -1,13 +1,12 @@
 import { StyledLink } from "../StyledLink/StyledLink";
 import { ShopingCardIcon } from "./ShopingCardIcon/ShopingCartIcon";
-import { ROUTES } from "../../config/Routes";
+import { ROUTES } from "@/config/Routes";
 import { AccountIcon } from "./AccountIcon/AccountIcon";
 import { WishlistIcon } from "./WishlistIcon/WishlistIcon";
-import { useToggle } from "../../hooks/useToggle";
+import { useToggle } from "@/hooks/useToggle";
 import { useEffect } from "react";
-
+import { useCartUiContext } from "@/context/CartUIContext";
 import classes from "./Menu.module.css";
-import { useCartUiContext } from "../../context/CartUIContext";
 
 type MenuLinksProps = {
   to: string;

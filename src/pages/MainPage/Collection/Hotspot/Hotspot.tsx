@@ -1,9 +1,8 @@
-import { useToggle } from "../../../../hooks/useToggle";
+import { useToggle } from "@/hooks/useToggle";
 import { HotspotItem } from "./HotspotItem/HotspotItem";
 import { HotspotButton } from "./HotspotButton/HotspotButton";
 import { ProductNotFound } from "./ProductNotFound/ProductNotFound";
-import { Product } from "../../../../types/api/product";
-
+import { Product } from "@/types/api/product";
 import classes from "./Hotspot.module.css";
 
 export function Hotspot({

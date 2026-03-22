@@ -1,4 +1,4 @@
-import { OptionsResponse } from "../types/api/options";
+import { OptionsResponse } from "@/types/api/options";
 import { API_URL } from "./config";
 
 export const fetchOptions = async (): Promise<OptionsResponse> => {

@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
-import { useOptions } from '../../../../../../../hooks/options/useOptions'; 
-import { DeliveryMethod } from '../../../../../../../types/api/options';
-
+import { useOptions } from '@/hooks/options/useOptions'; 
+import { DeliveryMethod } from '@/types/api/options';
 import classes from './Shipping.module.css';
 
 export function Shipping({ delivery, updateDelivery }: { delivery: DeliveryMethod | null, updateDelivery: (data: DeliveryMethod) => void }) {

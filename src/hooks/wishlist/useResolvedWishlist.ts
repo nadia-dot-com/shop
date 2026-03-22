@@ -1,5 +1,5 @@
-import { useUserContext } from "../../context/UserContext";
-import { useWishlistContext } from "../../context/WishlistContext";
+import { useUserContext } from "@/context/UserContext";
+import { useWishlistContext } from "@/context/WishlistContext";
 import { useItemsByIds } from "../products/useItemByIds";
 import { useWishlistQuery } from "./useWishlistQuery";
 

@@ -1,5 +1,5 @@
-import { useCategories } from "../../hooks/categories/useCategories";
-import { useCollections } from "../../hooks/collection/useCollections";
+import { useCategories } from "@/hooks/categories/useCategories";
+import { useCollections } from "@/hooks/collection/useCollections";
 import { ProductNavView } from "./ProductNavView/ProductNavView";
 
 export function ProductNav() {

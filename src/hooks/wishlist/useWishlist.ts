@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from "react";
-import { useUserContext } from "../../context/UserContext";
-import { useWishlistContext } from "../../context/WishlistContext";
+import { useUserContext } from "@/context/UserContext";
+import { useWishlistContext } from "@/context/WishlistContext";
 import { useAddToWishlist } from "./useAddToWishlist";
 import { useRemoveFromWishlist } from "./useRemoveFromWishlist";
 import { useWishlistQuery } from "./useWishlistQuery";

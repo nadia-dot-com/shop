@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useUserContext } from "../../context/UserContext";
-import { addToWishlist } from "../../api/wishlist.api";
-import { QUERY_KEYS } from "../../api/queryKeys";
+import { useUserContext } from "@/context/UserContext";
+import { addToWishlist } from "@/api/wishlist.api";
+import { QUERY_KEYS } from "@/api/queryKeys";
 
 export const useAddToWishlist = () => {
   const { token } = useUserContext();

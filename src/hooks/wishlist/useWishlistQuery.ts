@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchWishlist } from "../../api/wishlist.api";
-import { fetchProducts } from "../../api/products.api";
-import { Product } from "../../types/api/product";
-import { useUserContext } from "../../context/UserContext";
+import { fetchWishlist } from "@/api/wishlist.api";
+import { fetchProducts } from "@/api/products.api";
+import { Product } from "@/types/api/product";
+import { useUserContext } from "@/context/UserContext";
 import { keyBy } from "lodash";
-import { queryClient } from "../../query/queryClient";
-import { QUERY_KEYS } from "../../api/queryKeys";
+import { queryClient } from "@/query/queryClient";
+import { QUERY_KEYS } from "@/api/queryKeys";
 
 export const useWishlistQuery = () => {
   const { token } = useUserContext();

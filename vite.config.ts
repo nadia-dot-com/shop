@@ -21,6 +21,11 @@ export default defineConfig({
     port: 5175,
     strictPort: true,
   },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
   test: {
     projects: [
       {

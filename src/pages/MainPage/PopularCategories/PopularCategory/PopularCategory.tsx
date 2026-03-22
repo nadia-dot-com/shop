@@ -1,6 +1,5 @@
-import { useShoppingNavigation } from "../../../../hooks/useShoppingNavigation";
-import { Category } from "../../../../types/api/category";
-
+import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";
+import { Category } from "@/types/api/category";
 import classes from "./PopularCategory.module.css";
 
 export function PopularCategory({ category }: { category: Category }) {

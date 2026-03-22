@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchCollections } from "../../api/collections.api";
-import { QUERY_KEYS } from "../../api/queryKeys";
+import { fetchCollections } from "@/api/collections.api";
+import { QUERY_KEYS } from "@/api/queryKeys";
 
 export const useCollections = () => {
   return useQuery({

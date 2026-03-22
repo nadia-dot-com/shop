@@ -1,8 +1,8 @@
 import { createContext, ReactNode, useCallback, useMemo } from "react";
-import { createContextHook } from "../hooks/createContextHook";
-import { useLocalStorage } from "../hooks/useLocalStorage";
-import { GUEST_WISHLIST_KEY } from "../data/locatStorageKey";
-import { WishlistValue } from "../types/wishlistTypes";
+import { createContextHook } from "@/hooks/createContextHook";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { GUEST_WISHLIST_KEY } from "@/data/locatStorageKey";
+import { WishlistValue } from "@/types/wishlistTypes";
 
 export const WishlistContext = createContext<WishlistValue | null>(null);
 

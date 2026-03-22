@@ -1,7 +1,6 @@
-import { OrderItemResponse } from "../../types/api/order.response";
-import { OrderItem } from "../../types/orderTypes";
-import { getDiscountSubtotal, getSubtotal } from "../../utils/getSubtotals";
-
+import { OrderItemResponse } from "@/types/api/order.response";
+import { OrderItem } from "@/types/orderTypes";
+import { getDiscountSubtotal, getSubtotal } from "@/utils/getSubtotals";
 import classes from "./Subtotal.module.css";
 
 export function Subtotal({ arr }: { arr: OrderItem[] | OrderItemResponse[] }) {

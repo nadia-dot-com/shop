@@ -1,9 +1,9 @@
 import { FormEvent, RefObject } from 'react';
-import { useUserContext } from '../../../../../context/UserContext'
+import { useUserContext } from '@/context/UserContext'
+import { useCheckoutContext } from '@/context/CheckoutContext';
+import { DataProps } from '@/types/checkoutTypes';
+import { useOptions } from '@/hooks/options/useOptions'; 
 import classes from './AddressForm.module.css'
-import { useCheckoutContext } from '../../../../../context/CheckoutContext';
-import { DataProps } from '../../../../../types/checkoutTypes';
-import { useOptions } from '../../../../../hooks/options/useOptions'; 
 
 export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFormElement | null>; onSubmit: (data: DataProps) => void }) {
     const { user } = useUserContext();

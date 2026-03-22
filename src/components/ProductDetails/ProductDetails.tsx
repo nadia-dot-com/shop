@@ -1,22 +1,18 @@
-import { useCartContext } from "../../context/CartContext";
+import { useCartContext } from "@/context/CartContext";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "../Button/Button";
 import { QuantityInput } from "../QuantityInput/QuantityInput";
-import { useShoppingNavigation } from "../../hooks/useShoppingNavigation";
+import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";
 import { SaleLabel } from "../SaleLabel/SaleLabel";
-import { cn } from "../../utils/cn";
-import { checkProductDate } from "../../utils/checkProductDate";
+import { cn } from "@/utils/cn";
+import { checkProductDate } from "@/utils/checkProductDate";
 import { NewProductLabel } from "../NewProductLabel/NewProductLabel";
-import { useWishlist } from "../../hooks/wishlist/useWishlist";
-import { Product } from "../../types/api/product";
-import {
-  isProductInStock,
-  isProductOnSale,
-} from "../../utils/product";
-
-import classes from "./ProductDetails.module.css";
+import { useWishlist } from "@/hooks/wishlist/useWishlist";
+import { Product } from "@/types/api/product";
+import { isProductInStock, isProductOnSale } from "@/utils/product";
 import { WishlistButton } from "../wishlist/WishlistButton/WishlistButton";
 import { Price } from "../Price/Price";
+import classes from "./ProductDetails.module.css";
 
 export function ProductDetails({ product }: { product: Product }) {
   const {

@@ -1,5 +1,5 @@
 import Lottie from "lottie-react";
-import warning from "../../animations/warning.json";
+import warning from "@/animations/warning.json";
 import { FallbackProps } from "react-error-boundary";
 import { Button } from "../Button/Button";
 

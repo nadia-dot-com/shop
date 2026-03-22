@@ -1,7 +1,6 @@
 import { ProductItem } from "./ProductItem/ProductItem";
-
+import { Product } from "@/types/api/product";
 import classes from "./Products.module.css";
-import { Product } from "../../../types/api/product";
 
 export function Products({ products }: { products: Product[] }) {
   return (

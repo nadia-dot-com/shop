@@ -1,12 +1,12 @@
 import { ChangeEvent, FormEvent, useEffect, useMemo, useState } from "react";
-import { useUserContext } from "../../../../context/UserContext";
-import { Button } from "../../../../components/Button/Button";
-import { useUpdateUserProfile } from "../../../../hooks/user/useUpdateUserProfile";
-import { useOptions } from "../../../../hooks/options/useOptions"; 
+import { useUserContext } from "@/context/UserContext";
+import { Button } from "@/components/Button/Button";
+import { useUpdateUserProfile } from "@/hooks/user/useUpdateUserProfile";
+import { useOptions } from "@/hooks/options/useOptions"; 
 import isEqual from "lodash/isEqual";
 import omitBy from "lodash/omitBy";
-import { ERROR_MESSAGES } from "../../../../constants/messages";
-import { ErrorState } from "../../../../components/ErrorState/ErrorState";
+import { ERROR_MESSAGES } from "@/constants/messages";
+import { ErrorState } from "@/components/ErrorState/ErrorState";
 import classes from './MyProfile.module.css';
 
 export default function MyProfile() {

@@ -1,12 +1,11 @@
 import { Outlet } from "react-router-dom";
 import { NavAccount } from "./NavAccount/NavAccount";
-import { useUserContext } from "../../context/UserContext";
+import { useUserContext } from "@/context/UserContext";
 import { MakeLogin } from "./MakeLogin/MakeLogin";
-import { DataLoader } from "../../components/DataLoader/DataLoader";
-
-import classes from "./UserAccount.module.css";
+import { DataLoader } from "@/components/DataLoader/DataLoader";
 import { ErrorBoundary } from "react-error-boundary";
-import { ErrorFallback } from "../../components/ErrorFallback/ErrorFallback";
+import { ErrorFallback } from "@/components/ErrorFallback/ErrorFallback";
+import classes from "./UserAccount.module.css";
 
 export default function UserAccount() {
   const { user, isLoading, error } = useUserContext();

@@ -1,5 +1,5 @@
-import { OrderItemResponse } from "../types/api/order.response";
-import { OrderItem } from "../types/orderTypes";
+import { OrderItemResponse } from "@/types/api/order.response";
+import { OrderItem } from "@/types/orderTypes";
 import { getDiscountPrice } from "./product";
 import { roundMoney } from "./roundMoney";
 

@@ -1,16 +1,16 @@
-import { cn } from "../../../../utils/cn";
-import { useCartContext } from "../../../../context/CartContext";
+import { cn } from "@/utils/cn";
+import { useCartContext } from "@/context/CartContext";
 import { SaleLabel } from "../../../SaleLabel/SaleLabel";
-import { useWishlist } from "../../../../hooks/wishlist/useWishlist";
-import { checkProductDate } from "../../../../utils/checkProductDate";
+import { useWishlist } from "@/hooks/wishlist/useWishlist";
+import { checkProductDate } from "@/utils/checkProductDate";
 import { NewProductLabel } from "../../../NewProductLabel/NewProductLabel";
-import { Product } from "../../../../types/api/product";
-import { useShoppingNavigation } from "../../../../hooks/useShoppingNavigation";
-import { isProductInStock, isProductOnSale } from "../../../../utils/product";
+import { Product } from "@/types/api/product";
+import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";
+import { isProductInStock, isProductOnSale } from "@/utils/product";
 import { memo, useCallback } from "react";
-import classes from "./ProductItem.module.css";
 import { WishlistButton } from "../../../wishlist/WishlistButton/WishlistButton";
 import { Price } from "../../../Price/Price";
+import classes from "./ProductItem.module.css";
 
 const ProductItemVisual = memo(
   ({

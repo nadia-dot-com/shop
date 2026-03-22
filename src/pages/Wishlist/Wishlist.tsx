@@ -1,6 +1,5 @@
-import { WishlistItems } from "../../components/wishlist/WishlistItems/WishlistItems";
-import { useResolvedWishlist } from "../../hooks/wishlist/useResolvedWishlist";
-
+import { WishlistItems } from "@/components/wishlist/WishlistItems/WishlistItems";
+import { useResolvedWishlist } from "@/hooks/wishlist/useResolvedWishlist";
 import classes from "./Wishlist.module.css";
 
 export default function Wishlist() {

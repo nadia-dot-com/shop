@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchUser } from "../../api/user.api";
-import { UserData } from "../../types/userTypes";
-import { QUERY_KEYS } from "../../api/queryKeys";
+import { fetchUser } from "@/api/user.api";
+import { UserData } from "@/types/userTypes";
+import { QUERY_KEYS } from "@/api/queryKeys";
 
 const FIVE_MINUTES = 1000 * 60 * 5;
 

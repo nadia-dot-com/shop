@@ -1,6 +1,6 @@
-import { DeliveryMethod, PaymentMethod } from "../../types/api/options";
-import { DataProps } from "../../types/checkoutTypes";
-import { OrderItem } from "../../types/orderTypes";
+import { DeliveryMethod, PaymentMethod } from "@/types/api/options";
+import { DataProps } from "@/types/checkoutTypes";
+import { OrderItem } from "@/types/orderTypes";
 import {
   RESET_CHECKOUT,
   UPDATE_DATA,

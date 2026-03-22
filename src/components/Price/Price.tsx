@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { getDiscountPrice } from "../../utils/product";
+import { getDiscountPrice } from "@/utils/product";
 import classes from "./Price.module.css";
 
 export const Price = memo (

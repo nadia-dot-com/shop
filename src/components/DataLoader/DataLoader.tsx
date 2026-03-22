@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 import { LoadingSpinner } from "../LoadingSpinner/LoadingSpinner";
 import { ErrorState } from "../ErrorState/ErrorState";
-import { MODE } from "../../api/config";
-import { ERROR_MESSAGES } from "../../constants/messages";
-import { AppError } from "../../errors";
+import { MODE } from "@/api/config";
+import { ERROR_MESSAGES } from "@/constants/messages";
+import { AppError } from "@/errors";
 
 type DataLoader = {
   loading: boolean;

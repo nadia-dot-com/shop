@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { useRef } from "react";
-import { WEB3FORMS_KEY } from "../api/config";
-import { CONTACT_FORM_URL } from "../config";
+import { WEB3FORMS_KEY } from "@/api/config";
+import { CONTACT_FORM_URL } from "@/config";
 
 export const useContactForm = () => {
   const formRef = useRef<HTMLFormElement | null>(null);

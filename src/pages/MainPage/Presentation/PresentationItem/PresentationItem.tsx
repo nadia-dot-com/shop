@@ -1,9 +1,9 @@
-import { PresentationProps } from "../../../../types/presentation";
-import { cn } from "../../../../utils/cn";
-import { Button } from "../../../../components/Button/Button";
-import { useShoppingNavigation } from "../../../../hooks/useShoppingNavigation";
-import { getImagePath } from "../../../../utils/getImagePath";
-import { PRESENTATION } from "../../../../data/presentation";
+import { PresentationProps } from "@/types/presentation";
+import { cn } from "@/utils/cn";
+import { Button } from "@/components/Button/Button";
+import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";
+import { getImagePath } from "@/utils/getImagePath";
+import { PRESENTATION } from "@/data/presentation";
 import classes from "./PresentationItem.module.css";
 
 export function PresentationItem({

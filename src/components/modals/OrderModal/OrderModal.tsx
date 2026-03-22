@@ -1,8 +1,8 @@
 import { EmptyCard } from "../../EmptyCard/EmptyCard";
-import { useCartContext } from "../../../context/CartContext";
-import { useClickOutside } from "../../../hooks/useClickOutside";
+import { useCartContext } from "@/context/CartContext";
+import { useClickOutside } from "@/hooks/useClickOutside";
 import { ShowOrder } from "./ShowOrder/ShowOrder";
-import { useCartUiContext } from "../../../context/CartUIContext";
+import { useCartUiContext } from "@/context/CartUIContext";
 import classes from "./OrderModal.module.css";
 
 export function OrderModal() {

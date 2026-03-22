@@ -1,5 +1,4 @@
 import { ChangeEvent } from "react";
-
 import classes from "./QuantityInput.module.css";
 
 export function QuantityInput({

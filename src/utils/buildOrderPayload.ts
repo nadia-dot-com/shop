@@ -1,7 +1,7 @@
-import { DeliveryMethod, PaymentMethod } from "../types/api/options";
-import { OrderPayload } from "../types/api/order.payload";
-import { DataProps } from "../types/checkoutTypes";
-import { OrderItem } from "../types/orderTypes";
+import { DeliveryMethod, PaymentMethod } from "@/types/api/options";
+import { OrderPayload } from "@/types/api/order.payload";
+import { DataProps } from "@/types/checkoutTypes";
+import { OrderItem } from "@/types/orderTypes";
 
 type BuildOrderPayloadArgs = {
   items: OrderItem[];

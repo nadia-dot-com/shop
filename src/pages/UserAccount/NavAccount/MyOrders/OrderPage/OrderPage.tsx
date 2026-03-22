@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
 import { Vat } from "../../ShoppingCart/CheckoutReview/CheckoutSections/VatSection/VatSection";
 import { TotalPrice } from "../../ShoppingCart/CheckoutReview/CheckoutSections/TotalSection/TotalSection";
-import { useOrderFromOrders } from "../../../../../hooks/orders/useOrderFromOrders";
-import { DataLoader } from "../../../../../components/DataLoader/DataLoader";
-import classes from "./OrderPage.module.css";
+import { useOrderFromOrders } from "@/hooks/orders/useOrderFromOrders";
+import { DataLoader } from "@/components/DataLoader/DataLoader";
 import { useMemo } from "react";
-import { Subtotal } from "../../../../../components/Subtotal/Subtotal";
+import { Subtotal } from "@/components/Subtotal/Subtotal";
 import { OrderList } from "../../ShoppingCart/CheckoutReview/CheckoutSections/OrderList/OrderList";
+import classes from "./OrderPage.module.css";
 
 export default function OrderPage() {
   const { orderId } = useParams();

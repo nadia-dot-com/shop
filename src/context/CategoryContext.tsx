@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useMemo, useState } from "react";
-import { CategoryContextValue } from "../types/categoryTypes";
-import { categoriesGroups } from "../data/categories";
-import { createContextHook } from "../hooks/createContextHook";
+import { CategoryContextValue } from "@/types/categoryTypes";
+import { categoriesGroups } from "@/data/categories";
+import { createContextHook } from "@/hooks/createContextHook";
 
 export const CategoryContext = createContext<CategoryContextValue | null>(null);
 

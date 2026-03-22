@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useUserContext } from "../../context/UserContext";
-import { fetchDeleteFromWiszlist } from "../../api/wishlist.api";
-import { QUERY_KEYS } from "../../api/queryKeys";
+import { useUserContext } from "@/context/UserContext";
+import { fetchDeleteFromWiszlist } from "@/api/wishlist.api";
+import { QUERY_KEYS } from "@/api/queryKeys";
 
 export const useRemoveFromWishlist = () => {
   const { token } = useUserContext();

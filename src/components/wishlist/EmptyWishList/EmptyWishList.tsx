@@ -1,9 +1,8 @@
-import { Button } from "../../../components/Button/Button";
+import { Button } from "@/components/Button/Button";
 import { TbShoppingBagHeart } from "react-icons/tb";
-
+import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";
+import { categoriesGroups } from "@/data/categories";
 import classes from "./EmptyWishList.module.css";
-import { useShoppingNavigation } from "../../../hooks/useShoppingNavigation";
-import { categoriesGroups } from "../../../data/categories";
 
 export function EmptyWishList() {
   const { navigateToCategory } = useShoppingNavigation();

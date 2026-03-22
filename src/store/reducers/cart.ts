@@ -1,5 +1,5 @@
 import { keyBy } from "lodash";
-import { CartState } from "../../types/cartTypes";
+import { CartState } from "@/types/cartTypes";
 import {
   AddToCartAction,
   CartAction,

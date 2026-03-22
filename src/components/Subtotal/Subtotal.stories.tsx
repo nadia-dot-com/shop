@@ -1,4 +1,4 @@
-import { OrderItem } from "../../types/orderTypes";
+import { OrderItem } from "@/types/orderTypes";
 import { Subtotal } from "./Subtotal";
 import { Meta, StoryObj } from "@storybook/react";
 

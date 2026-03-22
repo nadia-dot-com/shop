@@ -1,13 +1,13 @@
-import { useWishlist } from "../../../../hooks/wishlist/useWishlist";
-import { Button } from "../../../../components/Button/Button";
-import { useCartContext } from "../../../../context/CartContext";
-import { Product } from "../../../../types/api/product";
-import { useShoppingNavigation } from "../../../../hooks/useShoppingNavigation";
-import likeLoading from "../../../../animations/insider-loading.json";
-import classes from "./WishlistItem.module.css";
+import { useWishlist } from "@/hooks/wishlist/useWishlist";
+import { Button } from "@/components/Button/Button";
+import { useCartContext } from "@/context/CartContext";
+import { Product } from "@/types/api/product";
+import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";
+import likeLoading from "@/animations/insider-loading.json";
 import Lottie from "lottie-react";
 import { Price } from "../../../Price/Price";
 import { memo, useCallback } from "react";
+import classes from "./WishlistItem.module.css";
 
 export const WishlistItemVisual = memo(
   ({

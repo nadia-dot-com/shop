@@ -1,9 +1,8 @@
-import { Product } from "../../../../../types/api/product";
-import { getDiscountPrice } from "../../../../../utils/product";
+import { Product } from "@/types/api/product";
+import { getDiscountPrice } from "@/utils/product";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../../../../../config/Routes";
-import { useCategoryContext } from "../../../../../context/CategoryContext";
-
+import { ROUTES } from "@/config/Routes";
+import { useCategoryContext } from "@/context/CategoryContext";
 import classes from "./HotspotItem.module.css";
 
 export function HotspotItem({ item }: { item: Product }) {

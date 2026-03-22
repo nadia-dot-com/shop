@@ -1,4 +1,4 @@
-import { NEW_PRODUCT_THRESHOLD_DAYS } from "../config";
+import { NEW_PRODUCT_THRESHOLD_DAYS } from "@/config";
 
 export function checkProductDate(createdAt: string) {
   const currentTime = new Date();

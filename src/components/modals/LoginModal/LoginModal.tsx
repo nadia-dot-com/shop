@@ -1,7 +1,6 @@
-import { useUserContext } from "../../../context/UserContext";
-import { useClickOutside } from "../../../hooks/useClickOutside";
+import { useUserContext } from "@/context/UserContext";
+import { useClickOutside } from "@/hooks/useClickOutside";
 import { LoginButton } from "../../LoginButton/LoginButton";
-
 import classes from "./LoginModal.module.css";
 
 export function LoginModal() {

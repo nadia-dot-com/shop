@@ -5,16 +5,16 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import { MainLayout } from "./components/layouts/MainLayout/MainLayout";
-import { NotFounded } from "./pages/NotFound/NotFound";
-import { MainPage } from "./pages/MainPage/MainPage";
-import { ROUTES } from "./config/Routes";
-import { ScrollToTop } from "./components/ScrollToTop/ScrollToTop";
-import { GoogleCallback } from "./pages/GoogleCallback/GoogleCallback";
+import { MainLayout } from "@/components/layouts/MainLayout/MainLayout";
+import { NotFounded } from "@/pages/NotFound/NotFound";
+import { MainPage } from "@/pages/MainPage/MainPage";
+import { ROUTES } from "@/config/Routes";
+import { ScrollToTop } from "@/components/ScrollToTop/ScrollToTop";
+import { GoogleCallback } from "@/pages/GoogleCallback/GoogleCallback";
 import { ErrorBoundary } from "react-error-boundary";
-import { ErrorFallback } from "./components/ErrorFallback/ErrorFallback";
+import { ErrorFallback } from "@/components/ErrorFallback/ErrorFallback";
 import { lazy, Suspense } from "react";
-import { LoadingSpinner } from "./components/LoadingSpinner/LoadingSpinner";
+import { LoadingSpinner } from "@/components/LoadingSpinner/LoadingSpinner";
 
 const Contact = lazy(() => import("./pages/Contact/Contact"));
 const ProductsPage = lazy(() => import("./pages/ProductsPage/ProductsPage"));

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../config/Routes";
-import { useCategoryContext } from "../context/CategoryContext";
-import { slugify } from "../utils/slugify";
+import { ROUTES } from "@/config/Routes";
+import { useCategoryContext } from "@/context/CategoryContext";
+import { slugify } from "@/utils/slugify";
 import { compact } from "lodash";
 import { useCallback } from "react";
 

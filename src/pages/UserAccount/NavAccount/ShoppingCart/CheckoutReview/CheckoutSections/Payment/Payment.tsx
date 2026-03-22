@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
-import { useOptions } from '../../../../../../../hooks/options/useOptions'; 
-import { PaymentMethod } from '../../../../../../../types/api/options';
-
+import { useOptions } from '@/hooks/options/useOptions'; 
+import { PaymentMethod } from '@/types/api/options';
 import classes from './Payment.module.css'
 
 export function Payment({ payment, updatePayment }: { payment: PaymentMethod | null, updatePayment: (data: PaymentMethod) => void }) {

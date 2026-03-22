@@ -1,8 +1,7 @@
-import { DataLoader } from "../../../../../components/DataLoader/DataLoader";
-import { OrderItemRow } from "../../../../../components/OrderItemRow/OrderItemRow";
-import { useItemsByIds } from "../../../../../hooks/products/useItemByIds";
-import { OrderItem } from "../../../../../types/orderTypes";
-
+import { DataLoader } from "@/components/DataLoader/DataLoader";
+import { OrderItemRow } from "@/components/OrderItemRow/OrderItemRow";
+import { useItemsByIds } from "@/hooks/products/useItemByIds";
+import { OrderItem } from "@/types/orderTypes";
 import classes from "./Cart.module.css";
 
 export function Cart({ cartItems }: { cartItems: OrderItem[] }) {

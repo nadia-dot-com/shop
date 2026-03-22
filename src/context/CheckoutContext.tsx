@@ -1,17 +1,17 @@
 import { createContext, ReactNode, useReducer } from "react";
-import { CheckoutContextType, DataProps } from "../types/checkoutTypes";
-import { createContextHook } from "../hooks/createContextHook";
-import { CHECKOUT_INITIAL } from "../data/checkout";
-import { OrderItem } from "../types/orderTypes";
-import { DeliveryMethod, PaymentMethod } from "../types/api/options";
-import { checkoutReducer } from "../store/reducers/checkout";
+import { CheckoutContextType, DataProps } from "@/types/checkoutTypes";
+import { createContextHook } from "@/hooks/createContextHook";
+import { CHECKOUT_INITIAL } from "@/data/checkout";
+import { OrderItem } from "@/types/orderTypes";
+import { DeliveryMethod, PaymentMethod } from "@/types/api/options";
+import { checkoutReducer } from "@/store/reducers/checkout";
 import {
   resetCheckoutAction,
   updateDataAction,
   updateDeliveryAction,
   updateItemsAction,
   updatePaymentAction,
-} from "../store/actions/checkout";
+} from "@/store/actions/checkout";
 
 export const CheckoutContext = createContext<CheckoutContextType | null>(null);
 

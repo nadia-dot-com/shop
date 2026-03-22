@@ -1,4 +1,4 @@
-import { PresentationProps } from "../types/presentation";
+import { PresentationProps } from "@/types/presentation";
 
 export const PRESENTATION: PresentationProps[] = [
   {

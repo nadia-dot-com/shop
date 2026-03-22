@@ -1,5 +1,5 @@
-import { WishlistItems } from "../../../../components/wishlist/WishlistItems/WishlistItems";
-import { useWishlistQuery } from "../../../../hooks/wishlist/useWishlistQuery";
+import { WishlistItems } from "@/components/wishlist/WishlistItems/WishlistItems";
+import { useWishlistQuery } from "@/hooks/wishlist/useWishlistQuery";
 
 export default function MyWishlist() {
   const { data: wishlist = [], error, isLoading } = useWishlistQuery();

@@ -1,9 +1,9 @@
-import { categoriesGroups } from "../../../data/categories";
-import { useShoppingNavigation } from "../../../hooks/useShoppingNavigation";
-import { useToggle } from "../../../hooks/useToggle";
-import { Category } from "../../../types/api/category";
-import { Collection } from "../../../types/api/collection";
-import { cn } from "../../../utils/cn";
+import { categoriesGroups } from "@/data/categories";
+import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";
+import { useToggle } from "@/hooks/useToggle";
+import { Category } from "@/types/api/category";
+import { Collection } from "@/types/api/collection";
+import { cn } from "@/utils/cn";
 
 import classes from "./ProductNavView.module.css";
 

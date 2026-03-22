@@ -1,6 +1,5 @@
-import { CHECKOUT_STEP } from '../../../../../constants/checkout';
-import { cn } from '../../../../../utils/cn';
-
+import { CHECKOUT_STEP } from '@/constants/checkout';
+import { cn } from '@/utils/cn';
 import classes from './ShoppingCartNav.module.css'
 
 export function ShoppingCartNav({ step }: { step: number }) {

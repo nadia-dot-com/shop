@@ -1,14 +1,13 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../../config/Routes";
+import { ROUTES } from "@/config/Routes";
 import { toast } from "react-toastify";
-import { GUEST_WISHLIST_KEY, TOKEN } from "../../data/locatStorageKey";
-import { useAddToWishlist } from "../../hooks/wishlist/useAddToWishlist";
-import { useUserContext } from "../../context/UserContext";
-import { useWishlistContext } from "../../context/WishlistContext";
-
+import { GUEST_WISHLIST_KEY, TOKEN } from "@/data/locatStorageKey";
+import { useAddToWishlist } from "@/hooks/wishlist/useAddToWishlist";
+import { useUserContext } from "@/context/UserContext";
+import { useWishlistContext } from "@/context/WishlistContext";
+import { useCartUiContext } from "@/context/CartUIContext";
 import classes from "./GoogleCallback.module.css";
-import { useCartUiContext } from "../../context/CartUIContext";
 
 export function GoogleCallback() {
   const navigate = useNavigate();

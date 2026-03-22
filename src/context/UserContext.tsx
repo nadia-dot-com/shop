@@ -5,12 +5,12 @@ import {
   useEffect,
   useMemo,
 } from "react";
-import { UserContextProps, UserData } from "../types/userTypes";
-import { createContextHook } from "../hooks/createContextHook";
-import { useLocalStorage } from "../hooks/useLocalStorage";
-import { TOKEN, USER } from "../data/locatStorageKey";
-import { useCurrentUser } from "../hooks/user/useCurrentUser";
-import { useToggle } from "../hooks/useToggle";
+import { UserContextProps, UserData } from "@/types/userTypes";
+import { createContextHook } from "@/hooks/createContextHook";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { TOKEN, USER } from "@/data/locatStorageKey";
+import { useCurrentUser } from "@/hooks/user/useCurrentUser";
+import { useToggle } from "@/hooks/useToggle";
 
 export const UserContext = createContext<UserContextProps | null>(null);
 

@@ -1,7 +1,7 @@
 import { keyBy } from "lodash";
-import { DeliveryMethod } from "../types/api/options";
-import { OrderItem } from "../types/orderTypes";
-import { calculateCheckoutPrice } from "../utils/calculateCheckoutPrice";
+import { DeliveryMethod } from "@/types/api/options";
+import { OrderItem } from "@/types/orderTypes";
+import { calculateCheckoutPrice } from "@/utils/calculateCheckoutPrice";
 import { useOptions } from "./options/useOptions";
 import { useMemo } from "react";
 

@@ -1,5 +1,5 @@
-import { CHECKOUT_INITIAL } from "../../data/checkout";
-import { CheckoutState } from "../../types/checkoutTypes";
+import { CHECKOUT_INITIAL } from "@/data/checkout";
+import { CheckoutState } from "@/types/checkoutTypes";
 import {
   CheckoutAction,
   UpdateDataAction,

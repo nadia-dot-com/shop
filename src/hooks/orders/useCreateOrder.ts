@@ -1,10 +1,10 @@
 import { useMutation } from "@tanstack/react-query";
-import { sendOrderToServer } from "../../api/order.api";
-import { OrderResponse } from "../../types/api/order.response";
-import { OrderPayload } from "../../types/api/order.payload";
-import { useUserContext } from "../../context/UserContext";
-import { queryClient } from "../../query/queryClient";
-import { QUERY_KEYS } from "../../api/queryKeys";
+import { sendOrderToServer } from "@/api/order.api";
+import { OrderResponse } from "@/types/api/order.response";
+import { OrderPayload } from "@/types/api/order.payload";
+import { useUserContext } from "@/context/UserContext";
+import { queryClient } from "@/query/queryClient";
+import { QUERY_KEYS } from "@/api/queryKeys";
 
 export function useCreateOrder(
   onSuccessCallback?: () => void,

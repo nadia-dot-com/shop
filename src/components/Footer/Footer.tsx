@@ -5,7 +5,7 @@ import { MdPlace } from "react-icons/md";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import { FaSquareFacebook, FaSquareInstagram } from "react-icons/fa6";
 import { StyledLink } from "../StyledLink/StyledLink";
-import { ROUTES } from "../../config/Routes";
+import { ROUTES } from "@/config/Routes";
 import {
   SHOP_ADDRESS,
   SHOP_EMAIL,
