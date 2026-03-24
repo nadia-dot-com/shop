@@ -19,6 +19,8 @@ import { ERROR_MESSAGES } from "@/constants/messages";
 import { OrderSuccess } from "./OrderSuccess/OrderSuccess";
 import { useCartContext } from "@/context/CartContext";
 import { CHECKOUT_STEP } from "@/constants/checkout";
+import { PageTransition } from "@/components/PageTransition/PageTransition";
+import { AnimatePresence } from "motion/react";
 
 export default function ShoppingCart() {
   const { cartItems, clearCart } = useCartContext();
@@ -127,26 +129,34 @@ export default function ShoppingCart() {
   return (
     <div className={classes.shoppingCart}>
       {step === CHECKOUT_STEP.ORDER_COMPLETE ? (
-        <div>
-          <ShoppingCartNav step={step} />
-          <div className={classes.orderContent}>
-            {error ? (
-              <OrderError
-                message={`${ERROR_MESSAGES.GENERIC} ${ERROR_MESSAGES.TRY_AGAIN}`}
-              />
-            ) : (
-              <OrderSuccess />
-            )}
+        <PageTransition key="complete">
+          <div>
+            <ShoppingCartNav step={step} />
+            <div className={classes.orderContent}>
+              {error ? (
+                <OrderError
+                  message={`${ERROR_MESSAGES.GENERIC} ${ERROR_MESSAGES.TRY_AGAIN}`}
+                />
+              ) : (
+                <OrderSuccess />
+              )}
+            </div>
           </div>
-        </div>
+        </PageTransition>
       ) : cartItems.length === 0 ? (
-        <div className={classes.emptyCard}>
-          <EmptyCard />
-        </div>
+        <PageTransition key="empty">
+          <div className={classes.emptyCard}>
+            <EmptyCard />
+          </div>
+        </PageTransition>
       ) : (
         <div>
           <ShoppingCartNav step={step} />
-          <div>{stepsRenderers[step]()}</div>
+          <AnimatePresence mode="wait">
+            <PageTransition key={step}>
+              <div>{stepsRenderers[step]()}</div>
+            </PageTransition>
+          </AnimatePresence>
         </div>
       )}
 
