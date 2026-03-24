@@ -9,11 +9,11 @@ export function useShoppingNavigation() {
   const { setSelectedCategory } = useCategoryContext();
   const navigate = useNavigate();
 
-  const navigateToCategory = useCallback((category: string, productId?: string) => {
+  const navigateToCategory = useCallback((category: string, name?: string) => {
     const toUrl = compact([
       `/${ROUTES.products}`,
       slugify(category),
-      productId && slugify(productId),
+      name && slugify(name),
     ]).join("/");
     setSelectedCategory(category);
     navigate(toUrl);

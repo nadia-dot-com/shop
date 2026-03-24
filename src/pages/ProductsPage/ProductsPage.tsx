@@ -1,4 +1,5 @@
-import { Outlet, useParams } from "react-router-dom";
+import classes from "./ProductsPage.module.css";
+import { useLocation, useOutlet, useParams } from "react-router-dom";
 import { Products } from "@/components/products/Products/Products";
 import { ProductNav } from "@/components/ProductNav/ProductNav";
 import { categoriesGroups } from "@/data/categories";
@@ -8,12 +9,15 @@ import { useCategoryContext } from "@/context/CategoryContext";
 import { useInfiniteProducts } from "@/hooks/products/useInfiniteProducts";
 import { ErrorBoundary } from "react-error-boundary";
 import { ErrorFallback } from "@/components/ErrorFallback/ErrorFallback";
-import classes from "./ProductsPage.module.css";
+import { AnimatePresence } from "motion/react";
+import { cloneElement } from "react";
 
 export default function ProductsPage() {
   const { itemId } = useParams();
   const { selectedCategory } = useCategoryContext();
   const normalizedCategory = selectedCategory ?? categoriesGroups.all;
+  const location = useLocation();
+  const outlet = useOutlet();
 
   const { pages, isLoading, error } = useInfiniteProducts(normalizedCategory);
 
@@ -24,7 +28,9 @@ export default function ProductsPage() {
       <ProductNav />
 
       <section>
-          <Outlet />
+        <AnimatePresence mode="wait">
+          {outlet && cloneElement(outlet, { key: location.pathname })}
+        </AnimatePresence>
       </section>
 
       <DataLoader loading={isLoading} loaded={!!products.length} error={error}>

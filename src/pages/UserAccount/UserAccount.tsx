@@ -1,5 +1,5 @@
 import classes from "./UserAccount.module.css";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { NavAccount } from "./NavAccount/NavAccount";
 import { useUserContext } from "@/context/UserContext";
 import { MakeLogin } from "./MakeLogin/MakeLogin";
@@ -10,6 +10,7 @@ import { PageTransition } from "@/components/PageTransition/PageTransition";
 
 export default function UserAccount() {
   const { user, isLoading, error } = useUserContext();
+  const location = useLocation();
 
   return (
     <DataLoader loading={isLoading} loaded={!isLoading} error={error}>
@@ -23,7 +24,7 @@ export default function UserAccount() {
 
               <section className={classes.content}>
                 <ErrorBoundary FallbackComponent={ErrorFallback}>
-                  <PageTransition>
+                  <PageTransition key={location.pathname}>
                     <Outlet />
                   </PageTransition>
                 </ErrorBoundary>

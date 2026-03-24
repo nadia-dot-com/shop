@@ -1,26 +1,16 @@
 import classes from "./HotspotItem.module.css";
 import { Product } from "@/types/api/product";
-import { useNavigate } from "react-router-dom";
-import { ROUTES } from "@/config/Routes";
-import { useCategoryContext } from "@/context/CategoryContext";
 import { Price } from "@/components/Price/Price";
 import { motion } from "motion/react";
+import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";
 
 export function HotspotItem({ item }: { item: Product }) {
-  const { setSelectedCategory } = useCategoryContext();
-  const navigate = useNavigate();
-
-  const handleNavigate = () => {
-    const name = item.name?.toLowerCase().replace(/ /g, "-");
-    const categorySlug = item.categoryName.toLowerCase().replace(/\s+/g, "-");
-    navigate(`/${ROUTES.productCategory(categorySlug).toLowerCase()}/${name}`);
-    setSelectedCategory(categorySlug);
-  };
+  const { navigateToCategory } = useShoppingNavigation();
 
   return (
     <motion.div
       className={classes.hotspotItem}
-      onClick={() => handleNavigate()}
+      onClick={() => navigateToCategory(item.categoryName, item.name)}
       exit={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       initial={{ opacity: 0 }}
