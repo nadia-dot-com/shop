@@ -6,10 +6,6 @@
   right: 0;
   width: 100%;
   max-width: 580px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-align: center;
 
   box-shadow: 0 5px 15px v.$color-gray-light;
@@ -30,7 +26,6 @@
   @media (max-width: 576px) {
     width: 100%;
     max-height: calc(100dvh - 50px);
-    top: 50px;
     overflow-y: auto;
   }
 }
