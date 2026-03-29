@@ -1,6 +1,6 @@
-import classes from "./Menu.module.css";
+import classes from "./Menu.module.scss";
 import { StyledLink } from "../StyledLink/StyledLink";
-import { ShopingCartIcon } from "./ShopingCartIcon/ShopingCartIcon";
+import { ShoppingCartIcon } from "./ShoppingCartIcon/ShoppingCartIcon";
 import { ROUTES } from "@/config/Routes";
 import { AccountIcon } from "./AccountIcon/AccountIcon";
 import { WishlistIcon } from "./WishlistIcon/WishlistIcon";
@@ -49,7 +49,7 @@ export function Menu() {
             <WishlistIcon />
           </StyledLink>
 
-          <ShopingCartIcon active={isCartOpen} />
+          <ShoppingCartIcon active={isCartOpen} />
         </li>
       </ul>
 
@@ -61,7 +61,7 @@ export function Menu() {
             <WishlistIcon />
           </StyledLink>
 
-          <ShopingCartIcon active={isCartOpen} />
+          <ShoppingCartIcon active={isCartOpen} />
         </div>
 
         <div className={classes.burgerMenu}>

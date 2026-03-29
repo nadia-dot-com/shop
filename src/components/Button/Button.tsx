@@ -1,6 +1,5 @@
+import classes from "./Button.module.scss";
 import { CSSProperties, ReactNode } from "react";
-
-import classes from "./Button.module.css";
 import { cn } from "@/utils/cn";
 
 type Button = {
@@ -29,7 +28,7 @@ export function Button({
 
   return (
     <button
-      className={cn(classes.button, disabled && classes.disabled)}
+      className={classes.button}
       style={style}
       onClick={onClick}
       type={type}

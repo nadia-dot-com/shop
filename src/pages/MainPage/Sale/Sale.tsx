@@ -2,7 +2,7 @@ import { Button } from "@/components/Button/Button";
 import { categoriesGroups } from "@/data/categories";
 import { getImagePath } from "@/utils/getImagePath";
 import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";
-import classes from "./Sale.module.css";
+import classes from "./Sale.module.scss";
 
 export function Sale() {
   const { navigateToCategory } = useShoppingNavigation();

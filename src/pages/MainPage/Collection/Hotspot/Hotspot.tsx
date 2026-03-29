@@ -1,8 +1,8 @@
-import classes from "./Hotspot.module.css";
+import classes from "./Hotspot.module.scss";
 import { useToggle } from "@/hooks/useToggle";
 import { HotspotItem } from "./HotspotItem/HotspotItem";
 import { HotspotButton } from "./HotspotButton/HotspotButton";
-import { ProductNotFound } from "./ProductNotFound/ProductNotFound";
+import { ProductNotFound } from "./HotspotItem/ProductNotFound";
 import { Product } from "@/types/api/product";
 import { AnimatePresence } from "motion/react";
 

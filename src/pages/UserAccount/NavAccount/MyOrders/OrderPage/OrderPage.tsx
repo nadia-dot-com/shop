@@ -1,3 +1,4 @@
+import classes from "./OrderPage.module.scss";
 import { useParams } from "react-router-dom";
 import { Vat } from "../../ShoppingCart/CheckoutReview/CheckoutSections/VatSection/VatSection";
 import { TotalPrice } from "../../ShoppingCart/CheckoutReview/CheckoutSections/TotalSection/TotalSection";
@@ -6,7 +7,6 @@ import { DataLoader } from "@/components/DataLoader/DataLoader";
 import { useMemo } from "react";
 import { Subtotal } from "@/components/Subtotal/Subtotal";
 import { OrderList } from "../../ShoppingCart/CheckoutReview/CheckoutSections/OrderList/OrderList";
-import classes from "./OrderPage.module.css";
 
 export default function OrderPage() {
   const { orderId } = useParams();
@@ -28,7 +28,7 @@ export default function OrderPage() {
           <div className={classes.section}>
             <div>Shipping</div>
             <div>
-              {order.delivery.method} ${order.delivery.price}
+              {order.delivery.method} ${order.delivery.price.toFixed(2)}
             </div>
           </div>
           <div className={classes.section}>

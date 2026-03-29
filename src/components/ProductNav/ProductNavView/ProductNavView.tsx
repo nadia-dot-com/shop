@@ -1,4 +1,4 @@
-import classes from "./ProductNavView.module.css";
+import classes from "./ProductNavView.module.scss";
 import { categoriesGroups } from "@/data/categories";
 import { useHover } from "@/hooks/useHover";
 import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";

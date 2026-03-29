@@ -1,0 +1,10 @@
+@use "@/variables" as v;
+
+.saleLabel {
+  background-color: v.$color-accent-brown;
+  color: v.$white;
+  font-weight: 500;
+  font-size: 12px;
+  padding: 3px 5px;
+  z-index: 20;
+}

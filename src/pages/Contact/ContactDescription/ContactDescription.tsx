@@ -1,5 +1,5 @@
+import classes from "./ContactDescription.module.scss";
 import { getImagePath } from "@/utils/getImagePath";
-import classes from "./ContactDescription.module.css";
 
 export function ContactDescription() {
   return (

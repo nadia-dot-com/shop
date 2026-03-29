@@ -1,3 +1,4 @@
+import classes from "./WishlistItem.module.scss";
 import { useWishlist } from "@/hooks/wishlist/useWishlist";
 import { Button } from "@/components/Button/Button";
 import { useCartContext } from "@/context/CartContext";
@@ -7,7 +8,6 @@ import likeLoading from "@/animations/insider-loading.json";
 import Lottie from "lottie-react";
 import { Price } from "../../../Price/Price";
 import { memo, useCallback } from "react";
-import classes from "./WishlistItem.module.css";
 
 export const WishlistItemVisual = memo(
   ({
@@ -41,7 +41,7 @@ export const WishlistItemVisual = memo(
                 }}
               />
             ) : (
-              <div className={classes.closeBth} onClick={toggleLike}>
+              <div className={classes.closeBtn} onClick={toggleLike}>
                 ✕
               </div>
             )}

@@ -4,7 +4,7 @@ import { CollectionItem } from "./CollectionItem/CollectionItem";
 import { useCollections } from "@/hooks/collection/useCollections";
 import { DataLoader } from "@/components/DataLoader/DataLoader";
 import { useResize } from "@/hooks/useResize";
-import classes from "./Collection.module.css";
+import classes from "./Collection.module.scss";
 
 export function Collection() {
   const scrollRef = useRef<HTMLUListElement | null>(null);

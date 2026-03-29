@@ -1,4 +1,4 @@
-import classes from "./OurShowroom.module.css";
+import classes from "./OurShowroom.module.scss";
 import { getImagePath } from "@/utils/getImagePath";
 import { Button } from "@/components/Button/Button";
 import { SHOP_GOOGLE_MAPS_LOCATION_URL } from "@/config";

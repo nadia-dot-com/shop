@@ -1,0 +1,15 @@
+.shoppingCartIcon {
+  position: relative;
+  font-size: 19px;
+  cursor: pointer;
+  transition: color 500ms ease;
+
+  &.active,
+  &:hover {
+    color: #dc3d3d;
+  }
+
+  @media (max-width: 992px) {
+    font-size: 18px;
+  }
+}

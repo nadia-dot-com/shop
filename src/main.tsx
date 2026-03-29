@@ -1,3 +1,5 @@
+import "@/index.scss";
+import App from "./App.tsx";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { CartProvider } from "@/context/CartContext.tsx";
@@ -7,10 +9,8 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { queryClient } from "@/query/queryClient.ts";
 import { initGlobalErrorHandler } from "@/utils/globalErrorHandler.ts";
-import App from "./App.tsx";
 import { CategoryProvider } from "@/context/CategoryContext.tsx";
 import { WishlistProvider } from "@/context/WishlistContext.tsx";
-import "@/index.css";
 import { CartUIProvider } from "@/context/CartUIContext.tsx";
 
 initGlobalErrorHandler();

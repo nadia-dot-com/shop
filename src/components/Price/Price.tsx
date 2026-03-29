@@ -1,6 +1,6 @@
+import classes from "./Price.module.scss";
 import { memo } from "react";
 import { getDiscountPrice } from "@/utils/product";
-import classes from "./Price.module.css";
 
 export const Price = memo (
   ({ price, discount }: { price: number; discount: number }) => {
@@ -13,7 +13,7 @@ export const Price = memo (
             <div className={classes.discountPrice}>
               ${getDiscountPrice(price, discount).toFixed(2)}
             </div>
-            <div className={classes.oldPrice}>${Number(price).toFixed(2)}</div>
+            <div className={classes.oldPrice} aria-label="Original price">${Number(price).toFixed(2)}</div>
           </div>
         )}
       </div>

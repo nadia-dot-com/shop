@@ -1,6 +1,6 @@
+import classes from "./LoadingSpinner.module.scss";
 import Lottie from "lottie-react";
 import loading from "@/animations/loading.json";
-import classes from "./LoadingSpinner.module.css";
 
 export function LoadingSpinner() {
   return (

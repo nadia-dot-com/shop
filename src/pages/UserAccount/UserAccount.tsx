@@ -1,4 +1,4 @@
-import classes from "./UserAccount.module.css";
+import classes from "./UserAccount.module.scss";
 import { Outlet, useLocation } from "react-router-dom";
 import { NavAccount } from "./NavAccount/NavAccount";
 import { useUserContext } from "@/context/UserContext";

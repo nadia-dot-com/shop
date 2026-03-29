@@ -49,6 +49,8 @@ Fully responsive interface optimized for desktop, tablet, and mobile devices.
 ### Accessibility (A11y) and SEO
 Implementation of accessibility standards (semantic HTML, ARIA attributes) and SEO optimization (metadata and structured content).
 
+### Animation 
+Frame Motion
 ---
 
 # Tech Stack

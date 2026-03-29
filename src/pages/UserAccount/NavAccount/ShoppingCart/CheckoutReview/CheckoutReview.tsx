@@ -1,3 +1,4 @@
+import classes from './CheckoutReview.module.scss'
 import { OrderList } from "./CheckoutSections/OrderList/OrderList";
 import { Payment } from "./CheckoutSections/Payment/Payment";
 import { Subtotal } from "@/components/Subtotal/Subtotal";
@@ -6,7 +7,6 @@ import { Vat } from "./CheckoutSections/VatSection/VatSection";
 import { TotalPrice } from "./CheckoutSections/TotalSection/TotalSection";
 import { OrderItem } from "@/types/orderTypes";
 import { DeliveryMethod, PaymentMethod } from "@/types/api/options";
-import classes from './CheckoutReview.module.css'
 
 export function CheckoutReview({
     order,

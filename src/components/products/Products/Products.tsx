@@ -1,6 +1,6 @@
+import classes from "./Products.module.scss";
 import { ProductItem } from "./ProductItem/ProductItem";
 import { Product } from "@/types/api/product";
-import classes from "./Products.module.css";
 import { AnimatePresence } from "motion/react";
 
 export function Products({ products }: { products: Product[] }) {

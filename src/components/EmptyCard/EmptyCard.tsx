@@ -1,5 +1,5 @@
+import classes from "./EmptyCard.module.scss";
 import { FaCartShopping } from "react-icons/fa6";
-import classes from "./EmptyCard.module.css";
 
 export function EmptyCard() {
   return (

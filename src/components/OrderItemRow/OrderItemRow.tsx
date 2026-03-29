@@ -1,3 +1,4 @@
+import classes from "./OrderItemRow.module.scss";
 import { useCartContext } from "@/context/CartContext";
 import { FaTrash } from "react-icons/fa6";
 import { QuantityInput } from "../QuantityInput/QuantityInput";
@@ -6,7 +7,6 @@ import { getDiscountPrice } from "@/utils/product";
 import { cn } from "@/utils/cn";
 import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";
 import { memo, useCallback, useMemo } from "react";
-import classes from "./OrderItemRow.module.css";
 
 export const OrderItemRowVisual = memo(
   ({
@@ -82,7 +82,7 @@ export const OrderItemRowVisual = memo(
           <p>${subtotal}</p>
         </div>
 
-        <FaTrash className={classes.removeFromCard} onClick={removeFromCart} />
+        <FaTrash className={classes.removeFromCart} onClick={removeFromCart} />
       </div>
     );
   },

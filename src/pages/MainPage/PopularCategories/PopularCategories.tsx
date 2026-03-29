@@ -1,7 +1,7 @@
+import classes from "./PopularCategories.module.scss";
 import { PopularCategory } from "./PopularCategory/PopularCategory";
 import { useCategories } from "@/hooks/categories/useCategories";
 import { DataLoader } from "@/components/DataLoader/DataLoader";
-import classes from "./PopularCategories.module.css";
 
 export function PopularCategories() {
   const { data: categories, isLoading, error } = useCategories();
