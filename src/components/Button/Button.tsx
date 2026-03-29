@@ -1,6 +1,5 @@
 import classes from "./Button.module.scss";
 import { CSSProperties, ReactNode } from "react";
-import { cn } from "@/utils/cn";
 
 type Button = {
   bgColor: string;

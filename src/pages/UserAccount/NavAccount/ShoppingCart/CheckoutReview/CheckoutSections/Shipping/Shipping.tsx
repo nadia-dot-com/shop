@@ -1,4 +1,3 @@
-import classes from "./Shipping.module.scss";
 import { useEffect } from "react";
 import { useOptions } from "@/hooks/options/useOptions";
 import { DeliveryMethod } from "@/types/api/options";
