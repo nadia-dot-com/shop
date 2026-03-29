@@ -1,5 +1,5 @@
+import classes from "./NotFound.module.scss";
 import { PageTransition } from "@/components/PageTransition/PageTransition";
-import classes from "./NotFound.module.css";
 
 export function NotFounded() {
   return (

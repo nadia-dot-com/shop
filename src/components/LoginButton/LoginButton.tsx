@@ -1,8 +1,7 @@
+import classes from "./LoginButton.module.scss";
 import { FcGoogle } from "react-icons/fc";
 import { Button } from "../Button/Button";
 import { API_URL } from "@/api/config";
-
-import classes from "./LoginButton.module.css";
 
 export function LoginButton({ text }: { text: string }) {
   const handleLogin = () => {

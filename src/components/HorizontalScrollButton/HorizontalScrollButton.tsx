@@ -1,5 +1,5 @@
+import classes from "./HorizontalScrollButton.module.scss";
 import { cn } from "@/utils/cn";
-import classes from "./HorizontalScrollButton.module.css";
 
 type HorizontalScrollButton = {
   onClick?: () => void;
@@ -21,7 +21,6 @@ export function HorizontalScrollButton({
       className={cn(
         classes.horizontalScrollButton,
         direction === "left" ? classes.left : classes.right,
-        disabled && classes.disabled,
         className,
       )}
       aria-label={direction === "left" ? "Scroll left" : "Scroll right"}

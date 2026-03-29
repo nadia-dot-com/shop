@@ -1,3 +1,4 @@
+import classes from "./PresentationItem.module.scss";
 import { PresentationProps } from "@/types/presentation";
 import { cn } from "@/utils/cn";
 import { Button } from "@/components/Button/Button";
@@ -5,7 +6,6 @@ import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";
 import { getImagePath } from "@/utils/getImagePath";
 import { PRESENTATION } from "@/data/presentation";
 import { motion } from "motion/react";
-import classes from "./PresentationItem.module.css";
 
 export function PresentationItem({
   item,
@@ -29,7 +29,7 @@ export function PresentationItem({
       <motion.img
         src={getImagePath(item.img)}
         alt={item.title}
-        className={cn(classes.image)}
+        className={classes.image}
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
         transition={{ duration: 4 }}

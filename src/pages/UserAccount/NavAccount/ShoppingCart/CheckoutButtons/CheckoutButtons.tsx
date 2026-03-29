@@ -1,6 +1,6 @@
+import classes from './CheckoutButtons.module.scss';
 import { Button } from '@/components/Button/Button';
 import { CHECKOUT_STEP } from '@/constants/checkout';
-import classes from './CheckoutButtons.module.css';
 
 type CheckoutButtonsProps = {
   step: number;

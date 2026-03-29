@@ -1,14 +1,14 @@
+import classes from "./EmptyWishList.module.scss";
 import { Button } from "@/components/Button/Button";
 import { TbShoppingBagHeart } from "react-icons/tb";
 import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";
 import { categoriesGroups } from "@/data/categories";
-import classes from "./EmptyWishList.module.css";
 
 export function EmptyWishList() {
   const { navigateToCategory } = useShoppingNavigation();
 
   return (
-    <div className={classes.empyWishlist}>
+    <div className={classes.emptyWishlist}>
       There are no products on the Wishlist!
       <br />
       Look for the heart to save favorites while you shop.

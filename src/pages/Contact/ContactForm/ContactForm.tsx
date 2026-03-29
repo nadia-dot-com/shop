@@ -1,8 +1,8 @@
+import classes from "./ContactForm.module.scss";
 import { Button } from "@/components/Button/Button";
 import { CONTACT_FORM_STATE } from "@/constants/contactForm";
 import { useContactForm } from "@/hooks/useContactForm";
 import { cn } from "@/utils/cn";
-import classes from "./ContactForm.module.css";
 
 export function ContactForm() {
   const {

@@ -1,4 +1,4 @@
-import classes from "./LoginModal.module.css";
+import classes from "./LoginModal.module.scss";
 import { useUserContext } from "@/context/UserContext";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import { LoginButton } from "../../LoginButton/LoginButton";
@@ -22,7 +22,7 @@ export function LoginModal() {
         ref={refCallback}
         className={classes.loginModal}
       >
-        <h2>LogIn/SingIn</h2>
+        <h2>Log In / Sign In</h2>
         <LoginButton text="Continue with Google" />
       </div>
     </motion.div>

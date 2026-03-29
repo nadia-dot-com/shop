@@ -1,0 +1,85 @@
+@use "@/variables" as v;
+@use "@/mixins" as m;
+
+.wishlistItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  border-bottom: 1px solid v.$border-color;
+  gap: 20px;
+
+  .wrapOne {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+
+    .closeContainer {
+      @include m.flex-center;
+      width: 35px;
+      height: 35px;
+      cursor: pointer;
+
+      .closeBtn {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 300;
+        cursor: pointer;
+        opacity: 0.8;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .img {
+    max-width: 150px;
+    max-height: 150px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  .itemInfo {
+    @include m.flex-center(column);
+    gap: 10px;
+
+    .text {
+      cursor: pointer;
+      transition: color 0.5s ease;
+      font-size: 15px;
+
+      &:hover {
+        color: v.$color-accent-dark;
+      }
+    }
+  }
+  @media (max-width: 576px) {
+    .img {
+      max-width: 100px;
+      max-height: 100px;
+    }
+
+    .price {
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+
+    .addToCart {
+      display: block;
+      justify-content: center;
+      align-items: center;
+      margin: 30px;
+    }
+
+    .button {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@use "@/variables" as v;
+
+.guestWishlistContainer {
+  width: 100%;
+  padding: 40px 0;
+  box-sizing: border-box;
+
+  .wishlistWrapper {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    .title {
+      border-bottom: 1px solid v.$border-color;
+      text-align: center;
+      font-weight: 500;
+      font-size: 60px;
+      padding: 40px;
+
+      @media (max-width: 992px) {
+        font-size: 38px;
+      }
+
+      @media (max-width: 992px) {
+        font-size: 26px;
+        padding: 20px;
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import classes from './VatSection.module.css'
+import classes from './VatSection.module.scss'
 
 export function Vat({ vat }: { vat: number}) {
 

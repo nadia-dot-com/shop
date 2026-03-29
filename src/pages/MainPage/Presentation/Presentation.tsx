@@ -1,8 +1,8 @@
+import classes from "./Presentation.module.scss";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { PRESENTATION } from "@/data/presentation";
 import { PresentationItem } from "./PresentationItem/PresentationItem";
 import { useHover } from "@/hooks/useHover";
-import classes from "./Presentation.module.css";
 import { AnimatePresence } from "motion/react";
 
 const DELAY = 3000;

@@ -1,3 +1,4 @@
+import classes from "./GoogleCallback.module.scss";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "@/config/Routes";
@@ -7,7 +8,6 @@ import { useAddToWishlist } from "@/hooks/wishlist/useAddToWishlist";
 import { useUserContext } from "@/context/UserContext";
 import { useWishlistContext } from "@/context/WishlistContext";
 import { useCartUiContext } from "@/context/CartUIContext";
-import classes from "./GoogleCallback.module.css";
 
 export function GoogleCallback() {
   const navigate = useNavigate();

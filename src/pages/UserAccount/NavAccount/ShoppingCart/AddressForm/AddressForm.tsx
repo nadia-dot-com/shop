@@ -3,7 +3,7 @@ import { useUserContext } from '@/context/UserContext'
 import { useCheckoutContext } from '@/context/CheckoutContext';
 import { DataProps } from '@/types/checkoutTypes';
 import { useOptions } from '@/hooks/options/useOptions'; 
-import classes from './AddressForm.module.css'
+import classes from './AddressForm.module.scss'
 
 export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFormElement | null>; onSubmit: (data: DataProps) => void }) {
     const { user } = useUserContext();
@@ -44,7 +44,6 @@ export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFor
                 <div className={classes.inputGroup}>
                     <label>Full Name *</label>
                     <input
-                        className={classes.input}
                         name='fullName'
                         type="text"
                         defaultValue={shippingData?.fullName ?? user?.name ?? ""}
@@ -58,7 +57,6 @@ export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFor
                 <div className={classes.inputGroup}>
                     <label>Street *</label>
                     <input
-                        className={classes.input}
                         name="street"
                         defaultValue={shippingData?.address ?? user?.address ?? ""}
                         placeholder="Street and house number"
@@ -69,7 +67,6 @@ export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFor
                 <div className={classes.inputGroup}>
                     <label>Postal Code *</label>
                     <input
-                        className={classes.input}
                         name="postalCode"
                         defaultValue={shippingData?.postalCode ?? user?.postalCode ?? ""}
                         placeholder="e.g. 12345"
@@ -80,7 +77,6 @@ export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFor
                 <div className={classes.inputGroup}>
                     <label>Town / City *</label>
                     <input
-                        className={classes.input}
                         name="city"
                         defaultValue={shippingData?.city ?? user?.city ?? ""}
                         placeholder="City"
@@ -91,12 +87,11 @@ export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFor
                 <div className={classes.inputGroup}>
                     <label>Country / Region *</label>
                     <select
-                        className={classes.input}
                         name='country'
                         defaultValue={shippingData?.country ?? user?.country ?? ""}
                         required
                     >
-                        <option value= "Select Country" disabled>Select Country</option>
+                        <option value= "" disabled>Select Country</option>
 
                         {
                             countries.map(country => (
@@ -110,7 +105,6 @@ export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFor
                 <div className={classes.inputGroup}>
                     <label>Phone *</label>
                     <input
-                        className={classes.input}
                         type="tel"
                         pattern='[0-9]{9,15}'
                         name="phone"
@@ -123,7 +117,6 @@ export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFor
                 <div className={classes.inputGroup}>
                     <label>Email Address *</label>
                     <input
-                        className={classes.input}
                         name='email'
                         type='email'
                         defaultValue={shippingData?.email ?? user?.email ?? ""}
@@ -135,7 +128,6 @@ export function AddressForm({ formRef, onSubmit }: { formRef?: RefObject<HTMLFor
                     <label>Order notes (optional)</label>
                     <textarea
                         name='notes'
-                        className={classes.textarea}
                         defaultValue={shippingData?.notes ?? ""}
                         placeholder='Notes about your order, e.g. special notes for delivery.'
                     />

@@ -1,5 +1,5 @@
 import { LoginButton } from "@/components/LoginButton/LoginButton";
-import classes from "./MakeLogin.module.css";
+import classes from "./MakeLogin.module.scss";
 
 export function MakeLogin() {
   return (

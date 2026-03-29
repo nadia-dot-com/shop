@@ -1,4 +1,4 @@
-import classes from "./OrderModal.module.css";
+import classes from "./OrderModal.module.scss";
 import { EmptyCard } from "../../EmptyCard/EmptyCard";
 import { useCartContext } from "@/context/CartContext";
 import { useClickOutside } from "@/hooks/useClickOutside";

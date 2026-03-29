@@ -1,3 +1,4 @@
+import classes from "./Footer.module.scss";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { IoIosTime } from "react-icons/io";
@@ -15,8 +16,6 @@ import {
   SHOP_SOCIALS,
   SHOP_WORKING_HOURS,
 } from "../../config";
-
-import classes from "./Footer.module.css";
 
 export default function Footer() {
   return (

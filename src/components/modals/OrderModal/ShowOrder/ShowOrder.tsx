@@ -1,3 +1,4 @@
+import classes from "./ShowOrder.module.scss";
 import { Button } from "../../../Button/Button";
 import { OrderItemRow } from "../../../OrderItemRow/OrderItemRow";
 import { useCartContext } from "@/context/CartContext";
@@ -9,7 +10,6 @@ import { OrderItem } from "@/types/orderTypes";
 import { LoginButton } from "../../../LoginButton/LoginButton";
 import { useItemsByIds } from "@/hooks/products/useItemByIds";
 import { useCartUiContext } from "@/context/CartUIContext";
-import classes from "./ShowOrder.module.css";
 
 export function ShowOrder({ cartItems }: { cartItems: OrderItem[] }) {
   const {toggleCartOpen} = useCartUiContext();
@@ -29,7 +29,7 @@ export function ShowOrder({ cartItems }: { cartItems: OrderItem[] }) {
 
   return (
     <div className={classes.showOrderWrapper}>
-      <div className={classes.cartTitle}>
+      <div className={classes.container}>
         <h2>Cart ({cartItems.length})</h2>
 
         <button className={classes.clearButton} onClick={clearCart}>

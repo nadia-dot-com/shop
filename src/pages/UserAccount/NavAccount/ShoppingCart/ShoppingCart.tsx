@@ -1,4 +1,4 @@
-import classes from "./ShoppingCart.module.css";
+import classes from "./ShoppingCart.module.scss";
 import { useRef, useState } from "react";
 import { useUserContext } from "@/context/UserContext";
 import { EmptyCard } from "@/components/EmptyCard/EmptyCard";

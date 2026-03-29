@@ -1,6 +1,6 @@
+import classes from "./PopularCategory.module.scss";
 import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";
 import { Category } from "@/types/api/category";
-import classes from "./PopularCategory.module.css";
 
 export function PopularCategory({ category }: { category: Category }) {
   const { navigateToCategory } = useShoppingNavigation();

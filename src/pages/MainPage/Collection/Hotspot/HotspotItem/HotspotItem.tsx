@@ -1,4 +1,4 @@
-import classes from "./HotspotItem.module.css";
+import classes from "./HotspotItem.module.scss";
 import { Product } from "@/types/api/product";
 import { Price } from "@/components/Price/Price";
 import { motion } from "motion/react";

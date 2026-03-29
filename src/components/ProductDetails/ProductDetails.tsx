@@ -1,4 +1,4 @@
-import classes from "./ProductDetails.module.css";
+import classes from "./ProductDetails.module.scss";
 import { useCartContext } from "@/context/CartContext";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "../Button/Button";
@@ -151,7 +151,7 @@ export function ProductDetails({ product }: { product: Product }) {
           <p className={classes.desc}>{fullDescription}</p>
         </div>
         <div
-          className={classes.closeBth}
+          className={classes.closeBtn}
           onClick={() => navigateToCategory(categoryName)}
         >
           ✕

@@ -1,4 +1,4 @@
-import classes from "./ProductItem.module.css";
+import classes from "./ProductItem.module.scss";
 import { cn } from "@/utils/cn";
 import { useCartContext } from "@/context/CartContext";
 import { SaleLabel } from "../../../SaleLabel/SaleLabel";
@@ -50,7 +50,7 @@ const ProductItemVisual = memo(
           isLoading={isLoading}
           toggleLike={toggleLike}
           liked={liked}
-          className={classes.heartInCard}
+          className={classes.heartInCart}
         />
         <div className={classes.labels}>
           {isOnSale && <SaleLabel />}
@@ -77,7 +77,7 @@ const ProductItemVisual = memo(
           <Price price={price} discount={discount} />
 
           <button
-            className={classes.addToCard}
+            className={classes.addToCart}
             onClick={addToCart}
             disabled={!isInStock}
             type="button"
