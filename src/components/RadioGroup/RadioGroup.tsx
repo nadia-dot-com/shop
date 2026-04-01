@@ -29,7 +29,11 @@ export function RadioGroup<
             />
             {option.name}
           </label>
-          {option.price && <p className={classes.price}>${option.price}</p>}
+          {option.price !== undefined && (
+            <p className={classes.price}>
+              {option.price === 0 ? "$0.00" : `$${option.price.toFixed(2)}`}
+            </p>
+          )}
         </div>
       ))}
     </fieldset>
