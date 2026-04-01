@@ -1,6 +1,8 @@
 import classes from "./RadioGroup.module.scss";
 
-export function RadioGroup<T extends { id: string | number; name: string }>({
+export function RadioGroup<
+  T extends { id: string | number; name: string; price: number },
+>({
   title,
   options,
   onClick,
@@ -27,6 +29,7 @@ export function RadioGroup<T extends { id: string | number; name: string }>({
             />
             {option.name}
           </label>
+          <p className={classes.price}>${option.price}</p>
         </div>
       ))}
     </fieldset>
