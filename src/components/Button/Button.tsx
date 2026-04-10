@@ -32,6 +32,7 @@ export function Button({
       onClick={onClick}
       type={type}
       disabled={disabled}
+      aria-label="button"
     >
       {children}
       {text}
