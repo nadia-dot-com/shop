@@ -1,0 +1,1 @@
+import{j as e}from"./jsx-runtime-D_zvdyIk.js";const s="_saleLabel_1rx1s_1",a={saleLabel:s};function l(){return e.jsx("div",{className:a.saleLabel,children:"SALE"})}l.__docgenInfo={description:"",methods:[],displayName:"SaleLabel"};export{l as S};

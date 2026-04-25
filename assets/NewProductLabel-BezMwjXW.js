@@ -1,0 +1,1 @@
+import{j as e}from"./jsx-runtime-D_zvdyIk.js";const o="_newProductLabel_31lf3_1",t={newProductLabel:o};function s(){return e.jsx("div",{className:t.newProductLabel,children:"NEW"})}s.__docgenInfo={description:"",methods:[],displayName:"NewProductLabel"};export{s as N};
