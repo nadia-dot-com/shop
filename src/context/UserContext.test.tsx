@@ -1,5 +1,5 @@
 import { renderHook, waitFor } from "@testing-library/react";
-import { UserProvider, useUserContext } from "../UserContext";
+import { UserProvider, useUserContext } from "./UserContext";
 import { act } from "react";
 import { useCurrentUser } from "@/hooks/user/useCurrentUser";
 import { TOKEN } from "@/data/locatStorageKey";

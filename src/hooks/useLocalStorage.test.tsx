@@ -1,5 +1,5 @@
 import { renderHook } from "@testing-library/react";
-import { useLocalStorage } from "../useLocalStorage";
+import { useLocalStorage } from "./useLocalStorage";
 import { act } from "react";
 
 const TEST_KEY = "test";
@@ -27,7 +27,7 @@ describe("useLocalStorage", () => {
 
   test("should update localStorage when setValue is called", () => {
     const { result } = renderHook(() =>
-      useLocalStorage<string>(TEST_KEY, "initial"),
+      useLocalStorage<string>(TEST_KEY, "initial")
     );
     const setValue = result.current[1];
 
