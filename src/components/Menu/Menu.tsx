@@ -22,7 +22,7 @@ const menuLinks: MenuLinksProps[] = [
 
 export function Menu() {
   const [isMenuOpen, toggleMenuOpen] = useToggle(false);
-  const { isCartOpen} = useCartUiContext();
+  const { isCartOpen } = useCartUiContext();
 
   useEffect(() => {
     const closeMenuOnScroll = () => {
@@ -65,7 +65,13 @@ export function Menu() {
         </div>
 
         <div className={classes.burgerMenu}>
-          <div className={classes.burgerIcon} onClick={toggleMenuOpen}>
+          <div
+            role="button"
+            aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+            className={classes.burgerIcon}
+            onClick={toggleMenuOpen}
+          >
             <AnimatePresence mode="wait" initial={false}>
               {isMenuOpen ? (
                 <motion.svg
@@ -89,7 +95,7 @@ export function Menu() {
                   initial={{ rotate: 30, opacity: 0 }}
                   animate={{ rotate: 0, opacity: 1 }}
                   exit={{ rotate: -30, opacity: 0 }}
-                  transition={{ duration: 0.2, ease: "easeInOut"}}
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                 >
@@ -104,13 +110,13 @@ export function Menu() {
           </div>
 
           <AnimatePresence>
-            {isMenuOpen? (
+            {isMenuOpen ? (
               <motion.ul
                 key="login-modal"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                transition={{duration: 0.3, ease: "easeInOut"}}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
                 className={classes.burgerList}
               >
                 {menuLinks.map((menu, i) => (

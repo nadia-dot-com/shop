@@ -4,7 +4,7 @@ import loading from "@/animations/loading.json";
 
 export function LoadingSpinner() {
   return (
-    <div className={classes.loadingSpinner}>
+    <div className={classes.loadingSpinner} aria-label="loading">
       <Lottie animationData={loading} style={{ width: '100%', maxWidth: 400, height: 'auto'}} />
     </div>
   );
