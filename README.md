@@ -43,6 +43,9 @@ Users can save their favorite products. The wishlist works for both guest and au
 ### Performance Optimization
 Implemented Code Splitting using React.lazy and image optimization to reduce application loading times.
 
+### Styling & UI
+Styled using CSS Modules with reusable and maintainable component-based architecture.
+
 ### Responsive Design
 Fully responsive interface optimized for desktop, tablet, and mobile devices.
 
@@ -50,7 +53,10 @@ Fully responsive interface optimized for desktop, tablet, and mobile devices.
 Implementation of accessibility standards (semantic HTML, ARIA attributes) and SEO optimization (metadata and structured content).
 
 ### Animation 
-Frame Motion
+Animations implemented with Framer Motion.
+
+### Testing
+Implemented unit and component tests using Vitest and React Testing Library to verify UI behavior, conditional rendering, routing interactions, and user events.
 ---
 
 # Tech Stack
@@ -82,6 +88,10 @@ Frame Motion
 
 ### Deployment
 - Render (Frontend + Backend)
+
+### Testing
+- Vitest
+- React Testing Library
 
 ---
 
