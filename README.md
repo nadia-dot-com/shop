@@ -113,8 +113,8 @@ To maintain a high Lighthouse score, the application includes:
 ## 1. Clone the repository
 
 ```bash
-git clone https://github.com/nadia-dot-com/shop.git
-cd shop
+git clone https://github.com/nadia-dot-com/house-staff.git
+cd house-staff
 ```
 
 ## 2. Install dependencies
