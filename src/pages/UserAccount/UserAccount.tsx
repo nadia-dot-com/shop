@@ -17,10 +17,10 @@ export default function UserAccount() {
     : "";
 
   return (
-    <DataLoader loading={isLoading} loaded={!isLoading} error={error}>
-      <PageTransition>
-        <div className={classes.userWrapper}>
-          {user ? (
+    <PageTransition>
+      <div className={classes.userWrapper}>
+        {user ? (
+          <DataLoader loading={isLoading} loaded={!isLoading} error={error}>
             <>
               <h1 className={classes.helloUser}>Hello, {displayName} ;)</h1>
 
@@ -34,11 +34,11 @@ export default function UserAccount() {
                 </ErrorBoundary>
               </section>
             </>
-          ) : (
-            <MakeLogin />
-          )}
-        </div>
-      </PageTransition>
-    </DataLoader>
+          </DataLoader>
+        ) : (
+          <MakeLogin />
+        )}
+      </div>
+    </PageTransition>
   );
 }
