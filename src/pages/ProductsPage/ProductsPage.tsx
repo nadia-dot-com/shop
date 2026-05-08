@@ -6,7 +6,7 @@ import { categoriesGroups } from "@/data/categories";
 import { DataLoader } from "@/components/DataLoader/DataLoader";
 import { cn } from "@/utils/cn";
 import { useCategoryContext } from "@/context/CategoryContext";
-import { useInfiniteProducts } from "@/hooks/products/useInfiniteProducts";
+import { useFilteredProducts } from "@/hooks/products/useFilteredProducts";
 import { ErrorBoundary } from "react-error-boundary";
 import { ErrorFallback } from "@/components/ErrorFallback/ErrorFallback";
 import { AnimatePresence } from "motion/react";
@@ -19,9 +19,8 @@ export default function ProductsPage() {
   const location = useLocation();
   const outlet = useOutlet();
 
-  const { pages, isLoading, error } = useInfiniteProducts(normalizedCategory);
-
-  const products = pages?.flat() ?? [];
+  const { products, isLoading, error } =
+    useFilteredProducts(normalizedCategory);
 
   return (
     <div className={classes.productsPage}>
