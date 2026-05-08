@@ -1,6 +1,6 @@
 @use "@/variables" as v;
 .tableContainer {
-  width: 80%;
+  width: 100%;
 
   .ordersTable {
     width: 80%;
@@ -41,7 +41,6 @@
       font-size: 12px;
       width: 100%;
       min-width: 400px;
-      overflow-x: auto;
       th {
         text-align: left;
         padding: 10px 10px;
