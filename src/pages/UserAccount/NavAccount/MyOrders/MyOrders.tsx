@@ -10,22 +10,24 @@ export default function MyOrders() {
 
   return (
     <DataLoader loading={isLoading} loaded={!!orders} error={error}>
-      <table className={classes.ordersTable}>
-        <thead>
-          <tr>
-            <th>Order</th>
-            <th>Date</th>
-            <th>Status</th>
-            <th>Total</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {ordersUi.map((order) => (
-            <OrderRow key={order.id} order={order} />
-          ))}
-        </tbody>
-      </table>
+      <div className={classes.tableContainer}>
+        <table className={classes.ordersTable}>
+          <thead>
+            <tr>
+              <th>Order</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Total</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {ordersUi.map((order) => (
+              <OrderRow key={order.id} order={order} />
+            ))}
+          </tbody>
+        </table>
+      </div>
     </DataLoader>
   );
 }
