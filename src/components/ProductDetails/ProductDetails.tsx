@@ -146,6 +146,7 @@ export function ProductDetails({ product }: { product: Product }) {
               onClick={() => {
                 addToCart(product, quantityValue);
               }}
+              ariaLabel={`add to cart ${name}`}
             />
           </div>
           <p className={classes.desc}>{fullDescription}</p>

@@ -7,6 +7,7 @@ import { getDiscountPrice } from "@/utils/product";
 import { cn } from "@/utils/cn";
 import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";
 import { memo, useCallback, useMemo } from "react";
+import { ShopLink } from "../ShopLink/ShopLink";
 
 export const OrderItemRowVisual = memo(
   ({
@@ -22,7 +23,7 @@ export const OrderItemRowVisual = memo(
     removeFromCart: () => void;
     updateQuantity: (id: string, quantity: number, stock: number) => void;
   }) => {
-    const { id, name, img, price, quantity, discount } = product;
+    const { id, name, categoryName, img, price, quantity, discount } = product;
 
     const handleQuantityChange = useCallback(
       (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -46,18 +47,30 @@ export const OrderItemRowVisual = memo(
     return (
       <div className={classes.orderItem}>
         <div className={classes.itemInfo}>
-          <div className={classes.text} onClick={navigate}>
-            {name}
-          </div>
+          <ShopLink
+            className={classes.itemInfo}
+            name={name}
+            category={categoryName}
+          >
+            <div className={classes.text} onClick={navigate}>
+              {name}
+            </div>
+          </ShopLink>
 
-          <img
-            src={img}
-            alt={name}
-            className={classes.img}
-            onClick={navigate}
-            width="126"
-            height="150"
-          />
+          <ShopLink
+            className={classes.itemInfo}
+            name={name}
+            category={categoryName}
+          >
+            <img
+              src={img}
+              alt={name}
+              className={classes.img}
+              onClick={navigate}
+              width="126"
+              height="150"
+            />
+          </ShopLink>
         </div>
 
         <QuantityInput
@@ -82,7 +95,12 @@ export const OrderItemRowVisual = memo(
           <p>${subtotal}</p>
         </div>
 
-        <FaTrash className={classes.removeFromCart} onClick={removeFromCart} />
+        <button
+          onClick={removeFromCart}
+          aria-label={`Remove ${name} from order`}
+        >
+          <FaTrash className={classes.removeFromCart} />
+        </button>
       </div>
     );
   },

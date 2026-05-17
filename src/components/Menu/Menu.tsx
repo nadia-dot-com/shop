@@ -36,36 +36,39 @@ export function Menu() {
   return (
     <nav className={classes.nav}>
       <ul className={classes.desktopMenu}>
-        {menuLinks.map((menu, i) => (
-          <li key={i}>
+        {menuLinks.map((menu) => (
+          <li key={menu.label}>
             <StyledLink to={menu.to}>{menu.label}</StyledLink>
           </li>
         ))}
 
-        <li className={classes.navIcons}>
+        <li key="account" className={classes.navIcon}>
           <AccountIcon />
+        </li>
 
-          <StyledLink to={ROUTES.guestWishlist}>
-            <WishlistIcon />
-          </StyledLink>
+        <li key="wishlist" className={classes.navIcon}>
+          <WishlistIcon />
+        </li>
 
+        <li key="cart" className={classes.navIcon}>
           <ShoppingCartIcon active={isCartOpen} />
         </li>
       </ul>
 
       <div className={classes.mobileMenu}>
-        <div className={classes.navIcons}>
-          <AccountIcon />
+        <ul className={classes.burgerMenu}>
+          <li key="account" className={classes.navIcon}>
+            <AccountIcon />
+          </li>
 
-          <StyledLink to={ROUTES.guestWishlist}>
+          <li key="wishlist" className={classes.navIcon}>
             <WishlistIcon />
-          </StyledLink>
+          </li>
 
-          <ShoppingCartIcon active={isCartOpen} />
-        </div>
-
-        <div className={classes.burgerMenu}>
-          <div
+          <li key="cart" className={classes.navIcon}>
+            <ShoppingCartIcon active={isCartOpen} />
+          </li>
+          <button
             role="button"
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
@@ -107,7 +110,7 @@ export function Menu() {
                 </motion.svg>
               )}
             </AnimatePresence>
-          </div>
+          </button>
 
           <AnimatePresence>
             {isMenuOpen ? (
@@ -127,7 +130,7 @@ export function Menu() {
               </motion.ul>
             ) : null}
           </AnimatePresence>
-        </div>
+        </ul>
       </div>
     </nav>
   );

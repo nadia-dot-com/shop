@@ -15,7 +15,11 @@ type WishlistButton = {
 export const WishlistButton = memo(
   ({ isLoading, liked, toggleLike, className }: WishlistButton) => {
     return (
-      <div className={cn(classes.wishlistContainer, className)}>
+      <button
+        className={cn(classes.wishlistContainer, className)}
+        aria-label={liked ? "Remove from wishlist" : "Add to wishlist"}
+        onClick={toggleLike}
+      >
         {isLoading ? (
           <Lottie
             animationData={likeLoading}
@@ -28,11 +32,11 @@ export const WishlistButton = memo(
             }}
           />
         ) : liked ? (
-          <IoIosHeart className={classes.icon} onClick={toggleLike} />
+          <IoIosHeart className={classes.icon} />
         ) : (
-          <IoIosHeartEmpty className={classes.icon} onClick={toggleLike} />
+          <IoIosHeartEmpty className={classes.icon} />
         )}
-      </div>
+      </button>
     );
   },
 );

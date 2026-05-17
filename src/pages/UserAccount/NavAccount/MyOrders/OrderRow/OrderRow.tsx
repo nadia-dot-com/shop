@@ -26,6 +26,7 @@ export function OrderRow({ order }: { order: OrderResponse }) {
           textColor="black"
           text="VIEW"
           onClick={handleViewClick}
+          ariaLabel="check order"
         />
       </td>
     </tr>

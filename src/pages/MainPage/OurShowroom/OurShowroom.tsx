@@ -25,6 +25,7 @@ export function OurShowroom() {
             textColor="black"
             text="• VISIT US"
             onClick={() => window.open(SHOP_GOOGLE_MAPS_LOCATION_URL)}
+            ariaLabel="visit us on Google Maps"
           />
         </div>
       </div>

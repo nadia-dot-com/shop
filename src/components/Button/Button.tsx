@@ -9,6 +9,7 @@ type Button = {
   onClick?: (...args: any[]) => void;
   children?: ReactNode;
   disabled?: boolean;
+  ariaLabel?: string;
 };
 
 export function Button({
@@ -19,6 +20,7 @@ export function Button({
   onClick,
   children,
   disabled,
+  ariaLabel,
 }: Button) {
   const style: CSSProperties = {
     backgroundColor: bgColor,
@@ -32,7 +34,7 @@ export function Button({
       onClick={onClick}
       type={type}
       disabled={disabled}
-      aria-label="button"
+      aria-label={!ariaLabel ? text : ariaLabel}
     >
       {children}
       {text}

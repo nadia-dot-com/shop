@@ -10,7 +10,7 @@ export function AccountIcon() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleClick = (e: React.MouseEvent<SVGElement>) => {
+  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
 
     if (!user) {
@@ -23,13 +23,14 @@ export function AccountIcon() {
   const isAccountPage = location.pathname.includes(ROUTES.userAccount);
 
   return (
-    <RiAccountCircleFill
-      className={cn(
-        classes.accountIcon,
-        (isLoginModalOpen || isAccountPage) && classes.active,
-      )}
-      onClick={handleClick}
-      aria-label={user ? "My Account" : "Login"}
-    />
+    <button onClick={handleClick} aria-label={user ? "My Account" : "Login"}>
+      <RiAccountCircleFill
+        aria-hidden="true"
+        className={cn(
+          classes.accountIcon,
+          (isLoginModalOpen || isAccountPage) && classes.active,
+        )}
+      />
+    </button>
   );
 }

@@ -10,7 +10,7 @@ export const Price = memo (
           <div>${Number(price).toFixed(2)}</div>
         ) : (
           <div className={classes.discountContainer}>
-            <div className={classes.discountPrice}>
+            <div className={classes.discountPrice} aria-label="Discount price">
               ${getDiscountPrice(price, discount).toFixed(2)}
             </div>
             <div className={classes.oldPrice} aria-label="Original price">${Number(price).toFixed(2)}</div>

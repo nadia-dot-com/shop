@@ -21,7 +21,7 @@ export function HotspotItem({ item }: { item: Product }) {
         <h2 className={classes.title}>{item.name}</h2>
         <Price price={item.price} discount={item.discount} />
       </div>
-      <button className={classes.button} aria-label="View product details">
+      <button className={classes.button} aria-label={`View ${item.name} product details`}>
         <svg
           width="30"
           height="30"

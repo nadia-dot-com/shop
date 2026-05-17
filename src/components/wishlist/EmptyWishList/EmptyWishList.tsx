@@ -18,6 +18,7 @@ export function EmptyWishList() {
         textColor="black"
         text="START SHOPPING"
         onClick={() => navigateToCategory(categoriesGroups.all)}
+        ariaLabel="start shopping"
       />
     </div>
   );

@@ -19,6 +19,7 @@ export function ErrorFallback({ resetErrorBoundary }: FallbackProps) {
           textColor="white"
           text="Try again"
           onClick={resetErrorBoundary}
+          ariaLabel="Click to try again"
         />
       </div>
     </div>

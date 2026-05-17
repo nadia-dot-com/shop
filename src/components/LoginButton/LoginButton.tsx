@@ -9,7 +9,7 @@ export function LoginButton({ text }: { text: string }) {
   };
 
   return (
-    <Button bgColor="black" textColor="white" text={text} onClick={handleLogin}>
+    <Button bgColor="black" textColor="white" text={text} onClick={handleLogin} ariaLabel="Login Button">
       <FcGoogle className={classes.googleIcon} />
     </Button>
   );

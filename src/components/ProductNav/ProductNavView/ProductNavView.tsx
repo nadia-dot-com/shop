@@ -1,7 +1,7 @@
+import { ShopLink } from "@/components/ShopLink/ShopLink";
 import classes from "./ProductNavView.module.scss";
 import { categoriesGroups } from "@/data/categories";
 import { useHover } from "@/hooks/useHover";
-import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";
 import { Category } from "@/types/api/category";
 import { Collection } from "@/types/api/collection";
 import { cn } from "@/utils/cn";
@@ -16,7 +16,6 @@ export function ProductNavView({
   collections?: Collection[];
 }) {
   const [isOpen, setIsOpen] = useState(false);
-  const { navigateToCategory } = useShoppingNavigation();
   const hoverRef = useHover(
     () => setIsOpen(true),
     () => setIsOpen(false),
@@ -39,16 +38,15 @@ export function ProductNavView({
               category === categoriesGroups.sale && classes.saleCategory,
             )}
             key={category}
-            onClick={() => navigateToCategory(category)}
           >
-            {category}
+            <ShopLink category={category}>{category}</ShopLink>
           </li>
         ))}
       </ul>
 
       <ul className={classes.mobileCategories} ref={hoverRef}>
         <li className={classes.categoryButton} key="menuButton">
-          Categories
+          <button onClick={() => setIsOpen((prev) => !prev)}>Categories</button>
         </li>
 
         <AnimatePresence>
@@ -68,12 +66,13 @@ export function ProductNavView({
                     category === categoriesGroups.sale && classes.saleCategory,
                   )}
                   key={category}
-                  onClick={() => {
-                    navigateToCategory(category);
-                    setIsOpen(false);
-                  }}
                 >
-                  {category}
+                  <ShopLink
+                    category={category}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {category}
+                  </ShopLink>
                 </li>
               ))}
             </motion.div>

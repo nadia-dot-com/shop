@@ -9,18 +9,17 @@ export function ShoppingCartIcon({ active }: { active: boolean }) {
   const { toggleCartOpen } = useCartUiContext();
   const { cartItems } = useCartContext();
 
-  const handleClick = (e: React.MouseEvent<SVGElement>) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     toggleCartOpen();
   };
 
   return (
-    <div>
+    <button onClick={handleClick} aria-label="Open shopping cart">
       <FaCartShopping
         className={cn(classes.shoppingCartIcon, active && classes.active)}
-        onClick={handleClick}
       />
       {cartItems.length > 0 && <OrderQuantity />}
-    </div>
+    </button>
   );
 }

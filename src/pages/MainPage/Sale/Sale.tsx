@@ -59,6 +59,7 @@ export function Sale() {
           bgColor="#f54900"
           textColor="white"
           onClick={() => navigateToCategory(categoriesGroups.sale)}
+          ariaLabel="go to the discount products category"
           text={"• SHOP NOW"}
         />
       </div>

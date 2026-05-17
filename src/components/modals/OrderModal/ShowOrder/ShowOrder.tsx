@@ -63,6 +63,7 @@ export function ShowOrder({ cartItems }: { cartItems: OrderItem[] }) {
           textColor="white"
           text="COMPLETE ORDER"
           onClick={handleOrder}
+          ariaLabel="complete order"
         />
       ) : (
         <LoginButton text="Login with GOOGLE & complete a order" />

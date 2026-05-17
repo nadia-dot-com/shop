@@ -21,6 +21,10 @@ export function MainLayout() {
   return (
     <div className={classes.layout}>
       <Header />
+
+      <AnimatePresence>{isCartOpen && <OrderModal />}</AnimatePresence>
+      <AnimatePresence>{isLoginModalOpen && <LoginModal />}</AnimatePresence>
+
       <main>
         <ErrorBoundary FallbackComponent={ErrorFallback}>
           <Suspense fallback={<LoadingSpinner />}>
@@ -32,9 +36,6 @@ export function MainLayout() {
       </main>
 
       <Footer />
-
-      <AnimatePresence>{isCartOpen && <OrderModal />}</AnimatePresence>
-      <AnimatePresence>{isLoginModalOpen && <LoginModal />}</AnimatePresence>
 
       <ToastContainer
         role="alert"

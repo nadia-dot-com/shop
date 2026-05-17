@@ -8,6 +8,7 @@ import likeLoading from "@/animations/insider-loading.json";
 import Lottie from "lottie-react";
 import { Price } from "../../../Price/Price";
 import { memo, useCallback } from "react";
+import { ShopLink } from "@/components/ShopLink/ShopLink";
 
 export const WishlistItemVisual = memo(
   ({
@@ -23,7 +24,8 @@ export const WishlistItemVisual = memo(
     navigate: () => void;
     addToCart: () => void;
   }) => {
-    const { name, imagesUrls, price, stockQuantity, discount } = item;
+    const { name, categoryName, imagesUrls, price, stockQuantity, discount } =
+      item;
 
     return (
       <div className={classes.wishlistItem}>
@@ -41,25 +43,32 @@ export const WishlistItemVisual = memo(
                 }}
               />
             ) : (
-              <div className={classes.closeBtn} onClick={toggleLike}>
+              <button
+                className={classes.closeBtn}
+                onClick={toggleLike}
+                aria-label={`Remove ${name} from wishlist`}
+              >
                 ✕
-              </div>
+              </button>
             )}
           </div>
 
-          <img
-            src={imagesUrls[0]}
-            alt={name}
-            className={classes.img}
-            onClick={navigate}
-            width="126"
-            height="150"
-          />
+          <ShopLink name={name} category={categoryName}>
+            <img
+              src={imagesUrls[0]}
+              alt={name}
+              className={classes.img}
+              width="126"
+              height="150"
+            />
+          </ShopLink>
         </div>
         <div className={classes.itemInfo}>
-          <h4 className={classes.text} onClick={navigate}>
-            {name}
-          </h4>
+          <ShopLink name={name} category={categoryName}>
+            <h4 className={classes.text} onClick={navigate}>
+              {name}
+            </h4>
+          </ShopLink>
 
           <Price discount={discount} price={price} />
         </div>
@@ -71,6 +80,7 @@ export const WishlistItemVisual = memo(
             text="ADD TO CART"
             onClick={addToCart}
             disabled={stockQuantity === 0}
+            ariaLabel={`add to cart ${name}`}
           />
         </div>
       </div>

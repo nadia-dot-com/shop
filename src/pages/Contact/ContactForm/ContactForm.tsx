@@ -69,7 +69,7 @@ export function ContactForm() {
             required
           />
         </div>
-        <Button bgColor="white" textColor="black" text={"• SEND ENQUIRY"} />
+        <Button bgColor="white" textColor="black" text={"• SEND ENQUIRY"} ariaLabel="send enquiry"/>
         <p
           className={cn(
             classes.result,

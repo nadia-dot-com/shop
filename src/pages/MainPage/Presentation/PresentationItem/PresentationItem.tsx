@@ -7,11 +7,7 @@ import { getImagePath } from "@/utils/getImagePath";
 import { PRESENTATION } from "@/data/presentation";
 import { motion } from "motion/react";
 
-export function PresentationItem({
-  item,
-}: {
-  item: PresentationProps;
-}) {
+export function PresentationItem({ item }: { item: PresentationProps }) {
   const { navigateToCategory } = useShoppingNavigation();
 
   return (
@@ -50,6 +46,7 @@ export function PresentationItem({
           textColor="black"
           onClick={() => navigateToCategory(item.category)}
           text={"• SHOP NOW"}
+          ariaLabel={`Go to ${item.category}`}
         />
       </div>
     </motion.div>

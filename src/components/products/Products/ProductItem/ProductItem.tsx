@@ -6,21 +6,20 @@ import { useWishlist } from "@/hooks/wishlist/useWishlist";
 import { checkProductDate } from "@/utils/checkProductDate";
 import { NewProductLabel } from "../../../NewProductLabel/NewProductLabel";
 import { Product } from "@/types/api/product";
-import { useShoppingNavigation } from "@/hooks/useShoppingNavigation";
 import { isProductInStock, isProductOnSale } from "@/utils/product";
 import { memo, useCallback } from "react";
 import { WishlistButton } from "../../../wishlist/WishlistButton/WishlistButton";
 import { Price } from "../../../Price/Price";
 import { motion } from "motion/react";
+import { ShopLink } from "@/components/ShopLink/ShopLink";
 
 type ProductItemVisualProps = {
-  product: Product,
-    addToCart: () => void,
-    liked: boolean,
-    toggleLike: () => void,
-    handleNavigate: () => void,
-    isLoading: boolean,
-}
+  product: Product;
+  addToCart: () => void;
+  liked: boolean;
+  toggleLike: () => void;
+  isLoading: boolean;
+};
 
 export const ProductItemVisual = memo(
   ({
@@ -28,12 +27,13 @@ export const ProductItemVisual = memo(
     addToCart,
     liked,
     toggleLike,
-    handleNavigate,
     isLoading,
   }: ProductItemVisualProps) => {
+
     const {
       name,
       imagesUrls,
+      categoryName,
       shortDescription,
       price,
       stockQuantity,
@@ -55,32 +55,36 @@ export const ProductItemVisual = memo(
           ease: "easeOut",
         }}
       >
+        <div className={classes.labels}>
+          {isOnSale && <SaleLabel />}
+          {isNew && <NewProductLabel />}
+        </div>
+        <ShopLink name={name} category={categoryName}>
+          <img
+            src={imagesUrls[0]}
+            alt={name}
+            className={classes.img}
+            width="425"
+            height="509"
+          />
+        </ShopLink>
+
         <WishlistButton
           isLoading={isLoading}
           toggleLike={toggleLike}
           liked={liked}
           className={classes.heartInCart}
         />
-        <div className={classes.labels}>
-          {isOnSale && <SaleLabel />}
-          {isNew && <NewProductLabel />}
-        </div>
-        <img
-          src={imagesUrls[0]}
-          alt={name}
-          className={classes.img}
-          onClick={handleNavigate}
-          width="425"
-          height="509"
-        />
         <div className={classes.productInformation}>
-          <h3 className={classes.title} onClick={handleNavigate}>
-            {name}
+          <ShopLink name={name} category={categoryName}>
+            <h3 className={classes.title}>
+              {name}
 
-            <span className={classes.categoryTitle}>
-              {product.collectionName && ` | ${product.collectionName}`}
-            </span>
-          </h3>
+              <span className={classes.categoryTitle}>
+                {product.collectionName && ` | ${product.collectionName}`}
+              </span>
+            </h3>
+          </ShopLink>
 
           <p>{shortDescription}</p>
           <Price price={price} discount={discount} />
@@ -90,7 +94,9 @@ export const ProductItemVisual = memo(
             onClick={addToCart}
             disabled={!isInStock}
             type="button"
-            aria-label={isInStock ? "Add to cart" : "Product out of stock"}
+            aria-label={
+              isInStock ? `Add ${name} to cart` : `${name} out of stock`
+            }
           >
             <svg
               width="8"
@@ -118,16 +124,10 @@ export const ProductItemVisual = memo(
 export const ProductItem = memo(({ product }: { product: Product }) => {
   const { addToCart } = useCartContext();
   const { liked, toggleLike, isLoading } = useWishlist(product.id);
-  const { navigateToCategory } = useShoppingNavigation();
 
   const handleAddToCart = useCallback(
     () => addToCart(product),
     [addToCart, product],
-  );
-
-  const handleNavigate = useCallback(
-    () => navigateToCategory(product.categoryName, product.name),
-    [product, navigateToCategory],
   );
 
   const handleToggleLike = useCallback(() => toggleLike(), [toggleLike]);
@@ -138,7 +138,6 @@ export const ProductItem = memo(({ product }: { product: Product }) => {
       addToCart={handleAddToCart}
       liked={liked}
       toggleLike={handleToggleLike}
-      handleNavigate={handleNavigate}
       isLoading={isLoading}
     />
   );
