@@ -7,7 +7,6 @@ const meta: Meta<typeof ProductItemVisual> = {
   argTypes: {
     addToCart: () => {},
     toggleLike: () => {},
-    handleNavigate: () => {},
   },
   decorators: [
     (Story) => (
